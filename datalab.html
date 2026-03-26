@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APEX Data Lab</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="assets/apex.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+  <style>
+  .lab-content { position:relative; z-index:1; }
+
+  /* HEADER */
+  .lab-header {
+    padding:40px var(--pad) 32px;
+    border-bottom:1px solid var(--border);
+    display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:16px;
+  }
+  .lab-wordmark {
+    font-family:'Bebas Neue',display;
+    font-size:clamp(36px,5vw,60px); letter-spacing:3px; line-height:.9;
+  }
+  .lab-wordmark .acc { color:var(--accent); }
+  .lab-sub { font-size:13px; color:var(--muted); font-weight:300; margin-top:6px; }
+
+  /* TOOL GRID */
+  .tool-grid    { padding:var(--pad); display:flex; flex-direction:column; gap:2px; }
+  .tool-row-2   { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
+  .tool-row-3   { display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px; }
+  .tool-full    {}
+
+  /* TOOL CARD */
+  .tool {
+    background:var(--bg3); border:1px solid var(--border); overflow:hidden;
+    transition:border-color .15s;
+  }
+  .tool:hover { border-color:var(--border-hi); }
+  .tool-head {
+    padding:11px 16px; border-bottom:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;
+  }
+  .tool-name {
+    font-family:'JetBrains Mono',monospace;
+    font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--dim);
+  }
+  .tool-controls { display:flex; gap:3px; flex-wrap:wrap; }
+  .tc {
+    padding:3px 9px; font-family:'JetBrains Mono',monospace;
+    font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--dim); border:1px solid var(--border); background:none;
+    transition:all .15s; cursor:pointer;
+  }
+  .tc:hover { color:var(--muted); border-color:var(--border-hi); }
+  .tc.active { color:var(--accent); border-color:rgba(var(--accent-rgb),.3); background:rgba(var(--accent-rgb),.06); }
+  .tool-body { padding:16px; }
+  .tool-body.np { padding:0; }
+
+  /* HEATMAP */
+  .hm-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .hm-table  { border-collapse:collapse; min-width:100%; }
+  .hm-th     {
+    font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:1px;
+    text-transform:uppercase; color:var(--dim); padding:5px 7px;
+    border:1px solid rgba(255,255,255,.04); text-align:center; font-weight:400; white-space:nowrap;
+  }
+  .hm-th.left { text-align:left; padding-left:10px; min-width:110px; }
+  .hm-td {
+    width:36px; height:34px; text-align:center; vertical-align:middle;
+    font-family:'Bebas Neue',display; font-size:14px;
+    border:1px solid rgba(255,255,255,.025); cursor:pointer; transition:opacity .15s;
+  }
+  .hm-td:hover { opacity:.7; }
+  .hm-dt { padding:4px 10px; border:1px solid rgba(255,255,255,.025); vertical-align:middle; }
+  .hm-nt { font-family:'Bebas Neue',display; font-size:16px; padding:4px 10px; text-align:right; border:1px solid rgba(255,255,255,.025); }
+
+  /* SIMULATOR */
+  .sim-grid  { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .sim-row   { display:flex; align-items:center; gap:8px; padding:5px 0; border-bottom:1px solid rgba(255,255,255,.025); }
+  .sim-row:last-child { border-bottom:none; }
+  .sim-dot   { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
+  .sim-name  { font-family:'Bebas Neue',display; font-size:15px; flex:1; min-width:70px; }
+  .sim-cur   { font-family:'JetBrains Mono',monospace; font-size:8.5px; color:var(--dim); width:28px; text-align:right; flex-shrink:0; }
+  .sim-val   { font-family:'Bebas Neue',display; font-size:17px; width:32px; text-align:right; flex-shrink:0; }
+  input[type=range] { flex:1; accent-color:var(--accent); cursor:pointer; max-width:130px; }
+
+  /* RESULT ROWS */
+  .res-row   { display:flex; align-items:center; gap:7px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,.025); }
+  .res-row:last-child { border-bottom:none; }
+  .res-pos   { font-family:'Bebas Neue',display; font-size:18px; color:var(--dim); width:20px; text-align:center; }
+  .res-pos.p1 { color:var(--accent); }
+  .res-name  { font-family:'Bebas Neue',display; font-size:15px; flex:1; }
+  .res-pts   { font-family:'Bebas Neue',display; font-size:20px; }
+  .res-pts.leader { color:var(--accent); }
+  .res-delta { font-family:'JetBrains Mono',monospace; font-size:8px; width:32px; text-align:right; }
+  .res-delta.up   { color:var(--green); }
+  .res-delta.down { color:var(--red); }
+
+  /* GAP VIS */
+  .gap-row   { display:flex; align-items:center; gap:8px; padding:6px 0; border-bottom:1px solid rgba(255,255,255,.03); }
+  .gap-pos   { font-family:'Bebas Neue',display; font-size:17px; color:var(--dim); width:18px; text-align:center; }
+  .gap-pos.p1 { color:var(--accent); }
+  .gap-name  { font-family:'Bebas Neue',display; font-size:15px; width:82px; flex-shrink:0; }
+  .gap-bar   { flex:1; height:5px; background:var(--bg3); border-radius:2px; overflow:hidden; }
+  .gap-fill  { height:100%; border-radius:2px; transition:width .7s var(--ease-out); }
+  .gap-pts   { font-family:'Bebas Neue',display; font-size:19px; width:26px; text-align:right; }
+  .gap-diff  { font-family:'JetBrains Mono',monospace; font-size:7.5px; color:var(--dim); width:32px; text-align:right; }
+
+  /* TM */
+  .tm-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:2px; }
+  .tm-pair { background:var(--bg2); border:1px solid var(--border); padding:14px 16px; }
+  .tm-heads { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:6px; margin-bottom:10px; }
+  .tm-driver { font-family:'Bebas Neue',display; font-size:17px; letter-spacing:.3px; }
+  .tm-vs { font-family:'JetBrains Mono',monospace; font-size:8px; color:var(--dim); text-align:center; }
+  .tm-lbl { font-family:'JetBrains Mono',monospace; font-size:7px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); display:flex; justify-content:space-between; margin-bottom:3px; }
+  .tm-track { height:5px; display:flex; background:var(--bg); border-radius:2px; overflow:hidden; margin-bottom:8px; }
+  .tm-fill  { height:100%; }
+  .tm-footer { display:flex; justify-content:space-between; font-family:'Bebas Neue',display; font-size:20px; margin-top:6px; }
+
+  /* DNF TABLE */
+  .dnf-table { width:100%; border-collapse:collapse; }
+  .dnf-th { font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:2px; text-transform:uppercase; color:var(--dim); padding:8px 14px; text-align:left; border-bottom:1px solid var(--border); }
+  .dnf-td { padding:9px 14px; border-bottom:1px solid rgba(255,255,255,.025); vertical-align:middle; }
+  .dnf-tr:hover .dnf-td { background:rgba(255,255,255,.014); }
+
+  /* FORM */
+  .form-row   { display:flex; align-items:center; gap:7px; padding:5px 0; border-bottom:1px solid rgba(255,255,255,.025); }
+  .form-row:last-child { border-bottom:none; }
+  .form-pos   { font-family:'Bebas Neue',display; font-size:16px; color:var(--dim); width:18px; text-align:center; }
+  .form-pos.p1 { color:var(--accent); }
+  .form-name  { font-family:'Bebas Neue',display; font-size:14px; width:82px; flex-shrink:0; }
+  .form-dots  { display:flex; gap:2px; }
+  .form-dot   { width:24px; height:24px; display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',display; font-size:12px; }
+  .form-pts   { font-family:'Bebas Neue',display; font-size:18px; margin-left:auto; flex-shrink:0; }
+  .form-avg   { font-family:'JetBrains Mono',monospace; font-size:7.5px; color:var(--dim); width:26px; text-align:right; }
+
+  /* QD */
+  .qd-row   { display:flex; align-items:center; gap:7px; padding:5px 0; border-bottom:1px solid rgba(255,255,255,.025); }
+  .qd-row:last-child { border-bottom:none; }
+  .qd-pos   { font-family:'Bebas Neue',display; font-size:17px; color:var(--dim); width:18px; text-align:center; }
+  .qd-name  { font-family:'Bebas Neue',display; font-size:14px; width:82px; flex-shrink:0; }
+  .qd-wrap  { flex:1; height:4px; background:var(--bg2); border-radius:2px; overflow:hidden; }
+  .qd-bar   { height:100%; border-radius:2px; transition:width .5s; }
+  .qd-val   { font-family:'JetBrains Mono',monospace; font-size:8px; color:var(--muted); width:46px; text-align:right; }
+
+  /* H2H */
+  .h2h-metric { display:grid; grid-template-columns:1fr 130px 1fr; align-items:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.025); }
+  .h2h-va { font-family:'Bebas Neue',display; font-size:20px; }
+  .h2h-vb { font-family:'Bebas Neue',display; font-size:20px; text-align:right; }
+  .h2h-va.win, .h2h-vb.win { font-size:26px; }
+  .h2h-lbl { font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); text-align:center; }
+
+  /* RACE REPLAY */
+  .replay-wrap { position:relative; background:var(--bg2); border:1px solid var(--border); overflow:hidden; }
+  .replay-track { width:100%; height:340px; }
+  .replay-controls { display:flex; align-items:center; gap:8px; padding:10px 14px; border-top:1px solid var(--border); flex-wrap:wrap; }
+  .replay-lap-label { font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--dim); }
+  .replay-lap-input { flex:1; accent-color:var(--accent); }
+  .replay-positions { padding:10px 14px; border-top:1px solid var(--border); display:flex; gap:4px; flex-wrap:wrap; max-height:80px; overflow-y:auto; }
+  .rp-badge { display:flex; align-items:center; gap:4px; padding:3px 7px; background:var(--bg3); border:1px solid var(--border); font-family:'JetBrains Mono',monospace; font-size:7.5px; }
+
+  /* STAT CHIPS */
+  .chip-row { display:flex; flex-wrap:wrap; gap:2px; }
+  .chip { padding:10px 14px; background:var(--bg2); border:1px solid var(--border); }
+  .chip-v { font-family:'Bebas Neue',display; font-size:26px; line-height:1; color:var(--accent); }
+  .chip-l { font-family:'JetBrains Mono',monospace; font-size:7px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); margin-top:3px; }
+
+  @media (max-width:900px) { .tool-row-2, .tool-row-3 { grid-template-columns:1fr; } .sim-grid { grid-template-columns:1fr; } .tm-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="bg-radial"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
+
+  <nav class="apex-nav">
+    <a class="nav-logo" href="index.html">APEX<span class="dot">.</span>ANALYTICS</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html" style="color:var(--dim);font-size:7.5px">← All Series</a>
+      <a class="nav-link" href="f1.html">F1 Hub</a>
+      <a class="nav-link" href="standings.html?series=f1">Standings</a>
+      <a class="nav-link active" href="datalab.html?series=f1">Data Lab</a>
+      <a class="nav-link" href="compare.html?series=f1">Compare</a>
+    </div>
+    <div class="nav-series-badge"><div class="nav-series-dot"></div>Data Lab</div>
+  </nav>
+
+  <div class="lab-content" id="lab-root">
+    <div style="padding:80px var(--pad);opacity:.2;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim)">Loading…</div>
+  </div>
+
+  <footer class="apex-footer">
+    <div class="foot-logo">APEX<span class="dot">.</span>ANALYTICS</div>
+    <div class="foot-copy" id="footer-copy">Data Lab · F1 2026</div>
+  </footer>
+
+  <script src="assets/apex.js"></script>
+  <script>initDataLab();</script>
+</body>
+</html>

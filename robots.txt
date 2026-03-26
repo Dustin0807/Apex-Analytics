@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /assets/
+Sitemap: https://apex-analytics.net/sitemap.xml

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APEX Analytics — Motorsport Intelligence</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="assets/apex.css">
+  <meta name="description" content="Deep race analysis across motorsport. Results, strategy, championship tracking and archives. Updated after every event.">
+  <meta property="og:title" content="APEX Analytics — Motorsport Intelligence">
+  <meta property="og:image" content="https://apex-analytics.net/assets/og-image.png">
+  <style>
+  /* ── LANDING PAGE SPECIFIC ───────────────────────────── */
+
+  .lp-content { position:relative; z-index:1; }
+
+  /* HERO */
+  .hero {
+    min-height:calc(100vh - var(--nav-h));
+    display:flex; flex-direction:column; justify-content:center;
+    padding:80px var(--pad);
+    position:relative; overflow:hidden;
+  }
+  .hero-kicker {
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:24px;
+  }
+  .hero-kicker-line {
+    width:32px; height:1px; background:var(--accent);
+  }
+  .hero-kicker-text {
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px; letter-spacing:4px; text-transform:uppercase;
+    color:var(--accent); opacity:.8;
+  }
+  .hero-h1 {
+    font-family:'Bebas Neue',display;
+    font-size:clamp(72px,12vw,160px);
+    letter-spacing:2px; line-height:.88;
+    margin-bottom:28px;
+  }
+  .hero-h1 .line2 { color:var(--accent); display:block; }
+  .hero-sub {
+    font-size:clamp(15px,2vw,18px); color:var(--muted);
+    font-weight:300; line-height:1.8; max-width:520px; margin-bottom:40px;
+  }
+  .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:80px; }
+
+  /* Animated stat strip */
+  .hero-stats {
+    display:flex; gap:40px; flex-wrap:wrap;
+  }
+  .hs-item {
+    display:flex; flex-direction:column; gap:4px;
+  }
+  .hs-v {
+    font-family:'Bebas Neue',display;
+    font-size:42px; letter-spacing:1px; line-height:1;
+    color:var(--accent);
+    counter-reset:num var(--target);
+  }
+  .hs-l {
+    font-family:'JetBrains Mono',monospace;
+    font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--dim);
+  }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    font-family:'JetBrains Mono',monospace; font-size:8px;
+    letter-spacing:2px; text-transform:uppercase; color:var(--dim);
+    animation:fadeIn 1s 1s both;
+  }
+  .scroll-arrow {
+    width:1px; height:32px; background:linear-gradient(var(--accent), transparent);
+    animation:scroll-pulse 2s ease-in-out infinite;
+  }
+  @keyframes scroll-pulse {
+    0%,100%{opacity:.4;transform:scaleY(.8);transform-origin:top}
+    50%{opacity:1;transform:scaleY(1);transform-origin:top}
+  }
+
+  /* Hero background number */
+  .hero-bg-word {
+    position:absolute; right:-40px; top:50%; transform:translateY(-50%);
+    font-family:'Bebas Neue',display; font-size:min(35vw,500px);
+    letter-spacing:-10px; color:rgba(255,255,255,.018);
+    pointer-events:none; user-select:none; line-height:1;
+  }
+
+  /* ── WHAT IS APEX SECTION ── */
+  .what-section {
+    padding:100px var(--pad);
+    border-top:1px solid var(--border);
+  }
+  .what-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;
+  }
+  .what-left {}
+  .what-h2 {
+    font-family:'Bebas Neue',display;
+    font-size:clamp(40px,5vw,64px); letter-spacing:1px; line-height:.92;
+    margin-bottom:20px;
+  }
+  .what-h2 .acc { color:var(--accent); }
+  .what-p {
+    font-size:15px; color:var(--muted); line-height:1.85; font-weight:300;
+    margin-bottom:16px;
+  }
+  .what-features {
+    display:flex; flex-direction:column; gap:2px; margin-top:28px;
+  }
+  .what-feature {
+    display:flex; align-items:flex-start; gap:14px;
+    padding:14px 16px; border:1px solid var(--border);
+    transition:border-color .18s, background .18s; cursor:default;
+  }
+  .what-feature:hover { border-color:rgba(var(--accent-rgb),.25); background:rgba(var(--accent-rgb),.03); }
+  .wf-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+  .wf-title { font-family:'Bebas Neue',display; font-size:18px; letter-spacing:.5px; margin-bottom:4px; }
+  .wf-desc  { font-size:12px; color:var(--muted); font-weight:300; line-height:1.6; }
+
+  /* Right: mini mockup preview */
+  .what-right {
+    position:relative;
+  }
+  .preview-screen {
+    background:var(--bg3); border:1px solid var(--border);
+    overflow:hidden; position:relative;
+  }
+  .preview-bar {
+    height:36px; background:var(--bg2); border-bottom:1px solid var(--border);
+    display:flex; align-items:center; padding:0 14px; gap:8px;
+  }
+  .preview-dot { width:8px; height:8px; border-radius:50%; }
+  .preview-content { padding:20px; }
+  .preview-title {
+    font-family:'Bebas Neue',display; font-size:32px; letter-spacing:1px;
+    color:var(--accent); margin-bottom:12px;
+  }
+  .preview-rows { display:flex; flex-direction:column; gap:2px; }
+  .preview-row {
+    display:flex; align-items:center; gap:8px;
+    padding:8px 10px; background:var(--surface);
+    animation:slideIn .4s var(--ease-out) both;
+  }
+  .pr-pos { font-family:'Bebas Neue',display; font-size:16px; color:var(--dim); width:20px; }
+  .pr-pos.p1 { color:var(--accent); }
+  .pr-name { font-family:'Bebas Neue',display; font-size:16px; flex:1; }
+  .pr-pts { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; }
+  .pr-bar-wrap { flex:1; height:3px; background:rgba(255,255,255,.06); }
+  .pr-bar { height:100%; background:var(--accent); }
+
+  /* ── SERIES SECTION ── */
+  .series-section {
+    padding:80px var(--pad);
+    border-top:1px solid var(--border);
+  }
+  .series-header {
+    display:flex; align-items:flex-end; justify-content:space-between;
+    margin-bottom:32px; flex-wrap:wrap; gap:16px;
+  }
+  .series-h2 {
+    font-family:'Bebas Neue',display;
+    font-size:clamp(36px,5vw,56px); letter-spacing:1px; line-height:.9;
+  }
+  .series-sub { font-size:13px; color:var(--muted); font-weight:300; margin-top:6px; }
+
+  .series-grid {
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px;
+  }
+  .series-card {
+    position:relative; overflow:hidden;
+    background:var(--bg3); border:1px solid var(--border);
+    padding:28px 28px 24px;
+    transition:border-color .2s, background .2s;
+    cursor:pointer; text-decoration:none; color:inherit;
+  }
+  .series-card.active-series:hover {
+    border-color:rgba(var(--accent-rgb),.3);
+    background:rgba(var(--accent-rgb),.02);
+  }
+  .series-card::before {
+    content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+    background:var(--sc, var(--accent));
+    transform:scaleY(0); transform-origin:center; transition:transform .25s;
+  }
+  .series-card:hover::before { transform:scaleY(1); }
+  .series-card-bg {
+    position:absolute; right:-10px; bottom:-16px;
+    font-family:'Bebas Neue',display; font-size:100px; letter-spacing:-2px;
+    color:rgba(255,255,255,.03); pointer-events:none; line-height:1;
+  }
+  .sc-badge {
+    font-family:'JetBrains Mono',monospace; font-size:7.5px;
+    letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--sc,var(--accent)); margin-bottom:10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .sc-live-dot {
+    width:5px; height:5px; border-radius:50%; background:var(--sc,var(--accent));
+    animation:pulse 2s ease-in-out infinite;
+  }
+  .sc-title {
+    font-family:'Bebas Neue',display;
+    font-size:clamp(28px,3.5vw,42px); letter-spacing:1px; line-height:.95;
+    color:var(--sc,var(--accent)); margin-bottom:8px;
+  }
+  .sc-desc { font-size:12.5px; color:var(--muted); line-height:1.65; font-weight:300; margin-bottom:16px; }
+  .sc-stat-row { display:flex; gap:16px; flex-wrap:wrap; }
+  .sc-stat { }
+  .sc-stat-v { font-family:'Bebas Neue',display; font-size:22px; color:var(--text); line-height:1; }
+  .sc-stat-l { font-family:'JetBrains Mono',monospace; font-size:7px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); }
+
+  /* Coming series */
+  .series-card.coming { opacity:.45; cursor:default; }
+  .series-card.coming::before { display:none; }
+  .sc-coming {
+    font-family:'JetBrains Mono',monospace; font-size:7.5px;
+    letter-spacing:2px; text-transform:uppercase; color:var(--dim);
+    padding:3px 8px; border:1px solid var(--border); display:inline-block; margin-bottom:10px;
+  }
+
+  /* ── FAVORITES SECTION ── */
+  .fav-section {
+    padding:60px var(--pad);
+    border-top:1px solid var(--border);
+  }
+  .fav-header { margin-bottom:24px; }
+  .fav-h2 {
+    font-family:'Bebas Neue',display; font-size:32px; letter-spacing:1px; margin-bottom:6px;
+  }
+  .fav-empty {
+    padding:40px; border:1px dashed var(--border); text-align:center;
+  }
+  .fav-empty-text {
+    font-family:'JetBrains Mono',monospace; font-size:9px;
+    letter-spacing:2px; text-transform:uppercase; color:var(--dim); margin-bottom:12px;
+  }
+  .fav-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:2px; }
+  .fav-card {
+    background:var(--bg3); border:1px solid var(--border); padding:16px 18px;
+    transition:border-color .18s;
+  }
+  .fav-card:hover { border-color:var(--border-hi); }
+  .fav-driver-name { font-family:'Bebas Neue',display; font-size:22px; letter-spacing:.5px; margin-bottom:4px; }
+  .fav-team { font-family:'JetBrains Mono',monospace; font-size:8px; color:var(--dim); letter-spacing:1px; margin-bottom:10px; }
+  .fav-stats { display:flex; gap:12px; }
+  .fav-stat-v { font-family:'Bebas Neue',display; font-size:18px; line-height:1; }
+  .fav-stat-l { font-family:'JetBrains Mono',monospace; font-size:7px; letter-spacing:1px; text-transform:uppercase; color:var(--dim); }
+  .fav-remove {
+    float:right; font-size:10px; color:var(--dim);
+    cursor:pointer; transition:color .15s; background:none; border:none; padding:0;
+  }
+  .fav-remove:hover { color:var(--red); }
+
+  /* ── DATA LAB TEASER ── */
+  .lab-teaser {
+    padding:80px var(--pad);
+    border-top:1px solid var(--border);
+    display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;
+  }
+  .lt-h2 {
+    font-family:'Bebas Neue',display;
+    font-size:clamp(40px,5vw,64px); letter-spacing:1px; line-height:.9; margin-bottom:16px;
+  }
+  .lt-h2 .acc { color:var(--accent); }
+  .lt-p { font-size:14px; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:24px; }
+  .lt-features { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:28px; }
+
+  /* Mini heatmap preview */
+  .heatmap-preview {
+    display:flex; flex-direction:column; gap:2px;
+  }
+  .hmp-row { display:flex; gap:2px; }
+  .hmp-cell {
+    flex:1; height:28px; display:flex; align-items:center; justify-content:center;
+    font-family:'Bebas Neue',display; font-size:12px;
+    transition:transform .15s;
+  }
+  .hmp-cell:hover { transform:scale(1.1); }
+
+  /* RESPONSIVE */
+  @media (max-width:900px) {
+    .what-grid  { grid-template-columns:1fr; }
+    .what-right { display:none; }
+    .series-grid { grid-template-columns:1fr; }
+    .lab-teaser { grid-template-columns:1fr; }
+  }
+  @media (max-width:600px) {
+    .hero { padding:60px var(--pad) 80px; }
+    .hero-stats { gap:24px; }
+    .hero-actions { flex-direction:column; }
+    .hero-actions .btn { width:100%; justify-content:center; }
+  }
+  </style>
+</head>
+<body>
+  <div class="bg-radial"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
+
+  <!-- NAV -->
+  <nav class="apex-nav">
+    <a class="nav-logo" href="index.html">APEX<span class="dot">.</span>ANALYTICS</a>
+    <div class="nav-links">
+      <a class="nav-link active" href="index.html">Home</a>
+      <a class="nav-link" href="f1.html">F1 Hub</a>
+      <a class="nav-link" href="datalab.html?series=f1">Data Lab</a>
+    </div>
+  </nav>
+
+  <div class="lp-content">
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <div class="hero-bg-word">APEX</div>
+
+      <div class="hero-kicker anim-fade-up">
+        <div class="hero-kicker-line"></div>
+        <span class="hero-kicker-text">Motorsport Intelligence</span>
+      </div>
+
+      <h1 class="hero-h1 anim-fade-up delay-1">
+        Race Weekend.<br>
+        <span class="line2">Decoded.</span>
+      </h1>
+
+      <p class="hero-sub anim-fade-up delay-2">
+        APEX is a deep analysis platform for motorsport. Full race breakdowns, championship tracking, driver comparisons and interactive analytics — all in one place. Updated after every event.
+      </p>
+
+      <div class="hero-actions anim-fade-up delay-3">
+        <a href="f1.html" class="btn primary">Enter F1 Hub →</a>
+        <a href="datalab.html?series=f1" class="btn ghost">Open Data Lab</a>
+      </div>
+
+      <div class="hero-stats anim-fade-up delay-4">
+        <div class="hs-item">
+          <div class="hs-v" id="stat-rounds">2</div>
+          <div class="hs-l">Rounds Analysed</div>
+        </div>
+        <div class="hs-item">
+          <div class="hs-v" id="stat-drivers">20</div>
+          <div class="hs-l">Drivers Tracked</div>
+        </div>
+        <div class="hs-item">
+          <div class="hs-v" id="stat-circuits">21</div>
+          <div class="hs-l">Circuits Profiled</div>
+        </div>
+        <div class="hs-item">
+          <div class="hs-v">∞</div>
+          <div class="hs-l">Data Points</div>
+        </div>
+      </div>
+
+      <div class="scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- ── WHAT IS APEX ── -->
+    <section class="what-section">
+      <div class="what-grid">
+        <div class="what-left reveal">
+          <div class="label accent" style="margin-bottom:14px">What is APEX</div>
+          <h2 class="what-h2">
+            More than just<br>
+            <span class="acc">race results.</span>
+          </h2>
+          <p class="what-p">
+            Most motorsport sites give you the finishing order and move on. APEX goes deeper — strategy, tyre data, championship trajectories, driver form, qualifying gaps. The analysis that used to live in paddock notebooks, now accessible to everyone.
+          </p>
+          <p class="what-p">
+            Every tool is interactive. Every chart is explorable. Every race is a story you can pull apart and examine from every angle.
+          </p>
+          <div class="what-features">
+            <div class="what-feature reveal delay-1">
+              <div class="wf-icon">🏁</div>
+              <div>
+                <div class="wf-title">Race Breakdowns</div>
+                <div class="wf-desc">Full results, tyre strategies, fastest laps, position changes and driver insights — every race told in full.</div>
+              </div>
+            </div>
+            <div class="what-feature reveal delay-2">
+              <div class="wf-icon">📊</div>
+              <div>
+                <div class="wf-title">APEX Data Lab</div>
+                <div class="wf-desc">Championship simulators, head-to-head tools, heatmaps, DNF calculators, race replays and more. No limits.</div>
+              </div>
+            </div>
+            <div class="what-feature reveal delay-3">
+              <div class="wf-icon">⚡</div>
+              <div>
+                <div class="wf-title">Live Season Tracking</div>
+                <div class="wf-desc">Championship standings, constructor battles, driver form — updated after every session.</div>
+              </div>
+            </div>
+            <div class="what-feature reveal delay-4">
+              <div class="wf-icon">🔗</div>
+              <div>
+                <div class="wf-title">Share Everything</div>
+                <div class="wf-desc">Every race, every analysis tool state, every insight generates a shareable link.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="what-right reveal delay-2">
+          <div class="preview-screen">
+            <div class="preview-bar">
+              <div class="preview-dot" style="background:#27F4D2"></div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim);letter-spacing:1px">F1 2026 · Championship</div>
+            </div>
+            <div class="preview-content">
+              <div class="preview-title">Drivers</div>
+              <div class="preview-rows">
+                <div class="preview-row delay-1">
+                  <div class="pr-pos p1">1</div>
+                  <div class="pr-name" style="color:#27F4D2">Russell</div>
+                  <div class="pr-bar-wrap"><div class="pr-bar" style="width:100%"></div></div>
+                  <div class="pr-pts">51</div>
+                </div>
+                <div class="preview-row delay-2">
+                  <div class="pr-pos">2</div>
+                  <div class="pr-name">Antonelli</div>
+                  <div class="pr-bar-wrap"><div class="pr-bar" style="width:92%"></div></div>
+                  <div class="pr-pts">47</div>
+                </div>
+                <div class="preview-row delay-3">
+                  <div class="pr-pos">3</div>
+                  <div class="pr-name">Leclerc</div>
+                  <div class="pr-bar-wrap"><div class="pr-bar" style="width:67%;background:#E8002D"></div></div>
+                  <div class="pr-pts">34</div>
+                </div>
+                <div class="preview-row delay-4">
+                  <div class="pr-pos">4</div>
+                  <div class="pr-name">Hamilton</div>
+                  <div class="pr-bar-wrap"><div class="pr-bar" style="width:65%;background:#CC0025"></div></div>
+                  <div class="pr-pts">33</div>
+                </div>
+                <div class="preview-row delay-5">
+                  <div class="pr-pos">5</div>
+                  <div class="pr-name">Bearman</div>
+                  <div class="pr-bar-wrap"><div class="pr-bar" style="width:33%;background:#B6BABD"></div></div>
+                  <div class="pr-pts">17</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERIES ── -->
+    <section class="series-section">
+      <div class="series-header">
+        <div>
+          <div class="label" style="margin-bottom:10px">Series</div>
+          <h2 class="series-h2">Pick your racing</h2>
+          <p class="series-sub">Each series has its own dedicated hub, data and analysis.</p>
+        </div>
+      </div>
+
+      <div class="series-grid" id="series-grid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- ── FAVORITES ── -->
+    <section class="fav-section" id="fav-section">
+      <div class="fav-header">
+        <div class="label" style="margin-bottom:8px">Your Favorites</div>
+        <h2 class="fav-h2">Your Drivers & Teams</h2>
+      </div>
+      <div id="fav-content">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- ── DATA LAB TEASER ── -->
+    <section class="lab-teaser">
+      <div class="reveal">
+        <div class="label accent" style="margin-bottom:14px">APEX Data Lab</div>
+        <h2 class="lt-h2">
+          Unlimited<br>
+          <span class="acc">analytics.</span>
+        </h2>
+        <p class="lt-p">
+          The Data Lab is where the numbers come alive. Championship simulators, race replays with live car positions, head-to-head breakdowns, DNF calculators — everything you'd want to know about a race, a season, or a driver.
+        </p>
+        <div class="lt-features">
+          <span class="tag accent">Race Replay</span>
+          <span class="tag accent">Championship Sim</span>
+          <span class="tag accent">H2H Analysis</span>
+          <span class="tag accent">DNF Calculator</span>
+          <span class="tag accent">Heatmaps</span>
+          <span class="tag accent">Form Guide</span>
+          <span class="tag accent">Positions Gained</span>
+          <span class="tag accent">Qualifying Delta</span>
+        </div>
+        <a href="datalab.html?series=f1" class="btn primary">Open Data Lab →</a>
+      </div>
+      <div class="reveal delay-2">
+        <div class="heatmap-preview" id="heatmap-preview">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="apex-footer">
+    <div class="foot-logo">APEX<span class="dot">.</span>ANALYTICS</div>
+    <div class="foot-copy">Motorsport Intelligence · apex-analytics.net</div>
+  </footer>
+
+  <script src="assets/apex.js"></script>
+  <script>
+  // ── Intersection observer for reveal animations
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold:.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── Heatmap preview
+  (async () => {
+    const config = await loadJSON('data/config.json');
+    const comp   = await loadJSON('data/competitors-f1-2026.json');
+    const sched  = await loadJSON('data/f1-2026.json');
+    if (!config || !comp) return;
+
+    // Series grid
+    const series = config.series;
+    const sgEl = document.getElementById('series-grid');
+    if (sgEl) {
+      sgEl.innerHTML = Object.entries(series).map(([id, s]) => {
+        if (!s.active) return `
+          <div class="series-card coming" style="--sc:${s.accent}">
+            <div class="series-card-bg">${s.short}</div>
+            <div class="sc-coming">Coming Soon</div>
+            <div class="sc-title" style="color:var(--dim)">${s.short}</div>
+            <div class="sc-desc">${s.description}</div>
+          </div>`;
+
+        const drivers  = (comp?.competitors||[]).sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0));
+        const schedule = sched?.schedule||[];
+        const completed= schedule.filter(r=>r.complete);
+        const nextRace = schedule.find(r=>!r.complete);
+        const leader   = drivers[0];
+        const p2       = drivers[1];
+        const gap      = leader&&p2 ? (leader.season_2026?.pts||0)-(p2.season_2026?.pts||0) : 0;
+        const lastRace = completed[completed.length-1];
+
+        return `
+          <a href="${s.hub_url}" class="series-card active-series" style="--sc:${s.accent}">
+            <div class="series-card-bg">${s.short}</div>
+            <div class="sc-badge"><div class="sc-live-dot"></div>${s.name}</div>
+            <div class="sc-title">${s.short}</div>
+            <div class="sc-desc">${s.description}</div>
+            ${leader ? `
+            <div class="sc-stat-row">
+              <div class="sc-stat">
+                <div class="sc-stat-v" style="color:${s.accent}">${leader.name.split(' ').pop()}</div>
+                <div class="sc-stat-l">Leader</div>
+              </div>
+              <div class="sc-stat">
+                <div class="sc-stat-v">${leader.season_2026?.pts||0}</div>
+                <div class="sc-stat-l">Points</div>
+              </div>
+              <div class="sc-stat">
+                <div class="sc-stat-v">+${gap}</div>
+                <div class="sc-stat-l">Gap to P2</div>
+              </div>
+              <div class="sc-stat">
+                <div class="sc-stat-v">${completed.length}/${schedule.length}</div>
+                <div class="sc-stat-l">Rounds</div>
+              </div>
+            </div>` : ''}
+          </a>`;
+      }).join('');
+    }
+
+    // Favorites
+    renderFavorites(comp?.competitors||[]);
+
+    // Heatmap preview
+    buildHeatmapPreview(comp?.competitors||[], sched?.schedule||[]);
+
+    // Update hero stats
+    const completed = (sched?.schedule||[]).filter(r=>r.complete);
+    const el = id => document.getElementById(id);
+    if(el('stat-rounds'))   el('stat-rounds').textContent   = completed.length;
+    if(el('stat-drivers'))  el('stat-drivers').textContent  = (comp?.competitors||[]).length;
+    if(el('stat-circuits')) el('stat-circuits').textContent = 21;
+  })();
+
+  // ── Favorites
+  function getFavorites() {
+    try { return JSON.parse(localStorage.getItem('apex-favorites')||'{"drivers":[],"teams":[]}'); }
+    catch { return {drivers:[],teams:[]}; }
+  }
+  function saveFavorites(favs) {
+    localStorage.setItem('apex-favorites', JSON.stringify(favs));
+  }
+  function removeFavoriteDriver(id) {
+    const favs = getFavorites();
+    favs.drivers = favs.drivers.filter(d=>d!==id);
+    saveFavorites(favs);
+    location.reload();
+  }
+
+  function renderFavorites(allDrivers) {
+    const favs = getFavorites();
+    const el = document.getElementById('fav-content');
+    if (!el) return;
+
+    const section = document.getElementById('fav-section');
+
+    if (!favs.drivers.length && !favs.teams.length) {
+      // Hide section entirely if nothing saved
+      if (section) section.style.display = 'none';
+      return;
+    }
+
+    const favDrivers = allDrivers.filter(d => favs.drivers.includes(d.id));
+    if (!favDrivers.length) { if(section) section.style.display='none'; return; }
+
+    el.innerHTML = `<div class="fav-grid">
+      ${favDrivers.map(d => {
+        const s = d.season_2026;
+        const fins = (s.results_by_round||[]).map(r=>parseInt(r.finish)).filter(n=>!isNaN(n));
+        const avg  = fins.length ? (fins.reduce((a,b)=>a+b,0)/fins.length).toFixed(1) : '—';
+        return `
+          <div class="fav-card" style="border-left:3px solid #${d.color}">
+            <button class="fav-remove" onclick="removeFavoriteDriver('${d.id}')">✕</button>
+            <div class="fav-driver-name" style="color:#${d.color}">${d.name}</div>
+            <div class="fav-team">${d.team_name} · #${d.number}</div>
+            <div class="fav-stats">
+              <div>
+                <div class="fav-stat-v" style="color:#${d.color}">${s.pts||0}</div>
+                <div class="fav-stat-l">Points</div>
+              </div>
+              <div>
+                <div class="fav-stat-v">${s.wins||0}</div>
+                <div class="fav-stat-l">Wins</div>
+              </div>
+              <div>
+                <div class="fav-stat-v">${avg}</div>
+                <div class="fav-stat-l">Avg Finish</div>
+              </div>
+              <div>
+                <div class="fav-stat-v" style="color:${(s.dnfs||0)?'var(--red)':'var(--dim)'}">${s.dnfs||0}</div>
+                <div class="fav-stat-l">DNFs</div>
+              </div>
+            </div>
+          </div>`;
+      }).join('')}
+    </div>`;
+  }
+
+  // ── Mini heatmap preview for lab teaser
+  function buildHeatmapPreview(drivers, schedule) {
+    const el = document.getElementById('heatmap-preview');
+    if (!el) return;
+    const completed = schedule.filter(r=>r.complete).slice(0,4);
+    const top8 = drivers.sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0)).slice(0,8);
+
+    const posClass = fin => {
+      if(!fin && fin!==0) return 'pos-out';
+      const f = String(fin);
+      if(f==='DNF'||f==='dnf') return 'pos-dnf';
+      if(f==='DNS'||f==='dns') return 'pos-dns';
+      const n=parseInt(f);
+      if(n===1) return 'pos-1';
+      if(n===2) return 'pos-2';
+      if(n===3) return 'pos-3';
+      if(n<=10)  return 'pos-pts';
+      return 'pos-out';
+    };
+
+    el.innerHTML = `
+      <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">
+        Results Heatmap — F1 2026
+      </div>
+      ${top8.map(d => {
+        const rmap = {};
+        (d.season_2026?.results_by_round||[]).forEach(r=>rmap[r.round]=r);
+        return `<div class="hmp-row">
+          <div style="width:70px;flex-shrink:0;font-family:'Bebas Neue',display;font-size:13px;padding:0 6px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#${d.color}">
+            ${d.name.split(' ').pop()}
+          </div>
+          ${completed.map(round=>{
+            const res = rmap[round.round];
+            const fin = res?.finish ?? null;
+            const lbl = fin===null?'·':String(fin).slice(0,3);
+            return `<div class="hmp-cell ${posClass(fin)}" title="${d.name} R${round.round}: ${lbl}">${lbl}</div>`;
+          }).join('')}
+        </div>`;
+      }).join('')}`;
+  }
+  </script>
+</body>
+</html>

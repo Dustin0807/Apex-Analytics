@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formula 1 Hub — APEX Analytics</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="assets/apex.css">
+  <style>
+
+  .hub-content { position:relative; z-index:1; }
+
+  /* ── F1 HERO ── */
+  .f1-hero {
+    padding:48px var(--pad) 40px;
+    border-bottom:1px solid var(--border);
+    display:grid; grid-template-columns:1fr 380px; gap:48px; align-items:end;
+    position:relative; overflow:hidden;
+  }
+  .f1-hero-bg {
+    position:absolute; right:-40px; bottom:-60px;
+    font-family:'Bebas Neue',display; font-size:320px;
+    color:rgba(255,255,255,.018); line-height:1; letter-spacing:-8px;
+    pointer-events:none; user-select:none;
+  }
+  .fh-eyebrow {
+    display:flex; align-items:center; gap:10px; margin-bottom:16px;
+  }
+  .fh-series-dot {
+    width:8px; height:8px; border-radius:50%; background:var(--red);
+    animation:pulse 2s ease-in-out infinite;
+  }
+  .fh-eyebrow-text {
+    font-family:'JetBrains Mono',monospace;
+    font-size:8.5px; letter-spacing:3px; text-transform:uppercase; color:var(--dim);
+  }
+  .fh-title {
+    font-family:'Bebas Neue',display;
+    font-size:clamp(56px,8vw,100px); letter-spacing:2px; line-height:.88;
+    margin-bottom:16px;
+  }
+  .fh-title .acc { color:var(--accent); }
+  .fh-summary { font-size:13.5px; color:var(--muted); line-height:1.75; font-weight:300; max-width:560px; }
+  .fh-actions { display:flex; gap:8px; margin-top:20px; flex-wrap:wrap; }
+
+  /* Right panel */
+  .fh-right { position:relative; z-index:1; }
+  .fh-next-race {
+    background:var(--bg3); border:1px solid var(--border); padding:20px 22px;
+    margin-bottom:2px;
+  }
+  .fnr-label { font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:3px; text-transform:uppercase; color:var(--accent); opacity:.7; margin-bottom:10px; }
+  .fnr-name  { font-family:'Bebas Neue',display; font-size:28px; letter-spacing:1px; margin-bottom:4px; }
+  .fnr-venue { font-family:'JetBrains Mono',monospace; font-size:8.5px; color:var(--dim); margin-bottom:14px; }
+  .fnr-countdown { display:flex; gap:16px; }
+  .fnr-unit-v { font-family:'Bebas Neue',display; font-size:36px; color:var(--accent); line-height:1; }
+  .fnr-unit-l { font-family:'JetBrains Mono',monospace; font-size:7px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); }
+
+  /* ── CHAMPIONSHIP STRIP ── */
+  .champ-strip {
+    display:grid; grid-template-columns:repeat(4,1fr);
+    border-bottom:1px solid var(--border);
+  }
+  .cs-item {
+    padding:14px 20px; border-right:1px solid var(--border);
+    display:flex; align-items:center; gap:12px;
+    position:relative; overflow:hidden;
+    cursor:pointer; transition:background .15s; text-decoration:none; color:inherit;
+  }
+  .cs-item:last-child { border-right:none; }
+  .cs-item:hover { background:rgba(255,255,255,.02); }
+  .cs-bar {
+    position:absolute; left:0; bottom:0; height:2px;
+    background:var(--c,var(--accent)); transition:width 1s var(--ease-out);
+  }
+  .cs-pos { font-family:'Bebas Neue',display; font-size:22px; color:var(--dim); width:20px; }
+  .cs-pos.p1 { color:var(--accent); }
+  .cs-info { flex:1; min-width:0; }
+  .cs-name { font-family:'Bebas Neue',display; font-size:17px; letter-spacing:.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .cs-team { font-family:'JetBrains Mono',monospace; font-size:7.5px; color:var(--dim); }
+  .cs-pts  { font-family:'Bebas Neue',display; font-size:26px; letter-spacing:.5px; }
+  .cs-pts.leader { color:var(--accent); }
+  .cs-gap  { font-family:'JetBrains Mono',monospace; font-size:8px; color:var(--dim); }
+
+  /* ── MAIN LAYOUT ── */
+  .hub-main {
+    display:grid; grid-template-columns:1fr 340px;
+  }
+  .hub-feed { border-right:1px solid var(--border); }
+  .hub-side {}
+
+  /* Section heads */
+  .sec-head {
+    padding:14px 20px; border-bottom:1px solid var(--border);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .sec-head-label { font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:3px; text-transform:uppercase; color:var(--dim); }
+  .sec-head-link  { font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:1.5px; color:var(--accent); opacity:.6; transition:opacity .15s; }
+  .sec-head-link:hover { opacity:1; }
+
+  /* Race cards in feed */
+  .race-card {
+    display:grid; grid-template-columns:1fr auto;
+    border-bottom:1px solid var(--border);
+    cursor:pointer; transition:background .15s;
+    text-decoration:none; color:inherit;
+    position:relative; overflow:hidden;
+  }
+  .race-card:hover { background:rgba(255,255,255,.014); }
+  .race-card::before {
+    content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+    background:var(--acc, var(--accent));
+    transform:scaleY(0); transform-origin:center; transition:transform .2s;
+  }
+  .race-card:hover::before { transform:scaleY(1); }
+  .rc-body { padding:20px 24px; }
+  .rc-meta { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .rc-series-dot { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+  .rc-meta-txt { font-family:'JetBrains Mono',monospace; font-size:8px; letter-spacing:1.5px; color:var(--dim); }
+  .rc-title { font-family:'Bebas Neue',display; font-size:24px; letter-spacing:.5px; margin-bottom:6px; }
+  .rc-summary { font-size:12.5px; color:var(--muted); line-height:1.65; font-weight:300; max-width:480px; }
+  .rc-tags { display:flex; gap:4px; margin-top:10px; flex-wrap:wrap; }
+  .rc-aside { padding:20px 24px 20px 12px; display:flex; flex-direction:column; align-items:flex-end; justify-content:space-between; min-width:110px; }
+  .rc-winner-name { font-family:'Bebas Neue',display; font-size:19px; letter-spacing:.5px; text-align:right; }
+  .rc-winner-lbl  { font-family:'JetBrains Mono',monospace; font-size:7.5px; color:var(--dim); text-align:right; }
+  .rc-arrow { font-family:'JetBrains Mono',monospace; font-size:8.5px; color:var(--dim); opacity:0; transform:translateX(-4px); transition:all .18s; letter-spacing:1px; text-transform:uppercase; }
+  .race-card:hover .rc-arrow { opacity:.7; transform:translateX(0); }
+
+  /* Preview card */
+  .preview-card {
+    border-bottom:1px solid var(--border); padding:24px;
+    background:rgba(var(--accent-rgb),.015); position:relative;
+  }
+  .preview-card::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--accent); }
+  .pc-badge {
+    font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:2.5px; text-transform:uppercase;
+    color:var(--accent); padding:3px 8px; border:1px solid rgba(var(--accent-rgb),.3);
+    background:rgba(var(--accent-rgb),.06); display:inline-flex; align-items:center; gap:6px; margin-bottom:10px;
+  }
+  .pc-title  { font-family:'Bebas Neue',display; font-size:28px; letter-spacing:1px; margin-bottom:8px; }
+  .pc-body   { font-size:12.5px; color:var(--muted); line-height:1.7; font-weight:300; margin-bottom:14px; }
+  .pc-bullets { display:flex; flex-direction:column; gap:5px; }
+  .pc-bullet  { font-size:12px; color:var(--dim); display:flex; gap:8px; align-items:flex-start; }
+  .pc-bullet::before { content:'—'; font-family:'JetBrains Mono',monospace; font-size:9px; color:var(--accent); opacity:.5; flex-shrink:0; margin-top:2px; }
+
+  /* Sidebar */
+  .sb-block { padding:18px 20px; border-bottom:1px solid var(--border); }
+  .sb-label { font-family:'JetBrains Mono',monospace; font-size:7.5px; letter-spacing:3px; text-transform:uppercase; color:var(--dim); margin-bottom:12px; }
+
+  /* Standings rows */
+  .stand-row {
+    display:flex; align-items:center; gap:8px;
+    padding:7px 0; border-bottom:1px solid rgba(255,255,255,.025);
+    cursor:pointer; transition:background .1s; border-radius:1px;
+    position:relative;
+  }
+  .stand-row:last-child { border-bottom:none; }
+  .stand-row-bg { position:absolute; left:0; top:0; bottom:0; opacity:.06; transition:width .8s var(--ease-out); border-radius:1px; }
+  .sr-pos  { font-family:'Bebas Neue',display; font-size:17px; color:var(--dim); width:18px; text-align:center; flex-shrink:0; }
+  .sr-pos.p1 { color:var(--accent); }
+  .sr-pos.p2 { color:var(--text); }
+  .sr-dot  { width:5px; height:5px; border-radius:50%; flex-shrink:0; }
+  .sr-name { font-family:'Bebas Neue',display; font-size:16px; flex:1; letter-spacing:.3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .sr-pts  { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:500; }
+  .sr-pts.leader { color:var(--accent); }
+  .sr-fav  { width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:11px; cursor:pointer; opacity:.35; transition:opacity .15s; flex-shrink:0; background:none; border:none; }
+  .sr-fav:hover  { opacity:1; }
+  .sr-fav.active { opacity:1; color:var(--gold); }
+
+  /* Schedule */
+  .sched-item {
+    display:flex; align-items:center; gap:8px;
+    padding:7px 0; border-bottom:1px solid rgba(255,255,255,.025);
+    font-size:12px; cursor:pointer; transition:background .1s;
+    text-decoration:none; color:inherit;
+  }
+  .sched-item:last-child { border-bottom:none; }
+  .sched-item.done { opacity:.45; }
+  .sched-item.next { background:rgba(var(--accent-rgb),.04); padding:8px 4px; margin:0 -4px; }
+  .si-round { font-family:'JetBrains Mono',monospace; font-size:7.5px; color:var(--dim); width:22px; flex-shrink:0; }
+  .si-flag  { font-size:13px; flex-shrink:0; }
+  .si-name  { flex:1; color:var(--muted); font-weight:400; }
+  .sched-item.next .si-name { color:var(--text); }
+  .si-date  { font-family:'JetBrains Mono',monospace; font-size:7.5px; color:var(--dim); }
+  .sched-item.next .si-date { color:var(--accent); }
+
+  /* Quick links */
+  .quick-link {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:9px 12px; background:var(--bg3); border:1px solid var(--border);
+    margin-bottom:2px; font-family:'JetBrains Mono',monospace;
+    font-size:8px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--muted); transition:border-color .15s, color .15s;
+    text-decoration:none;
+  }
+  .quick-link:hover { border-color:var(--border-hi); color:var(--text); }
+  .quick-link .ql-arrow { color:var(--dim); transition:transform .15s, color .15s; }
+  .quick-link:hover .ql-arrow { transform:translateX(3px); color:var(--accent); }
+
+  /* Responsive */
+  @media (max-width:900px) {
+    .f1-hero { grid-template-columns:1fr; }
+    .fh-right { display:none; }
+    .champ-strip { grid-template-columns:1fr 1fr; }
+    .hub-main { grid-template-columns:1fr; }
+  }
+  @media (max-width:600px) {
+    .champ-strip { grid-template-columns:1fr; }
+  }
+  </style>
+</head>
+<body>
+  <div class="bg-radial"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
+
+  <nav class="apex-nav">
+    <a class="nav-logo" href="index.html">APEX<span class="dot">.</span>ANALYTICS</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html" style="color:var(--dim);font-size:7.5px">← All Series</a>
+      <a class="nav-link active" href="f1.html">F1 Hub</a>
+      <a class="nav-link" href="standings.html?series=f1">Standings</a>
+      <a class="nav-link" href="circuits.html?series=f1">Circuits</a>
+      <a class="nav-link" href="datalab.html?series=f1">Data Lab</a>
+      <a class="nav-link" href="compare.html?series=f1">Compare</a>
+    </div>
+    <div class="nav-series-badge">
+      <div class="nav-series-dot"></div>
+      F1 2026
+    </div>
+  </nav>
+
+  <div class="hub-content" id="hub-root">
+    <div style="padding:80px var(--pad);opacity:.2;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim)">Loading…</div>
+  </div>
+
+  <footer class="apex-footer">
+    <div class="foot-logo">APEX<span class="dot">.</span>ANALYTICS</div>
+    <div class="foot-copy" id="footer-copy">Formula 1 · 2026</div>
+  </footer>
+
+  <script src="assets/apex.js"></script>
+  <script>initF1Hub();</script>
+</body>
+</html>

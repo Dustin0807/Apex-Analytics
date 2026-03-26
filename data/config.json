@@ -1,0 +1,310 @@
+{
+  "site": {
+    "name": "APEX Analytics",
+    "tagline": "Motorsport Intelligence",
+    "description": "Deep race analysis across every major motorsport series \u2014 results, strategy, championship tracking and season archives.",
+    "current_year": 2026,
+    "active_series": [
+      "f1"
+    ],
+    "coming_soon": [
+      "indycar",
+      "motogp",
+      "wec"
+    ]
+  },
+  "series": {
+    "f1": {
+      "name": "Formula 1",
+      "short": "F1",
+      "accent": "#27F4D2",
+      "color": "#E8002D",
+      "active": true,
+      "coming_soon": false,
+      "current_year": 2026,
+      "description": "The pinnacle of single-seater motorsport. 22 rounds across five continents.",
+      "season_file": "f1-2026",
+      "competitors_file": "competitors-f1-2026",
+      "venues_file": "venues-f1-2026",
+      "hub_url": "f1.html",
+      "entry_type": "driver",
+      "multi_class": false
+    },
+    "indycar": {
+      "name": "IndyCar Series",
+      "short": "IndyCar",
+      "accent": "#0090FF",
+      "color": "#0090FF",
+      "active": false,
+      "coming_soon": true,
+      "current_year": 2026,
+      "description": "Ovals, street circuits, and road courses. America's open-wheel championship.",
+      "season_file": null,
+      "hub_url": "indycar.html",
+      "entry_type": "driver",
+      "multi_class": false
+    },
+    "wec": {
+      "name": "FIA World Endurance Championship",
+      "short": "WEC",
+      "accent": "#E8002D",
+      "color": "#C41E3A",
+      "active": false,
+      "coming_soon": true,
+      "current_year": 2026,
+      "description": "Endurance racing across three classes. Le Mans. Spa. Fuji. The Centenary.",
+      "season_file": null,
+      "hub_url": "wec.html",
+      "entry_type": "car",
+      "multi_class": true,
+      "classes": [
+        {
+          "id": "hypercar",
+          "name": "Hypercar",
+          "short": "HYP",
+          "color": "#E8002D"
+        },
+        {
+          "id": "lmp2",
+          "name": "LMP2",
+          "short": "LMP2",
+          "color": "#0090FF"
+        },
+        {
+          "id": "lmgt3",
+          "name": "LMGT3",
+          "short": "GT3",
+          "color": "#00D47C"
+        }
+      ]
+    },
+    "motogp": {
+      "name": "MotoGP",
+      "short": "MotoGP",
+      "accent": "#FF4D00",
+      "color": "#FF4D00",
+      "active": false,
+      "coming_soon": true,
+      "current_year": 2026,
+      "description": "Motorcycle racing's world championship. Three classes, 20 rounds, one title.",
+      "season_file": null,
+      "hub_url": "motogp.html",
+      "entry_type": "rider",
+      "multi_class": true,
+      "classes": [
+        {
+          "id": "motogp",
+          "name": "MotoGP",
+          "short": "MGP",
+          "color": "#FF4D00"
+        },
+        {
+          "id": "moto2",
+          "name": "Moto2",
+          "short": "M2",
+          "color": "#FF8C00"
+        },
+        {
+          "id": "moto3",
+          "name": "Moto3",
+          "short": "M3",
+          "color": "#FFD100"
+        }
+      ]
+    },
+    "imsa": {
+      "name": "IMSA SportsCar Championship",
+      "short": "IMSA",
+      "accent": "#FF6B00",
+      "color": "#FF6B00",
+      "active": false,
+      "coming_soon": true,
+      "current_year": 2026,
+      "description": "America's premier sports car championship. Five classes from Daytona to Petit Le Mans.",
+      "season_file": null,
+      "hub_url": "imsa.html",
+      "entry_type": "car",
+      "multi_class": true,
+      "classes": [
+        {
+          "id": "gtp",
+          "name": "GTP",
+          "short": "GTP",
+          "color": "#FF6B00"
+        },
+        {
+          "id": "lmp2",
+          "name": "LMP2",
+          "short": "LMP2",
+          "color": "#FFD100"
+        },
+        {
+          "id": "gtd",
+          "name": "GTD Pro",
+          "short": "GTD",
+          "color": "#00D47C"
+        },
+        {
+          "id": "gtdam",
+          "name": "GTD Am",
+          "short": "GTDAm",
+          "color": "#0090FF"
+        }
+      ]
+    },
+    "formula_e": {
+      "name": "Formula E",
+      "short": "Formula E",
+      "accent": "#00AAFF",
+      "color": "#00AAFF",
+      "active": false,
+      "coming_soon": true,
+      "current_year": 2026,
+      "description": "All-electric single-seater racing through the world's great city centres.",
+      "season_file": null,
+      "hub_url": "formula-e.html",
+      "entry_type": "driver",
+      "multi_class": false
+    },
+    "f2": {
+      "name": "Formula 2",
+      "short": "F2",
+      "accent": "#0090FF",
+      "color": "#0090FF",
+      "active": false,
+      "coming_soon": true,
+      "current_year": 2026,
+      "description": "The final step before Formula 1. Sprint and feature races at every F1 venue.",
+      "season_file": null,
+      "hub_url": "f2.html",
+      "entry_type": "driver",
+      "multi_class": false
+    },
+    "nascar": {
+      "name": "NASCAR Cup Series",
+      "short": "NASCAR",
+      "accent": "#FFD100",
+      "color": "#FFD100",
+      "active": false,
+      "coming_soon": true,
+      "current_year": 2026,
+      "description": "Stock car racing's premier series. 36 rounds across America's most iconic ovals and road courses.",
+      "season_file": null,
+      "hub_url": "nascar.html",
+      "entry_type": "driver",
+      "multi_class": false
+    },
+    "dtm": {
+      "name": "Deutsche Tourenwagen Masters",
+      "short": "DTM",
+      "accent": "#CC0000",
+      "color": "#CC0000",
+      "active": false,
+      "coming_soon": true,
+      "current_year": 2026,
+      "description": "GT3-spec touring car racing across Europe's finest circuits. Germany's flagship series.",
+      "season_file": null,
+      "hub_url": "dtm.html",
+      "entry_type": "driver",
+      "multi_class": false
+    }
+  },
+  "result_status": {
+    "running": {
+      "label": "Running",
+      "class": "status-run"
+    },
+    "crash": {
+      "label": "Accident",
+      "class": "status-crash"
+    },
+    "mech": {
+      "label": "Mechanical",
+      "class": "status-mech"
+    },
+    "dnf": {
+      "label": "DNF",
+      "class": "status-dnf"
+    },
+    "dns": {
+      "label": "Did Not Start",
+      "class": "status-dns"
+    },
+    "dsq": {
+      "label": "Disqualified",
+      "class": "status-dsq"
+    }
+  },
+  "insight_types": {
+    "win": {
+      "color": "FFD700",
+      "icon": "\ud83c\udfc6"
+    },
+    "strategy": {
+      "color": "00C878",
+      "icon": "\ud83d\udd27"
+    },
+    "crash": {
+      "color": "FF4040",
+      "icon": "\ud83d\udca5"
+    },
+    "story": {
+      "color": "8B66FF",
+      "icon": "\ud83d\udcd6"
+    },
+    "points": {
+      "color": "00D4FF",
+      "icon": "\ud83d\udcca"
+    },
+    "history": {
+      "color": "FFD100",
+      "icon": "\u2b50"
+    },
+    "tech": {
+      "color": "FF8800",
+      "icon": "\u2699\ufe0f"
+    }
+  },
+  "circuit_tiers": {
+    "1": {
+      "label": "Iconic",
+      "description": "Circuits with deep F1 history and cultural significance",
+      "circuits": [
+        "monaco",
+        "monza",
+        "spa",
+        "silverstone",
+        "suzuka",
+        "interlagos"
+      ]
+    },
+    "2": {
+      "label": "Established",
+      "description": "Long-running venues with solid historical records",
+      "circuits": [
+        "albert-park",
+        "barcelona",
+        "bahrain",
+        "zandvoort",
+        "singapore",
+        "shanghai",
+        "hungaroring",
+        "red-bull-ring",
+        "yas-marina"
+      ]
+    },
+    "3": {
+      "label": "Modern",
+      "description": "Newer or rotating venues with limited historical depth",
+      "circuits": [
+        "miami",
+        "las-vegas",
+        "losail",
+        "jeddah",
+        "baku",
+        "cota",
+        "rodriguez"
+      ]
+    }
+  }
+}
