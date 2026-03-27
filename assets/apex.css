@@ -56,9 +56,9 @@ img { display:block; max-width:100%; }
 @keyframes trackCar { 0%{offset-distance:0%} 100%{offset-distance:100%} }
 @keyframes barGrow  { from{width:0} to{width:var(--w)} }
 
-.anim-fade-up   { animation:fadeUp .45s var(--ease-out) both; }
-.anim-fade-in   { animation:fadeIn .35s ease both; }
-.anim-slide-in  { animation:slideIn .35s var(--ease-out) both; }
+.anim-fade-up   { animation:fadeUp .45s ease-out forwards; }
+.anim-fade-in   { animation:fadeIn .35s ease forwards; }
+.anim-slide-in  { animation:slideIn .35s ease-out forwards; }
 .delay-1 { animation-delay:.08s; }
 .delay-2 { animation-delay:.16s; }
 .delay-3 { animation-delay:.24s; }
@@ -304,3 +304,11 @@ img { display:block; max-width:100%; }
 @media (max-width:600px) {
   .hide-mobile { display:none !important; }
 }
+
+/* Prevent flash on delayed animations */
+.delay-1, .delay-2, .delay-3, .delay-4, .delay-5 { opacity:0; }
+.delay-1 { animation-delay:.08s; animation-fill-mode:both; }
+.delay-2 { animation-delay:.16s; animation-fill-mode:both; }
+.delay-3 { animation-delay:.24s; animation-fill-mode:both; }
+.delay-4 { animation-delay:.32s; animation-fill-mode:both; }
+.delay-5 { animation-delay:.40s; animation-fill-mode:both; }

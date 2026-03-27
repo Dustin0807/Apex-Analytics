@@ -1337,12 +1337,11 @@ function toggleFavDriver(id, btn) {
   }
 }
 function dlReplayInit() {
-  // Build round selector buttons
   const el = $('replay-round-btns');
   if (el) {
     el.innerHTML = DL.completed.map((r, i) => `
-      <button class="btn sm ${i===0?'active':''}" onclick="dlReplayRound(${r.round},this)">
-        ${(r.venue||r.name||'').slice(0,3).toUpperCase()} R${r.round}
+      <button class="btn sm ${i===DL.completed.length-1?'active':''}" onclick="dlReplayRound(${r.round},this)">
+        R${r.round} ${(r.venue||r.name||'').slice(0,3).toUpperCase()}
       </button>`).join('');
   }
   if (DL.completed.length) {
@@ -1358,195 +1357,165 @@ function dlReplayRound(round, btn) {
   dlReplaySetRound(round);
 }
 
+let _replayChart = null;
+let _replayInterval = null;
+let _replayFrame = 0;
+let _replayData = null;
+
 function dlReplaySetRound(round) {
   const race = DL.schedule.find(r => r.round === round);
   if (!race) return;
-  replayMaxLap = race.laps || 56;
-  replayLap = 1;
-  const el = $('replay-lap');
-  if (el) { el.max = replayMaxLap; el.value = 1; }
 
-  // Build simulated lap-by-lap positions from results
-  const results = race.race?.results || [];
-  if (!results.length) {
-    dlReplayDrawEmpty();
+  const pt = race.position_tracker;
+  if (!pt || !pt.drivers || !pt.labels) {
+    dlReplayDrawEmpty(race.name || race.venue);
     return;
   }
 
-  // Create position data per lap (simulate based on final positions + DNF laps)
-  replayData = {
-    round, race,
-    drivers: results.slice(0, 20).map((r, i) => {
-      const driver = DL.drivers.find(d => d.name === r.driver || d.id === r.driver_id);
-      const finalPos = parseInt(r.pos) || (i + 1);
-      const isDNF = String(r.pos).toUpperCase() === 'DNF' || String(r.status||'').toUpperCase().includes('DNF');
-      const dnfLap = isDNF ? Math.floor(replayMaxLap * (0.3 + Math.random() * 0.5)) : replayMaxLap;
-      return {
-        name: r.driver,
-        shortName: (r.driver||'').split(' ').pop().slice(0,3).toUpperCase(),
-        color: driver ? '#'+driver.color : '#888888',
-        finalPos,
-        isDNF,
-        dnfLap,
-        // Starting grid position (rough simulation from qualifying)
-        startPos: i + 1,
-      };
-    })
+  _replayFrame = 0;
+  _replayData = {
+    labels: pt.labels,
+    drivers: pt.drivers,
+    race
   };
 
-  dlReplayDraw(1);
-  $('replay-lap-num') && ($('replay-lap-num').textContent = 1);
+  // Populate round select label
+  const lapEl = $('replay-lap-num');
+  if (lapEl) lapEl.textContent = pt.labels[0];
+
+  const slider = $('replay-lap');
+  if (slider) { slider.min = 0; slider.max = pt.labels.length - 1; slider.value = 0; }
+
+  dlReplayDraw(0);
 }
 
-function dlReplayUpdate(lap) {
-  replayLap = parseInt(lap);
-  $('replay-lap-num') && ($('replay-lap-num').textContent = lap);
-  dlReplayDraw(replayLap);
+function dlReplayDraw(frame) {
+  if (!_replayData) return;
+  const { labels, drivers, race } = _replayData;
+  const ctx = $('replay-canvas');
+  if (!ctx) return;
+
+  // Destroy old chart
+  if (_replayChart) { _replayChart.destroy(); _replayChart = null; }
+
+  const frameIdx = Math.min(frame, labels.length - 1);
+
+  // Build current positions at this frame
+  const current = drivers.map(d => ({
+    name: d.name,
+    color: (() => {
+      const dr = DL.drivers.find(x => x.name === d.name || x.name.includes(d.name.split(' ').pop()));
+      return dr ? '#' + dr.color : '#888888';
+    })(),
+    pos: d.positions[frameIdx] ?? d.positions[d.positions.length - 1]
+  })).sort((a, b) => a.pos - b.pos);
+
+  // Update positions sidebar
+  const posEl = $('replay-positions');
+  if (posEl) {
+    posEl.innerHTML = current.map((d, i) => `
+      <div style="display:flex;align-items:center;gap:5px;padding:3px 8px;background:var(--bg3);border:1px solid ${d.color}33">
+        <span style="font-family:'Bebas Neue',display;font-size:14px;color:${i===0?'var(--accent)':'var(--dim)'};width:16px;text-align:center">${i+1}</span>
+        <span style="font-family:'Bebas Neue',display;font-size:13px;color:${d.color}">${d.name.split(' ').pop()}</span>
+      </div>`).join('');
+  }
+
+  // Update lap label
+  const lapEl = $('replay-lap-num');
+  if (lapEl) lapEl.textContent = labels[frameIdx];
+
+  // Build chart — show position history up to current frame for each driver
+  const datasets = drivers.slice(0, 10).map(d => {
+    const dr = DL.drivers.find(x => x.name === d.name || x.name.includes(d.name.split(' ').pop()));
+    const color = dr ? '#' + dr.color : '#888888';
+    return {
+      label: d.name.split(' ').pop(),
+      data: d.positions.slice(0, frameIdx + 1),
+      borderColor: color,
+      backgroundColor: color + '18',
+      borderWidth: 2,
+      pointRadius: 3,
+      pointBackgroundColor: color,
+      fill: false,
+      tension: 0.3,
+    };
+  });
+
+  _replayChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels: labels.slice(0, frameIdx + 1), datasets },
+    options: {
+      responsive: true,
+      animation: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: items => 'Lap ' + items[0].label,
+            label: item => `P${item.raw} — ${item.dataset.label}`,
+          }
+        }
+      },
+      scales: {
+        x: { grid:{color:'rgba(255,255,255,.04)'}, ticks:{color:'rgba(237,234,246,.35)',font:{family:'JetBrains Mono',size:9}} },
+        y: {
+          reverse: true,
+          min: 1, max: drivers.length,
+          grid:{color:'rgba(255,255,255,.04)'},
+          ticks:{color:'rgba(237,234,246,.35)',font:{family:'JetBrains Mono',size:9},stepSize:1},
+          title:{display:true,text:'Position',color:'rgba(237,234,246,.25)',font:{family:'JetBrains Mono',size:9}}
+        }
+      }
+    }
+  });
+}
+
+function dlReplayDrawEmpty(name) {
+  const ctx = $('replay-canvas');
+  if (!ctx) return;
+  if (_replayChart) { _replayChart.destroy(); _replayChart = null; }
+  const c = ctx.getContext('2d');
+  ctx.width = ctx.offsetWidth || 800;
+  ctx.height = 340;
+  c.clearRect(0, 0, ctx.width, ctx.height);
+  c.fillStyle = 'rgba(237,234,246,.15)';
+  c.font = '11px JetBrains Mono, monospace';
+  c.textAlign = 'center';
+  c.fillText(name ? `No position data for ${name}` : 'No race data available', ctx.width/2, ctx.height/2);
+}
+
+function dlReplayUpdate(val) {
+  _replayFrame = parseInt(val);
+  dlReplayDraw(_replayFrame);
 }
 
 function dlReplayPlay() {
-  if (replayInterval) return;
-  replayInterval = setInterval(() => {
-    replayLap++;
-    if (replayLap > replayMaxLap) { dlReplayPause(); return; }
-    const el = $('replay-lap');
-    if (el) el.value = replayLap;
-    $('replay-lap-num') && ($('replay-lap-num').textContent = replayLap);
-    dlReplayDraw(replayLap);
-  }, 180);
+  if (_replayInterval) return;
+  if (!_replayData) return;
+  _replayInterval = setInterval(() => {
+    _replayFrame++;
+    if (_replayFrame >= _replayData.labels.length) {
+      dlReplayPause(); return;
+    }
+    const slider = $('replay-lap');
+    if (slider) slider.value = _replayFrame;
+    dlReplayDraw(_replayFrame);
+  }, 600);
 }
 
 function dlReplayPause() {
-  clearInterval(replayInterval);
-  replayInterval = null;
+  clearInterval(_replayInterval);
+  _replayInterval = null;
 }
 
 function dlReplayReset() {
   dlReplayPause();
-  replayLap = 1;
-  const el = $('replay-lap');
-  if (el) el.value = 1;
-  $('replay-lap-num') && ($('replay-lap-num').textContent = 1);
-  dlReplayDraw(1);
+  _replayFrame = 0;
+  const slider = $('replay-lap');
+  if (slider) slider.value = 0;
+  dlReplayDraw(0);
 }
 
-function dlReplayDrawEmpty() {
-  const canvas = $('replay-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  canvas.width = canvas.offsetWidth || 800;
-  canvas.height = 340;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = 'rgba(237,234,246,.15)';
-  ctx.font = '12px JetBrains Mono, monospace';
-  ctx.textAlign = 'center';
-  ctx.fillText('Complete a race to enable the position tracker', canvas.width/2, canvas.height/2);
-}
-
-function dlReplayDraw(lap) {
-  const canvas = $('replay-canvas');
-  if (!canvas || !replayData) return;
-
-  canvas.width  = canvas.offsetWidth  || 900;
-  canvas.height = 340;
-  const ctx = canvas.getContext('2d');
-  const W = canvas.width, H = canvas.height;
-
-  ctx.clearRect(0, 0, W, H);
-
-  // Draw track outline (simplified oval/circuit shape)
-  const cx = W * 0.5, cy = H * 0.5;
-  const rx = W * 0.38, ry = H * 0.36;
-
-  ctx.beginPath();
-  ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
-  ctx.strokeStyle = 'rgba(255,255,255,.06)';
-  ctx.lineWidth = 28;
-  ctx.stroke();
-
-  ctx.beginPath();
-  ctx.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
-  ctx.strokeStyle = 'rgba(255,255,255,.03)';
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  // Start/finish line
-  const sfAngle = -Math.PI / 2;
-  const sfX = cx + rx * Math.cos(sfAngle);
-  const sfY = cy + ry * Math.sin(sfAngle);
-  ctx.beginPath();
-  ctx.moveTo(sfX - 14, sfY - 3);
-  ctx.lineTo(sfX + 14, sfY + 3);
-  ctx.strokeStyle = 'rgba(39,244,210,.7)';
-  ctx.lineWidth = 2;
-  ctx.stroke();
-
-  // Lap label
-  ctx.fillStyle = 'rgba(237,234,246,.25)';
-  ctx.font = 'bold 11px JetBrains Mono, monospace';
-  ctx.textAlign = 'center';
-  ctx.fillText(`LAP ${lap} / ${replayMaxLap}`, cx, cy - 8);
-  ctx.fillStyle = 'rgba(237,234,246,.12)';
-  ctx.font = '9px JetBrains Mono, monospace';
-  ctx.fillText(replayData.race?.name || '', cx, cy + 10);
-
-  // Calculate positions at this lap
-  const lapFrac = lap / replayMaxLap;
-  const drivers = replayData.drivers;
-
-  // Interpolate position: starts at startPos, transitions to finalPos over race
-  // DNF drivers freeze at their DNF lap
-  const currentPositions = drivers.map(d => {
-    if (d.isDNF && lap > d.dnfLap) return null; // DNF'd
-
-    // Smooth position interpolation
-    const progress = Math.min(lapFrac * 1.2, 1); // position settles by 80% of race
-    const eased = 1 - Math.pow(1 - progress, 3); // ease out
-    const interpolatedPos = d.startPos + (d.finalPos - d.startPos) * eased;
-
-    // Position around track: spread drivers out by their position
-    // Leader is ahead, each position is slightly behind
-    const gapFrac = (interpolatedPos - 1) * 0.02; // gap between cars
-    const angle = sfAngle + lapFrac * Math.PI * 2 - gapFrac * Math.PI * 2;
-    const x = cx + rx * Math.cos(angle);
-    const y = cy + ry * Math.sin(angle);
-
-    return { ...d, x, y, pos: Math.round(interpolatedPos) };
-  }).filter(Boolean);
-
-  // Draw cars
-  currentPositions.forEach((d, i) => {
-    const radius = 8;
-
-    // Car dot
-    ctx.beginPath();
-    ctx.arc(d.x, d.y, radius, 0, Math.PI * 2);
-    ctx.fillStyle = d.color;
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(7,7,11,.6)';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-
-    // Driver label (only for top 5)
-    if (i < 5) {
-      ctx.fillStyle = d.color;
-      ctx.font = 'bold 7px JetBrains Mono, monospace';
-      ctx.textAlign = 'center';
-      ctx.fillText(d.shortName, d.x, d.y - 13);
-    }
-  });
-
-  // Positions sidebar
-  const posEl = $('replay-positions');
-  if (posEl) {
-    const sorted = [...currentPositions].sort((a, b) => a.pos - b.pos);
-    posEl.innerHTML = sorted.map((d, i) => `
-      <div class="rp-badge" style="border-color:${d.color}44">
-        <span style="font-family:'Bebas Neue',display;font-size:13px;color:${i===0?'var(--accent)':'var(--dim)'}">${i+1}</span>
-        <span style="color:${d.color}">${d.shortName}</span>
-      </div>`).join('');
-  }
-}
 
 
 /* ══════════════════════════════════════════════════════════
