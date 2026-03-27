@@ -297,6 +297,16 @@
     .hero-actions { flex-direction:column; }
     .hero-actions .btn { width:100%; justify-content:center; }
   }
+
+  @media (max-width: 768px) {
+    #live-content > div { grid-template-columns: 1fr !important; }
+    #series-grid a { grid-template-columns: 1fr !important; }
+    #series-grid a > div:last-child { writing-mode: horizontal-tb !important; transform: none !important; border-left: none !important; border-top: 1px solid var(--border) !important; padding: 12px 24px !important; min-width: auto !important; justify-content: flex-start !important; }
+    .what-section-grid { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 600px) {
+    section { padding-left: 16px !important; padding-right: 16px !important; }
+  }
   </style>
 </head>
 <body>
@@ -313,241 +323,136 @@
     </div>
   </nav>
 
-  <div class="lp-content">
+  <div style="position:relative;z-index:1">
 
-    <!-- ── HERO ── -->
-    <section class="hero">
-      <div class="hero-bg-word">APEX</div>
+    <!-- HERO -->
+    <section style="min-height:calc(100vh - var(--nav-h));display:flex;flex-direction:column;justify-content:center;padding:80px var(--pad);position:relative;overflow:hidden">
+      <div style="position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-family:'Bebas Neue',display;font-size:min(40vw,520px);letter-spacing:-10px;color:rgba(255,255,255,.018);pointer-events:none;user-select:none;line-height:1">APEX</div>
 
-      <div class="hero-kicker anim-fade-up">
-        <div class="hero-kicker-line"></div>
-        <span class="hero-kicker-text">Motorsport Intelligence</span>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px">
+        <div style="width:32px;height:1px;background:var(--accent)"></div>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);opacity:.8">Motorsport Intelligence</span>
       </div>
 
-      <h1 class="hero-h1 anim-fade-up delay-1">
+      <h1 style="font-family:'Bebas Neue',display;font-size:clamp(72px,14vw,160px);letter-spacing:2px;line-height:.88;margin-bottom:28px">
         Race Weekend.<br>
-        <span class="line2">Decoded.</span>
+        <span style="color:var(--accent)">Decoded.</span>
       </h1>
 
-      <p class="hero-sub anim-fade-up delay-2">
-        APEX is a deep analysis platform for motorsport. Full race breakdowns, championship tracking, driver comparisons and interactive analytics — all in one place. Updated after every event.
+      <p style="font-size:clamp(14px,2vw,17px);color:var(--muted);font-weight:300;line-height:1.8;max-width:520px;margin-bottom:40px">
+        APEX is a deep analysis platform for motorsport. Full race breakdowns, championship tracking, driver comparisons and interactive analytics — all in one place.
       </p>
 
-      <div class="hero-actions anim-fade-up delay-3">
-        <a href="f1.html" class="btn primary">Enter F1 Hub →</a>
+      <div style="margin-bottom:56px">
+        <a href="f1.html" class="btn primary" style="font-size:10px;padding:12px 28px">Enter F1 Hub →</a>
       </div>
 
-      <div class="hero-stats anim-fade-up delay-4">
-        <div class="hs-item">
-          <div class="hs-v" id="stat-rounds">2</div>
-          <div class="hs-l">Rounds Analysed</div>
+      <div style="display:flex;gap:36px;flex-wrap:wrap">
+        <div>
+          <div style="font-family:'Bebas Neue',display;font-size:clamp(36px,5vw,52px);line-height:1;color:var(--accent)" id="stat-rounds">2</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-top:4px">Rounds</div>
         </div>
-        <div class="hs-item">
-          <div class="hs-v" id="stat-drivers">20</div>
-          <div class="hs-l">Drivers Tracked</div>
+        <div>
+          <div style="font-family:'Bebas Neue',display;font-size:clamp(36px,5vw,52px);line-height:1;color:var(--accent)" id="stat-drivers">20</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-top:4px">Drivers</div>
         </div>
-        <div class="hs-item">
-          <div class="hs-v" id="stat-circuits">21</div>
-          <div class="hs-l">Circuits Profiled</div>
+        <div>
+          <div style="font-family:'Bebas Neue',display;font-size:clamp(36px,5vw,52px);line-height:1;color:var(--accent)" id="stat-circuits">21</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-top:4px">Circuits</div>
         </div>
-        <div class="hs-item">
-          <div class="hs-v" style="font-size:clamp(28px,4vw,48px);letter-spacing:2px">NO<br>LIMIT</div>
-          <div class="hs-l">Data Points</div>
+        <div>
+          <div style="font-family:'Bebas Neue',display;font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:2px;color:var(--accent)">NO<br>LIMIT</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-top:4px">Data Points</div>
         </div>
-      </div>
-
-      <div class="scroll-hint">
-        <span>Scroll</span>
-        <div class="scroll-arrow"></div>
       </div>
     </section>
 
-    <!-- ── WHAT IS APEX ── -->
-    <section class="what-section">
-      <div class="what-grid">
-        <div class="what-left reveal">
-          <div class="label accent" style="margin-bottom:14px">What is APEX</div>
-          <h2 class="what-h2">
+    <!-- LIVE SNAPSHOT -->
+    <section id="live-section" style="border-top:1px solid var(--border)">
+      <div style="padding:28px var(--pad) 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite"></div>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--dim)">Live — Formula 1 2026</span>
+        </div>
+        <a href="f1.html" style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:1.5px;color:var(--accent);opacity:.6;transition:opacity .15s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">Full Hub →</a>
+      </div>
+      <div id="live-content" style="padding:20px var(--pad)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim);opacity:.4">Loading…</div>
+      </div>
+    </section>
+
+    <!-- SERIES -->
+    <section style="padding:40px var(--pad);border-top:1px solid var(--border)">
+      <div style="margin-bottom:20px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">Series</div>
+        <h2 style="font-family:'Bebas Neue',display;font-size:clamp(32px,5vw,48px);letter-spacing:1px;line-height:.9">Pick Your Racing</h2>
+        <p style="font-size:13px;color:var(--muted);font-weight:300;margin-top:6px">Each series has its own dedicated hub, data and analysis.</p>
+      </div>
+      <div id="series-grid">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim);opacity:.4">Loading…</div>
+      </div>
+    </section>
+
+    <!-- FAVORITES -->
+    <section id="fav-section" style="padding:40px var(--pad);border-top:1px solid var(--border);display:none">
+      <div style="margin-bottom:20px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">Your Favorites</div>
+        <h2 style="font-family:'Bebas Neue',display;font-size:clamp(28px,4vw,40px);letter-spacing:1px">Drivers You Follow</h2>
+      </div>
+      <div id="fav-content"></div>
+    </section>
+
+    <!-- WHAT IS APEX -->
+    <section style="padding:60px var(--pad);border-top:1px solid var(--border)">
+      <div class="what-section-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);opacity:.7;margin-bottom:14px">What is APEX</div>
+          <h2 style="font-family:'Bebas Neue',display;font-size:clamp(36px,4vw,52px);letter-spacing:1px;line-height:.92;margin-bottom:16px">
             More than just<br>
-            <span class="acc">race results.</span>
+            <span style="color:var(--accent)">race results.</span>
           </h2>
-          <p class="what-p">
-            Most motorsport sites give you the finishing order and move on. APEX goes deeper — strategy, tyre data, championship trajectories, driver form, qualifying gaps. The analysis that used to live in paddock notebooks, now accessible to everyone.
+          <p style="font-size:14px;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:14px">
+            Most motorsport sites give you the finishing order and move on. APEX goes deeper — strategy, championship trajectories, driver form, qualifying gaps and interactive tools.
           </p>
-          <p class="what-p">
-            Every tool is interactive. Every chart is explorable. Every race is a story you can pull apart and examine from every angle.
+          <p style="font-size:14px;color:var(--muted);line-height:1.85;font-weight:300">
+            Every chart is explorable. Every tool is interactive. Every race is a story you can pull apart from every angle.
           </p>
-          <div class="what-features">
-            <div class="what-feature reveal delay-1">
-              <div class="wf-icon">🏁</div>
-              <div>
-                <div class="wf-title">Race Breakdowns</div>
-                <div class="wf-desc">Full results, tyre strategies, fastest laps, position changes and driver insights — every race told in full.</div>
-              </div>
-            </div>
-            <div class="what-feature reveal delay-2">
-              <div class="wf-icon">📊</div>
-              <div>
-                <div class="wf-title">APEX Data Lab</div>
-                <div class="wf-desc">Championship simulators, head-to-head tools, heatmaps, DNF calculators, race replays and more. No limits.</div>
-              </div>
-            </div>
-            <div class="what-feature reveal delay-3">
-              <div class="wf-icon">⚡</div>
-              <div>
-                <div class="wf-title">Live Season Tracking</div>
-                <div class="wf-desc">Championship standings, constructor battles, driver form — updated after every session.</div>
-              </div>
-            </div>
-            <div class="what-feature reveal delay-4">
-              <div class="wf-icon">🔗</div>
-              <div>
-                <div class="wf-title">Share Everything</div>
-                <div class="wf-desc">Every race, every analysis tool state, every insight generates a shareable link.</div>
-              </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border:1px solid var(--border);transition:border-color .18s" onmouseover="this.style.borderColor='rgba(39,244,210,.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">
+            <div style="font-size:18px;flex-shrink:0">🏁</div>
+            <div>
+              <div style="font-family:'Bebas Neue',display;font-size:18px;letter-spacing:.5px;margin-bottom:4px">Race Breakdowns</div>
+              <div style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.6">Full results, qualifying, tyre strategy, fastest laps and insights — every race in full.</div>
             </div>
           </div>
-        </div>
-
-        <div class="what-right reveal delay-2">
-          <div class="preview-screen">
-            <div class="preview-bar">
-              <div class="preview-dot" style="background:#27F4D2"></div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim);letter-spacing:1px">F1 2026 · Championship</div>
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border:1px solid var(--border);transition:border-color .18s" onmouseover="this.style.borderColor='rgba(39,244,210,.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">
+            <div style="font-size:18px;flex-shrink:0">📊</div>
+            <div>
+              <div style="font-family:'Bebas Neue',display;font-size:18px;letter-spacing:.5px;margin-bottom:4px">APEX Data Lab</div>
+              <div style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.6">13 tools per series. Heatmaps, simulator, replay, DNF calculator, H2H and more.</div>
             </div>
-            <div class="preview-content">
-              <div class="preview-title">Drivers</div>
-              <div class="preview-rows">
-                <div class="preview-row delay-1">
-                  <div class="pr-pos p1">1</div>
-                  <div class="pr-name" style="color:#27F4D2">Russell</div>
-                  <div class="pr-bar-wrap"><div class="pr-bar" style="width:100%"></div></div>
-                  <div class="pr-pts">51</div>
-                </div>
-                <div class="preview-row delay-2">
-                  <div class="pr-pos">2</div>
-                  <div class="pr-name">Antonelli</div>
-                  <div class="pr-bar-wrap"><div class="pr-bar" style="width:92%"></div></div>
-                  <div class="pr-pts">47</div>
-                </div>
-                <div class="preview-row delay-3">
-                  <div class="pr-pos">3</div>
-                  <div class="pr-name">Leclerc</div>
-                  <div class="pr-bar-wrap"><div class="pr-bar" style="width:67%;background:#E8002D"></div></div>
-                  <div class="pr-pts">34</div>
-                </div>
-                <div class="preview-row delay-4">
-                  <div class="pr-pos">4</div>
-                  <div class="pr-name">Hamilton</div>
-                  <div class="pr-bar-wrap"><div class="pr-bar" style="width:65%;background:#CC0025"></div></div>
-                  <div class="pr-pts">33</div>
-                </div>
-                <div class="preview-row delay-5">
-                  <div class="pr-pos">5</div>
-                  <div class="pr-name">Bearman</div>
-                  <div class="pr-bar-wrap"><div class="pr-bar" style="width:33%;background:#B6BABD"></div></div>
-                  <div class="pr-pts">17</div>
-                </div>
-              </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border:1px solid var(--border);transition:border-color .18s" onmouseover="this.style.borderColor='rgba(39,244,210,.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">
+            <div style="font-size:18px;flex-shrink:0">⭐</div>
+            <div>
+              <div style="font-family:'Bebas Neue',display;font-size:18px;letter-spacing:.5px;margin-bottom:4px">Follow Drivers</div>
+              <div style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.6">Star any driver to track them here. Stats update after every race.</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border:1px solid var(--border);transition:border-color .18s" onmouseover="this.style.borderColor='rgba(39,244,210,.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">
+            <div style="font-size:18px;flex-shrink:0">🔗</div>
+            <div>
+              <div style="font-family:'Bebas Neue',display;font-size:18px;letter-spacing:.5px;margin-bottom:4px">Share Anything</div>
+              <div style="font-size:12px;color:var(--muted);font-weight:300;line-height:1.6">Every race, every tool state generates a shareable deep link.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── SERIES ── -->
-    <section class="series-section">
-      <div class="series-header">
-        <div>
-          <div class="label" style="margin-bottom:10px">Series</div>
-          <h2 class="series-h2">Pick your racing</h2>
-          <p class="series-sub">Each series has its own dedicated hub, data and analysis.</p>
-        </div>
-      </div>
-
-      <div class="series-grid" id="series-grid">
-        <!-- Populated by JS -->
-      </div>
-    </section>
-
-    <!-- ── FAVORITES ── -->
-    <section class="fav-section" id="fav-section">
-      <div class="fav-header">
-        <div class="label" style="margin-bottom:8px">Your Favorites</div>
-        <h2 class="fav-h2">Your Drivers & Teams</h2>
-      </div>
-      <div id="fav-content">
-        <!-- Populated by JS -->
-      </div>
-    </section>
-
-    <!-- ── TOOLS SHOWCASE ── -->
-    <section style="padding:80px var(--pad);border-top:1px solid var(--border)">
-      <div class="reveal" style="margin-bottom:40px">
-        <div class="label" style="margin-bottom:10px">What You Get</div>
-        <h2 style="font-family:'Bebas Neue',display;font-size:clamp(36px,5vw,56px);letter-spacing:1px;line-height:.9;margin-bottom:10px">
-          A full toolkit.<br><span style="color:var(--accent)">Per series.</span>
-        </h2>
-        <p style="font-size:14px;color:var(--muted);font-weight:300;max-width:480px;line-height:1.8">
-          Every series on APEX gets its own dedicated hub and Data Lab — built around that series' format, data and culture.
-        </p>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px">
-
-        <div class="reveal delay-1" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
-          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">HUB</div>
-          <div style="font-size:22px;margin-bottom:12px">🏁</div>
-          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">Series Hub</div>
-          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">Live countdown, championship strip, race feed, standings sidebar and full season schedule — all in one dedicated hub per series.</div>
-        </div>
-
-        <div class="reveal delay-2" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
-          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">LAP</div>
-          <div style="font-size:22px;margin-bottom:12px">📊</div>
-          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">APEX Data Lab</div>
-          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">13 interactive tools per series. Results heatmap, championship trajectory, race replay, simulator, DNF calculator, H2H deep dives and more.</div>
-        </div>
-
-        <div class="reveal delay-3" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
-          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">RCE</div>
-          <div style="font-size:22px;margin-bottom:12px">🔍</div>
-          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">Race Breakdowns</div>
-          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">Full results, qualifying, strategy insights, tyre data, driver of the race and circuit profiles — every event told in full depth.</div>
-        </div>
-
-        <div class="reveal delay-1" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
-          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">DVR</div>
-          <div style="font-size:22px;margin-bottom:12px">👤</div>
-          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">Driver Profiles</div>
-          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">Season stats, round-by-round breakdowns, teammate battles, career records and points trajectories for every competitor.</div>
-        </div>
-
-        <div class="reveal delay-2" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
-          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">CMP</div>
-          <div style="font-size:22px;margin-bottom:12px">⚡</div>
-          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">Compare Tool</div>
-          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">Head-to-head any two competitors. Season stats, career records, points trajectory charts — all shareable via a single link.</div>
-        </div>
-
-        <div class="reveal delay-3" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
-          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">TRK</div>
-          <div style="font-size:22px;margin-bottom:12px">🗺</div>
-          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">Circuit Guide</div>
-          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">Full profiles of every circuit — lap length, DRS zones, strategic notes, legendary corners, historical winners and tier ratings.</div>
-        </div>
-
-      </div>
-
-      <div class="reveal" style="margin-top:28px;padding:20px 24px;border:1px solid rgba(var(--accent-rgb),.15);background:rgba(var(--accent-rgb),.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
-        <div>
-          <div style="font-family:'Bebas Neue',display;font-size:20px;letter-spacing:.5px;margin-bottom:4px">Everything lives inside each series hub.</div>
-          <div style="font-size:12.5px;color:var(--muted);font-weight:300">Pick a series above to access the full toolkit.</div>
-        </div>
-        <a href="f1.html" class="btn primary">Enter F1 Hub →</a>
-      </div>
-    </section>
   </div>
+
 
   <footer class="apex-footer">
     <div class="foot-logo">APEX<span class="dot">.</span>ANALYTICS</div>
@@ -556,13 +461,6 @@
 
   <script src="assets/apex.js?v=77b582a0"></script>
   <script>
-  // Intersection observer for reveal animations
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: .1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Boot landing page
   (async () => {
     try {
       const [config, comp, sched] = await Promise.all([
@@ -570,55 +468,126 @@
         loadJSON('data/competitors-f1-2026.json'),
         loadJSON('data/f1-2026.json'),
       ]);
-      if (!config || !comp) throw new Error('Data load failed');
+      if (!config || !comp) throw new Error('Data failed');
 
-      const series    = config.series;
-      const drivers   = (comp?.competitors||[]).sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0));
+      const drivers   = (comp.competitors||[]).sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0));
       const schedule  = sched?.schedule || [];
       const completed = schedule.filter(r => r.complete);
       const nextRace  = schedule.find(r => !r.complete);
+      const lastRace  = completed[completed.length - 1];
       const leader    = drivers[0];
       const p2        = drivers[1];
-      const gap       = leader && p2 ? (leader.season_2026?.pts||0)-(p2.season_2026?.pts||0) : 0;
 
       // Hero stats
-      const se = id => document.getElementById(id);
-      if (se('stat-rounds'))   se('stat-rounds').textContent   = completed.length;
-      if (se('stat-drivers'))  se('stat-drivers').textContent  = drivers.length;
-      if (se('stat-circuits')) se('stat-circuits').textContent = 21;
+      const ge = id => document.getElementById(id);
+      if (ge('stat-rounds'))   ge('stat-rounds').textContent   = completed.length;
+      if (ge('stat-drivers'))  ge('stat-drivers').textContent  = drivers.length;
+      if (ge('stat-circuits')) ge('stat-circuits').textContent = 21;
 
-      // Series grid — active series only
-      const sgEl = se('series-grid');
+      // Live snapshot
+      const liveEl = ge('live-content');
+      if (liveEl) {
+        const gap = leader && p2 ? (leader.season_2026?.pts||0) - (p2.season_2026?.pts||0) : 0;
+        const maxPts = leader?.season_2026?.pts || 1;
+        const top5 = drivers.slice(0, 5);
+
+        const lastRaceHtml = lastRace ? `
+          <div style="margin-bottom:20px;padding:16px 20px;background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--red)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">
+              Last Race · R${lastRace.round} · ${lastRace.venue}
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+              <div>
+                <div style="font-family:'Bebas Neue',display;font-size:28px;letter-spacing:.5px;color:var(--text)">${lastRace.name}</div>
+                <div style="font-family:'Bebas Neue',display;font-size:20px;color:var(--accent)">${lastRace.race?.winner || '—'} won</div>
+              </div>
+              <a href="race.html?series=f1&round=${lastRace.round}" class="btn ghost btn-sm">Full Analysis →</a>
+            </div>
+          </div>` : '';
+
+        const nextRaceHtml = nextRace ? `
+          <div style="margin-bottom:20px;padding:16px 20px;background:rgba(39,244,210,.04);border:1px solid rgba(39,244,210,.15)">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.7;margin-bottom:8px">
+              Next Race · R${nextRace.round}
+            </div>
+            <div style="font-family:'Bebas Neue',display;font-size:24px;letter-spacing:.5px;margin-bottom:4px">${nextRace.name || nextRace.venue}</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted)">${nextRace.venue} · ${nextRace.date}</div>
+          </div>` : '';
+
+        const standingsHtml = `
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px">
+              Championship · After Round ${completed.length}
+            </div>
+            ${top5.map((d, i) => {
+              const pts = d.season_2026?.pts || 0;
+              const pct = Math.round((pts / maxPts) * 100);
+              return `
+                <a href="competitor.html?series=f1&id=${d.id}" style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.025);text-decoration:none;color:inherit;position:relative;overflow:hidden"
+                   onmouseover="this.style.background='rgba(255,255,255,.014)'" onmouseout="this.style.background=''">
+                  <div style="position:absolute;left:0;top:0;bottom:0;width:${pct}%;background:#${d.color};opacity:.07;pointer-events:none"></div>
+                  <div style="font-family:'Bebas Neue',display;font-size:20px;color:${i===0?'var(--accent)':'var(--dim)'};width:20px;text-align:center;position:relative">${i+1}</div>
+                  <div style="width:3px;height:28px;background:#${d.color};flex-shrink:0;position:relative"></div>
+                  <div style="flex:1;position:relative">
+                    <div style="font-family:'Bebas Neue',display;font-size:17px;letter-spacing:.3px">${d.name}</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--dim)">${d.team_name}</div>
+                  </div>
+                  <div style="font-family:'Bebas Neue',display;font-size:24px;color:${i===0?'var(--accent)':'var(--text)'};position:relative">${pts}</div>
+                </a>`;
+            }).join('')}
+            <a href="standings.html?series=f1" style="display:block;padding:10px 0;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.6;transition:opacity .15s;text-decoration:none;margin-top:6px"
+               onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">Full Standings →</a>
+          </div>`;
+
+        liveEl.innerHTML = `
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+            <div>${lastRaceHtml}${nextRaceHtml}</div>
+            <div>${standingsHtml}</div>
+          </div>`;
+      }
+
+      // Series grid
+      const sgEl = ge('series-grid');
       if (sgEl) {
-        const activeEntries = Object.entries(series).filter(([,s]) => s.active);
-        if (!activeEntries.length) {
-          sgEl.innerHTML = '<div style="grid-column:1/-1;padding:20px;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim)">No active series</div>';
+        const active = Object.entries(config.series).filter(([,s]) => s.active);
+        if (!active.length) {
+          sgEl.innerHTML = '<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim)">No active series</div>';
         } else {
-          sgEl.innerHTML = activeEntries.map(([id, s]) => `
-            <a href="${s.hub_url}" class="series-card active-series" style="--sc:${s.accent}">
-              <div class="series-card-bg">${s.short}</div>
-              <div class="sc-badge"><div class="sc-live-dot"></div>${s.name}</div>
-              <div class="sc-title">${s.short}</div>
-              <div class="sc-desc">${s.description}</div>
-              ${leader ? `
-              <div class="sc-stat-row">
-                <div class="sc-stat">
-                  <div class="sc-stat-v" style="color:${s.accent}">${leader.name.split(' ').pop()}</div>
-                  <div class="sc-stat-l">Leader</div>
+          sgEl.innerHTML = active.map(([id, s]) => `
+            <a href="${s.hub_url}" style="display:grid;grid-template-columns:1fr auto;background:var(--bg3);border:1px solid var(--border);border-left:3px solid ${s.accent};text-decoration:none;color:inherit;transition:border-color .2s,background .2s;position:relative;overflow:hidden"
+               onmouseover="this.style.borderColor='${s.accent}55'" onmouseout="this.style.borderColor='var(--border)'">
+              <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:100px;letter-spacing:-2px;color:rgba(255,255,255,.03);line-height:1;pointer-events:none">${s.short}</div>
+              <div style="padding:24px 28px;position:relative">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+                  <div style="width:6px;height:6px;border-radius:50%;background:${s.accent};animation:pulse 2s ease-in-out infinite"></div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:${s.accent};opacity:.8">${s.name}</div>
                 </div>
-                <div class="sc-stat">
-                  <div class="sc-stat-v">${leader.season_2026?.pts||0}</div>
-                  <div class="sc-stat-l">Points</div>
-                </div>
-                <div class="sc-stat">
-                  <div class="sc-stat-v">+${gap}</div>
-                  <div class="sc-stat-l">Gap to P2</div>
-                </div>
-                <div class="sc-stat">
-                  <div class="sc-stat-v">${completed.length}/${schedule.length}</div>
-                  <div class="sc-stat-l">Rounds</div>
-                </div>
-              </div>` : ''}
+                <div style="font-family:'Bebas Neue',display;font-size:clamp(40px,6vw,64px);letter-spacing:2px;line-height:.9;color:${s.accent};margin-bottom:8px">${s.short}</div>
+                <div style="font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;max-width:480px;margin-bottom:18px">${s.description}</div>
+                ${leader ? `
+                <div style="display:flex;gap:24px;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--border)">
+                  <div>
+                    <div style="font-family:'Bebas Neue',display;font-size:22px;color:${s.accent}">${leader.name.split(' ').pop()}</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Leader</div>
+                  </div>
+                  <div>
+                    <div style="font-family:'Bebas Neue',display;font-size:22px">${leader.season_2026?.pts||0}</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Points</div>
+                  </div>
+                  <div>
+                    <div style="font-family:'Bebas Neue',display;font-size:22px">+${gap}</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Gap to P2</div>
+                  </div>
+                  <div>
+                    <div style="font-family:'Bebas Neue',display;font-size:22px">${completed.length}/${schedule.length}</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Rounds</div>
+                  </div>
+                </div>` : ''}
+              </div>
+              <div style="display:flex;align-items:center;padding:0 20px;font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:${s.accent};border-left:1px solid var(--border);background:rgba(255,255,255,.015);opacity:.5;transition:opacity .2s;min-width:52px;writing-mode:vertical-rl;transform:rotate(180deg)"
+                 onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.5">
+                Enter ${s.short} Hub →
+              </div>
             </a>`).join('');
         }
       }
@@ -626,74 +595,39 @@
       // Favorites
       renderFavs(drivers);
 
-      // Mini heatmap preview in tools section
-      buildHeatmapPreview(drivers, schedule);
-
     } catch(err) {
-      console.error('[APEX] Landing page error:', err);
-      // Page still shows static content — just without dynamic data
+      console.error('[APEX] index.html error:', err);
     }
   })();
 
-  // Favorites
-  function getFavs() {
-    try { return JSON.parse(localStorage.getItem('apex-favorites') || '{"drivers":[],"teams":[]}'); }
-    catch { return { drivers:[], teams:[] }; }
-  }
-  function removeFavDriver(id) {
-    const f = getFavs(); f.drivers = f.drivers.filter(d=>d!==id);
-    localStorage.setItem('apex-favorites', JSON.stringify(f)); location.reload();
-  }
   function renderFavs(allDrivers) {
-    const favs = getFavs();
+    const favKeys = (() => {
+      try { return JSON.parse(localStorage.getItem('apex-favorites')||'{"drivers":[]}').drivers; }
+      catch { return []; }
+    })();
     const section = document.getElementById('fav-section');
     const el = document.getElementById('fav-content');
     if (!section || !el) return;
-    const favDrivers = allDrivers.filter(d => favs.drivers.includes(d.id));
+    const favDrivers = allDrivers.filter(d => favKeys.includes(d.id));
     if (!favDrivers.length) { section.style.display = 'none'; return; }
-    el.innerHTML = '<div class="fav-grid">' + favDrivers.map(d => {
-      const s = d.season_2026;
-      const fins = (s.results_by_round||[]).map(r=>parseInt(r.finish)).filter(n=>!isNaN(n));
-      const avg = fins.length ? (fins.reduce((a,b)=>a+b,0)/fins.length).toFixed(1) : '—';
-      return `<div class="fav-card" style="border-left:3px solid #${d.color}">
-        <button class="fav-remove" onclick="removeFavDriver('${d.id}')">✕</button>
-        <div class="fav-driver-name" style="color:#${d.color}">${d.name}</div>
-        <div class="fav-team">${d.team_name} · #${d.number}</div>
-        <div class="fav-stats">
-          <div><div class="fav-stat-v" style="color:#${d.color}">${s.pts||0}</div><div class="fav-stat-l">Points</div></div>
-          <div><div class="fav-stat-v">${s.wins||0}</div><div class="fav-stat-l">Wins</div></div>
-          <div><div class="fav-stat-v">${avg}</div><div class="fav-stat-l">Avg</div></div>
-          <div><div class="fav-stat-v" style="color:${s.dnfs?'var(--red)':'var(--dim)'}">${s.dnfs||0}</div><div class="fav-stat-l">DNFs</div></div>
-        </div>
-      </div>`;
-    }).join('') + '</div>';
-  }
-
-  // Mini heatmap preview
-  function buildHeatmapPreview(drivers, schedule) {
-    const el = document.getElementById('heatmap-preview');
-    if (!el) return;
-    const completed = schedule.filter(r=>r.complete).slice(0,4);
-    const top8 = drivers.slice(0,8);
-    el.innerHTML = `
-      <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">
-        Results Heatmap Preview — F1 2026
-      </div>
-      ${top8.map(d => {
-        const rmap = {};
-        (d.season_2026?.results_by_round||[]).forEach(r=>rmap[r.round]=r);
-        return `<div class="hmp-row">
-          <div style="width:70px;flex-shrink:0;font-family:'Bebas Neue',display;font-size:13px;padding:0 6px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#${d.color}">
-            ${d.name.split(' ').pop()}
+    section.style.display = 'block';
+    el.innerHTML = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px">' +
+      favDrivers.map(d => {
+        const s = d.season_2026;
+        const fins = (s.results_by_round||[]).map(r=>parseInt(r.finish)).filter(n=>!isNaN(n));
+        const avg = fins.length ? (fins.reduce((a,b)=>a+b,0)/fins.length).toFixed(1) : '—';
+        return `<div style="background:var(--bg3);border:1px solid var(--border);border-left:3px solid #${d.color};padding:16px 18px">
+          <button style="float:right;background:none;border:none;color:var(--dim);cursor:pointer;font-size:11px" onclick="(()=>{const f=JSON.parse(localStorage.getItem('apex-favorites')||'{}');f.drivers=(f.drivers||[]).filter(x=>x!=='${d.id}');localStorage.setItem('apex-favorites',JSON.stringify(f));location.reload()})()">✕</button>
+          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:4px;color:#${d.color}">${d.name}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim);margin-bottom:10px">${d.team_name} · #${d.number}</div>
+          <div style="display:flex;gap:12px">
+            <div><div style="font-family:'Bebas Neue',display;font-size:18px;line-height:1;color:#${d.color}">${s.pts||0}</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)">Pts</div></div>
+            <div><div style="font-family:'Bebas Neue',display;font-size:18px;line-height:1">${s.wins||0}</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)">Wins</div></div>
+            <div><div style="font-family:'Bebas Neue',display;font-size:18px;line-height:1">${avg}</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)">Avg</div></div>
+            <div><div style="font-family:'Bebas Neue',display;font-size:18px;line-height:1;color:${s.dnfs?'var(--red)':'var(--dim)'}">${s.dnfs||0}</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)">DNF</div></div>
           </div>
-          ${completed.map(round=>{
-            const res = rmap[round.round];
-            const fin = res?.finish ?? null;
-            const lbl = fin===null?'·':String(fin).slice(0,3);
-            return `<div class="hmp-cell ${posClass(fin)}" title="${d.name} R${round.round}: ${lbl}">${lbl}</div>`;
-          }).join('')}
         </div>`;
-      }).join('')}`;
+      }).join('') + '</div>';
   }
   </script>
 </body>
