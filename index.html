@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>APEX Analytics — Motorsport Intelligence</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="stylesheet" href="assets/apex.css">
+  <link rel="stylesheet" href="assets/apex.css?v=cfa7fae6">
   <meta name="description" content="Deep race analysis across motorsport. Results, strategy, championship tracking and archives. Updated after every event.">
   <meta property="og:title" content="APEX Analytics — Motorsport Intelligence">
   <meta property="og:image" content="https://apex-analytics.net/assets/og-image.png">
@@ -348,7 +351,7 @@
           <div class="hs-l">Circuits Profiled</div>
         </div>
         <div class="hs-item">
-          <div class="hs-v">&infin;</div>
+          <div class="hs-v" style="font-size:clamp(28px,4vw,48px);letter-spacing:2px">NO<br>LIMIT</div>
           <div class="hs-l">Data Points</div>
         </div>
       </div>
@@ -551,173 +554,130 @@
     <div class="foot-copy">Motorsport Intelligence · apex-analytics.net</div>
   </footer>
 
-  <script src="assets/apex.js"></script>
+  <script src="assets/apex.js?v=57e16148"></script>
   <script>
-  // ── Intersection observer for reveal animations
+  // Intersection observer for reveal animations
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold:.12 });
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: .1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // ── Heatmap preview
+  // Boot landing page
   (async () => {
-    const config = await loadJSON('data/config.json');
-    const comp   = await loadJSON('data/competitors-f1-2026.json');
-    const sched  = await loadJSON('data/f1-2026.json');
-    if (!config || !comp) return;
+    try {
+      const [config, comp, sched] = await Promise.all([
+        loadJSON('data/config.json'),
+        loadJSON('data/competitors-f1-2026.json'),
+        loadJSON('data/f1-2026.json'),
+      ]);
+      if (!config || !comp) throw new Error('Data load failed');
 
-    // Series grid
-    const series = config.series;
-    const sgEl = document.getElementById('series-grid');
-    if (sgEl) {
-      sgEl.innerHTML = Object.entries(series).map(([id, s]) => {
-        if (!s.active) return `
-          <div class="series-card coming" style="--sc:${s.accent}">
-            <div class="series-card-bg">${s.short}</div>
-            <div class="sc-coming">Coming Soon</div>
-            <div class="sc-title" style="color:var(--dim)">${s.short}</div>
-            <div class="sc-desc">${s.description}</div>
-          </div>`;
+      const series    = config.series;
+      const drivers   = (comp?.competitors||[]).sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0));
+      const schedule  = sched?.schedule || [];
+      const completed = schedule.filter(r => r.complete);
+      const nextRace  = schedule.find(r => !r.complete);
+      const leader    = drivers[0];
+      const p2        = drivers[1];
+      const gap       = leader && p2 ? (leader.season_2026?.pts||0)-(p2.season_2026?.pts||0) : 0;
 
-        const drivers  = (comp?.competitors||[]).sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0));
-        const schedule = sched?.schedule||[];
-        const completed= schedule.filter(r=>r.complete);
-        const nextRace = schedule.find(r=>!r.complete);
-        const leader   = drivers[0];
-        const p2       = drivers[1];
-        const gap      = leader&&p2 ? (leader.season_2026?.pts||0)-(p2.season_2026?.pts||0) : 0;
-        const lastRace = completed[completed.length-1];
+      // Hero stats
+      const se = id => document.getElementById(id);
+      if (se('stat-rounds'))   se('stat-rounds').textContent   = completed.length;
+      if (se('stat-drivers'))  se('stat-drivers').textContent  = drivers.length;
+      if (se('stat-circuits')) se('stat-circuits').textContent = 21;
 
-        return `
-          <a href="${s.hub_url}" class="series-card active-series" style="--sc:${s.accent}">
-            <div class="series-card-bg">${s.short}</div>
-            <div class="sc-badge"><div class="sc-live-dot"></div>${s.name}</div>
-            <div class="sc-title">${s.short}</div>
-            <div class="sc-desc">${s.description}</div>
-            ${leader ? `
-            <div class="sc-stat-row">
-              <div class="sc-stat">
-                <div class="sc-stat-v" style="color:${s.accent}">${leader.name.split(' ').pop()}</div>
-                <div class="sc-stat-l">Leader</div>
-              </div>
-              <div class="sc-stat">
-                <div class="sc-stat-v">${leader.season_2026?.pts||0}</div>
-                <div class="sc-stat-l">Points</div>
-              </div>
-              <div class="sc-stat">
-                <div class="sc-stat-v">+${gap}</div>
-                <div class="sc-stat-l">Gap to P2</div>
-              </div>
-              <div class="sc-stat">
-                <div class="sc-stat-v">${completed.length}/${schedule.length}</div>
-                <div class="sc-stat-l">Rounds</div>
-              </div>
-            </div>` : ''}
-          </a>`;
-      }).join('');
+      // Series grid — active series only
+      const sgEl = se('series-grid');
+      if (sgEl) {
+        const activeEntries = Object.entries(series).filter(([,s]) => s.active);
+        if (!activeEntries.length) {
+          sgEl.innerHTML = '<div style="grid-column:1/-1;padding:20px;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim)">No active series</div>';
+        } else {
+          sgEl.innerHTML = activeEntries.map(([id, s]) => `
+            <a href="${s.hub_url}" class="series-card active-series" style="--sc:${s.accent}">
+              <div class="series-card-bg">${s.short}</div>
+              <div class="sc-badge"><div class="sc-live-dot"></div>${s.name}</div>
+              <div class="sc-title">${s.short}</div>
+              <div class="sc-desc">${s.description}</div>
+              ${leader ? `
+              <div class="sc-stat-row">
+                <div class="sc-stat">
+                  <div class="sc-stat-v" style="color:${s.accent}">${leader.name.split(' ').pop()}</div>
+                  <div class="sc-stat-l">Leader</div>
+                </div>
+                <div class="sc-stat">
+                  <div class="sc-stat-v">${leader.season_2026?.pts||0}</div>
+                  <div class="sc-stat-l">Points</div>
+                </div>
+                <div class="sc-stat">
+                  <div class="sc-stat-v">+${gap}</div>
+                  <div class="sc-stat-l">Gap to P2</div>
+                </div>
+                <div class="sc-stat">
+                  <div class="sc-stat-v">${completed.length}/${schedule.length}</div>
+                  <div class="sc-stat-l">Rounds</div>
+                </div>
+              </div>` : ''}
+            </a>`).join('');
+        }
+      }
+
+      // Favorites
+      renderFavs(drivers);
+
+      // Mini heatmap preview in tools section
+      buildHeatmapPreview(drivers, schedule);
+
+    } catch(err) {
+      console.error('[APEX] Landing page error:', err);
+      // Page still shows static content — just without dynamic data
     }
-
-    // Favorites
-    renderFavorites(comp?.competitors||[]);
-
-    // Heatmap preview
-    buildHeatmapPreview(comp?.competitors||[], sched?.schedule||[]);
-
-    // Update hero stats
-    const completed = (sched?.schedule||[]).filter(r=>r.complete);
-    const el = id => document.getElementById(id);
-    if(el('stat-rounds'))   el('stat-rounds').textContent   = completed.length;
-    if(el('stat-drivers'))  el('stat-drivers').textContent  = (comp?.competitors||[]).length;
-    if(el('stat-circuits')) el('stat-circuits').textContent = 21;
   })();
 
-  // ── Favorites
-  function getFavorites() {
-    try { return JSON.parse(localStorage.getItem('apex-favorites')||'{"drivers":[],"teams":[]}'); }
-    catch { return {drivers:[],teams:[]}; }
+  // Favorites
+  function getFavs() {
+    try { return JSON.parse(localStorage.getItem('apex-favorites') || '{"drivers":[],"teams":[]}'); }
+    catch { return { drivers:[], teams:[] }; }
   }
-  function saveFavorites(favs) {
-    localStorage.setItem('apex-favorites', JSON.stringify(favs));
+  function removeFavDriver(id) {
+    const f = getFavs(); f.drivers = f.drivers.filter(d=>d!==id);
+    localStorage.setItem('apex-favorites', JSON.stringify(f)); location.reload();
   }
-  function removeFavoriteDriver(id) {
-    const favs = getFavorites();
-    favs.drivers = favs.drivers.filter(d=>d!==id);
-    saveFavorites(favs);
-    location.reload();
-  }
-
-  function renderFavorites(allDrivers) {
-    const favs = getFavorites();
-    const el = document.getElementById('fav-content');
-    if (!el) return;
-
+  function renderFavs(allDrivers) {
+    const favs = getFavs();
     const section = document.getElementById('fav-section');
-
-    if (!favs.drivers.length && !favs.teams.length) {
-      // Hide section entirely if nothing saved
-      if (section) section.style.display = 'none';
-      return;
-    }
-
+    const el = document.getElementById('fav-content');
+    if (!section || !el) return;
     const favDrivers = allDrivers.filter(d => favs.drivers.includes(d.id));
-    if (!favDrivers.length) { if(section) section.style.display='none'; return; }
-
-    el.innerHTML = `<div class="fav-grid">
-      ${favDrivers.map(d => {
-        const s = d.season_2026;
-        const fins = (s.results_by_round||[]).map(r=>parseInt(r.finish)).filter(n=>!isNaN(n));
-        const avg  = fins.length ? (fins.reduce((a,b)=>a+b,0)/fins.length).toFixed(1) : '—';
-        return `
-          <div class="fav-card" style="border-left:3px solid #${d.color}">
-            <button class="fav-remove" onclick="removeFavoriteDriver('${d.id}')">✕</button>
-            <div class="fav-driver-name" style="color:#${d.color}">${d.name}</div>
-            <div class="fav-team">${d.team_name} · #${d.number}</div>
-            <div class="fav-stats">
-              <div>
-                <div class="fav-stat-v" style="color:#${d.color}">${s.pts||0}</div>
-                <div class="fav-stat-l">Points</div>
-              </div>
-              <div>
-                <div class="fav-stat-v">${s.wins||0}</div>
-                <div class="fav-stat-l">Wins</div>
-              </div>
-              <div>
-                <div class="fav-stat-v">${avg}</div>
-                <div class="fav-stat-l">Avg Finish</div>
-              </div>
-              <div>
-                <div class="fav-stat-v" style="color:${(s.dnfs||0)?'var(--red)':'var(--dim)'}">${s.dnfs||0}</div>
-                <div class="fav-stat-l">DNFs</div>
-              </div>
-            </div>
-          </div>`;
-      }).join('')}
-    </div>`;
+    if (!favDrivers.length) { section.style.display = 'none'; return; }
+    el.innerHTML = '<div class="fav-grid">' + favDrivers.map(d => {
+      const s = d.season_2026;
+      const fins = (s.results_by_round||[]).map(r=>parseInt(r.finish)).filter(n=>!isNaN(n));
+      const avg = fins.length ? (fins.reduce((a,b)=>a+b,0)/fins.length).toFixed(1) : '—';
+      return `<div class="fav-card" style="border-left:3px solid #${d.color}">
+        <button class="fav-remove" onclick="removeFavDriver('${d.id}')">✕</button>
+        <div class="fav-driver-name" style="color:#${d.color}">${d.name}</div>
+        <div class="fav-team">${d.team_name} · #${d.number}</div>
+        <div class="fav-stats">
+          <div><div class="fav-stat-v" style="color:#${d.color}">${s.pts||0}</div><div class="fav-stat-l">Points</div></div>
+          <div><div class="fav-stat-v">${s.wins||0}</div><div class="fav-stat-l">Wins</div></div>
+          <div><div class="fav-stat-v">${avg}</div><div class="fav-stat-l">Avg</div></div>
+          <div><div class="fav-stat-v" style="color:${s.dnfs?'var(--red)':'var(--dim)'}">${s.dnfs||0}</div><div class="fav-stat-l">DNFs</div></div>
+        </div>
+      </div>`;
+    }).join('') + '</div>';
   }
 
-  // ── Mini heatmap preview for lab teaser
+  // Mini heatmap preview
   function buildHeatmapPreview(drivers, schedule) {
     const el = document.getElementById('heatmap-preview');
     if (!el) return;
     const completed = schedule.filter(r=>r.complete).slice(0,4);
-    const top8 = drivers.sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0)).slice(0,8);
-
-    const posClass = fin => {
-      if(!fin && fin!==0) return 'pos-out';
-      const f = String(fin);
-      if(f==='DNF'||f==='dnf') return 'pos-dnf';
-      if(f==='DNS'||f==='dns') return 'pos-dns';
-      const n=parseInt(f);
-      if(n===1) return 'pos-1';
-      if(n===2) return 'pos-2';
-      if(n===3) return 'pos-3';
-      if(n<=10)  return 'pos-pts';
-      return 'pos-out';
-    };
-
+    const top8 = drivers.slice(0,8);
     el.innerHTML = `
       <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">
-        Results Heatmap — F1 2026
+        Results Heatmap Preview — F1 2026
       </div>
       ${top8.map(d => {
         const rmap = {};

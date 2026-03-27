@@ -1336,6 +1336,28 @@ function toggleFavDriver(id, btn) {
     }
   }
 }
+function dlReplayInit() {
+  // Build round selector buttons
+  const el = $('replay-round-btns');
+  if (el) {
+    el.innerHTML = DL.completed.map((r, i) => `
+      <button class="btn sm ${i===0?'active':''}" onclick="dlReplayRound(${r.round},this)">
+        ${(r.venue||r.name||'').slice(0,3).toUpperCase()} R${r.round}
+      </button>`).join('');
+  }
+  if (DL.completed.length) {
+    dlReplaySetRound(DL.completed[DL.completed.length - 1].round);
+  } else {
+    dlReplayDrawEmpty();
+  }
+}
+
+function dlReplayRound(round, btn) {
+  if (btn) dlABtn(btn);
+  dlReplayPause();
+  dlReplaySetRound(round);
+}
+
 function dlReplaySetRound(round) {
   const race = DL.schedule.find(r => r.round === round);
   if (!race) return;
@@ -1701,6 +1723,27 @@ async function initDataLab() {
         </div>
       </div>
 
+      <!-- RACE POSITION TRACKER -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Race Position Tracker</div>
+          <div id="replay-round-btns" style="display:flex;gap:3px;flex-wrap:wrap"></div>
+        </div>
+        <div>
+          <div class="replay-wrap">
+            <canvas class="replay-track" id="replay-canvas"></canvas>
+            <div class="replay-controls">
+              <div class="replay-lap-label">Lap <span id="replay-lap-num" style="color:var(--accent);font-weight:500">1</span></div>
+              <input type="range" id="replay-lap" class="replay-lap-input" min="1" max="56" value="1" oninput="dlReplayUpdate(this.value)">
+              <button class="btn sm" onclick="dlReplayPlay()">▶ Play</button>
+              <button class="btn sm" onclick="dlReplayPause()">⏸ Pause</button>
+              <button class="btn sm" onclick="dlReplayReset()">⏮ Reset</button>
+            </div>
+            <div class="replay-positions" id="replay-positions"></div>
+          </div>
+        </div>
+      </div>
+
       <!-- H2H -->
       <div class="card">
         <div class="card-head">
@@ -1722,6 +1765,7 @@ async function initDataLab() {
   dlSimInit(); dlTM('both',null); dlDNF(); dlConstructors();
   dlQDControls(); dlPGControls();
   dlForm('pts',null); dlLeague('pts',null); dlH2HInit();
+  dlReplayInit();
   if ($('footer-copy')) $('footer-copy').textContent = `APEX Data Lab · F1 ${p.year} · ${completed} rounds`;
 }
 

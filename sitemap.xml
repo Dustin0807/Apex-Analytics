@@ -2,55 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://apex-analytics.net/</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://apex-analytics.net/f1.html</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://apex-analytics.net/standings.html?series=f1</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://apex-analytics.net/circuits.html?series=f1</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://apex-analytics.net/datalab.html?series=f1</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://apex-analytics.net/compare.html?series=f1</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://apex-analytics.net/race.html?series=f1&round=1</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://apex-analytics.net/race.html?series=f1&round=2</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://apex-analytics.net/race.html?series=f1&round=3</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

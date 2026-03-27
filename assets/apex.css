@@ -4,8 +4,6 @@
    Palette: #07070B bg · #27F4D2 teal · #E8002D red · white text
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap');
-
 /* ── TOKENS ─────────────────────────────────────────────── */
 :root {
   --bg:          #07070B;
@@ -58,9 +56,9 @@ img { display:block; max-width:100%; }
 @keyframes trackCar { 0%{offset-distance:0%} 100%{offset-distance:100%} }
 @keyframes barGrow  { from{width:0} to{width:var(--w)} }
 
-.anim-fade-up   { animation:fadeUp .5s var(--ease-out) both; }
-.anim-fade-in   { animation:fadeIn .4s ease both; }
-.anim-slide-in  { animation:slideIn .4s var(--ease-out) both; }
+.anim-fade-up   { animation:fadeUp .45s var(--ease-out) both; }
+.anim-fade-in   { animation:fadeIn .35s ease both; }
+.anim-slide-in  { animation:slideIn .35s var(--ease-out) both; }
 .delay-1 { animation-delay:.08s; }
 .delay-2 { animation-delay:.16s; }
 .delay-3 { animation-delay:.24s; }
@@ -68,8 +66,10 @@ img { display:block; max-width:100%; }
 .delay-5 { animation-delay:.40s; }
 
 /* Intersection observer driven reveals */
-.reveal { opacity:0; transform:translateY(24px); transition:opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+.reveal { opacity:0; transform:translateY(20px); transition:opacity .55s var(--ease-out), transform .55s var(--ease-out); }
 .reveal.visible { opacity:1; transform:none; }
+/* Fallback: show everything if no JS intersection observer fires */
+.no-js .reveal { opacity:1; transform:none; }
 
 /* ── BACKGROUND EFFECTS ──────────────────────────────────── */
 .bg-radial {
@@ -176,6 +176,20 @@ img { display:block; max-width:100%; }
 }
 .btn.ghost:hover { background:rgba(var(--accent-rgb),.06); }
 .btn.sm { padding:6px 14px; font-size:8px; }
+.btn.active, .btn.sm.active {
+  color:var(--accent);
+  border-color:rgba(var(--accent-rgb),.35);
+  background:rgba(var(--accent-rgb),.08);
+}
+.sr-fav {
+  width:20px; height:20px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:12px; cursor:pointer; opacity:.35;
+  transition:opacity .15s, color .15s;
+  background:none; border:none; color:var(--text);
+}
+.sr-fav:hover  { opacity:1; }
+.sr-fav.active { opacity:1; color:var(--gold); }
 .btn.icon { padding:8px; gap:0; }
 
 /* ── CARDS ───────────────────────────────────────────────── */
