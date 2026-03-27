@@ -1560,6 +1560,8 @@ async function initDataLab() {
   DL.drivers.forEach(d => { DL.simBonus[d.id] = 0; });
 
   document.title = `APEX Data Lab — ${series.name} ${p.year}`;
+  const labBadge = $('lab-nav-badge');
+  if (labBadge) labBadge.innerHTML = `<div class="nav-series-dot"></div>${series.name} Data Lab`;
 
   const completed = DL.completed.length;
   const total     = DL.schedule.length;

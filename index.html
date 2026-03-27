@@ -307,7 +307,6 @@
     <div class="nav-links">
       <a class="nav-link active" href="index.html">Home</a>
       <a class="nav-link" href="f1.html">F1 Hub</a>
-      <a class="nav-link" href="datalab.html?series=f1">Data Lab</a>
     </div>
   </nav>
 
@@ -333,7 +332,6 @@
 
       <div class="hero-actions anim-fade-up delay-3">
         <a href="f1.html" class="btn primary">Enter F1 Hub →</a>
-        <a href="datalab.html?series=f1" class="btn ghost">Open Data Lab</a>
       </div>
 
       <div class="hero-stats anim-fade-up delay-4">
@@ -480,36 +478,72 @@
       </div>
     </section>
 
-    <!-- ── DATA LAB TEASER ── -->
-    <section class="lab-teaser">
-      <div class="reveal">
-        <div class="label accent" style="margin-bottom:14px">APEX Data Lab</div>
-        <h2 class="lt-h2">
-          Unlimited<br>
-          <span class="acc">analytics.</span>
+    <!-- ── TOOLS SHOWCASE ── -->
+    <section style="padding:80px var(--pad);border-top:1px solid var(--border)">
+      <div class="reveal" style="margin-bottom:40px">
+        <div class="label" style="margin-bottom:10px">What You Get</div>
+        <h2 style="font-family:'Bebas Neue',display;font-size:clamp(36px,5vw,56px);letter-spacing:1px;line-height:.9;margin-bottom:10px">
+          A full toolkit.<br><span style="color:var(--accent)">Per series.</span>
         </h2>
-        <p class="lt-p">
-          The Data Lab is where the numbers come alive. Championship simulators, race replays with live car positions, head-to-head breakdowns, DNF calculators — everything you'd want to know about a race, a season, or a driver.
+        <p style="font-size:14px;color:var(--muted);font-weight:300;max-width:480px;line-height:1.8">
+          Every series on APEX gets its own dedicated hub and Data Lab — built around that series' format, data and culture.
         </p>
-        <div class="lt-features">
-          <span class="tag accent">Race Replay</span>
-          <span class="tag accent">Championship Sim</span>
-          <span class="tag accent">H2H Analysis</span>
-          <span class="tag accent">DNF Calculator</span>
-          <span class="tag accent">Heatmaps</span>
-          <span class="tag accent">Form Guide</span>
-          <span class="tag accent">Positions Gained</span>
-          <span class="tag accent">Qualifying Delta</span>
-        </div>
-        <a href="datalab.html?series=f1" class="btn primary">Open Data Lab →</a>
       </div>
-      <div class="reveal delay-2">
-        <div class="heatmap-preview" id="heatmap-preview">
-          <!-- Populated by JS -->
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px">
+
+        <div class="reveal delay-1" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
+          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">HUB</div>
+          <div style="font-size:22px;margin-bottom:12px">🏁</div>
+          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">Series Hub</div>
+          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">Live countdown, championship strip, race feed, standings sidebar and full season schedule — all in one dedicated hub per series.</div>
         </div>
+
+        <div class="reveal delay-2" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
+          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">LAP</div>
+          <div style="font-size:22px;margin-bottom:12px">📊</div>
+          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">APEX Data Lab</div>
+          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">13 interactive tools per series. Results heatmap, championship trajectory, race replay, simulator, DNF calculator, H2H deep dives and more.</div>
+        </div>
+
+        <div class="reveal delay-3" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
+          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">RCE</div>
+          <div style="font-size:22px;margin-bottom:12px">🔍</div>
+          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">Race Breakdowns</div>
+          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">Full results, qualifying, strategy insights, tyre data, driver of the race and circuit profiles — every event told in full depth.</div>
+        </div>
+
+        <div class="reveal delay-1" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
+          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">DVR</div>
+          <div style="font-size:22px;margin-bottom:12px">👤</div>
+          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">Driver Profiles</div>
+          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">Season stats, round-by-round breakdowns, teammate battles, career records and points trajectories for every competitor.</div>
+        </div>
+
+        <div class="reveal delay-2" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
+          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">CMP</div>
+          <div style="font-size:22px;margin-bottom:12px">⚡</div>
+          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">Compare Tool</div>
+          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">Head-to-head any two competitors. Season stats, career records, points trajectory charts — all shareable via a single link.</div>
+        </div>
+
+        <div class="reveal delay-3" style="background:var(--bg3);border:1px solid var(--border);padding:24px;position:relative;overflow:hidden">
+          <div style="position:absolute;right:-10px;bottom:-12px;font-family:'Bebas Neue',display;font-size:80px;color:rgba(255,255,255,.025);line-height:1;pointer-events:none">TRK</div>
+          <div style="font-size:22px;margin-bottom:12px">🗺</div>
+          <div style="font-family:'Bebas Neue',display;font-size:22px;letter-spacing:.5px;margin-bottom:8px">Circuit Guide</div>
+          <div style="font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300">Full profiles of every circuit — lap length, DRS zones, strategic notes, legendary corners, historical winners and tier ratings.</div>
+        </div>
+
+      </div>
+
+      <div class="reveal" style="margin-top:28px;padding:20px 24px;border:1px solid rgba(var(--accent-rgb),.15);background:rgba(var(--accent-rgb),.04);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px">
+        <div>
+          <div style="font-family:'Bebas Neue',display;font-size:20px;letter-spacing:.5px;margin-bottom:4px">Everything lives inside each series hub.</div>
+          <div style="font-size:12.5px;color:var(--muted);font-weight:300">Pick a series above to access the full toolkit.</div>
+        </div>
+        <a href="f1.html" class="btn primary">Enter F1 Hub →</a>
       </div>
     </section>
-
   </div>
 
   <footer class="apex-footer">
