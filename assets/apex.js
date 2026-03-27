@@ -1526,3 +1526,591 @@ function dlReplayDraw(lap) {
   }
 }
 
+
+/* ══════════════════════════════════════════════════════════
+   APEX DATA LAB — Full renderer
+══════════════════════════════════════════════════════════ */
+
+const DL = {
+  drivers:[], schedule:[], completed:[],
+  series:'f1', year:2026,
+  charts:{}, simBonus:{},
+};
+
+async function initDataLab() {
+  const p = params();
+  const [config, comp, sched] = await Promise.all([
+    loadJSON('data/config.json'),
+    loadJSON(`data/competitors-${p.series}-${p.year}.json`),
+    loadJSON(`data/${p.series}-${p.year}.json`),
+  ]);
+  if (!config || !comp) {
+    const root = $('lab-root');
+    if (root) root.innerHTML = '<div style="padding:60px var(--pad);text-align:center;font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--dim);letter-spacing:2px;text-transform:uppercase">Failed to load data. Please refresh.</div>';
+    return;
+  }
+
+  const series = config.series[p.series];
+  setAccent(series.accent);
+  DL.drivers   = comp.competitors;
+  DL.schedule  = sched?.schedule || [];
+  DL.completed = DL.schedule.filter(r => r.complete);
+  DL.series    = p.series;
+  DL.year      = p.year;
+  DL.drivers.forEach(d => { DL.simBonus[d.id] = 0; });
+
+  document.title = `APEX Data Lab — ${series.name} ${p.year}`;
+
+  const completed = DL.completed.length;
+  const total     = DL.schedule.length;
+
+  $('lab-root').innerHTML = `
+    <div style="padding:40px var(--pad) 28px;border-bottom:1px solid var(--border)">
+      <div class="label accent" style="margin-bottom:8px">F1 ${p.year} · ${completed} of ${total} Rounds</div>
+      <div style="font-family:'Bebas Neue',display;font-size:clamp(36px,5vw,60px);letter-spacing:3px;line-height:.9">
+        APEX <span style="color:var(--accent)">Data Lab</span>
+      </div>
+      <div style="font-size:13px;color:var(--muted);font-weight:300;margin-top:6px">Every analytical tool. No limits. All interactive.</div>
+    </div>
+
+    <div style="padding:var(--pad);display:flex;flex-direction:column;gap:2px">
+
+      <!-- STAT CHIPS -->
+      <div class="card">
+        <div class="card-head"><div class="card-title">Season at a Glance · After ${completed} Rounds</div></div>
+        <div class="card-body"><div id="dl-chips" style="display:flex;flex-wrap:wrap;gap:2px"></div></div>
+      </div>
+
+      <!-- HEATMAP -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Results Heatmap — All Drivers × All Rounds</div>
+          <div style="display:flex;gap:3px">
+            <button class="btn sm active" id="hm-pts" onclick="dlHM('pts',this)">Points</button>
+            <button class="btn sm" id="hm-name" onclick="dlHM('name',this)">Name</button>
+            <button class="btn sm" id="hm-avg" onclick="dlHM('avg',this)">Avg Pos</button>
+          </div>
+        </div>
+        <div style="overflow-x:auto" id="dl-hm"></div>
+      </div>
+
+      <!-- TRAJECTORY + GAP -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Championship Trajectory</div>
+            <div id="traj-btns" style="display:flex;gap:3px;flex-wrap:wrap"></div>
+          </div>
+          <div class="card-body"><canvas id="chart-traj" height="140"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><div class="card-title">Gap to Leader</div></div>
+          <div class="card-body" id="dl-gap"></div>
+        </div>
+      </div>
+
+      <!-- SIMULATOR -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Championship Simulator — Next Race</div>
+          <button class="btn sm" onclick="dlSimReset()">Reset</button>
+        </div>
+        <div class="card-body">
+          <p style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim);margin-bottom:14px;letter-spacing:.5px">Drag sliders to assign points. Standings update live.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+            <div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)">Assign Points</div>
+              <div id="sim-sliders"></div>
+            </div>
+            <div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)">Projected Standings</div>
+              <div id="sim-results"></div>
+            </div>
+          </div>
+          <canvas id="chart-sim" height="60" style="margin-top:16px"></canvas>
+        </div>
+      </div>
+
+      <!-- TEAMMATE MATRIX -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Team-mate Battle Matrix</div>
+          <div style="display:flex;gap:3px">
+            <button class="btn sm active" onclick="dlTM('both',this)">Both</button>
+            <button class="btn sm" onclick="dlTM('quali',this)">Qualifying</button>
+            <button class="btn sm" onclick="dlTM('race',this)">Race</button>
+          </div>
+        </div>
+        <div class="card-body"><div id="dl-tm" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px"></div></div>
+      </div>
+
+      <!-- DNF + CONSTRUCTORS -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+        <div class="card">
+          <div class="card-head"><div class="card-title">DNF Impact Calculator</div></div>
+          <div style="overflow-x:auto"><table id="dl-dnf" style="width:100%;border-collapse:collapse"></table></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><div class="card-title">Constructor Breakdown</div></div>
+          <div class="card-body"><canvas id="chart-con" height="200"></canvas></div>
+        </div>
+      </div>
+
+      <!-- QUALI + POSITIONS GAINED -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Qualifying Grid Order</div>
+            <div id="qd-btns" style="display:flex;gap:3px;flex-wrap:wrap"></div>
+          </div>
+          <div class="card-body" id="dl-qd"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Positions Gained / Lost</div>
+            <div id="pg-btns" style="display:flex;gap:3px;flex-wrap:wrap"></div>
+          </div>
+          <div class="card-body"><canvas id="chart-pg" height="200"></canvas></div>
+        </div>
+      </div>
+
+      <!-- FORM GUIDE + LEAGUE -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px">
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">Form Guide</div>
+            <div style="display:flex;gap:3px">
+              <button class="btn sm active" onclick="dlForm('pts',this)">Points</button>
+              <button class="btn sm" onclick="dlForm('avg',this)">Avg Finish</button>
+            </div>
+          </div>
+          <div class="card-body" id="dl-form"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <div class="card-title">League Table</div>
+            <div style="display:flex;gap:3px">
+              <button class="btn sm active" onclick="dlLeague('pts',this)">Pts</button>
+              <button class="btn sm" onclick="dlLeague('wins',this)">Wins</button>
+              <button class="btn sm" onclick="dlLeague('dnf',this)">DNFs</button>
+            </div>
+          </div>
+          <div id="dl-league"></div>
+        </div>
+      </div>
+
+      <!-- H2H -->
+      <div class="card">
+        <div class="card-head">
+          <div class="card-title">Head-to-Head Deep Dive</div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <select id="h2h-a" onchange="dlH2H()" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:5px 10px;font-family:'JetBrains Mono',monospace;font-size:8px"></select>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim)">vs</span>
+            <select id="h2h-b" onchange="dlH2H()" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:5px 10px;font-family:'JetBrains Mono',monospace;font-size:8px"></select>
+            <button class="share-btn" onclick="shareURL({series:'${p.series}',tool:'h2h',a:document.getElementById('h2h-a')?.value,b:document.getElementById('h2h-b')?.value})">🔗 Share</button>
+          </div>
+        </div>
+        <div class="card-body" id="dl-h2h"></div>
+      </div>
+
+    </div>`;
+
+  // Boot all tools
+  dlChips(); dlHM('pts',null); dlTrajectory(); dlGap();
+  dlSimInit(); dlTM('both',null); dlDNF(); dlConstructors();
+  dlQDControls(); dlPGControls();
+  dlForm('pts',null); dlLeague('pts',null); dlH2HInit();
+  if ($('footer-copy')) $('footer-copy').textContent = `APEX Data Lab · F1 ${p.year} · ${completed} rounds`;
+}
+
+/* ── shared helpers ── */
+function dlABtn(btn) {
+  btn.closest('[style*="display:flex"]')?.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function dlDestroy(id) { if(DL.charts[id]){DL.charts[id].destroy();delete DL.charts[id];} }
+const DLC = {
+  x:{ grid:{color:'rgba(255,255,255,.04)'}, ticks:{color:'rgba(237,234,246,.35)',font:{family:'JetBrains Mono',size:9}} },
+  y:{ grid:{color:'rgba(255,255,255,.04)'}, ticks:{color:'rgba(237,234,246,.35)',font:{family:'JetBrains Mono',size:9}}, beginAtZero:true },
+};
+
+/* ── Stat chips ── */
+function dlChips() {
+  const sorted = [...DL.drivers].sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0));
+  const leader=sorted[0], p2=sorted[1];
+  const gap=(leader?.season_2026?.pts||0)-(p2?.season_2026?.pts||0);
+  const conMap={};
+  DL.drivers.forEach(d=>{conMap[d.team]=(conMap[d.team]||0)+(d.season_2026?.pts||0);});
+  const conLeader=Object.entries(conMap).sort((a,b)=>b[1]-a[1])[0];
+  const chips=[
+    {v:leader?.season_2026?.pts||0, l:`${leader?.name.split(' ').pop()||'—'} leads`},
+    {v:'+'+gap, l:'Gap to P2'},
+    {v:DL.completed.length, l:'Rounds complete'},
+    {v:DL.drivers.filter(d=>d.season_2026?.wins>0).length, l:'Different winners'},
+    {v:DL.drivers.reduce((s,d)=>s+(d.season_2026?.dnfs||0),0), l:'Total DNF/DNS'},
+    {v:conLeader?.[0]||'—', l:'Constructor leader'},
+    {v:conLeader?.[1]||0, l:'Constructor pts'},
+    {v:DL.drivers.filter(d=>!(d.season_2026?.pts||0)).length, l:'Scoreless drivers'},
+  ];
+  const el=$('dl-chips');
+  if(el) el.innerHTML=chips.map(c=>`
+    <div style="padding:10px 16px;background:var(--bg3);border:1px solid var(--border)">
+      <div style="font-family:'Bebas Neue',display;font-size:26px;line-height:1;color:var(--accent)">${c.v}</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);margin-top:3px">${c.l}</div>
+    </div>`).join('');
+}
+
+/* ── Heatmap ── */
+function dlHM(sort, btn) {
+  if(btn) dlABtn(btn);
+  const drivers=[...DL.drivers];
+  if(sort==='pts')  drivers.sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0));
+  if(sort==='name') drivers.sort((a,b)=>a.name.localeCompare(b.name));
+  if(sort==='avg')  drivers.sort((a,b)=>{
+    const avg=d=>{const f=(d.season_2026?.results_by_round||[]).map(r=>parseInt(r.finish)).filter(n=>!isNaN(n));return f.length?f.reduce((s,v)=>s+v,0)/f.length:99;};
+    return avg(a)-avg(b);
+  });
+  const rounds=DL.schedule;
+  let html=`<table style="border-collapse:collapse;min-width:100%"><thead><tr>
+    <th style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);padding:5px 10px;border:1px solid rgba(255,255,255,.04);text-align:left;min-width:110px">Driver</th>
+    ${rounds.map(r=>`<th style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);padding:5px 7px;border:1px solid rgba(255,255,255,.04);text-align:center;white-space:nowrap" title="${r.venue||r.name}">${(r.venue||r.name||'').slice(0,3).toUpperCase()}</th>`).join('')}
+    <th style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--dim);padding:5px 10px;border:1px solid rgba(255,255,255,.04);text-align:right">Pts</th>
+    <th style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--dim);padding:5px 10px;border:1px solid rgba(255,255,255,.04);text-align:right">W</th>
+    <th style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--dim);padding:5px 10px;border:1px solid rgba(255,255,255,.04);text-align:right">DNF</th>
+  </tr></thead><tbody>`;
+  drivers.forEach(d=>{
+    const res=d.season_2026?.results_by_round||[];
+    const rmap={}; res.forEach(r=>rmap[r.round]=r);
+    html+=`<tr>
+      <td style="padding:4px 10px;border:1px solid rgba(255,255,255,.025);border-left:3px solid #${d.color};vertical-align:middle">
+        <div style="font-family:'Bebas Neue',display;font-size:13px">${d.name}</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:6.5px;color:var(--dim)">${d.team_name}</div>
+      </td>
+      ${rounds.map(round=>{
+        const r=rmap[round.round];
+        const fin=r?r.finish:null;
+        return `<td class="${posClass(fin)}" style="width:36px;height:34px;text-align:center;vertical-align:middle;font-family:'Bebas Neue',display;font-size:14px;border:1px solid rgba(255,255,255,.025);cursor:pointer" title="${d.name} R${round.round}: ${posLabel(fin)} (+${r?.pts||0}pts)">${posLabel(fin)}</td>`;
+      }).join('')}
+      <td style="padding:4px 10px;text-align:right;font-family:'Bebas Neue',display;font-size:16px;border:1px solid rgba(255,255,255,.025);color:${d.season_2026?.pts>0?'#'+d.color:'var(--dim)'}">${d.season_2026?.pts||0}</td>
+      <td style="padding:4px 10px;text-align:right;font-family:'Bebas Neue',display;font-size:16px;border:1px solid rgba(255,255,255,.025);color:${d.season_2026?.wins?'#FFD700':'var(--dim)'}">${d.season_2026?.wins||'—'}</td>
+      <td style="padding:4px 10px;text-align:right;font-family:'Bebas Neue',display;font-size:16px;border:1px solid rgba(255,255,255,.025);color:${d.season_2026?.dnfs?'var(--red)':'var(--dim)'}">${d.season_2026?.dnfs||'—'}</td>
+    </tr>`;
+  });
+  html+='</tbody></table>';
+  const el=$('dl-hm'); if(el) el.innerHTML=html;
+}
+
+/* ── Trajectory ── */
+function dlTrajectory() {
+  const top8=[...DL.drivers].sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0)).slice(0,8);
+  const labels=DL.completed.map(r=>(r.venue||r.name||'').slice(0,3).toUpperCase());
+  if(!labels.length) labels.push('—');
+  const el=$('traj-btns');
+  if(el) el.innerHTML=top8.map(d=>`<button class="btn sm active" data-id="${d.id}" onclick="dlTrajToggle('${d.id}',this)" style="border-color:#${d.color}55;color:#${d.color}">${d.name.split(' ').pop()}</button>`).join('');
+  const datasets=top8.map(d=>{
+    let cum=0;
+    return{label:d.name,data:DL.completed.map(r=>{const res=(d.season_2026?.results_by_round||[]).find(x=>x.round===r.round);cum+=res?.pts||0;return cum;}),borderColor:'#'+d.color,backgroundColor:'#'+d.color+'18',borderWidth:2,pointRadius:4,fill:false,tension:.3};
+  });
+  dlDestroy('traj');
+  const ctx=$('chart-traj'); if(!ctx) return;
+  DL.charts.traj=new Chart(ctx,{type:'line',data:{labels,datasets},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:DLC.x,y:DLC.y}}});
+}
+function dlTrajToggle(id,btn) {
+  btn.classList.toggle('active');
+  const ch=DL.charts.traj; if(!ch) return;
+  const d=DL.drivers.find(x=>x.id===id);
+  const ds=ch.data.datasets.find(x=>x.label===d?.name);
+  if(ds){ds.hidden=!btn.classList.contains('active');ch.update();}
+}
+
+/* ── Gap ── */
+function dlGap() {
+  const sorted=[...DL.drivers].sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0)).slice(0,10);
+  const max=sorted[0]?.season_2026?.pts||1;
+  const el=$('dl-gap'); if(!el) return;
+  el.innerHTML=sorted.map((d,i)=>{
+    const pts=d.season_2026?.pts||0;
+    return`<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.025)">
+      <div style="font-family:'Bebas Neue',display;font-size:17px;color:${i===0?'var(--accent)':'var(--dim)'};width:18px;text-align:center">${i+1}</div>
+      <div style="font-family:'Bebas Neue',display;font-size:15px;width:82px;flex-shrink:0">${d.name.split(' ').pop()}</div>
+      <div style="flex:1;height:5px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden">
+        <div style="height:100%;width:${Math.round(pts/max*100)}%;background:#${d.color};border-radius:2px;transition:width .7s"></div>
+      </div>
+      <div style="font-family:'Bebas Neue',display;font-size:19px;color:${i===0?'var(--accent)':'var(--text)'};width:26px;text-align:right">${pts}</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--dim);width:32px;text-align:right">${max-pts>0?'−'+(max-pts):'Ldr'}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ── Simulator ── */
+function dlSimInit() {
+  const top10=[...DL.drivers].sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0)).slice(0,10);
+  const el=$('sim-sliders'); if(!el) return;
+  el.innerHTML=top10.map(d=>`
+    <div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.025)">
+      <div style="width:7px;height:7px;border-radius:50%;background:#${d.color};flex-shrink:0"></div>
+      <div style="font-family:'Bebas Neue',display;font-size:15px;flex:1;min-width:70px">${d.name.split(' ').pop()}</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--dim);width:28px;text-align:right">${d.season_2026?.pts||0}</div>
+      <input type="range" min="0" max="25" value="0" id="simr-${d.id}" oninput="dlSimUpdate('${d.id}',this.value)" style="flex:1;accent-color:var(--accent);max-width:130px">
+      <div style="font-family:'Bebas Neue',display;font-size:17px;width:32px;text-align:right;color:#${d.color}" id="simv-${d.id}">+0</div>
+    </div>`).join('');
+  dlSimResults();
+}
+function dlSimUpdate(id,val) {
+  DL.simBonus[id]=parseInt(val);
+  const el=$(`simv-${id}`); if(el) el.textContent='+'+val;
+  dlSimResults();
+}
+function dlSimReset() {
+  DL.drivers.forEach(d=>{DL.simBonus[d.id]=0;});
+  document.querySelectorAll('[id^="simr-"]').forEach(s=>{s.value=0;});
+  document.querySelectorAll('[id^="simv-"]').forEach(e=>{e.textContent='+0';});
+  dlSimResults();
+}
+function dlSimResults() {
+  const proj=DL.drivers.map(d=>({...d,pp:(d.season_2026?.pts||0)+(DL.simBonus[d.id]||0)})).sort((a,b)=>b.pp-a.pp);
+  const el=$('sim-results'); if(!el) return;
+  el.innerHTML=proj.slice(0,8).map((d,i)=>{
+    const delta=DL.simBonus[d.id]||0;
+    const dc=delta>0?'var(--green)':delta<0?'var(--red)':'var(--dim)';
+    return`<div style="display:flex;align-items:center;gap:7px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.025)">
+      <div style="font-family:'Bebas Neue',display;font-size:18px;color:${i===0?'var(--accent)':'var(--dim)'};width:20px;text-align:center">${i+1}</div>
+      <div style="width:6px;height:6px;border-radius:50%;background:#${d.color};flex-shrink:0"></div>
+      <div style="font-family:'Bebas Neue',display;font-size:15px;flex:1">${d.name.split(' ').pop()}</div>
+      <div style="font-family:'Bebas Neue',display;font-size:20px;color:${i===0?'var(--accent)':'var(--text)'}">${d.pp}</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:${dc};width:32px;text-align:right">${delta>0?'+'+delta:delta===0?'—':delta}</div>
+    </div>`;
+  }).join('');
+  dlDestroy('sim');
+  const ctx=$('chart-sim'); if(!ctx) return;
+  const top8=proj.slice(0,8);
+  DL.charts.sim=new Chart(ctx,{type:'bar',data:{labels:top8.map(d=>d.name.split(' ').pop()),datasets:[{label:'Current',data:top8.map(d=>d.season_2026?.pts||0),backgroundColor:top8.map(d=>'#'+d.color+'55'),borderColor:top8.map(d=>'#'+d.color),borderWidth:1},{label:'Added',data:top8.map(d=>DL.simBonus[d.id]||0),backgroundColor:top8.map(d=>'#'+d.color+'BB'),borderColor:top8.map(d=>'#'+d.color),borderWidth:1}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{...DLC.x,stacked:true},y:{...DLC.y,stacked:true}}}});
+}
+
+/* ── Teammates ── */
+function dlTM(mode,btn) {
+  if(btn) dlABtn(btn);
+  const teamMap={};
+  DL.drivers.forEach(d=>{if(!teamMap[d.team])teamMap[d.team]=[];teamMap[d.team].push(d);});
+  const el=$('dl-tm'); if(!el) return;
+  el.innerHTML=Object.entries(teamMap).filter(([,t])=>t.length>=2).map(([name,team])=>{
+    const dA=team[0],dB=team[1];
+    let qA=0,qB=0,rA=0,rB=0;
+    DL.completed.forEach(round=>{
+      const resA=(dA.season_2026?.results_by_round||[]).find(r=>r.round===round.round);
+      const resB=(dB.season_2026?.results_by_round||[]).find(r=>r.round===round.round);
+      if(resA?.grid&&resB?.grid){parseInt(resA.grid)<parseInt(resB.grid)?qA++:qB++;}
+      const fA=parseInt(resA?.finish),fB=parseInt(resB?.finish);
+      if(!isNaN(fA)&&!isNaN(fB)){fA<fB?rA++:rB++;}
+    });
+    const qT=Math.max(qA+qB,1),rT=Math.max(rA+rB,1);
+    const showQ=mode!=='race',showR=mode!=='quali';
+    return`<div style="background:var(--bg3);border:1px solid var(--border);padding:14px 16px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:#${dA.color};margin-bottom:8px">${dA.team_name}</div>
+      <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:6px;margin-bottom:10px">
+        <div style="font-family:'Bebas Neue',display;font-size:17px;color:#${dA.color}">${dA.name.split(' ').pop()}</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim)">vs</div>
+        <div style="font-family:'Bebas Neue',display;font-size:17px;color:#${dB.color};text-align:right">${dB.name.split(' ').pop()}</div>
+      </div>
+      ${showQ?`<div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);display:flex;justify-content:space-between;margin-bottom:3px"><span>QUALIFYING</span><span>${qA}–${qB}</span></div><div style="height:5px;display:flex;background:var(--bg2);border-radius:2px;overflow:hidden;margin-bottom:8px"><div style="width:${(qA/qT)*100}%;background:#${dA.color};opacity:.7"></div><div style="width:${(qB/qT)*100}%;background:#${dB.color};opacity:.7;margin-left:auto"></div></div>`:''}
+      ${showR?`<div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);display:flex;justify-content:space-between;margin-bottom:3px"><span>RACE</span><span>${rA}–${rB}</span></div><div style="height:5px;display:flex;background:var(--bg2);border-radius:2px;overflow:hidden;margin-bottom:8px"><div style="width:${(rA/rT)*100}%;background:#${dA.color};opacity:.7"></div><div style="width:${(rB/rT)*100}%;background:#${dB.color};opacity:.7;margin-left:auto"></div></div>`:''}
+      <div style="display:flex;justify-content:space-between;font-family:'Bebas Neue',display;font-size:20px;margin-top:6px">
+        <span style="color:#${dA.color}">${dA.season_2026?.pts||0}</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim)">pts</span>
+        <span style="color:#${dB.color}">${dB.season_2026?.pts||0}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ── DNF Calculator ── */
+function dlDNF() {
+  const el=$('dl-dnf'); if(!el) return;
+  const affected=DL.drivers.filter(d=>d.season_2026?.dnfs>0).sort((a,b)=>b.season_2026.dnfs-a.season_2026.dnfs);
+  const pot={DNF:4,DNS:2};
+  el.innerHTML=`<thead><tr>${['Driver','Actual','Bonus','Potential','Incidents'].map(h=>`<th style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);padding:8px 14px;text-align:left;border-bottom:1px solid var(--border)">${h}</th>`).join('')}</tr></thead>
+  <tbody>${affected.map(d=>{
+    const res=d.season_2026?.results_by_round||[];
+    const bonus=res.reduce((s,r)=>{const f=String(r.finish).toUpperCase();return f==='DNF'?s+pot.DNF:f==='DNS'?s+pot.DNS:s;},0);
+    const incidents=res.filter(r=>['DNF','DNS'].includes(String(r.finish).toUpperCase())).map(r=>`R${r.round}:${r.finish}`).join(', ');
+    return`<tr onmouseover="this.style.background='rgba(255,255,255,.014)'" onmouseout="this.style.background=''">
+      <td style="padding:9px 14px;border-bottom:1px solid rgba(255,255,255,.025)"><div style="font-family:'Bebas Neue',display;font-size:17px;color:#${d.color}">${d.name}</div><div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--dim)">${d.team_name}</div></td>
+      <td style="padding:9px 14px;font-family:'Bebas Neue',display;font-size:20px;border-bottom:1px solid rgba(255,255,255,.025)">${d.season_2026?.pts||0}</td>
+      <td style="padding:9px 14px;font-family:'Bebas Neue',display;font-size:20px;color:var(--green);border-bottom:1px solid rgba(255,255,255,.025)">+${bonus}</td>
+      <td style="padding:9px 14px;font-family:'Bebas Neue',display;font-size:20px;color:var(--green);border-bottom:1px solid rgba(255,255,255,.025)">${(d.season_2026?.pts||0)+bonus}</td>
+      <td style="padding:9px 14px;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--red);border-bottom:1px solid rgba(255,255,255,.025)">${incidents}</td>
+    </tr>`;
+  }).join('')}</tbody>
+  <tfoot><tr><td colspan="5" style="padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--dim);font-style:italic">DNF = P8 (4pts) · DNS = P15 (2pts) · Conservative estimate</td></tr></tfoot>`;
+}
+
+/* ── Constructors ── */
+function dlConstructors() {
+  const teamMap={};
+  DL.drivers.forEach(d=>{if(!teamMap[d.team])teamMap[d.team]={name:d.team_name||d.team,drivers:[],color:'#'+d.color};teamMap[d.team].drivers.push(d);});
+  const teams=Object.values(teamMap).map(t=>({...t,total:t.drivers.reduce((s,d)=>s+(d.season_2026?.pts||0),0)})).sort((a,b)=>b.total-a.total).slice(0,8);
+  dlDestroy('con');
+  const ctx=$('chart-con'); if(!ctx) return;
+  DL.charts.con=new Chart(ctx,{type:'bar',data:{labels:teams.map(t=>t.name),datasets:[
+    {label:'D1',data:teams.map(t=>t.drivers[0]?.season_2026?.pts||0),backgroundColor:teams.map(t=>t.drivers[0]?'#'+t.drivers[0].color+'CC':t.color),borderColor:teams.map(t=>t.drivers[0]?'#'+t.drivers[0].color:t.color),borderWidth:1},
+    {label:'D2',data:teams.map(t=>t.drivers[1]?.season_2026?.pts||0),backgroundColor:teams.map(t=>t.drivers[1]?'#'+t.drivers[1].color+'66':t.color),borderColor:teams.map(t=>t.drivers[1]?'#'+t.drivers[1].color:t.color),borderWidth:1},
+  ]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{...DLC.x,stacked:true},y:{...DLC.y,stacked:true}}}});
+}
+
+/* ── Qualifying delta ── */
+let dlQDRound=null;
+function dlQDControls() {
+  const el=$('qd-btns'); if(!el) return;
+  el.innerHTML=DL.completed.map((r,i)=>`<button class="btn sm ${i===0?'active':''}" onclick="dlQD(${r.round},this)">${(r.venue||r.name||'').slice(0,3).toUpperCase()}</button>`).join('');
+  if(DL.completed.length){dlQDRound=DL.completed[0].round;dlQDRender();}
+}
+function dlQD(round,btn){dlQDRound=round;if(btn)dlABtn(btn);dlQDRender();}
+function dlQDRender(){
+  const el=$('dl-qd'); if(!el) return;
+  const res=DL.drivers.map(d=>({d,res:(d.season_2026?.results_by_round||[]).find(r=>r.round===dlQDRound)})).filter(({res})=>res&&res.grid!=null&&!isNaN(parseInt(res.grid))).sort((a,b)=>a.res.grid-b.res.grid);
+  if(!res.length){el.innerHTML='<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--dim)">No qualifying data</div>';return;}
+  const maxG=Math.max(...res.map(({res})=>parseInt(res.grid)),1)-1||1;
+  el.innerHTML=res.map(({d,res:r},i)=>{const g=parseInt(r.grid)-1,pct=Math.max((g/maxG)*100,2);return`<div style="display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.025)"><div style="font-family:'Bebas Neue',display;font-size:17px;color:var(--dim);width:18px;text-align:center">${r.grid}</div><div style="font-family:'Bebas Neue',display;font-size:14px;width:82px;flex-shrink:0;color:${i<3?'#'+d.color:'var(--text)'}">${d.name.split(' ').pop()}</div><div style="flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden"><div style="height:100%;width:${pct}%;background:#${d.color};opacity:${Math.max(.85-i*.04,.3)};transition:width .5s"></div></div><div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:${g===0?'var(--accent)':'var(--muted)'};width:46px;text-align:right">${g===0?'POLE':'+'+g}</div></div>`;}).join('');
+}
+
+/* ── Positions gained ── */
+let dlPGMode='all';
+function dlPGControls(){
+  const el=$('pg-btns'); if(!el) return;
+  el.innerHTML=`<button class="btn sm active" onclick="dlPG('all',this)">Season</button>${DL.completed.map(r=>`<button class="btn sm" onclick="dlPG(${r.round},this)">R${r.round}</button>`).join('')}`;
+  dlPG('all',null);
+}
+function dlPG(mode,btn){
+  dlPGMode=mode; if(btn)dlABtn(btn);
+  const rounds=mode==='all'?DL.completed:DL.completed.filter(r=>r.round===mode);
+  const data=DL.drivers.map(d=>{
+    let g=0;rounds.forEach(round=>{const res=(d.season_2026?.results_by_round||[]).find(r=>r.round===round.round);if(res?.grid&&typeof res.finish==='number')g+=parseInt(res.grid)-res.finish;});
+    return{d,g};
+  }).filter(x=>x.g!==0).sort((a,b)=>b.g-a.g);
+  dlDestroy('pg');
+  const ctx=$('chart-pg'); if(!ctx||!data.length) return;
+  DL.charts.pg=new Chart(ctx,{type:'bar',data:{labels:data.map(x=>x.d.name.split(' ').pop()),datasets:[{data:data.map(x=>x.g),backgroundColor:data.map(x=>x.g>0?'#00D47C88':'#E8002D88'),borderColor:data.map(x=>x.g>0?'#00D47C':'#E8002D'),borderWidth:1}]},options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false}},scales:{x:{...DLC.x,beginAtZero:true},y:DLC.x}}});
+}
+
+/* ── Form guide ── */
+function dlForm(mode,btn){
+  if(btn) dlABtn(btn);
+  const sorted=[...DL.drivers].sort((a,b)=>{
+    if(mode==='pts') return (b.season_2026?.pts||0)-(a.season_2026?.pts||0);
+    const avg=d=>{const f=(d.season_2026?.results_by_round||[]).map(r=>parseInt(r.finish)).filter(n=>!isNaN(n));return f.length?f.reduce((s,v)=>s+v,0)/f.length:99;};
+    return avg(a)-avg(b);
+  });
+  const el=$('dl-form'); if(!el) return;
+  el.innerHTML=sorted.slice(0,14).map((d,i)=>{
+    const res=d.season_2026?.results_by_round||[];
+    const rmap={}; res.forEach(r=>rmap[r.round]=r);
+    const fins=res.map(r=>parseInt(r.finish)).filter(n=>!isNaN(n));
+    const avg=fins.length?(fins.reduce((s,v)=>s+v,0)/fins.length).toFixed(1):'—';
+    const dots=DL.schedule.map(round=>{const r=rmap[round.round];const fin=r?r.finish:null;return`<span class="${posClass(fin)}" style="display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;font-family:'Bebas Neue',display;font-size:12px;cursor:pointer" title="${round.venue||round.name}: ${posLabel(fin)}">${posLabel(fin)}</span>`;}).join('');
+    return`<div style="display:flex;align-items:center;gap:7px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.025)"><div style="font-family:'Bebas Neue',display;font-size:16px;color:${i===0?'var(--accent)':'var(--dim)'};width:18px;text-align:center">${i+1}</div><div style="font-family:'Bebas Neue',display;font-size:14px;width:82px;flex-shrink:0;color:#${d.color}">${d.name.split(' ').pop()}</div><div style="display:flex;gap:2px">${dots}</div><div style="font-family:'Bebas Neue',display;font-size:18px;color:${d.season_2026?.pts>0?'#'+d.color:'var(--dim)'};margin-left:auto;flex-shrink:0">${d.season_2026?.pts||0}</div><div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--dim);width:26px;text-align:right">~${avg}</div></div>`;
+  }).join('');
+}
+
+/* ── League table ── */
+function dlLeague(sort,btn){
+  if(btn) dlABtn(btn);
+  const sorted=[...DL.drivers].sort((a,b)=>{
+    const sA=a.season_2026,sB=b.season_2026;
+    if(sort==='pts') return (sB?.pts||0)-(sA?.pts||0);
+    if(sort==='wins') return (sB?.wins||0)-(sA?.wins||0);
+    if(sort==='dnf') return (sB?.dnfs||0)-(sA?.dnfs||0);
+    return 0;
+  });
+  const max=Math.max(...sorted.map(d=>d.season_2026?.pts||0),1);
+  const el=$('dl-league'); if(!el) return;
+  el.innerHTML=`<table style="width:100%;border-collapse:collapse">
+    <thead><tr>${['Pos','Driver','Pts','W','P','DNF'].map(h=>`<th style="padding:7px 12px;font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);text-align:left;border-bottom:1px solid var(--border)">${h}</th>`).join('')}<th style="border-bottom:1px solid var(--border)"></th></tr></thead>
+    <tbody>${sorted.map((d,i)=>{
+      const s=d.season_2026,pct=sort==='pts'?Math.round(((s?.pts||0)/max)*100):0;
+      const fav=Favs.hasDriver(d.id);
+      return`<tr onclick="location.href='competitor.html?series=${DL.series}&id=${d.id}'" onmouseover="this.style.background='rgba(255,255,255,.014)'" onmouseout="this.style.background=''" style="cursor:pointer;border-bottom:1px solid rgba(255,255,255,.025);position:relative">
+        <td style="padding:8px 12px;font-family:'Bebas Neue',display;font-size:17px;color:${i<2?'var(--accent)':'var(--dim)'}">${i+1}</td>
+        <td style="padding:8px 12px;position:relative">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:${pct}%;background:#${d.color};opacity:.07;pointer-events:none"></div>
+          <div style="position:relative;display:flex;align-items:center;gap:6px">
+            <div style="width:3px;height:28px;background:#${d.color};flex-shrink:0"></div>
+            <div><div style="font-family:'Bebas Neue',display;font-size:15px">${d.name}</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--dim)">${d.team_name}</div></div>
+          </div>
+        </td>
+        <td style="padding:8px 12px;font-family:'Bebas Neue',display;font-size:19px;color:${i===0?'var(--accent)':'var(--text)'}">${s?.pts||0}</td>
+        <td style="padding:8px 12px;font-family:'Bebas Neue',display;font-size:17px;color:${s?.wins?'#FFD700':'var(--dim)'}">${s?.wins||'—'}</td>
+        <td style="padding:8px 12px;font-family:'Bebas Neue',display;font-size:17px;color:var(--muted)">${s?.podiums||'—'}</td>
+        <td style="padding:8px 12px;font-family:'Bebas Neue',display;font-size:17px;color:${s?.dnfs?'var(--red)':'var(--dim)'}">${s?.dnfs||'—'}</td>
+        <td style="padding:8px 12px"><button class="sr-fav ${fav?'active':''}" onclick="event.stopPropagation();toggleFavDriver('${d.id}',this)">${fav?'★':'☆'}</button></td>
+      </tr>`;
+    }).join('')}</tbody></table>`;
+}
+
+/* ── H2H ── */
+function dlH2HInit(){
+  const opts=DL.drivers.map(d=>`<option value="${d.id}">${d.name}</option>`).join('');
+  const a=$('h2h-a'),b=$('h2h-b'); if(!a||!b) return;
+  a.innerHTML=opts; b.innerHTML=opts;
+  const s=[...DL.drivers].sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0));
+  a.value=s[0]?.id||''; b.value=s[1]?.id||'';
+  dlH2H();
+}
+function dlH2H(){
+  const dA=DL.drivers.find(d=>d.id===$('h2h-a')?.value);
+  const dB=DL.drivers.find(d=>d.id===$('h2h-b')?.value);
+  const el=$('dl-h2h'); if(!el) return;
+  if(!dA||!dB||dA.id===dB.id){el.innerHTML='<p style="color:var(--dim);font-family:\'JetBrains Mono\',monospace;font-size:9px">Select two different drivers.</p>';return;}
+  const sA=dA.season_2026,sB=dB.season_2026;
+  let qA=0,qB=0,rA=0,rB=0;
+  DL.completed.forEach(round=>{
+    const resA=(sA?.results_by_round||[]).find(r=>r.round===round.round);
+    const resB=(sB?.results_by_round||[]).find(r=>r.round===round.round);
+    if(resA?.grid&&resB?.grid){parseInt(resA.grid)<parseInt(resB.grid)?qA++:qB++;}
+    const fA=parseInt(resA?.finish),fB=parseInt(resB?.finish);
+    if(!isNaN(fA)&&!isNaN(fB)){fA<fB?rA++:rB++;}
+  });
+  const finsA=(sA?.results_by_round||[]).map(r=>parseInt(r.finish)).filter(n=>!isNaN(n));
+  const finsB=(sB?.results_by_round||[]).map(r=>parseInt(r.finish)).filter(n=>!isNaN(n));
+  const avgA=finsA.length?(finsA.reduce((a,b)=>a+b,0)/finsA.length).toFixed(1):'—';
+  const avgB=finsB.length?(finsB.reduce((a,b)=>a+b,0)/finsB.length).toFixed(1):'—';
+  const row=(label,vA,vB,higher=true)=>{
+    const nA=parseFloat(vA)||0,nB=parseFloat(vB)||0;
+    const w=higher?(nA>nB?'a':nA<nB?'b':''):(nA<nB?'a':nA>nB?'b':'');
+    return`<div style="display:grid;grid-template-columns:1fr 130px 1fr;align-items:center;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.025)">
+      <div style="font-family:'Bebas Neue',display;font-size:${w==='a'?26:20}px;color:${w==='a'?'#'+dA.color:'var(--dim)'}">${vA??'—'}</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim);text-align:center">${label}</div>
+      <div style="font-family:'Bebas Neue',display;font-size:${w==='b'?26:20}px;color:${w==='b'?'#'+dB.color:'var(--dim)'};text-align:right">${vB??'—'}</div>
+    </div>`;
+  };
+  el.innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr auto 1fr;border:1px solid var(--border);margin-bottom:16px">
+      <div style="padding:16px;background:rgba(${parseInt(dA.color.slice(0,2),16)},${parseInt(dA.color.slice(2,4),16)},${parseInt(dA.color.slice(4,6),16)},.06)">
+        <div style="font-family:'Bebas Neue',display;font-size:28px;color:#${dA.color};line-height:.9">${dA.name}</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--dim);margin-top:3px">${dA.team_name} · #${dA.number}</div>
+      </div>
+      <div style="display:flex;align-items:center;padding:0 20px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--dim)">VS</div>
+      <div style="padding:16px;text-align:right;background:rgba(${parseInt(dB.color.slice(0,2),16)},${parseInt(dB.color.slice(2,4),16)},${parseInt(dB.color.slice(4,6),16)},.06)">
+        <div style="font-family:'Bebas Neue',display;font-size:28px;color:#${dB.color};line-height:.9">${dB.name}</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--dim);margin-top:3px">${dB.team_name} · #${dB.number}</div>
+      </div>
+    </div>
+    ${row('POINTS',sA?.pts||0,sB?.pts||0)}
+    ${row('WINS',sA?.wins||0,sB?.wins||0)}
+    ${row('PODIUMS',sA?.podiums||0,sB?.podiums||0)}
+    ${row('DNF/DNS',sA?.dnfs||0,sB?.dnfs||0,false)}
+    ${row('AVG FINISH',avgA,avgB,false)}
+    ${row(`QUALIFYING ${qA}–${qB}`,qA,qB)}
+    ${row(`RACE ${rA}–${rB}`,rA,rB)}
+    ${row('CAREER WINS',dA.career?.wins||0,dB.career?.wins||0)}
+    <canvas id="chart-h2h" height="60" style="margin-top:16px"></canvas>`;
+
+  setTimeout(()=>{
+    dlDestroy('h2h');
+    let cA=0,cB=0;
+    const labels=DL.completed.map(r=>(r.venue||r.name||'').slice(0,3).toUpperCase());
+    const pA=DL.completed.map(r=>{const res=(sA?.results_by_round||[]).find(x=>x.round===r.round);cA+=res?.pts||0;return cA;});
+    const pB=DL.completed.map(r=>{const res=(sB?.results_by_round||[]).find(x=>x.round===r.round);cB+=res?.pts||0;return cB;});
+    const ctx=$('chart-h2h'); if(!ctx) return;
+    DL.charts.h2h=new Chart(ctx,{type:'line',data:{labels,datasets:[{label:dA.name,data:pA,borderColor:'#'+dA.color,backgroundColor:'#'+dA.color+'18',borderWidth:2,pointRadius:4,fill:true,tension:.3},{label:dB.name,data:pB,borderColor:'#'+dB.color,backgroundColor:'#'+dB.color+'18',borderWidth:2,pointRadius:4,fill:true,tension:.3}]},options:{responsive:true,plugins:{legend:{display:true,labels:{color:'rgba(237,234,246,.45)',font:{family:'JetBrains Mono',size:9},boxWidth:12}}},scales:{x:DLC.x,y:DLC.y}}});
+  },50);
+}
