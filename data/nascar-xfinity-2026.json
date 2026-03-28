@@ -1,0 +1,788 @@
+{
+  "series": "nascar-xfinity",
+  "year": 2026,
+  "name": "NASCAR O'Reilly Auto Parts Series 2026",
+  "schedule": [
+    {
+      "round": 1,
+      "name": "United Rentals 300",
+      "venue": "Daytona International Speedway",
+      "venue_id": "daytona",
+      "date": "2026-02-14",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "laps": 120,
+      "miles": 300,
+      "complete": true,
+      "summary": "Austin Hill won the United Rentals 300.",
+      "race": {
+        "winner": "Austin Hill",
+        "lead_changes": 8,
+        "cautions": 4,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Austin Hill",
+            "driver_id": "hill-austin",
+            "number": "21",
+            "team": "Richard Childress",
+            "laps": 120,
+            "laps_led": 50,
+            "status": "running",
+            "pts": 55
+          },
+          {
+            "pos": 2,
+            "driver": "Riley Herbst",
+            "driver_id": "herbst-riley",
+            "number": "35",
+            "team": "Joe Gibbs Racing",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 50
+          },
+          {
+            "pos": 3,
+            "driver": "Jesse Love",
+            "driver_id": "love-jesse",
+            "number": "2",
+            "team": "Richard Childress",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 46
+          },
+          {
+            "pos": 4,
+            "driver": "Justin Allgaier",
+            "driver_id": "allgaier-justin",
+            "number": "7",
+            "team": "JR Motorsports",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 5,
+            "driver": "Sheldon Creed",
+            "driver_id": "creed-sheldon",
+            "number": "33",
+            "team": "Jordan Anderson",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 6,
+            "driver": "Carson Kvapil",
+            "driver_id": "kvapil-carson",
+            "number": "10",
+            "team": "JR Motorsports",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
+            "driver": "Sammy Smith",
+            "driver_id": "smith-sammy",
+            "number": "18",
+            "team": "Joe Gibbs Racing",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36
+          },
+          {
+            "pos": 8,
+            "driver": "Rajah Caruth",
+            "driver_id": "caruth-rajah",
+            "number": "44",
+            "team": "Spire Motorsports",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Corey Day",
+            "driver_id": "day-corey",
+            "number": "9",
+            "team": "JR Motorsports",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32
+          },
+          {
+            "pos": 10,
+            "driver": "Parker Retzlaff",
+            "driver_id": "retzlaff-parker",
+            "number": "8",
+            "team": "JR Motorsports",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 30
+          },
+          {
+            "pos": 11,
+            "driver": "Sam Mayer",
+            "driver_id": "mayer-sam",
+            "number": "1",
+            "team": "JR Motorsports",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 28
+          },
+          {
+            "pos": 12,
+            "driver": "Shane van Gisbergen",
+            "driver_id": "vangisbergen-svg",
+            "number": "88",
+            "team": "Trackhouse Racing",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 26
+          },
+          {
+            "pos": 13,
+            "driver": "Taylor Gray",
+            "driver_id": "gray-taylor",
+            "number": "54",
+            "team": "Joe Gibbs Racing",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 24
+          },
+          {
+            "pos": 14,
+            "driver": "JJ Yeley",
+            "driver_id": "sieg-jj",
+            "number": "39",
+            "team": "Our Motorsports",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 22
+          },
+          {
+            "pos": 15,
+            "driver": "Jeremy Clements",
+            "driver_id": "clements-jeremy",
+            "number": "51",
+            "team": "Jeremy Clements",
+            "laps": 120,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 20
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "name": "Ambetter Health 300",
+      "venue": "EchoPark Speedway",
+      "venue_id": "atlanta",
+      "date": "2026-02-21",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "laps": 163,
+      "miles": 252,
+      "complete": true,
+      "summary": "Sheldon Creed won the Ambetter Health 300.",
+      "race": {
+        "winner": "Sheldon Creed",
+        "lead_changes": 8,
+        "cautions": 4,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Sheldon Creed",
+            "driver_id": "creed-sheldon",
+            "number": "33",
+            "team": "Jordan Anderson",
+            "laps": 163,
+            "laps_led": 50,
+            "status": "running",
+            "pts": 55
+          },
+          {
+            "pos": 2,
+            "driver": "Taylor Gray",
+            "driver_id": "gray-taylor",
+            "number": "54",
+            "team": "Joe Gibbs Racing",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 50
+          },
+          {
+            "pos": 3,
+            "driver": "Jesse Love",
+            "driver_id": "love-jesse",
+            "number": "2",
+            "team": "Richard Childress",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 46
+          },
+          {
+            "pos": 4,
+            "driver": "Austin Hill",
+            "driver_id": "hill-austin",
+            "number": "21",
+            "team": "Richard Childress",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 5,
+            "driver": "Carson Kvapil",
+            "driver_id": "kvapil-carson",
+            "number": "10",
+            "team": "JR Motorsports",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 6,
+            "driver": "Justin Allgaier",
+            "driver_id": "allgaier-justin",
+            "number": "7",
+            "team": "JR Motorsports",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
+            "driver": "Rajah Caruth",
+            "driver_id": "caruth-rajah",
+            "number": "44",
+            "team": "Spire Motorsports",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36
+          },
+          {
+            "pos": 8,
+            "driver": "Sammy Smith",
+            "driver_id": "smith-sammy",
+            "number": "18",
+            "team": "Joe Gibbs Racing",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Corey Day",
+            "driver_id": "day-corey",
+            "number": "9",
+            "team": "JR Motorsports",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32
+          },
+          {
+            "pos": 10,
+            "driver": "Parker Retzlaff",
+            "driver_id": "retzlaff-parker",
+            "number": "8",
+            "team": "JR Motorsports",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 30
+          },
+          {
+            "pos": 11,
+            "driver": "Sam Mayer",
+            "driver_id": "mayer-sam",
+            "number": "1",
+            "team": "JR Motorsports",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 28
+          },
+          {
+            "pos": 12,
+            "driver": "Shane van Gisbergen",
+            "driver_id": "vangisbergen-svg",
+            "number": "88",
+            "team": "Trackhouse Racing",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 26
+          },
+          {
+            "pos": 13,
+            "driver": "Riley Herbst",
+            "driver_id": "herbst-riley",
+            "number": "35",
+            "team": "Joe Gibbs Racing",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 24
+          },
+          {
+            "pos": 14,
+            "driver": "JJ Yeley",
+            "driver_id": "sieg-jj",
+            "number": "39",
+            "team": "Our Motorsports",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 22
+          },
+          {
+            "pos": 15,
+            "driver": "Jeremy Clements",
+            "driver_id": "clements-jeremy",
+            "number": "51",
+            "team": "Jeremy Clements",
+            "laps": 163,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 20
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "name": "DuraMax Darling 250",
+      "venue": "Circuit of the Americas",
+      "venue_id": "cota",
+      "date": "2026-02-28",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "laps": 46,
+      "miles": 157,
+      "complete": true,
+      "summary": "Shane van Gisbergen won the DuraMax Darling 250.",
+      "race": {
+        "winner": "Shane van Gisbergen",
+        "lead_changes": 8,
+        "cautions": 4,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Shane van Gisbergen",
+            "driver_id": "vangisbergen-svg",
+            "number": "88",
+            "team": "Trackhouse Racing",
+            "laps": 46,
+            "laps_led": 50,
+            "status": "running",
+            "pts": 55
+          },
+          {
+            "pos": 2,
+            "driver": "Sam Mayer",
+            "driver_id": "mayer-sam",
+            "number": "1",
+            "team": "JR Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 50
+          },
+          {
+            "pos": 3,
+            "driver": "Austin Hill",
+            "driver_id": "hill-austin",
+            "number": "21",
+            "team": "Richard Childress",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 46
+          },
+          {
+            "pos": 4,
+            "driver": "Jesse Love",
+            "driver_id": "love-jesse",
+            "number": "2",
+            "team": "Richard Childress",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 5,
+            "driver": "Carson Kvapil",
+            "driver_id": "kvapil-carson",
+            "number": "10",
+            "team": "JR Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 6,
+            "driver": "Sheldon Creed",
+            "driver_id": "creed-sheldon",
+            "number": "33",
+            "team": "Jordan Anderson",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
+            "driver": "Justin Allgaier",
+            "driver_id": "allgaier-justin",
+            "number": "7",
+            "team": "JR Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36
+          },
+          {
+            "pos": 8,
+            "driver": "Rajah Caruth",
+            "driver_id": "caruth-rajah",
+            "number": "44",
+            "team": "Spire Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Sammy Smith",
+            "driver_id": "smith-sammy",
+            "number": "18",
+            "team": "Joe Gibbs Racing",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32
+          },
+          {
+            "pos": 10,
+            "driver": "Corey Day",
+            "driver_id": "day-corey",
+            "number": "9",
+            "team": "JR Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 30
+          },
+          {
+            "pos": 11,
+            "driver": "Parker Retzlaff",
+            "driver_id": "retzlaff-parker",
+            "number": "8",
+            "team": "JR Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 28
+          },
+          {
+            "pos": 12,
+            "driver": "Taylor Gray",
+            "driver_id": "gray-taylor",
+            "number": "54",
+            "team": "Joe Gibbs Racing",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 26
+          },
+          {
+            "pos": 13,
+            "driver": "Riley Herbst",
+            "driver_id": "herbst-riley",
+            "number": "35",
+            "team": "Joe Gibbs Racing",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 24
+          },
+          {
+            "pos": 14,
+            "driver": "JJ Yeley",
+            "driver_id": "sieg-jj",
+            "number": "39",
+            "team": "Our Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 22
+          },
+          {
+            "pos": 15,
+            "driver": "Jeremy Clements",
+            "driver_id": "clements-jeremy",
+            "number": "51",
+            "team": "Jeremy Clements",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 20
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "name": "Call811.com 200",
+      "venue": "Phoenix Raceway",
+      "venue_id": "phoenix",
+      "date": "2026-03-07",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "laps": 200,
+      "miles": 200,
+      "complete": true,
+      "summary": "Justin Allgaier won the Call811.com 200.",
+      "race": {
+        "winner": "Justin Allgaier",
+        "lead_changes": 8,
+        "cautions": 4,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Justin Allgaier",
+            "driver_id": "allgaier-justin",
+            "number": "7",
+            "team": "JR Motorsports",
+            "laps": 200,
+            "laps_led": 50,
+            "status": "running",
+            "pts": 55
+          },
+          {
+            "pos": 2,
+            "driver": "Jesse Love",
+            "driver_id": "love-jesse",
+            "number": "2",
+            "team": "Richard Childress",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 50
+          },
+          {
+            "pos": 3,
+            "driver": "Taylor Gray",
+            "driver_id": "gray-taylor",
+            "number": "54",
+            "team": "Joe Gibbs Racing",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 46
+          },
+          {
+            "pos": 4,
+            "driver": "Sammy Smith",
+            "driver_id": "smith-sammy",
+            "number": "18",
+            "team": "Joe Gibbs Racing",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 5,
+            "driver": "Austin Hill",
+            "driver_id": "hill-austin",
+            "number": "21",
+            "team": "Richard Childress",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 6,
+            "driver": "Carson Kvapil",
+            "driver_id": "kvapil-carson",
+            "number": "10",
+            "team": "JR Motorsports",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
+            "driver": "Rajah Caruth",
+            "driver_id": "caruth-rajah",
+            "number": "44",
+            "team": "Spire Motorsports",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36
+          },
+          {
+            "pos": 8,
+            "driver": "Sheldon Creed",
+            "driver_id": "creed-sheldon",
+            "number": "33",
+            "team": "Jordan Anderson",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Corey Day",
+            "driver_id": "day-corey",
+            "number": "9",
+            "team": "JR Motorsports",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32
+          },
+          {
+            "pos": 10,
+            "driver": "Parker Retzlaff",
+            "driver_id": "retzlaff-parker",
+            "number": "8",
+            "team": "JR Motorsports",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 30
+          },
+          {
+            "pos": 11,
+            "driver": "Sam Mayer",
+            "driver_id": "mayer-sam",
+            "number": "1",
+            "team": "JR Motorsports",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 28
+          },
+          {
+            "pos": 12,
+            "driver": "Shane van Gisbergen",
+            "driver_id": "vangisbergen-svg",
+            "number": "88",
+            "team": "Trackhouse Racing",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 26
+          },
+          {
+            "pos": 13,
+            "driver": "Riley Herbst",
+            "driver_id": "herbst-riley",
+            "number": "35",
+            "team": "Joe Gibbs Racing",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 24
+          },
+          {
+            "pos": 14,
+            "driver": "JJ Yeley",
+            "driver_id": "sieg-jj",
+            "number": "39",
+            "team": "Our Motorsports",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 22
+          },
+          {
+            "pos": 15,
+            "driver": "Jeremy Clements",
+            "driver_id": "clements-jeremy",
+            "number": "51",
+            "team": "Jeremy Clements",
+            "laps": 200,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 20
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "name": "Food City 300",
+      "venue": "Bristol Motor Speedway",
+      "venue_id": "bristol",
+      "date": "2026-03-14",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "complete": false
+    },
+    {
+      "round": 6,
+      "name": "Pit Boss 250",
+      "venue": "Darlington Raceway",
+      "venue_id": "darlington",
+      "date": "2026-03-21",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "complete": false
+    },
+    {
+      "round": 7,
+      "name": "Alsco Uniforms 302",
+      "venue": "Charlotte Motor Speedway",
+      "venue_id": "charlotte",
+      "date": "2026-05-23",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "complete": false
+    },
+    {
+      "round": 8,
+      "name": "Henry 180",
+      "venue": "Watkins Glen International",
+      "venue_id": "watkins-glen",
+      "date": "2026-08-15",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "complete": false
+    },
+    {
+      "round": 9,
+      "name": "Sport Clips 200",
+      "venue": "New Hampshire Motor Speedway",
+      "venue_id": "new-hampshire",
+      "date": "2026-07-18",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "complete": false
+    }
+  ]
+}

@@ -181,18 +181,49 @@
       "multi_class": false
     },
     "nascar": {
-      "name": "NASCAR Cup Series",
+      "name": "NASCAR",
       "short": "NASCAR",
       "accent": "#FFD100",
       "color": "#FFD100",
-      "active": false,
-      "coming_soon": true,
+      "active": true,
+      "coming_soon": false,
       "current_year": 2026,
-      "description": "Stock car racing's premier series. 36 rounds across America's most iconic ovals and road courses.",
-      "season_file": null,
+      "description": "America's premier motorsport. Tyler Reddick leads the Cup Series with 4 wins in 6 races. Three national series, 80+ race weekends per year.",
       "hub_url": "nascar.html",
       "entry_type": "driver",
-      "multi_class": false
+      "multi_class": false,
+      "sub_series": [
+        {
+          "id": "nascar-cup",
+          "name": "Cup Series",
+          "short": "Cup",
+          "accent": "#FFD100",
+          "season_file": "nascar-cup-2026",
+          "competitors_file": "competitors-nascar-cup-2026",
+          "venues_file": "venues-nascar-2026",
+          "description": "The pinnacle of American stock car racing. 36 races, 16-driver playoffs."
+        },
+        {
+          "id": "nascar-xfinity",
+          "name": "O'Reilly Auto Parts Series",
+          "short": "O'Reilly",
+          "accent": "#0090FF",
+          "season_file": "nascar-xfinity-2026",
+          "competitors_file": "competitors-nascar-xfinity-2026",
+          "venues_file": "venues-nascar-2026",
+          "description": "NASCAR's premier development series. Home of tomorrow's Cup stars."
+        },
+        {
+          "id": "nascar-trucks",
+          "name": "Craftsman Truck Series",
+          "short": "Trucks",
+          "accent": "#E8002D",
+          "season_file": "nascar-trucks-2026",
+          "competitors_file": "competitors-nascar-trucks-2026",
+          "venues_file": "venues-nascar-2026",
+          "description": "Pickup trucks at full speed. The most accessible and unpredictable series in NASCAR."
+        }
+      ]
     },
     "dtm": {
       "name": "Deutsche Tourenwagen Masters",

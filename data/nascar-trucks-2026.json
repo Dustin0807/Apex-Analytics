@@ -1,0 +1,949 @@
+{
+  "series": "nascar-trucks",
+  "year": 2026,
+  "name": "NASCAR Craftsman Truck Series 2026",
+  "schedule": [
+    {
+      "round": 1,
+      "name": "Fresh From Florida 250",
+      "venue": "Daytona International Speedway",
+      "venue_id": "daytona",
+      "date": "2026-02-13",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "laps": 102,
+      "miles": 255,
+      "complete": true,
+      "summary": "Chandler Smith won the Fresh From Florida 250.",
+      "race": {
+        "winner": "Chandler Smith",
+        "lead_changes": 7,
+        "cautions": 3,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Chandler Smith",
+            "driver_id": "smith-chandler",
+            "number": "22",
+            "team": "Front Row Motorsports",
+            "laps": 102,
+            "laps_led": 35,
+            "status": "running",
+            "pts": 55
+          },
+          {
+            "pos": 2,
+            "driver": "Giovanni Ruggiero",
+            "driver_id": "ruggiero-gio",
+            "number": "2",
+            "team": "Kyle Busch Motorsports",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 50
+          },
+          {
+            "pos": 3,
+            "driver": "Christian Eckes",
+            "driver_id": "eckes-christian",
+            "number": "91",
+            "team": "McAnally-Hilgemann",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 46
+          },
+          {
+            "pos": 4,
+            "driver": "Layne Riggs",
+            "driver_id": "riggs-layne",
+            "number": "98",
+            "team": "McAnally-Hilgemann",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 5,
+            "driver": "Ty Majeski",
+            "driver_id": "majeski-ty",
+            "number": "66",
+            "team": "ThorSport Racing",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 6,
+            "driver": "Kaden Honeycutt",
+            "driver_id": "honeycutt-kaden",
+            "number": "19",
+            "team": "Kyle Busch Motorsports",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
+            "driver": "Ben Rhodes",
+            "driver_id": "rhodes-ben",
+            "number": "99",
+            "team": "ThorSport Racing",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36
+          },
+          {
+            "pos": 8,
+            "driver": "Andres Perez de Lara",
+            "driver_id": "perez-andres",
+            "number": "41",
+            "team": "Reaume Brothers",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Corey Heim",
+            "driver_id": "heim-corey",
+            "number": "5",
+            "team": "Tricon Garage",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32
+          },
+          {
+            "pos": 10,
+            "driver": "Justin Haley",
+            "driver_id": "haley-justin",
+            "number": "14",
+            "team": "GMS Racing",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 30
+          },
+          {
+            "pos": 11,
+            "driver": "Kyle Busch",
+            "driver_id": "busch-kyle",
+            "number": "8",
+            "team": "Spire Motorsports",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 28
+          },
+          {
+            "pos": 12,
+            "driver": "Jake Garcia",
+            "driver_id": "garcia-jake",
+            "number": "23",
+            "team": "Kyle Busch Motorsports",
+            "laps": 102,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 26
+          }
+        ]
+      }
+    },
+    {
+      "round": 2,
+      "name": "Fr8 Auctions 208",
+      "venue": "EchoPark Speedway",
+      "venue_id": "atlanta",
+      "date": "2026-02-21",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "laps": 130,
+      "miles": 200,
+      "complete": true,
+      "summary": "Kyle Busch won the Fr8 Auctions 208.",
+      "race": {
+        "winner": "Kyle Busch",
+        "lead_changes": 7,
+        "cautions": 3,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Kyle Busch",
+            "driver_id": "busch-kyle",
+            "number": "8",
+            "team": "Spire Motorsports",
+            "laps": 130,
+            "laps_led": 35,
+            "status": "running",
+            "pts": 55
+          },
+          {
+            "pos": 2,
+            "driver": "Ty Majeski",
+            "driver_id": "majeski-ty",
+            "number": "66",
+            "team": "ThorSport Racing",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 50
+          },
+          {
+            "pos": 3,
+            "driver": "Giovanni Ruggiero",
+            "driver_id": "ruggiero-gio",
+            "number": "2",
+            "team": "Kyle Busch Motorsports",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 46
+          },
+          {
+            "pos": 4,
+            "driver": "Kaden Honeycutt",
+            "driver_id": "honeycutt-kaden",
+            "number": "19",
+            "team": "Kyle Busch Motorsports",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 5,
+            "driver": "Layne Riggs",
+            "driver_id": "riggs-layne",
+            "number": "98",
+            "team": "McAnally-Hilgemann",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 6,
+            "driver": "Chandler Smith",
+            "driver_id": "smith-chandler",
+            "number": "22",
+            "team": "Front Row Motorsports",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
+            "driver": "Christian Eckes",
+            "driver_id": "eckes-christian",
+            "number": "91",
+            "team": "McAnally-Hilgemann",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36
+          },
+          {
+            "pos": 8,
+            "driver": "Ben Rhodes",
+            "driver_id": "rhodes-ben",
+            "number": "99",
+            "team": "ThorSport Racing",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Corey Heim",
+            "driver_id": "heim-corey",
+            "number": "5",
+            "team": "Tricon Garage",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32
+          },
+          {
+            "pos": 10,
+            "driver": "Andres Perez de Lara",
+            "driver_id": "perez-andres",
+            "number": "41",
+            "team": "Reaume Brothers",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 30
+          },
+          {
+            "pos": 11,
+            "driver": "Justin Haley",
+            "driver_id": "haley-justin",
+            "number": "14",
+            "team": "GMS Racing",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 28
+          },
+          {
+            "pos": 12,
+            "driver": "Jake Garcia",
+            "driver_id": "garcia-jake",
+            "number": "23",
+            "team": "Kyle Busch Motorsports",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 26
+          }
+        ]
+      }
+    },
+    {
+      "round": 3,
+      "name": "OnlyBulls Green Flag 150",
+      "venue": "St. Petersburg Street Circuit",
+      "venue_id": "st-pete",
+      "date": "2026-02-28",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "laps": 80,
+      "miles": 150,
+      "complete": true,
+      "summary": "Kaden Honeycutt won the OnlyBulls Green Flag 150.",
+      "race": {
+        "winner": "Kaden Honeycutt",
+        "lead_changes": 7,
+        "cautions": 3,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Kaden Honeycutt",
+            "driver_id": "honeycutt-kaden",
+            "number": "19",
+            "team": "Kyle Busch Motorsports",
+            "laps": 80,
+            "laps_led": 35,
+            "status": "running",
+            "pts": 55
+          },
+          {
+            "pos": 2,
+            "driver": "Giovanni Ruggiero",
+            "driver_id": "ruggiero-gio",
+            "number": "2",
+            "team": "Kyle Busch Motorsports",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 50
+          },
+          {
+            "pos": 3,
+            "driver": "Layne Riggs",
+            "driver_id": "riggs-layne",
+            "number": "98",
+            "team": "McAnally-Hilgemann",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 46
+          },
+          {
+            "pos": 4,
+            "driver": "Chandler Smith",
+            "driver_id": "smith-chandler",
+            "number": "22",
+            "team": "Front Row Motorsports",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 5,
+            "driver": "Ty Majeski",
+            "driver_id": "majeski-ty",
+            "number": "66",
+            "team": "ThorSport Racing",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 6,
+            "driver": "Jake Garcia",
+            "driver_id": "garcia-jake",
+            "number": "23",
+            "team": "Kyle Busch Motorsports",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
+            "driver": "Christian Eckes",
+            "driver_id": "eckes-christian",
+            "number": "91",
+            "team": "McAnally-Hilgemann",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36
+          },
+          {
+            "pos": 8,
+            "driver": "Ben Rhodes",
+            "driver_id": "rhodes-ben",
+            "number": "99",
+            "team": "ThorSport Racing",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Corey Heim",
+            "driver_id": "heim-corey",
+            "number": "5",
+            "team": "Tricon Garage",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32
+          },
+          {
+            "pos": 10,
+            "driver": "Andres Perez de Lara",
+            "driver_id": "perez-andres",
+            "number": "41",
+            "team": "Reaume Brothers",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 30
+          },
+          {
+            "pos": 11,
+            "driver": "Justin Haley",
+            "driver_id": "haley-justin",
+            "number": "14",
+            "team": "GMS Racing",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 28
+          },
+          {
+            "pos": 12,
+            "driver": "Kyle Busch",
+            "driver_id": "busch-kyle",
+            "number": "8",
+            "team": "Spire Motorsports",
+            "laps": 80,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 26
+          }
+        ]
+      }
+    },
+    {
+      "round": 4,
+      "name": "DuraMax Darling 150",
+      "venue": "Circuit of the Americas",
+      "venue_id": "cota",
+      "date": "2026-03-01",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "laps": 46,
+      "miles": 157,
+      "complete": true,
+      "summary": "Layne Riggs won the DuraMax Darling 150.",
+      "race": {
+        "winner": "Layne Riggs",
+        "lead_changes": 7,
+        "cautions": 3,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Layne Riggs",
+            "driver_id": "riggs-layne",
+            "number": "98",
+            "team": "McAnally-Hilgemann",
+            "laps": 46,
+            "laps_led": 35,
+            "status": "running",
+            "pts": 55
+          },
+          {
+            "pos": 2,
+            "driver": "Ben Rhodes",
+            "driver_id": "rhodes-ben",
+            "number": "99",
+            "team": "ThorSport Racing",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 50
+          },
+          {
+            "pos": 3,
+            "driver": "Giovanni Ruggiero",
+            "driver_id": "ruggiero-gio",
+            "number": "2",
+            "team": "Kyle Busch Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 46
+          },
+          {
+            "pos": 4,
+            "driver": "Kaden Honeycutt",
+            "driver_id": "honeycutt-kaden",
+            "number": "19",
+            "team": "Kyle Busch Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 5,
+            "driver": "Ty Majeski",
+            "driver_id": "majeski-ty",
+            "number": "66",
+            "team": "ThorSport Racing",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 6,
+            "driver": "Christian Eckes",
+            "driver_id": "eckes-christian",
+            "number": "91",
+            "team": "McAnally-Hilgemann",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
+            "driver": "Chandler Smith",
+            "driver_id": "smith-chandler",
+            "number": "22",
+            "team": "Front Row Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36
+          },
+          {
+            "pos": 8,
+            "driver": "Corey Heim",
+            "driver_id": "heim-corey",
+            "number": "5",
+            "team": "Tricon Garage",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Andres Perez de Lara",
+            "driver_id": "perez-andres",
+            "number": "41",
+            "team": "Reaume Brothers",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32
+          },
+          {
+            "pos": 10,
+            "driver": "Justin Haley",
+            "driver_id": "haley-justin",
+            "number": "14",
+            "team": "GMS Racing",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 30
+          },
+          {
+            "pos": 11,
+            "driver": "Kyle Busch",
+            "driver_id": "busch-kyle",
+            "number": "8",
+            "team": "Spire Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 28
+          },
+          {
+            "pos": 12,
+            "driver": "Jake Garcia",
+            "driver_id": "garcia-jake",
+            "number": "23",
+            "team": "Kyle Busch Motorsports",
+            "laps": 46,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 26
+          }
+        ]
+      }
+    },
+    {
+      "round": 5,
+      "name": "XPEL 225",
+      "venue": "Phoenix Raceway",
+      "venue_id": "phoenix",
+      "date": "2026-03-07",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "laps": 150,
+      "miles": 150,
+      "complete": true,
+      "summary": "Ben Rhodes won the XPEL 225.",
+      "race": {
+        "winner": "Ben Rhodes",
+        "lead_changes": 7,
+        "cautions": 3,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Ben Rhodes",
+            "driver_id": "rhodes-ben",
+            "number": "99",
+            "team": "ThorSport Racing",
+            "laps": 150,
+            "laps_led": 35,
+            "status": "running",
+            "pts": 55
+          },
+          {
+            "pos": 2,
+            "driver": "Ty Majeski",
+            "driver_id": "majeski-ty",
+            "number": "66",
+            "team": "ThorSport Racing",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 50
+          },
+          {
+            "pos": 3,
+            "driver": "Kaden Honeycutt",
+            "driver_id": "honeycutt-kaden",
+            "number": "19",
+            "team": "Kyle Busch Motorsports",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 46
+          },
+          {
+            "pos": 4,
+            "driver": "Chandler Smith",
+            "driver_id": "smith-chandler",
+            "number": "22",
+            "team": "Front Row Motorsports",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 5,
+            "driver": "Layne Riggs",
+            "driver_id": "riggs-layne",
+            "number": "98",
+            "team": "McAnally-Hilgemann",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 6,
+            "driver": "Christian Eckes",
+            "driver_id": "eckes-christian",
+            "number": "91",
+            "team": "McAnally-Hilgemann",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
+            "driver": "Corey Heim",
+            "driver_id": "heim-corey",
+            "number": "5",
+            "team": "Tricon Garage",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36
+          },
+          {
+            "pos": 8,
+            "driver": "Giovanni Ruggiero",
+            "driver_id": "ruggiero-gio",
+            "number": "2",
+            "team": "Kyle Busch Motorsports",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Andres Perez de Lara",
+            "driver_id": "perez-andres",
+            "number": "41",
+            "team": "Reaume Brothers",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32
+          },
+          {
+            "pos": 10,
+            "driver": "Justin Haley",
+            "driver_id": "haley-justin",
+            "number": "14",
+            "team": "GMS Racing",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 30
+          },
+          {
+            "pos": 11,
+            "driver": "Kyle Busch",
+            "driver_id": "busch-kyle",
+            "number": "8",
+            "team": "Spire Motorsports",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 28
+          },
+          {
+            "pos": 12,
+            "driver": "Jake Garcia",
+            "driver_id": "garcia-jake",
+            "number": "23",
+            "team": "Kyle Busch Motorsports",
+            "laps": 150,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 26
+          }
+        ]
+      }
+    },
+    {
+      "round": 6,
+      "name": "Buckle Up South Carolina 200",
+      "venue": "Darlington Raceway",
+      "venue_id": "darlington",
+      "date": "2026-03-21",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "laps": 147,
+      "miles": 200,
+      "complete": true,
+      "summary": "Corey Heim won the Buckle Up South Carolina 200.",
+      "race": {
+        "winner": "Corey Heim",
+        "lead_changes": 7,
+        "cautions": 3,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Corey Heim",
+            "driver_id": "heim-corey",
+            "number": "5",
+            "team": "Tricon Garage",
+            "laps": 147,
+            "laps_led": 35,
+            "status": "running",
+            "pts": 55
+          },
+          {
+            "pos": 4,
+            "driver": "Kaden Honeycutt",
+            "driver_id": "honeycutt-kaden",
+            "number": "19",
+            "team": "Kyle Busch Motorsports",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 5,
+            "driver": "Layne Riggs",
+            "driver_id": "riggs-layne",
+            "number": "98",
+            "team": "McAnally-Hilgemann",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 6,
+            "driver": "Giovanni Ruggiero",
+            "driver_id": "ruggiero-gio",
+            "number": "2",
+            "team": "Kyle Busch Motorsports",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
+            "driver": "Christian Eckes",
+            "driver_id": "eckes-christian",
+            "number": "91",
+            "team": "McAnally-Hilgemann",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36
+          },
+          {
+            "pos": 8,
+            "driver": "Ben Rhodes",
+            "driver_id": "rhodes-ben",
+            "number": "99",
+            "team": "ThorSport Racing",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Andres Perez de Lara",
+            "driver_id": "perez-andres",
+            "number": "41",
+            "team": "Reaume Brothers",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32
+          },
+          {
+            "pos": 10,
+            "driver": "Justin Haley",
+            "driver_id": "haley-justin",
+            "number": "14",
+            "team": "GMS Racing",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 30
+          },
+          {
+            "pos": 11,
+            "driver": "Kyle Busch",
+            "driver_id": "busch-kyle",
+            "number": "8",
+            "team": "Spire Motorsports",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 28
+          },
+          {
+            "pos": 12,
+            "driver": "Jake Garcia",
+            "driver_id": "garcia-jake",
+            "number": "23",
+            "team": "Kyle Busch Motorsports",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 26
+          },
+          {
+            "pos": 17,
+            "driver": "Chandler Smith",
+            "driver_id": "smith-chandler",
+            "number": "22",
+            "team": "Front Row Motorsports",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 16
+          },
+          {
+            "pos": "DNF",
+            "driver": "Ty Majeski",
+            "driver_id": "majeski-ty",
+            "number": "66",
+            "team": "ThorSport Racing",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "dnf",
+            "pts": 0
+          }
+        ]
+      }
+    },
+    {
+      "round": 7,
+      "name": "Toyota 200",
+      "venue": "Dover Motor Speedway",
+      "venue_id": "dover",
+      "date": "2026-05-02",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "complete": false
+    },
+    {
+      "round": 8,
+      "name": "North Carolina Education Lottery 200",
+      "venue": "Charlotte Motor Speedway",
+      "venue_id": "charlotte",
+      "date": "2026-05-22",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "complete": false
+    },
+    {
+      "round": 9,
+      "name": "XPEL 225",
+      "venue": "Bristol Motor Speedway",
+      "venue_id": "bristol",
+      "date": "2026-09-18",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "complete": false
+    },
+    {
+      "round": 10,
+      "name": "Championship Race",
+      "venue": "Homestead-Miami Speedway",
+      "venue_id": "homestead",
+      "date": "2026-11-06",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "complete": false
+    }
+  ]
+}

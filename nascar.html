@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASCAR Hub — APEX Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="assets/apex.css?v=6f76edb7">
+  <style>
+  :root { --accent:#FFD100; --accent-rgb:255,209,0; }
+
+  .nascar-hero {
+    padding:48px var(--pad) 40px;
+    border-bottom:1px solid var(--border);
+    position:relative; overflow:hidden;
+  }
+  .nascar-hero-bg {
+    position:absolute; right:-40px; bottom:-60px;
+    font-family:'Bebas Neue',display; font-size:300px;
+    color:rgba(255,209,0,.04); line-height:1; letter-spacing:-8px;
+    pointer-events:none; user-select:none;
+  }
+
+  /* Sub-series tabs */
+  .series-tabs {
+    display:flex; border-bottom:1px solid var(--border);
+    background:var(--bg2); position:sticky; top:var(--nav-h); z-index:200;
+  }
+  .series-tab {
+    padding:14px 24px; flex-shrink:0;
+    font-family:'Bebas Neue',display; font-size:18px; letter-spacing:2px;
+    color:var(--dim); border-bottom:3px solid transparent;
+    background:none; cursor:pointer; transition:all .18s;
+  }
+  .series-tab:hover { color:var(--muted); }
+  .series-tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+
+  /* Main hub layout */
+  .nascar-main {
+    display:grid; grid-template-columns:1fr 320px;
+  }
+  .nascar-feed { border-right:1px solid var(--border); }
+  .nascar-side {}
+
+  /* Race card */
+  .race-card {
+    display:grid; grid-template-columns:1fr auto;
+    border-bottom:1px solid var(--border); cursor:pointer;
+    transition:background .15s; text-decoration:none; color:inherit;
+    position:relative; overflow:hidden;
+  }
+  .race-card:hover { background:rgba(255,255,255,.014); }
+  .race-card::before {
+    content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+    background:var(--accent); transform:scaleY(0); transform-origin:center; transition:transform .2s;
+  }
+  .race-card:hover::before { transform:scaleY(1); }
+
+  /* Standings */
+  .stand-row {
+    display:flex; align-items:center; gap:8px;
+    padding:7px 0; border-bottom:1px solid rgba(255,255,255,.025);
+    cursor:pointer; position:relative;
+  }
+  .stand-row:last-child { border-bottom:none; }
+  .stand-row:hover { background:rgba(255,255,255,.02); }
+  .stand-row-bg { position:absolute;left:0;top:0;bottom:0;opacity:.07;border-radius:1px; }
+
+  /* NASCAR specific - playoff points badge */
+  .playoff-badge {
+    font-family:'JetBrains Mono',monospace;
+    font-size:7px; letter-spacing:1px; text-transform:uppercase;
+    padding:2px 6px; border:1px solid rgba(255,209,0,.3);
+    color:var(--accent); background:rgba(255,209,0,.06);
+  }
+
+  /* Stage info */
+  .stage-info {
+    display:flex; gap:12px; flex-wrap:wrap;
+    padding:10px 0; border-top:1px solid var(--border);
+    margin-top:10px;
+  }
+  .stage-item { text-align:center; }
+  .stage-v { font-family:'Bebas Neue',display; font-size:14px; color:var(--accent); }
+  .stage-l { font-family:'JetBrains Mono',monospace; font-size:7px; letter-spacing:1px; text-transform:uppercase; color:var(--dim); }
+
+  @media (max-width:900px) {
+    .nascar-main { grid-template-columns:1fr; }
+    .nascar-hero-bg { font-size:150px; }
+  }
+  </style>
+</head>
+<body>
+  <div class="bg-radial" style="--accent-rgb:255,209,0"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-noise"></div>
+
+  <nav class="apex-nav">
+    <a class="nav-logo" href="index.html">APEX<span class="dot">.</span>ANALYTICS</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html" style="color:var(--dim);font-size:7.5px">← All Series</a>
+      <a class="nav-link active" href="nascar.html">NASCAR Hub</a>
+      <a class="nav-link" href="standings.html?series=nascar-cup">Standings</a>
+      <a class="nav-link" href="datalab.html?series=nascar-cup">Data Lab</a>
+    </div>
+    <div class="nav-series-badge" style="--accent:#FFD100;border-color:rgba(255,209,0,.25);background:rgba(255,209,0,.06)">
+      <div class="nav-series-dot" style="background:#FFD100"></div>
+      NASCAR 2026
+    </div>
+  </nav>
+
+  <div id="nascar-root" style="position:relative;z-index:1">
+    <div style="padding:80px var(--pad);opacity:.2;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim)">Loading…</div>
+  </div>
+
+  <footer class="apex-footer" style="position:relative;z-index:1">
+    <div class="foot-logo">APEX<span class="dot">.</span>ANALYTICS</div>
+    <div class="foot-copy" id="footer-copy">NASCAR 2026</div>
+  </footer>
+
+  <script src="assets/apex.js?v=da3472dd"></script>
+  <script>initNascarHub();</script>
+</body>
+</html>

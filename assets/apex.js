@@ -385,7 +385,10 @@ async function initStandingsPage() {
   ]);
   if (!config || !comp) return;
 
-  const series   = config.series[p.series];
+  // Handle NASCAR sub-series (nascar-cup, nascar-xfinity, nascar-trucks)
+  const nascarMain = config.series.nascar;
+  const isNascarSub = nascarMain && nascarMain.sub_series && nascarMain.sub_series.find(ss=>ss.id===p.series);
+  const series   = isNascarSub || config.series[p.series];
   const drivers  = comp.competitors;
   const schedule = sched?.schedule || [];
   const completed= schedule.filter(r=>r.complete);
@@ -2135,14 +2138,30 @@ function dlH2H(){
    Called from index.html inline script
 ══════════════════════════════════════════════════════════ */
 async function initLandingPage() {
-  const [config, comp, sched] = await Promise.all([
+  const [config] = await Promise.all([
     loadJSON('data/config.json'),
-    loadJSON('data/competitors-f1-2026.json'),
-    loadJSON('data/f1-2026.json'),
   ]);
-  if (!config || !comp) return;
+  if (!config) return;
 
-  const drivers   = (comp.competitors||[]).sort((a,b) => (b.season_2026?.pts||0) - (a.season_2026?.pts||0));
+  // Load data for each active series
+  const seriesDataMap = {};
+  const activeSeries = Object.entries(config.series).filter(function(e){ return e[1].active; });
+  await Promise.all(activeSeries.map(async function(entry) {
+    const sid = entry[0], s = entry[1];
+    const compFile = s.competitors_file || ('competitors-' + sid + '-' + (s.current_year||2026) + '.json');
+    const schedFile = s.season_file ? s.season_file + '.json' : (sid + '-' + (s.current_year||2026) + '.json');
+    const [comp, sched] = await Promise.all([
+      loadJSON('data/' + compFile),
+      loadJSON('data/' + schedFile),
+    ]);
+    seriesDataMap[sid] = { s, comp, sched };
+  }));
+
+  // Use F1 data for hero stats (first active series)
+  const f1data = seriesDataMap['f1'] || Object.values(seriesDataMap)[0];
+  const comp = f1data && f1data.comp;
+  const sched = f1data && f1data.sched;
+  const drivers   = comp ? (comp.competitors||[]).sort((a,b) => (b.season_2026?.pts||0) - (a.season_2026?.pts||0)) : [];
   const schedule  = sched?.schedule || [];
   const completed = schedule.filter(r => r.complete);
   const nextRace  = schedule.find(r => !r.complete);
@@ -2279,4 +2298,260 @@ async function initLandingPage() {
       favEl.innerHTML = favHtml;
     }
   }
+}
+
+/* ══════════════════════════════════════════════════════════
+   NASCAR HUB
+   Three sub-series: Cup / Xfinity / Trucks
+══════════════════════════════════════════════════════════ */
+async function initNascarHub() {
+  const config = await loadJSON('data/config.json');
+  if (!config) return;
+
+  const nascar = config.series.nascar;
+  const subSeries = nascar.sub_series;
+
+  // Load all three series in parallel
+  const allData = {};
+  await Promise.all(subSeries.map(async function(ss) {
+    const [comp, sched] = await Promise.all([
+      loadJSON('data/' + ss.competitors_file + '.json'),
+      loadJSON('data/' + ss.season_file + '.json'),
+    ]);
+    allData[ss.id] = { ss, comp, sched };
+  }));
+
+  document.title = 'NASCAR 2026 — APEX Analytics';
+
+  // Build the hero and sub-series tabs
+  var root = $('nascar-root');
+  if (!root) return;
+
+  // Build tab buttons
+  var tabBtns = subSeries.map(function(ss, i) {
+    return '<button class="series-tab' + (i===0?' active':'') + '" onclick="nascarTab(\'' + ss.id + '\',this)" style="' + (i===0?'color:' + ss.accent + ';border-bottom-color:' + ss.accent:'') + '">' + ss.name + '</button>';
+  }).join('');
+
+  root.innerHTML = nascarHeroHTML(nascar, allData) +
+    '<div class="series-tabs">' + tabBtns + '</div>' +
+    '<div id="nascar-tab-content"></div>';
+
+  // Render Cup Series first
+  nascarRenderSeries(allData[subSeries[0].id]);
+}
+
+function nascarHeroHTML(nascar, allData) {
+  var cup = allData['nascar-cup'];
+  var cupDrivers = cup && cup.comp ? (cup.comp.competitors||[]).sort(function(a,b){ return (b.season_2026?.pts||0)-(a.season_2026?.pts||0); }) : [];
+  var cupSched = cup && cup.sched ? cup.sched.schedule||[] : [];
+  var completed = cupSched.filter(function(r){ return r.complete; });
+  var nextRace = cupSched.find(function(r){ return !r.complete; });
+  var leader = cupDrivers[0];
+
+  var cdStr = '';
+  if (nextRace) {
+    var cd = countdown(nextRace.date, nextRace.time_utc);
+    cdStr = '<div style="display:flex;gap:16px;margin-top:12px">' +
+      [['Days',cd.days],['Hrs',cd.hours],['Min',cd.mins],['Sec',cd.secs]].map(function(u){
+        return '<div><div style="font-family:\'Bebas Neue\',display;font-size:32px;color:var(--accent);line-height:1">' + pad(u[1]) + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">' + u[0] + '</div></div>';
+      }).join('') + '</div>';
+  }
+
+  return '<div class="nascar-hero">' +
+    '<div class="nascar-hero-bg">NASCAR</div>' +
+    '<div style="position:relative;z-index:1">' +
+      '<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">' +
+        '<div style="width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite"></div>' +
+        '<span style="font-family:\'JetBrains Mono\',monospace;font-size:8.5px;letter-spacing:3px;text-transform:uppercase;color:var(--dim)">NASCAR · 2026 Season · ' + completed.length + ' Races Complete</span>' +
+      '</div>' +
+      '<h1 style="font-family:\'Bebas Neue\',display;font-size:clamp(52px,8vw,96px);letter-spacing:2px;line-height:.88;margin-bottom:16px">' +
+        'NASCAR <span style="color:var(--accent)">2026</span>' +
+      '</h1>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">' +
+        '<div>' +
+          '<div style="font-size:13.5px;color:var(--muted);line-height:1.75;font-weight:300;max-width:480px;margin-bottom:16px">' +
+            'Three series. 40+ race weekends. ' + (leader ? leader.name + ' leads the Cup Series with ' + (leader.season_2026?.pts||0) + ' points after ' + completed.length + ' races.' : '') +
+          '</div>' +
+          '<div style="display:flex;gap:8px;flex-wrap:wrap">' +
+            '<a href="standings.html?series=nascar-cup" class="btn primary">Cup Standings →</a>' +
+            '<a href="datalab.html?series=nascar-cup" class="btn ghost">Data Lab →</a>' +
+            '<button class="btn share-btn" onclick="shareURL({series:\'nascar-cup\'})">🔗 Share</button>' +
+          '</div>' +
+        '</div>' +
+        (nextRace ? '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);opacity:.7;margin-bottom:8px">Next Cup Race · R' + nextRace.round + '</div>' +
+          '<div style="font-family:\'Bebas Neue\',display;font-size:26px;letter-spacing:.5px;margin-bottom:4px">' + (nextRace.name||nextRace.venue) + '</div>' +
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--dim);margin-bottom:8px">' + nextRace.venue + ' · ' + fmtDate(nextRace.date) + '</div>' +
+          cdStr + '</div>' : '') +
+      '</div>' +
+    '</div>' +
+  '</div>';
+}
+
+function nascarTab(seriesId, btn) {
+  // Update tab styling
+  document.querySelectorAll('.series-tab').forEach(function(b) {
+    b.classList.remove('active');
+    b.style.color = '';
+    b.style.borderBottomColor = '';
+  });
+  btn.classList.add('active');
+
+  // Load config to get accent colour
+  loadJSON('data/config.json').then(function(config) {
+    var nascar = config && config.series && config.series.nascar;
+    var ss = nascar && nascar.sub_series && nascar.sub_series.find(function(s){ return s.id === seriesId; });
+    if (ss) {
+      btn.style.color = ss.accent;
+      btn.style.borderBottomColor = ss.accent;
+    }
+  });
+
+  // Load and render the series
+  Promise.all([
+    loadJSON('data/' + seriesId.replace('nascar-','competitors-nascar-') + '-2026.json'),
+    loadJSON('data/' + seriesId + '-2026.json'),
+    loadJSON('data/config.json'),
+  ]).then(function(results) {
+    var comp = results[0], sched = results[1], config = results[2];
+    var nascar = config && config.series && config.series.nascar;
+    var ss = nascar && nascar.sub_series && nascar.sub_series.find(function(s){ return s.id === seriesId; });
+    nascarRenderSeries({ ss: ss, comp: comp, sched: sched });
+  });
+}
+
+function nascarRenderSeries(data) {
+  var tabContent = $('nascar-tab-content');
+  if (!tabContent) return;
+  var ss = data.ss, comp = data.comp, sched = data.sched;
+  if (!comp || !sched) {
+    tabContent.innerHTML = '<div style="padding:40px var(--pad);font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--dim)">No data available.</div>';
+    return;
+  }
+
+  var drivers = (comp.competitors||[]).sort(function(a,b){ return (b.season_2026?.pts||0)-(a.season_2026?.pts||0); });
+  var schedule = sched.schedule||[];
+  var completed = schedule.filter(function(r){ return r.complete; });
+  var nextRace = schedule.find(function(r){ return !r.complete; });
+  var maxPts = drivers[0]?.season_2026?.pts || 1;
+  var accent = ss ? ss.accent : '#FFD100';
+
+  // Championship strip - top 4
+  var champStrip = drivers.slice(0,4).map(function(d,i) {
+    var pts = d.season_2026?.pts||0;
+    var gap = i===0 ? 0 : (drivers[0].season_2026?.pts||0) - pts;
+    var pct = Math.round((pts/maxPts)*100);
+    return '<div style="flex:1;padding:12px 16px;border-right:1px solid var(--border);position:relative;overflow:hidden;cursor:pointer" onclick="location.href=\'competitor.html?series=' + (ss?ss.id:'nascar-cup') + '&id=' + d.id + '\'">' +
+      '<div style="position:absolute;left:0;bottom:0;height:2px;width:' + pct + '%;background:#' + d.color + ';transition:width 1s"></div>' +
+      '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">' +
+        '<div style="font-family:\'Bebas Neue\',display;font-size:18px;color:' + (i===0?accent:'var(--dim)') + '">' + (i+1) + '</div>' +
+        '<div style="width:5px;height:5px;border-radius:50%;background:#' + d.color + '"></div>' +
+        '<div>' +
+          '<div style="font-family:\'Bebas Neue\',display;font-size:16px;letter-spacing:.3px">' + d.name + '</div>' +
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:var(--dim)">#' + d.number + ' · ' + d.team_name + '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div style="display:flex;align-items:baseline;gap:8px">' +
+        '<div style="font-family:\'Bebas Neue\',display;font-size:24px;color:' + (i===0?accent:'var(--text)') + '">' + pts + ' pts</div>' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:8px;color:var(--dim)">' + (gap>0?'−'+gap:'Leader') + '</div>' +
+        (d.season_2026?.playoff_pts ? '<div class="playoff-badge">' + d.season_2026.playoff_pts + ' playoff pts</div>' : '') +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  // Recent races
+  var raceCards = completed.slice().reverse().map(function(r) {
+    return '<a class="race-card" href="race.html?series=' + (ss?ss.id:'nascar-cup') + '&round=' + r.round + '">' +
+      '<div style="padding:18px 22px">' +
+        '<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">' +
+          '<div style="width:5px;height:5px;border-radius:50%;background:' + accent + '"></div>' +
+          '<span style="font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:1.5px;color:var(--dim)">R' + r.round + ' · ' + r.venue + ' · ' + fmtDate(r.date) + '</span>' +
+        '</div>' +
+        '<div style="font-family:\'Bebas Neue\',display;font-size:22px;letter-spacing:.5px;margin-bottom:4px">' + r.name + '</div>' +
+        '<div style="font-size:12.5px;color:var(--muted);font-weight:300">' + (r.summary||'').slice(0,120) + (r.summary&&r.summary.length>120?'…':'') + '</div>' +
+        (r.race ? '<div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">' +
+          '<span style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;padding:2px 8px;border:1px solid rgba(255,209,0,.25);color:' + accent + '">' + (r.race.lead_changes||0) + ' lead changes</span>' +
+          '<span style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;padding:2px 8px;border:1px solid var(--border);color:var(--dim)">' + (r.race.cautions||0) + ' cautions</span>' +
+          '</div>' : '') +
+      '</div>' +
+      '<div style="padding:18px 16px 18px 8px;display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;min-width:100px">' +
+        '<div style="text-align:right">' +
+          '<div style="font-family:\'Bebas Neue\',display;font-size:18px;color:' + accent + '">' + (r.race?.winner||'—') + '</div>' +
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:var(--dim)">Winner</div>' +
+        '</div>' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:8px;color:var(--dim);opacity:0;transition:opacity .18s" class="rc-arrow">Analysis →</div>' +
+      '</div>' +
+    '</a>';
+  }).join('');
+
+  // Upcoming
+  var upcoming = schedule.filter(function(r){ return !r.complete; }).slice(0,5);
+  var upcomingHTML = upcoming.map(function(r) {
+    var isNext = r === nextRace;
+    return '<div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.025);' + (isNext?'background:rgba(255,209,0,.04);padding:8px 6px;margin:0 -6px;':'') + '">' +
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:8px;color:var(--dim);width:22px">R' + r.round + '</div>' +
+      '<div style="font-size:14px">🇺🇸</div>' +
+      '<div style="flex:1">' +
+        '<div style="font-family:\'Bebas Neue\',display;font-size:15px;letter-spacing:.3px">' + (r.venue||r.name||'').replace(' Motor Speedway','').replace(' Raceway','').replace(' International Speedway','').slice(0,20) + '</div>' +
+      '</div>' +
+      '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:' + (isNext?accent:'var(--dim)') + '">' + fmtDateShort(r.date) + '</div>' +
+    '</div>';
+  }).join('');
+
+  // Standings sidebar - top 12
+  var standingsSb = drivers.slice(0,12).map(function(d,i) {
+    var pts = d.season_2026?.pts||0;
+    var pct = Math.round((pts/maxPts)*100);
+    var fav = Favs.hasDriver(d.id);
+    return '<div class="stand-row" onclick="location.href=\'competitor.html?series=' + (ss?ss.id:'nascar-cup') + '&id=' + d.id + '\'">' +
+      '<div class="stand-row-bg" style="width:' + pct + '%;background:#' + d.color + '"></div>' +
+      '<div style="font-family:\'Bebas Neue\',display;font-size:17px;color:' + (i===0?accent:i===1?'var(--text)':'var(--dim)') + ';width:18px;text-align:center;position:relative">' + (i+1) + '</div>' +
+      '<div style="width:5px;height:5px;border-radius:50%;background:#' + d.color + ';flex-shrink:0;position:relative"></div>' +
+      '<div style="flex:1;min-width:0;position:relative">' +
+        '<div style="font-family:\'Bebas Neue\',display;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + d.name + '</div>' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;color:var(--dim)">#' + d.number + (d.season_2026?.wins?' · ' + d.season_2026.wins + 'W':'') + (d.season_2026?.playoff_pts?' · ' + d.season_2026.playoff_pts + ' PPs':' · 0 PPs') + '</div>' +
+      '</div>' +
+      '<div style="font-family:\'Bebas Neue\',display;font-size:17px;color:' + (i===0?accent:'var(--text)') + ';position:relative">' + pts + '</div>' +
+      '<button class="sr-fav' + (fav?' active':'') + '" onclick="event.stopPropagation();toggleFavDriver(\'' + d.id + '\',this)">' + (fav?'★':'☆') + '</button>' +
+    '</div>';
+  }).join('');
+
+  tabContent.innerHTML =
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)">' + champStrip + '</div>' +
+    '<div class="nascar-main">' +
+      '<div class="nascar-feed">' +
+        (nextRace ? '<div style="padding:20px 22px;background:rgba(255,209,0,.04);border-bottom:1px solid var(--border);border-left:2px solid ' + accent + '">' +
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:' + accent + ';opacity:.7;margin-bottom:8px">Next Race · R' + nextRace.round + '</div>' +
+          '<div style="font-family:\'Bebas Neue\',display;font-size:26px;letter-spacing:.5px;margin-bottom:4px">' + (nextRace.name||nextRace.venue) + '</div>' +
+          '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">' +
+            '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--muted)">' + nextRace.venue + ' · ' + fmtDate(nextRace.date) + '</div>' +
+            '<a href="race.html?series=' + (ss?ss.id:'nascar-cup') + '&round=' + nextRace.round + '" class="btn ghost btn-sm">Preview →</a>' +
+          '</div>' +
+        '</div>' : '') +
+        '<div style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">' +
+          '<span style="font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--dim)">Race Reports</span>' +
+          '<a href="standings.html?series=' + (ss?ss.id:'nascar-cup') + '" style="font-family:\'JetBrains Mono\',monospace;font-size:8px;color:' + accent + ';opacity:.6">Full Season →</a>' +
+        '</div>' +
+        raceCards +
+      '</div>' +
+      '<div class="nascar-side">' +
+        '<div style="padding:14px 18px;border-bottom:1px solid var(--border)">' +
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:12px">' +
+            'Standings <span style="float:right"><a href="standings.html?series=' + (ss?ss.id:'nascar-cup') + '" style="font-size:8px;color:' + accent + ';opacity:.6;font-family:\'JetBrains Mono\',monospace;letter-spacing:1px">Full →</a></span>' +
+          '</div>' +
+          standingsSb +
+        '</div>' +
+        '<div style="padding:14px 18px;border-bottom:1px solid var(--border)">' +
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:10px">Schedule</div>' +
+          upcomingHTML +
+        '</div>' +
+        '<div style="padding:14px 18px">' +
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">Explore</div>' +
+          '<a href="standings.html?series=' + (ss?ss.id:'nascar-cup') + '" style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:var(--bg3);border:1px solid var(--border);margin-bottom:2px;font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:border-color .15s;text-decoration:none" onmouseover="this.style.borderColor=\'var(--border-hi)\'" onmouseout="this.style.borderColor=\'var(--border)\'">Full Standings <span style="color:' + accent + '">→</span></a>' +
+          '<a href="datalab.html?series=' + (ss?ss.id:'nascar-cup') + '" style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:var(--bg3);border:1px solid var(--border);margin-bottom:2px;font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:border-color .15s;text-decoration:none" onmouseover="this.style.borderColor=\'var(--border-hi)\'" onmouseout="this.style.borderColor=\'var(--border)\'">Data Lab <span style="color:' + accent + '">→</span></a>' +
+          '<a href="circuits.html?series=' + (ss?ss.id:'nascar-cup') + '" style="display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:var(--bg3);border:1px solid var(--border);margin-bottom:2px;font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:border-color .15s;text-decoration:none" onmouseover="this.style.borderColor=\'var(--border-hi)\'" onmouseout="this.style.borderColor=\'var(--border)\'">Track Guide <span style="color:' + accent + '">→</span></a>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+
+  if ($('footer-copy')) $('footer-copy').textContent = 'NASCAR 2026 · ' + (ss?ss.name:'Cup Series') + ' · ' + completed.length + ' races';
 }
