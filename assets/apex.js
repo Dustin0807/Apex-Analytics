@@ -383,7 +383,11 @@ async function initStandingsPage() {
     loadJSON(`data/competitors-${p.series}-${p.year}.json`),
     loadJSON(`data/${p.series}-${p.year}.json`),
   ]);
-  if (!config || !comp) return;
+  if (!config || !comp) {
+    const root = $('page-root');
+    if (root) root.innerHTML = '<div style="padding:60px var(--pad);text-align:center;font-family:JetBrains Mono,monospace;font-size:9px;color:var(--dim)">Failed to load standings data for ' + p.series + '.</div>';
+    return;
+  }
 
   // Handle NASCAR sub-series (nascar-cup, nascar-xfinity, nascar-trucks)
   const nascarMain = config.series.nascar;
@@ -545,15 +549,26 @@ async function initRacePage() {
   const p = params();
   const [config, comp, sched, venues] = await Promise.all([
     loadJSON('data/config.json'),
-    loadJSON(`data/competitors-${p.series}-${p.year}.json`),
-    loadJSON(`data/${p.series}-${p.year}.json`),
-    loadJSON(`data/venues-${p.series}-${p.year}.json`),
+    loadJSON('data/competitors-' + p.series + '-' + p.year + '.json'),
+    loadJSON('data/' + p.series + '-' + p.year + '.json'),
+    loadJSON('data/venues-' + p.series + '-' + p.year + '.json'),
   ]);
-  if (!config || !sched) return;
+  if (!config || !sched) {
+    const root = $('page-root');
+    if (root) root.innerHTML = '<div style="padding:60px var(--pad);text-align:center;font-family:JetBrains Mono,monospace;font-size:9px;color:var(--dim);letter-spacing:2px">Failed to load race data.</div>';
+    return;
+  }
 
-  const series  = config.series[p.series];
+  // Resolve series config - handle NASCAR sub-series
+  const nascarMain = config.series.nascar;
+  const isNascarSub = nascarMain && nascarMain.sub_series && nascarMain.sub_series.find(function(ss){return ss.id===p.series;});
+  const series = isNascarSub || config.series[p.series] || {name:p.series, accent:'#27F4D2', short:p.series.toUpperCase()};
   const race    = sched.schedule?.find(r => r.round === p.round);
-  if (!race) return;
+  if (!race) {
+    const root = $('page-root');
+    if (root) root.innerHTML = '<div style="padding:60px var(--pad);text-align:center;font-family:JetBrains Mono,monospace;font-size:9px;color:var(--dim)">Race R' + p.round + ' not found in ' + p.series + ' ' + p.year + ' schedule.</div>';
+    return;
+  }
 
   setAccent(series.accent);
   document.title = `${race.name} ${p.year} — APEX Analytics`;
@@ -764,7 +779,9 @@ async function initCompetitorPage() {
   ]);
   if (!config || !comp) return;
 
-  const series  = config.series[p.series];
+  const nascarMainX = config.series.nascar;
+  const isNascarSubX = nascarMainX && nascarMainX.sub_series && nascarMainX.sub_series.find(function(ss){return ss.id===p.series;});
+  const series = isNascarSubX || config.series[p.series] || {name:p.series,accent:'#27F4D2',short:p.series.toUpperCase()};
   const driver  = comp.competitors.find(d => d.id === p.id);
   if (!driver) return;
 
@@ -1024,10 +1041,12 @@ async function initComparePage() {
   ]);
   if (!config || !comp) return;
 
-  const series  = config.series[p.series];
+  const nascarMainCp = config.series.nascar;
+  const isNascarSubCp = nascarMainCp && nascarMainCp.sub_series && nascarMainCp.sub_series.find(function(ss){return ss.id===p.series;});
+  const series = isNascarSubCp || config.series[p.series] || {name:p.series,accent:'#27F4D2',short:p.series.toUpperCase()};
   const drivers = comp.competitors;
   setAccent(series.accent);
-  document.title = `Compare Drivers — APEX Analytics`;
+  document.title = 'Compare Drivers — APEX Analytics';
 
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
@@ -1147,7 +1166,9 @@ async function initVenuePage() {
   ]);
   if (!config || !venues) return;
 
-  const series = config.series[p.series];
+  const nascarMainV = config.series.nascar;
+  const isNascarSubV = nascarMainV && nascarMainV.sub_series && nascarMainV.sub_series.find(function(ss){return ss.id===p.series;});
+  const series = isNascarSubV || config.series[p.series] || {name:p.series,accent:'#27F4D2',short:p.series.toUpperCase()};
   const venue  = venues.venues?.find(v => v.id === p.id);
   if (!venue) return;
 
@@ -1249,9 +1270,11 @@ async function initCircuitsPage() {
   ]);
   if (!config || !venues) return;
 
-  const series = config.series[p.series];
+  const nascarMainC = config.series.nascar;
+  const isNascarSubC = nascarMainC && nascarMainC.sub_series && nascarMainC.sub_series.find(function(ss){return ss.id===p.series;});
+  const series = isNascarSubC || config.series[p.series] || {name:p.series,accent:'#27F4D2',short:p.series.toUpperCase()};
   setAccent(series.accent);
-  document.title = `${series.name} Circuits — APEX Analytics`;
+  document.title = series.name + ' Circuits — APEX Analytics';
 
   const raceResults = {};
   (sched?.schedule||[]).forEach(r => {

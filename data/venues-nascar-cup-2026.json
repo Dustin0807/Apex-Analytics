@@ -1,0 +1,430 @@
+{
+  "venues": [
+    {
+      "id": "daytona",
+      "name": "Daytona International Speedway",
+      "short": "Daytona",
+      "location": "Daytona Beach, FL",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.5,
+      "lap_length_km": 4.023,
+      "banking_degrees": 31,
+      "track_type": "Superspeedway",
+      "surface": "Asphalt",
+      "capacity": 101000,
+      "first_cup_race": 1959,
+      "description": "The birthplace of NASCAR. Two-and-a-half miles of high-banked superspeedway drama. Home of the Daytona 500 \u2014 the Great American Race. Restrictor plate racing at 200mph with inches between 40 cars.",
+      "legendary_moments": [
+        "Petty's 200th win 1984",
+        "Earnhardt's emotional 1998 win",
+        "Dillon's 2018 win",
+        "Bell's 2024 win"
+      ],
+      "tier": 1
+    },
+    {
+      "id": "atlanta",
+      "name": "Atlanta Motor Speedway",
+      "short": "Atlanta",
+      "location": "Hampton, GA",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.54,
+      "lap_length_km": 2.48,
+      "banking_degrees": 24,
+      "track_type": "Superspeedway-style",
+      "surface": "Asphalt",
+      "capacity": 71000,
+      "first_cup_race": 1960,
+      "description": "Repaved and reconfigured in 2022 to create a high-speed superspeedway-style experience. Now the second fastest track on the circuit. Pack racing at 190mph makes it one of the most chaotic weekends of the year.",
+      "legendary_moments": [
+        "Jeff Gordon's dominance in the 90s",
+        "2022 repave chaos race"
+      ],
+      "tier": 1
+    },
+    {
+      "id": "las-vegas",
+      "name": "Las Vegas Motor Speedway",
+      "short": "Las Vegas",
+      "location": "Las Vegas, NV",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.5,
+      "lap_length_km": 2.414,
+      "banking_degrees": 20,
+      "track_type": "1.5-mile oval",
+      "surface": "Asphalt",
+      "capacity": 80000,
+      "first_cup_race": 1998,
+      "description": "The quintessential mile-and-a-half oval. Smooth, fast and technical. Strong pit strategy circuit where track position is everything. Two Cup races per year.",
+      "legendary_moments": [
+        "Logano's multiple wins",
+        "2023 Bell win"
+      ],
+      "tier": 2
+    },
+    {
+      "id": "phoenix",
+      "name": "Phoenix Raceway",
+      "short": "Phoenix",
+      "location": "Avondale, AZ",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.0,
+      "lap_length_km": 1.609,
+      "banking_degrees": 11,
+      "track_type": "Short track",
+      "surface": "Asphalt",
+      "capacity": 51000,
+      "first_cup_race": 1988,
+      "description": "The championship decider. Phoenix hosts the penultimate race of the NASCAR playoffs and crowns the Cup Series champion. A flat, D-shaped one-mile oval where setup precision wins races.",
+      "legendary_moments": [
+        "2021 title decider",
+        "Larson's domination",
+        "Multiple title clinchers"
+      ],
+      "tier": 1
+    },
+    {
+      "id": "bristol-dirt",
+      "name": "Bristol Motor Speedway (Dirt)",
+      "short": "Bristol Dirt",
+      "location": "Bristol, TN",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 0.533,
+      "lap_length_km": 0.858,
+      "banking_degrees": 28,
+      "track_type": "Short track dirt",
+      "surface": "Dirt (seasonal)",
+      "capacity": 162000,
+      "first_cup_race": 1961,
+      "description": "Once a year Bristol transforms into a dirt track. The Food City Dirt Race brings mud, mayhem and carnage. 40 cars on a tiny bullring with no grip \u2014 pure survival racing.",
+      "legendary_moments": [
+        "First dirt race 2021",
+        "Larson's mastery of the dirt"
+      ],
+      "tier": 1
+    },
+    {
+      "id": "cota",
+      "name": "Circuit of the Americas",
+      "short": "COTA",
+      "location": "Austin, TX",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 3.41,
+      "lap_length_km": 5.513,
+      "banking_degrees": 0,
+      "track_type": "Road course",
+      "surface": "Asphalt",
+      "capacity": 120000,
+      "first_cup_race": 2021,
+      "description": "The longest circuit on the NASCAR calendar. F1-spec road course in the Texas Hill Country. Demands a completely different setup to ovals. Chaos at Turn 1 on lap one is basically guaranteed.",
+      "legendary_moments": [
+        "Logano's 2021 win",
+        "Chastain's 2022 win"
+      ],
+      "tier": 2
+    },
+    {
+      "id": "martinsville",
+      "name": "Martinsville Speedway",
+      "short": "Martinsville",
+      "location": "Martinsville, VA",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 0.526,
+      "lap_length_km": 0.847,
+      "banking_degrees": 12,
+      "track_type": "Short track",
+      "surface": "Asphalt",
+      "capacity": 65000,
+      "first_cup_race": 1949,
+      "description": "The oldest active track in NASCAR. A paperclip-shaped half-mile where bump-drafting, door banging and revenge are the order of the day. Winners receive a grandfather clock. Locals call it the world's longest hot dog.",
+      "legendary_moments": [
+        "Earnhardt vs Gordon wars",
+        "The grandfather clock tradition",
+        "Hamlin's dominance"
+      ],
+      "tier": 1
+    },
+    {
+      "id": "talladega",
+      "name": "Talladega Superspeedway",
+      "short": "Talladega",
+      "location": "Talladega, AL",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.66,
+      "lap_length_km": 4.281,
+      "banking_degrees": 33,
+      "track_type": "Superspeedway",
+      "surface": "Asphalt",
+      "capacity": 143000,
+      "first_cup_race": 1969,
+      "description": "The biggest, baddest, fastest oval in NASCAR. 2.66 miles of high-banked Alabama superspeedway where the Big One lurks every lap. Anyone can win at Talladega \u2014 and anyone can get wrecked.",
+      "legendary_moments": [
+        "Petty's 200th win",
+        "Earnhardt's drafting mastery",
+        "Ricky Bobby... just kidding"
+      ],
+      "tier": 1
+    },
+    {
+      "id": "dover",
+      "name": "Dover Motor Speedway",
+      "short": "Dover",
+      "location": "Dover, DE",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.0,
+      "lap_length_km": 1.609,
+      "banking_degrees": 24,
+      "track_type": "Short track",
+      "surface": "Concrete",
+      "capacity": 95000,
+      "first_cup_race": 1969,
+      "description": "The Monster Mile. Concrete one-mile oval with 24-degree banking that generates massive tire wear. Passing is difficult but the high speeds make for intense racing. The Monster energy drinks car mascot stands watch at the start-finish line.",
+      "legendary_moments": [
+        "Johnson's record 11 wins",
+        "Jeff Gordon's dominance"
+      ],
+      "tier": 2
+    },
+    {
+      "id": "kansas",
+      "name": "Kansas Speedway",
+      "short": "Kansas",
+      "location": "Kansas City, KS",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.5,
+      "lap_length_km": 2.414,
+      "banking_degrees": 17,
+      "track_type": "1.5-mile oval",
+      "surface": "Asphalt",
+      "capacity": 75000,
+      "first_cup_race": 2001,
+      "description": "One of the newer 1.5-mile ovals on the circuit. Wide, smooth racing surface allows multiple lanes. Playoff staple that often produces dramatic finishes.",
+      "legendary_moments": [
+        "Multiple Hamlin wins",
+        "2022 playoff drama"
+      ],
+      "tier": 2
+    },
+    {
+      "id": "charlotte",
+      "name": "Charlotte Motor Speedway",
+      "short": "Charlotte",
+      "location": "Concord, NC",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.5,
+      "lap_length_km": 2.414,
+      "banking_degrees": 24,
+      "track_type": "1.5-mile oval",
+      "surface": "Asphalt",
+      "capacity": 90000,
+      "first_cup_race": 1960,
+      "description": "Home track for most of NASCAR's teams. The Coca-Cola 600 on Memorial Day weekend is the longest race on the calendar at 600 miles. Charlotte also hosts the All-Star Race and a road course variant.",
+      "legendary_moments": [
+        "Coca-Cola 600 tradition",
+        "Jeff Gordon's early dominance"
+      ],
+      "tier": 1
+    },
+    {
+      "id": "pocono",
+      "name": "Pocono Raceway",
+      "short": "Pocono",
+      "location": "Long Pond, PA",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.5,
+      "lap_length_km": 4.023,
+      "banking_degrees": 14,
+      "track_type": "Tri-oval",
+      "surface": "Asphalt",
+      "capacity": 76000,
+      "first_cup_race": 1974,
+      "description": "The Tricky Triangle. A unique triangular 2.5-mile oval with three completely different corners \u2014 Tunnel Turn, the Carousel and the North Turn. No other track in NASCAR feels like Pocono.",
+      "legendary_moments": [
+        "Ryan Newman's turnaround wins",
+        "Kyle Busch dominance"
+      ],
+      "tier": 2
+    },
+    {
+      "id": "michigan",
+      "name": "Michigan International Speedway",
+      "short": "Michigan",
+      "location": "Brooklyn, MI",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.0,
+      "lap_length_km": 3.219,
+      "banking_degrees": 18,
+      "track_type": "2-mile oval",
+      "surface": "Asphalt",
+      "capacity": 60000,
+      "first_cup_race": 1969,
+      "description": "Two miles of smooth, fast Michigan asphalt. One of the widest tracks on the circuit allows for multi-lane racing. Top speeds approach 220mph making it one of the most technically demanding ovals.",
+      "legendary_moments": [
+        "David Pearson vs Petty 1976",
+        "Multiple Larson wins"
+      ],
+      "tier": 2
+    },
+    {
+      "id": "sonoma",
+      "name": "Sonoma Raceway",
+      "short": "Sonoma",
+      "location": "Sonoma, CA",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.99,
+      "lap_length_km": 3.2,
+      "banking_degrees": 0,
+      "track_type": "Road course",
+      "surface": "Asphalt",
+      "capacity": 38000,
+      "first_cup_race": 1989,
+      "description": "Wine country road racing. Sonoma's rolling hills and technical layout favour road course specialists. The carousel sequence is one of the most photographed corners in American motorsport.",
+      "legendary_moments": [
+        "Gordon's 5 Sonoma wins",
+        "Larson's 2021 win"
+      ],
+      "tier": 2
+    },
+    {
+      "id": "new-hampshire",
+      "name": "New Hampshire Motor Speedway",
+      "short": "New Hampshire",
+      "location": "Loudon, NH",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.058,
+      "lap_length_km": 1.703,
+      "banking_degrees": 12,
+      "track_type": "Short track",
+      "surface": "Asphalt",
+      "capacity": 46000,
+      "first_cup_race": 1993,
+      "description": "The Magic Mile. Flat, low-banked New Hampshire demands precision and patience. A track where setup and tire management matter more than raw speed.",
+      "legendary_moments": [
+        "Busch's multiple wins",
+        "Jeff Burton era"
+      ],
+      "tier": 2
+    },
+    {
+      "id": "watkins-glen",
+      "name": "Watkins Glen International",
+      "short": "Watkins Glen",
+      "location": "Watkins Glen, NY",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.45,
+      "lap_length_km": 3.94,
+      "banking_degrees": 0,
+      "track_type": "Road course",
+      "surface": "Asphalt",
+      "capacity": 41000,
+      "first_cup_race": 1957,
+      "description": "Historic road course in the Finger Lakes. One of the oldest circuits in American racing. The bus stop chicane and the boot section create wheel-to-wheel moments that flat ovals can't match.",
+      "legendary_moments": [
+        "Mark Martin's 5 wins",
+        "Jeff Gordon's early dominance"
+      ],
+      "tier": 1
+    },
+    {
+      "id": "indianapolis",
+      "name": "Indianapolis Motor Speedway",
+      "short": "Indianapolis",
+      "location": "Speedway, IN",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.5,
+      "lap_length_km": 4.023,
+      "banking_degrees": 9,
+      "track_type": "Oval / Road course",
+      "surface": "Asphalt",
+      "capacity": 250000,
+      "first_cup_race": 1994,
+      "description": "The Racing Capital of the World. NASCAR races both the oval and the road course at Indy. Standing at the yard of bricks at the start-finish line is a pilgrimage every racing fan should make.",
+      "legendary_moments": [
+        "Jeff Gordon's 2 oval wins",
+        "Larson's 2021 road course win"
+      ],
+      "tier": 1
+    },
+    {
+      "id": "richmond",
+      "name": "Richmond Raceway",
+      "short": "Richmond",
+      "location": "Richmond, VA",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 0.75,
+      "lap_length_km": 1.207,
+      "banking_degrees": 14,
+      "track_type": "Short track",
+      "surface": "Asphalt",
+      "capacity": 60000,
+      "first_cup_race": 1953,
+      "description": "Three-quarters of a mile of short-track action under the lights. Richmond's Saturday night race tradition stretches back decades. Two races per year make it a double-dose of tight, tactical racing.",
+      "legendary_moments": [
+        "Dale Earnhardt's battles",
+        "Hamlin's multiple wins"
+      ],
+      "tier": 2
+    },
+    {
+      "id": "daytona-road",
+      "name": "Daytona International Speedway (Road Course)",
+      "short": "Daytona RC",
+      "location": "Daytona Beach, FL",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 3.61,
+      "lap_length_km": 5.81,
+      "banking_degrees": 0,
+      "track_type": "Road course",
+      "surface": "Asphalt",
+      "capacity": 101000,
+      "first_cup_race": 1992,
+      "description": "The infield road course at Daytona uses part of the famous oval banking in combination with an infield section. A unique challenge that mixes superspeedway banking with technical infield corners.",
+      "legendary_moments": [
+        "McDowell's first win 2019",
+        "2021 chaotic race"
+      ],
+      "tier": 2
+    },
+    {
+      "id": "bristol",
+      "name": "Bristol Motor Speedway",
+      "short": "Bristol",
+      "location": "Bristol, TN",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 0.533,
+      "lap_length_km": 0.858,
+      "banking_degrees": 28,
+      "track_type": "Short track",
+      "surface": "Concrete",
+      "capacity": 162000,
+      "first_cup_race": 1961,
+      "description": "The Last Great Colosseum. Half-mile concrete bullring with 28-degree banking makes Bristol the most electric short-track atmosphere in racing. The night race under the lights is a bucket list event.",
+      "legendary_moments": [
+        "The Earnhardt-Gordon rivalry",
+        "Kenseth 2015 revenge",
+        "Night race tradition"
+      ],
+      "tier": 1
+    }
+  ]
+}

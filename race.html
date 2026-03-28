@@ -29,7 +29,21 @@
     <div class="foot-logo">APEX<span class="dot">.</span>ANALYTICS</div>
     <div class="foot-copy" id="footer-copy">Race Analysis</div>
   </footer>
-  <script src="assets/apex.js?v=da3472dd"></script>
+  <script src="assets/apex.js?v=fa435b7c"></script>
   <script>initRacePage();</script>
+  <script>
+  (function() {
+    var p = new URLSearchParams(location.search);
+    var s = p.get('series') || 'f1';
+    // Update all nav links that contain series param
+    document.querySelectorAll('a[href*="series=f1"]').forEach(function(a) {
+      a.href = a.href.replace('series=f1', 'series=' + s);
+    });
+    // Update nav hub link based on series
+    var hubMap = {'f1':'f1.html','nascar-cup':'nascar.html','nascar-xfinity':'nascar.html','nascar-trucks':'nascar.html'};
+    var hubEl = document.querySelector('a[data-hub-link]');
+    if (hubEl && hubMap[s]) hubEl.href = hubMap[s];
+  })();
+  </script>
 </body>
 </html>
