@@ -2129,3 +2129,154 @@ function dlH2H(){
     DL.charts.h2h=new Chart(ctx,{type:'line',data:{labels,datasets:[{label:dA.name,data:pA,borderColor:'#'+dA.color,backgroundColor:'#'+dA.color+'18',borderWidth:2,pointRadius:4,fill:true,tension:.3},{label:dB.name,data:pB,borderColor:'#'+dB.color,backgroundColor:'#'+dB.color+'18',borderWidth:2,pointRadius:4,fill:true,tension:.3}]},options:{responsive:true,plugins:{legend:{display:true,labels:{color:'rgba(237,234,246,.45)',font:{family:'JetBrains Mono',size:9},boxWidth:12}}},scales:{x:DLC.x,y:DLC.y}}});
   },50);
 }
+
+/* ══════════════════════════════════════════════════════════
+   LANDING PAGE — initLandingPage()
+   Called from index.html inline script
+══════════════════════════════════════════════════════════ */
+async function initLandingPage() {
+  const [config, comp, sched] = await Promise.all([
+    loadJSON('data/config.json'),
+    loadJSON('data/competitors-f1-2026.json'),
+    loadJSON('data/f1-2026.json'),
+  ]);
+  if (!config || !comp) return;
+
+  const drivers   = (comp.competitors||[]).sort((a,b) => (b.season_2026?.pts||0) - (a.season_2026?.pts||0));
+  const schedule  = sched?.schedule || [];
+  const completed = schedule.filter(r => r.complete);
+  const nextRace  = schedule.find(r => !r.complete);
+  const lastRace  = completed[completed.length - 1];
+  const leader    = drivers[0];
+  const p2        = drivers[1];
+  const gap       = leader && p2 ? (leader.season_2026?.pts||0) - (p2.season_2026?.pts||0) : 0;
+  const maxPts    = leader?.season_2026?.pts || 1;
+
+  // ── Hero stats
+  const ge = id => document.getElementById(id);
+  if (ge('stat-rounds'))   ge('stat-rounds').textContent   = completed.length;
+  if (ge('stat-drivers'))  ge('stat-drivers').textContent  = drivers.length;
+  if (ge('stat-circuits')) ge('stat-circuits').textContent = 21;
+
+  // ── Live snapshot
+  const liveEl = ge('live-content');
+  if (liveEl) {
+    let lastHtml = '';
+    if (lastRace) {
+      lastHtml = '<div style="margin-bottom:16px;padding:16px 20px;background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--red)">' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">' +
+          'Last Race \u00b7 R' + lastRace.round + ' \u00b7 ' + (lastRace.venue||'') +
+        '</div>' +
+        '<div style="font-family:\'Bebas Neue\',display;font-size:26px;letter-spacing:.5px;margin-bottom:4px">' + (lastRace.name||'') + '</div>' +
+        '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">' +
+          '<div style="font-family:\'Bebas Neue\',display;font-size:20px;color:var(--accent)">' + (lastRace.race?.winner||'\u2014') + ' won</div>' +
+          '<a href="race.html?series=f1&round=' + lastRace.round + '" class="btn ghost btn-sm">Full Analysis \u2192</a>' +
+        '</div>' +
+      '</div>';
+    }
+
+    let nextHtml = '';
+    if (nextRace) {
+      nextHtml = '<div style="padding:16px 20px;background:rgba(39,244,210,.04);border:1px solid rgba(39,244,210,.15)">' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.7;margin-bottom:8px">' +
+          'Next Race \u00b7 R' + nextRace.round +
+        '</div>' +
+        '<div style="font-family:\'Bebas Neue\',display;font-size:24px;letter-spacing:.5px;margin-bottom:4px">' + (nextRace.name||nextRace.venue||'') + '</div>' +
+        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--muted)">' + (nextRace.venue||'') + ' \u00b7 ' + (nextRace.date||'TBD') + '</div>' +
+      '</div>';
+    }
+
+    let standHtml = '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px">Championship \u00b7 After Round ' + completed.length + '</div>';
+    drivers.slice(0, 5).forEach(function(d, i) {
+      const pts = d.season_2026?.pts || 0;
+      const pct = Math.round((pts / maxPts) * 100);
+      standHtml += '<a href="competitor.html?series=f1&id=' + d.id + '" style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.025);text-decoration:none;color:inherit;position:relative;overflow:hidden" onmouseover="this.style.background=\'rgba(255,255,255,.014)\'" onmouseout="this.style.background=\'\'">' +
+        '<div style="position:absolute;left:0;top:0;bottom:0;width:' + pct + '%;background:#' + d.color + ';opacity:.07;pointer-events:none"></div>' +
+        '<div style="font-family:\'Bebas Neue\',display;font-size:20px;color:' + (i===0?'var(--accent)':'var(--dim)') + ';width:20px;text-align:center;position:relative">' + (i+1) + '</div>' +
+        '<div style="width:3px;height:28px;background:#' + d.color + ';flex-shrink:0;position:relative"></div>' +
+        '<div style="flex:1;min-width:0;position:relative">' +
+          '<div style="font-family:\'Bebas Neue\',display;font-size:17px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + d.name + '</div>' +
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:var(--dim)">' + d.team_name + '</div>' +
+        '</div>' +
+        '<div style="font-family:\'Bebas Neue\',display;font-size:24px;color:' + (i===0?'var(--accent)':'var(--text)') + ';position:relative">' + pts + '</div>' +
+      '</a>';
+    });
+    standHtml += '<a href="standings.html?series=f1" style="display:block;padding:10px 0;font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.6;text-decoration:none;transition:opacity .15s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">Full Standings \u2192</a>';
+
+    liveEl.innerHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px"><div>' + lastHtml + nextHtml + '</div><div>' + standHtml + '</div></div>';
+  }
+
+  // ── Series grid
+  const sgEl = ge('series-grid');
+  if (sgEl) {
+    const active = Object.entries(config.series).filter(function(e){ return e[1].active; });
+    if (!active.length) {
+      sgEl.innerHTML = '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--dim)">No active series.</div>';
+    } else {
+      let sgHtml = '';
+      active.forEach(function(entry) {
+        const id = entry[0], s = entry[1];
+        let statsHtml = '';
+        if (leader) {
+          statsHtml = '<div style="display:flex;gap:20px;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--border)">' +
+            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px;color:' + s.accent + '">' + leader.name.split(' ').pop() + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Leader</div></div>' +
+            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">' + (leader.season_2026?.pts||0) + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Points</div></div>' +
+            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">+' + gap + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Gap to P2</div></div>' +
+            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">' + completed.length + '/' + schedule.length + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Rounds</div></div>' +
+          '</div>';
+        }
+        sgHtml += '<a href="' + s.hub_url + '" style="display:grid;grid-template-columns:1fr auto;background:var(--bg3);border:1px solid var(--border);border-left:3px solid ' + s.accent + ';text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .2s"' +
+          ' onmouseover="this.style.background=\'rgba(39,244,210,.02)\'" onmouseout="this.style.background=\'var(--bg3)\'">' +
+          '<div style="position:absolute;right:-10px;bottom:-12px;font-family:\'Bebas Neue\',display;font-size:100px;letter-spacing:-2px;color:rgba(255,255,255,.03);line-height:1;pointer-events:none">' + s.short + '</div>' +
+          '<div style="padding:24px 28px;position:relative">' +
+            '<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">' +
+              '<div style="width:6px;height:6px;border-radius:50%;background:' + s.accent + ';animation:pulse 2s ease-in-out infinite"></div>' +
+              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:' + s.accent + ';opacity:.8">' + s.name + '</div>' +
+            '</div>' +
+            '<div style="font-family:\'Bebas Neue\',display;font-size:clamp(40px,6vw,64px);letter-spacing:2px;line-height:.9;color:' + s.accent + ';margin-bottom:8px">' + s.short + '</div>' +
+            '<div style="font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:14px">' + s.description + '</div>' +
+            statsHtml +
+          '</div>' +
+          '<div style="display:flex;align-items:center;padding:0 20px;font-family:\'JetBrains Mono\',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:' + s.accent + ';border-left:1px solid var(--border);background:rgba(255,255,255,.015);min-width:52px;writing-mode:vertical-rl;transform:rotate(180deg)">' +
+            'Enter ' + s.short + ' Hub \u2192' +
+          '</div>' +
+        '</a>';
+      });
+      sgEl.innerHTML = sgHtml;
+    }
+  }
+
+  // ── Favorites
+  const favKeys = (function() {
+    try { return JSON.parse(localStorage.getItem('apex-favorites')||'{"drivers":[]}').drivers || []; }
+    catch(e) { return []; }
+  })();
+  const favSection = ge('fav-section');
+  const favEl = ge('fav-content');
+  if (favSection && favEl) {
+    const favDrivers = drivers.filter(function(d){ return favKeys.includes(d.id); });
+    if (!favDrivers.length) {
+      favSection.style.display = 'none';
+    } else {
+      favSection.style.display = 'block';
+      let favHtml = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px">';
+      favDrivers.forEach(function(d) {
+        const s = d.season_2026;
+        const fins = (s.results_by_round||[]).map(function(r){ return parseInt(r.finish); }).filter(function(n){ return !isNaN(n); });
+        const avg = fins.length ? (fins.reduce(function(a,b){ return a+b; },0)/fins.length).toFixed(1) : '\u2014';
+        favHtml += '<div style="background:var(--bg3);border:1px solid var(--border);border-left:3px solid #' + d.color + ';padding:16px 18px">' +
+          '<button style="float:right;background:none;border:none;color:var(--dim);cursor:pointer;font-size:11px" onclick="(function(){var f=JSON.parse(localStorage.getItem(\'apex-favorites\')||\'{}}\');f.drivers=(f.drivers||[]).filter(function(x){return x!==\'' + d.id + '\';});localStorage.setItem(\'apex-favorites\',JSON.stringify(f));location.reload()})()">&#x2715;</button>' +
+          '<div style="font-family:\'Bebas Neue\',display;font-size:22px;letter-spacing:.5px;margin-bottom:4px;color:#' + d.color + '">' + d.name + '</div>' +
+          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:8px;color:var(--dim);margin-bottom:10px">' + d.team_name + ' \u00b7 #' + d.number + '</div>' +
+          '<div style="display:flex;gap:12px">' +
+            '<div><div style="font-family:\'Bebas Neue\',display;font-size:18px;line-height:1;color:#' + d.color + '">' + (s.pts||0) + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;text-transform:uppercase;color:var(--dim)">Pts</div></div>' +
+            '<div><div style="font-family:\'Bebas Neue\',display;font-size:18px;line-height:1">' + (s.wins||0) + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;text-transform:uppercase;color:var(--dim)">Wins</div></div>' +
+            '<div><div style="font-family:\'Bebas Neue\',display;font-size:18px;line-height:1">' + avg + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;text-transform:uppercase;color:var(--dim)">Avg</div></div>' +
+          '</div>' +
+        '</div>';
+      });
+      favHtml += '</div>';
+      favEl.innerHTML = favHtml;
+    }
+  }
+}
