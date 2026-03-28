@@ -13,11 +13,18 @@
       "laps": 102,
       "miles": 255,
       "complete": true,
-      "summary": "Chandler Smith won the Fresh From Florida 250.",
+      "summary": "Chandler Smith delivered a stunning Daytona win for Front Row Motorsports in just his second truck series start, edging Giovanni Ruggiero by 0.044 seconds. Tony Stewart made a special appearance in the #1 entry.",
+      "story_cards": [
+        {
+          "title": "Chandler Smith wins Fresh From Florida 250",
+          "body": "Chandler Smith delivered a stunning Daytona win for Front Row Motorsports in just his second truck series start, edging Giovanni Ruggiero by 0.044 seconds. Tony Stewart made a special appearance in the #1 entry."
+        }
+      ],
       "race": {
         "winner": "Chandler Smith",
-        "lead_changes": 7,
-        "cautions": 3,
+        "margin": "0.044s",
+        "lead_changes": 8,
+        "cautions": 4,
         "results": [
           {
             "pos": 1,
@@ -26,7 +33,7 @@
             "number": "22",
             "team": "Front Row Motorsports",
             "laps": 102,
-            "laps_led": 35,
+            "laps_led": 28,
             "status": "running",
             "pts": 55
           },
@@ -78,7 +85,7 @@
             "pos": 6,
             "driver": "Kaden Honeycutt",
             "driver_id": "honeycutt-kaden",
-            "number": "19",
+            "number": "11",
             "team": "Kyle Busch Motorsports",
             "laps": 102,
             "laps_led": 0,
@@ -112,7 +119,7 @@
             "driver": "Corey Heim",
             "driver_id": "heim-corey",
             "number": "5",
-            "team": "Tricon Garage",
+            "team": "TRICON Garage",
             "laps": 102,
             "laps_led": 0,
             "status": "running",
@@ -132,7 +139,7 @@
           {
             "pos": 11,
             "driver": "Kyle Busch",
-            "driver_id": "busch-kyle",
+            "driver_id": "busch-kyle-t",
             "number": "8",
             "team": "Spire Motorsports",
             "laps": 102,
@@ -164,20 +171,27 @@
       "laps": 130,
       "miles": 200,
       "complete": true,
-      "summary": "Kyle Busch won the Fr8 Auctions 208.",
+      "summary": "Kyle Busch returned to victory lane with Spire Motorsports, holding off Carson Hocevar by 0.114 seconds at Atlanta. Busch's truck dominance was apparent all weekend \u2014 he led 37 of 130 laps.",
+      "story_cards": [
+        {
+          "title": "Kyle Busch wins Fr8 Auctions 208",
+          "body": "Kyle Busch returned to victory lane with Spire Motorsports, holding off Carson Hocevar by 0.114 seconds at Atlanta. Busch's truck dominance was apparent all weekend \u2014 he led 37 of 130 laps."
+        }
+      ],
       "race": {
         "winner": "Kyle Busch",
-        "lead_changes": 7,
-        "cautions": 3,
+        "margin": "0.114s",
+        "lead_changes": 11,
+        "cautions": 5,
         "results": [
           {
             "pos": 1,
             "driver": "Kyle Busch",
-            "driver_id": "busch-kyle",
+            "driver_id": "busch-kyle-t",
             "number": "8",
             "team": "Spire Motorsports",
             "laps": 130,
-            "laps_led": 35,
+            "laps_led": 28,
             "status": "running",
             "pts": 55
           },
@@ -207,8 +221,19 @@
             "pos": 4,
             "driver": "Kaden Honeycutt",
             "driver_id": "honeycutt-kaden",
-            "number": "19",
+            "number": "11",
             "team": "Kyle Busch Motorsports",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 4,
+            "driver": "Ben Rhodes",
+            "driver_id": "rhodes-ben",
+            "number": "99",
+            "team": "ThorSport Racing",
             "laps": 130,
             "laps_led": 0,
             "status": "running",
@@ -220,6 +245,17 @@
             "driver_id": "riggs-layne",
             "number": "98",
             "team": "McAnally-Hilgemann",
+            "laps": 130,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40
+          },
+          {
+            "pos": 5,
+            "driver": "Corey Heim",
+            "driver_id": "heim-corey",
+            "number": "5",
+            "team": "TRICON Garage",
             "laps": 130,
             "laps_led": 0,
             "status": "running",
@@ -246,28 +282,6 @@
             "laps_led": 0,
             "status": "running",
             "pts": 36
-          },
-          {
-            "pos": 8,
-            "driver": "Ben Rhodes",
-            "driver_id": "rhodes-ben",
-            "number": "99",
-            "team": "ThorSport Racing",
-            "laps": 130,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 34
-          },
-          {
-            "pos": 9,
-            "driver": "Corey Heim",
-            "driver_id": "heim-corey",
-            "number": "5",
-            "team": "Tricon Garage",
-            "laps": 130,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 32
           },
           {
             "pos": 10,
@@ -315,20 +329,27 @@
       "laps": 80,
       "miles": 150,
       "complete": true,
-      "summary": "Kaden Honeycutt won the OnlyBulls Green Flag 150.",
+      "summary": "History was made at St. Petersburg as Kaden Honeycutt won the first-ever NASCAR Craftsman Truck Series street race. The KBM driver led 59 laps on the Florida street circuit.",
+      "story_cards": [
+        {
+          "title": "Kaden Honeycutt wins OnlyBulls Green Flag 150",
+          "body": "History was made at St. Petersburg as Kaden Honeycutt won the first-ever NASCAR Craftsman Truck Series street race. The KBM driver led 59 laps on the Florida street circuit."
+        }
+      ],
       "race": {
         "winner": "Kaden Honeycutt",
-        "lead_changes": 7,
+        "margin": "0.812s",
+        "lead_changes": 6,
         "cautions": 3,
         "results": [
           {
             "pos": 1,
             "driver": "Kaden Honeycutt",
             "driver_id": "honeycutt-kaden",
-            "number": "19",
+            "number": "11",
             "team": "Kyle Busch Motorsports",
             "laps": 80,
-            "laps_led": 35,
+            "laps_led": 28,
             "status": "running",
             "pts": 55
           },
@@ -356,10 +377,10 @@
           },
           {
             "pos": 4,
-            "driver": "Chandler Smith",
-            "driver_id": "smith-chandler",
-            "number": "22",
-            "team": "Front Row Motorsports",
+            "driver": "Ty Majeski",
+            "driver_id": "majeski-ty",
+            "number": "66",
+            "team": "ThorSport Racing",
             "laps": 80,
             "laps_led": 0,
             "status": "running",
@@ -367,10 +388,10 @@
           },
           {
             "pos": 5,
-            "driver": "Ty Majeski",
-            "driver_id": "majeski-ty",
-            "number": "66",
-            "team": "ThorSport Racing",
+            "driver": "Chandler Smith",
+            "driver_id": "smith-chandler",
+            "number": "22",
+            "team": "Front Row Motorsports",
             "laps": 80,
             "laps_led": 0,
             "status": "running",
@@ -414,7 +435,7 @@
             "driver": "Corey Heim",
             "driver_id": "heim-corey",
             "number": "5",
-            "team": "Tricon Garage",
+            "team": "TRICON Garage",
             "laps": 80,
             "laps_led": 0,
             "status": "running",
@@ -445,7 +466,7 @@
           {
             "pos": 12,
             "driver": "Kyle Busch",
-            "driver_id": "busch-kyle",
+            "driver_id": "busch-kyle-t",
             "number": "8",
             "team": "Spire Motorsports",
             "laps": 80,
@@ -466,11 +487,18 @@
       "laps": 46,
       "miles": 157,
       "complete": true,
-      "summary": "Layne Riggs won the DuraMax Darling 150.",
+      "summary": "Layne Riggs claimed his first career truck series win at COTA, executing a brilliant final restart to get clear of the field. McAnally-Hilgemann Racing celebrated a 1-3 finish with Eckes in 3rd.",
+      "story_cards": [
+        {
+          "title": "Layne Riggs wins DuraMax Darling 150",
+          "body": "Layne Riggs claimed his first career truck series win at COTA, executing a brilliant final restart to get clear of the field. McAnally-Hilgemann Racing celebrated a 1-3 finish with Eckes in 3rd."
+        }
+      ],
       "race": {
         "winner": "Layne Riggs",
-        "lead_changes": 7,
-        "cautions": 3,
+        "margin": "1.2s",
+        "lead_changes": 9,
+        "cautions": 4,
         "results": [
           {
             "pos": 1,
@@ -479,7 +507,7 @@
             "number": "98",
             "team": "McAnally-Hilgemann",
             "laps": 46,
-            "laps_led": 35,
+            "laps_led": 28,
             "status": "running",
             "pts": 55
           },
@@ -509,7 +537,7 @@
             "pos": 4,
             "driver": "Kaden Honeycutt",
             "driver_id": "honeycutt-kaden",
-            "number": "19",
+            "number": "11",
             "team": "Kyle Busch Motorsports",
             "laps": 46,
             "laps_led": 0,
@@ -529,10 +557,10 @@
           },
           {
             "pos": 6,
-            "driver": "Christian Eckes",
-            "driver_id": "eckes-christian",
-            "number": "91",
-            "team": "McAnally-Hilgemann",
+            "driver": "Chandler Smith",
+            "driver_id": "smith-chandler",
+            "number": "22",
+            "team": "Front Row Motorsports",
             "laps": 46,
             "laps_led": 0,
             "status": "running",
@@ -540,10 +568,10 @@
           },
           {
             "pos": 7,
-            "driver": "Chandler Smith",
-            "driver_id": "smith-chandler",
-            "number": "22",
-            "team": "Front Row Motorsports",
+            "driver": "Christian Eckes",
+            "driver_id": "eckes-christian",
+            "number": "91",
+            "team": "McAnally-Hilgemann",
             "laps": 46,
             "laps_led": 0,
             "status": "running",
@@ -554,7 +582,7 @@
             "driver": "Corey Heim",
             "driver_id": "heim-corey",
             "number": "5",
-            "team": "Tricon Garage",
+            "team": "TRICON Garage",
             "laps": 46,
             "laps_led": 0,
             "status": "running",
@@ -585,7 +613,7 @@
           {
             "pos": 11,
             "driver": "Kyle Busch",
-            "driver_id": "busch-kyle",
+            "driver_id": "busch-kyle-t",
             "number": "8",
             "team": "Spire Motorsports",
             "laps": 46,
@@ -617,11 +645,18 @@
       "laps": 150,
       "miles": 150,
       "complete": true,
-      "summary": "Ben Rhodes won the XPEL 225.",
+      "summary": "Ben Rhodes gave ThorSport Racing their first win of 2026 at Phoenix, beating a charging Ty Majeski by 0.543 seconds. Rhodes led 70 laps across stages 1 and 3.",
+      "story_cards": [
+        {
+          "title": "Ben Rhodes wins XPEL 225",
+          "body": "Ben Rhodes gave ThorSport Racing their first win of 2026 at Phoenix, beating a charging Ty Majeski by 0.543 seconds. Rhodes led 70 laps across stages 1 and 3."
+        }
+      ],
       "race": {
         "winner": "Ben Rhodes",
-        "lead_changes": 7,
-        "cautions": 3,
+        "margin": "0.543s",
+        "lead_changes": 10,
+        "cautions": 5,
         "results": [
           {
             "pos": 1,
@@ -630,7 +665,7 @@
             "number": "99",
             "team": "ThorSport Racing",
             "laps": 150,
-            "laps_led": 35,
+            "laps_led": 28,
             "status": "running",
             "pts": 55
           },
@@ -649,7 +684,7 @@
             "pos": 3,
             "driver": "Kaden Honeycutt",
             "driver_id": "honeycutt-kaden",
-            "number": "19",
+            "number": "11",
             "team": "Kyle Busch Motorsports",
             "laps": 150,
             "laps_led": 0,
@@ -694,7 +729,7 @@
             "driver": "Corey Heim",
             "driver_id": "heim-corey",
             "number": "5",
-            "team": "Tricon Garage",
+            "team": "TRICON Garage",
             "laps": 150,
             "laps_led": 0,
             "status": "running",
@@ -736,7 +771,7 @@
           {
             "pos": 11,
             "driver": "Kyle Busch",
-            "driver_id": "busch-kyle",
+            "driver_id": "busch-kyle-t",
             "number": "8",
             "team": "Spire Motorsports",
             "laps": 150,
@@ -763,63 +798,37 @@
       "name": "Buckle Up South Carolina 200",
       "venue": "Darlington Raceway",
       "venue_id": "darlington",
-      "date": "2026-03-21",
+      "date": "2026-03-20",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "laps": 147,
       "miles": 200,
       "complete": true,
-      "summary": "Corey Heim won the Buckle Up South Carolina 200.",
+      "summary": "Corey Heim stole the show at Darlington with a last-lap pass of Ross Chastain to win in double overtime. Heim's scuffed tires from a prior stint proved fresher than the rest at the end. Frankie Muniz delivered a crowd-pleasing P18 for Reaume Brothers.",
+      "story_cards": [
+        {
+          "title": "Corey Heim wins Buckle Up South Carolina 200",
+          "body": "Corey Heim stole the show at Darlington with a last-lap pass of Ross Chastain to win in double overtime. Heim's scuffed tires from a prior stint proved fresher than the rest at the end. Frankie Muniz delivered a crowd-pleasing P18 for Reaume Brothers."
+        }
+      ],
       "race": {
         "winner": "Corey Heim",
-        "lead_changes": 7,
-        "cautions": 3,
+        "margin": "0.145s",
+        "lead_changes": 13,
+        "cautions": 7,
         "results": [
           {
             "pos": 1,
             "driver": "Corey Heim",
             "driver_id": "heim-corey",
             "number": "5",
-            "team": "Tricon Garage",
+            "team": "TRICON Garage",
             "laps": 147,
-            "laps_led": 35,
+            "laps_led": 28,
             "status": "running",
             "pts": 55
           },
           {
-            "pos": 4,
-            "driver": "Kaden Honeycutt",
-            "driver_id": "honeycutt-kaden",
-            "number": "19",
-            "team": "Kyle Busch Motorsports",
-            "laps": 147,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 43
-          },
-          {
-            "pos": 5,
-            "driver": "Layne Riggs",
-            "driver_id": "riggs-layne",
-            "number": "98",
-            "team": "McAnally-Hilgemann",
-            "laps": 147,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 40
-          },
-          {
-            "pos": 6,
-            "driver": "Giovanni Ruggiero",
-            "driver_id": "ruggiero-gio",
-            "number": "2",
-            "team": "Kyle Busch Motorsports",
-            "laps": 147,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 38
-          },
-          {
-            "pos": 7,
+            "pos": 3,
             "driver": "Christian Eckes",
             "driver_id": "eckes-christian",
             "number": "91",
@@ -827,10 +836,32 @@
             "laps": 147,
             "laps_led": 0,
             "status": "running",
-            "pts": 36
+            "pts": 46
           },
           {
-            "pos": 8,
+            "pos": 4,
+            "driver": "Kaden Honeycutt",
+            "driver_id": "honeycutt-kaden",
+            "number": "11",
+            "team": "Kyle Busch Motorsports",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43
+          },
+          {
+            "pos": 6,
+            "driver": "Layne Riggs",
+            "driver_id": "riggs-layne",
+            "number": "98",
+            "team": "McAnally-Hilgemann",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38
+          },
+          {
+            "pos": 7,
             "driver": "Ben Rhodes",
             "driver_id": "rhodes-ben",
             "number": "99",
@@ -838,14 +869,25 @@
             "laps": 147,
             "laps_led": 0,
             "status": "running",
-            "pts": 34
+            "pts": 36
           },
           {
-            "pos": 9,
+            "pos": 8,
             "driver": "Andres Perez de Lara",
             "driver_id": "perez-andres",
             "number": "41",
             "team": "Reaume Brothers",
+            "laps": 147,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34
+          },
+          {
+            "pos": 9,
+            "driver": "Giovanni Ruggiero",
+            "driver_id": "ruggiero-gio",
+            "number": "2",
+            "team": "Kyle Busch Motorsports",
             "laps": 147,
             "laps_led": 0,
             "status": "running",
@@ -865,7 +907,7 @@
           {
             "pos": 11,
             "driver": "Kyle Busch",
-            "driver_id": "busch-kyle",
+            "driver_id": "busch-kyle-t",
             "number": "8",
             "team": "Spire Motorsports",
             "laps": 147,
@@ -924,24 +966,6 @@
       "venue": "Charlotte Motor Speedway",
       "venue_id": "charlotte",
       "date": "2026-05-22",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "complete": false
-    },
-    {
-      "round": 9,
-      "name": "XPEL 225",
-      "venue": "Bristol Motor Speedway",
-      "venue_id": "bristol",
-      "date": "2026-09-18",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "complete": false
-    },
-    {
-      "round": 10,
-      "name": "Championship Race",
-      "venue": "Homestead-Miami Speedway",
-      "venue_id": "homestead",
-      "date": "2026-11-06",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "complete": false
     }

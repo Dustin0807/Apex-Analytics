@@ -414,7 +414,7 @@ async function initStandingsPage() {
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
-    <a href="f1.html">F1 Hub</a><span class="sep">/</span>
+    <a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span>
     <span class="current">Standings</span>`;
 
   const root = $('page-root');
@@ -430,7 +430,7 @@ async function initStandingsPage() {
 
     <div class="tab-bar">
       <button class="tab-btn active" onclick="switchTab('drivers',this)">Drivers</button>
-      <button class="tab-btn" onclick="switchTab('constructors',this)">Constructors</button>
+      <button class="tab-btn" onclick="switchTab('constructors',this)">${p.series&&p.series.includes('nascar')?'Teams':'Constructors'}</button>
       <button class="tab-btn" onclick="switchTab('schedule',this)">Schedule</button>
     </div>
 
@@ -580,7 +580,7 @@ async function initRacePage() {
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
-    <a href="f1.html">F1 Hub</a><span class="sep">/</span>
+    <a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span>
     <span class="current">R${race.round} · ${race.name}</span>`;
 
   const root = $('page-root');
@@ -797,7 +797,7 @@ async function initCompetitorPage() {
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
-    <a href="f1.html">F1 Hub</a><span class="sep">/</span>
+    <a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span>
     <span class="current">${driver.name}</span>`;
 
   const root = $('page-root');
@@ -1051,7 +1051,7 @@ async function initComparePage() {
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
-    <a href="f1.html">F1 Hub</a><span class="sep">/</span>
+    <a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span>
     <span class="current">Compare</span>`;
 
   const opts = drivers.map(d => `<option value="${d.id}" ${d.id===p.a?'selected':''}>${d.name} (#${d.number})</option>`).join('');
@@ -1179,7 +1179,7 @@ async function initVenuePage() {
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
-    <a href="f1.html">F1 Hub</a><span class="sep">/</span>
+    <a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span>
     <a href="circuits.html?series=${p.series}">Circuits</a><span class="sep">/</span>
     <span class="current">${venue.short}</span>`;
 
@@ -1285,7 +1285,7 @@ async function initCircuitsPage() {
   venues.venues.forEach(v => byTier[v.tier||3].push(v));
 
   const bc = $('nav-breadcrumb');
-  if (bc) bc.innerHTML = `<a href="index.html">Home</a><span class="sep">/</span><a href="f1.html">F1 Hub</a><span class="sep">/</span><span class="current">Circuits</span>`;
+  if (bc) bc.innerHTML = `<a href="index.html">Home</a><span class="sep">/</span><a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span><span class="current">Circuits</span>`;
 
   const root = $('page-root');
   if (!root) return;
@@ -2258,11 +2258,24 @@ async function initLandingPage() {
       let sgHtml = '';
       active.forEach(function(entry) {
         const id = entry[0], s = entry[1];
+        const sData = seriesDataMap[id];
+        const sDrivers = sData && sData.comp ? (sData.comp.competitors||[]).sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0)) : [];
+        const sSched   = sData && sData.sched ? sData.sched.schedule||[] : [];
+        const sCompleted = sSched.filter(function(r){return r.complete;});
+        const sLeader = sDrivers[0], sP2 = sDrivers[1];
+        const sGap = sLeader && sP2 ? (sLeader.season_2026?.pts||0)-(sP2.season_2026?.pts||0) : 0;
+        const hasSubSeries = !!(s.sub_series && s.sub_series.length);
+        const subSeriesChips = hasSubSeries ? '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px">' +
+          s.sub_series.map(function(ss){ return '<a href="'+s.hub_url+'" style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(255,255,255,.15);color:'+ss.accent+';text-decoration:none;background:rgba(255,255,255,.03)">'+ss.short+'</a>'; }).join('') + '</div>' : '';
+        const dispLeader = sLeader || leader;
+        const dispGap = sLeader ? sGap : gap;
+        const dispComp = sCompleted.length || completed.length;
+        const dispTotal = sSched.length || schedule.length;
         let statsHtml = '';
-        if (leader) {
-          statsHtml = '<div style="display:flex;gap:20px;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--border)">' +
-            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px;color:' + s.accent + '">' + leader.name.split(' ').pop() + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Leader</div></div>' +
-            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">' + (leader.season_2026?.pts||0) + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Points</div></div>' +
+        if (dispLeader) {
+          statsHtml = subSeriesChips + '<div style="display:flex;gap:20px;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--border)">' +
+            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px;color:' + s.accent + '">' + dispLeader.name.split(' ').pop() + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">' + (hasSubSeries?'Cup Leader':'Leader') + '</div></div>' +
+            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">' + (dispLeader.season_2026?.pts||0) + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Points</div></div>' +
             '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">+' + gap + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Gap to P2</div></div>' +
             '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">' + completed.length + '/' + schedule.length + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Rounds</div></div>' +
           '</div>';
@@ -2542,14 +2555,23 @@ function nascarRenderSeries(data) {
     '<div style="display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)">' + champStrip + '</div>' +
     '<div class="nascar-main">' +
       '<div class="nascar-feed">' +
-        (nextRace ? '<div style="padding:20px 22px;background:rgba(255,209,0,.04);border-bottom:1px solid var(--border);border-left:2px solid ' + accent + '">' +
-          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:' + accent + ';opacity:.7;margin-bottom:8px">Next Race · R' + nextRace.round + '</div>' +
-          '<div style="font-family:\'Bebas Neue\',display;font-size:26px;letter-spacing:.5px;margin-bottom:4px">' + (nextRace.name||nextRace.venue) + '</div>' +
-          '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">' +
-            '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--muted)">' + nextRace.venue + ' · ' + fmtDate(nextRace.date) + '</div>' +
-            '<a href="race.html?series=' + (ss?ss.id:'nascar-cup') + '&round=' + nextRace.round + '" class="btn ghost btn-sm">Preview →</a>' +
-          '</div>' +
-        '</div>' : '') +
+        (function(){
+          if (!nextRace) return '';
+          var cd = countdown(nextRace.date, nextRace.time_utc || '18:00:00');
+          var cdHtml = !cd.past ? '<div style="display:flex;gap:16px;margin-top:10px">' +
+            [['Days',cd.days],['Hrs',cd.hours],['Min',cd.mins],['Sec',cd.secs]].map(function(u){
+              return '<div><div style="font-family:Bebas Neue,sans-serif;font-size:26px;color:'+accent+';line-height:1">'+pad(u[1])+'</div><div style="font-family:JetBrains Mono,monospace;font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">'+u[0]+'</div></div>';
+            }).join('') + '</div>' : '';
+          return '<div style="padding:20px 22px;background:rgba(255,209,0,.04);border-bottom:1px solid var(--border);border-left:2px solid ' + accent + '">' +
+            '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:3px;text-transform:uppercase;color:' + accent + ';opacity:.7;margin-bottom:8px">Next Race · R' + nextRace.round + '</div>' +
+            '<div style="font-family:\'Bebas Neue\',display;font-size:26px;letter-spacing:.5px;margin-bottom:4px">' + (nextRace.name||nextRace.venue) + '</div>' +
+            '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">' +
+              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--muted)">' + nextRace.venue + ' · ' + fmtDate(nextRace.date) + '</div>' +
+              '<a href="race.html?series=' + (ss?ss.id:'nascar-cup') + '&round=' + nextRace.round + '" class="btn ghost btn-sm">Preview →</a>' +
+            '</div>' +
+            cdHtml +
+          '</div>';
+        })() +
         '<div style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">' +
           '<span style="font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--dim)">Race Reports</span>' +
           '<a href="standings.html?series=' + (ss?ss.id:'nascar-cup') + '" style="font-family:\'JetBrains Mono\',monospace;font-size:8px;color:' + accent + ';opacity:.6">Full Season →</a>' +
@@ -2577,4 +2599,136 @@ function nascarRenderSeries(data) {
     '</div>';
 
   if ($('footer-copy')) $('footer-copy').textContent = 'NASCAR 2026 · ' + (ss?ss.name:'Cup Series') + ' · ' + completed.length + ' races';
+}
+
+/* ══════════════════════════════════════════════════════════
+   NASCAR FORM ANALYSIS — Last 3 Races, All 3 Series
+══════════════════════════════════════════════════════════ */
+async function initNascarFormAnalysis() {
+  var el = $('form-analysis-root');
+  if (!el) return;
+
+  var results = await Promise.all([
+    loadJSON('data/competitors-nascar-cup-2026.json'),
+    loadJSON('data/nascar-cup-2026.json'),
+    loadJSON('data/competitors-nascar-xfinity-2026.json'),
+    loadJSON('data/nascar-xfinity-2026.json'),
+    loadJSON('data/competitors-nascar-trucks-2026.json'),
+    loadJSON('data/nascar-trucks-2026.json'),
+  ]);
+  var cupComp=results[0], cupSched=results[1], xComp=results[2], xSched=results[3], tComp=results[4], tSched=results[5];
+  if (!cupComp || !cupSched) return;
+
+  function last3(sched) {
+    return (sched.schedule||[]).filter(function(r){return r.complete;}).slice(-3);
+  }
+  function formTable(comps, indices) {
+    return comps.competitors.map(function(d) {
+      var rr = d.season_2026.results_by_round;
+      var last = indices.map(function(i){return rr[i];}).filter(Boolean);
+      var pts  = last.reduce(function(s,r){return s+(r.pts||0);},0);
+      var wins = last.filter(function(r){return r.finish===1;}).length;
+      var top5 = last.filter(function(r){return typeof r.finish==='number'&&r.finish<=5;}).length;
+      var fins = last.map(function(r){return r.finish;}).filter(function(f){return typeof f==='number';});
+      var avg  = fins.length ? (fins.reduce(function(a,b){return a+b;},0)/fins.length).toFixed(1) : '—';
+      return {d:d, pts:pts, wins:wins, top5:top5, avg:avg};
+    }).sort(function(a,b){return b.pts-a.pts;});
+  }
+
+  var cupRaces = last3(cupSched), xRaces = last3(xSched), tRaces = last3(tSched);
+  var cupForm  = formTable(cupComp,[3,4,5]), xForm = formTable(xComp,[1,2,3]), tForm = formTable(tComp,[3,4,5]);
+
+  function raceRow(r) {
+    return '<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04)">' +
+      '<div style="font-family:JetBrains Mono,monospace;font-size:8px;color:var(--dim);width:26px;flex-shrink:0">R'+r.round+'</div>' +
+      '<div style="flex:1;min-width:0">' +
+        '<div style="font-family:Bebas Neue,display;font-size:15px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + (r.name||r.venue) + '</div>' +
+        '<div style="font-family:JetBrains Mono,monospace;font-size:7px;color:var(--dim)">' + (r.venue||'') + (r.race ? ' · '+r.race.lead_changes+' lead changes · '+r.race.cautions+' cautions' : '') + '</div>' +
+      '</div>' +
+      '<div style="text-align:right;flex-shrink:0">' +
+        '<div style="font-family:Bebas Neue,display;font-size:15px;color:var(--accent)">' + (r.race&&r.race.winner ? r.race.winner.split(' ').pop() : '—') + '</div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function formRow(row, i, accent) {
+    var d = row.d, pct = (formTable && i===0) ? 100 : 0;
+    return '<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.03);position:relative;overflow:hidden">' +
+      '<div style="font-family:Bebas Neue,display;font-size:16px;color:'+(i===0?accent:'var(--dim)')+';width:18px;text-align:center">'+(i+1)+'</div>' +
+      '<div style="width:4px;height:4px;border-radius:50%;background:#'+d.color+';flex-shrink:0"></div>' +
+      '<div style="flex:1;min-width:0">' +
+        '<div style="font-family:Bebas Neue,display;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + d.name + '</div>' +
+        '<div style="font-family:JetBrains Mono,monospace;font-size:7px;color:var(--dim)">#'+d.number+' · '+d.team_name+'</div>' +
+      '</div>' +
+      '<div style="display:flex;gap:8px;align-items:center">' +
+        '<div style="text-align:center;min-width:28px"><div style="font-family:Bebas Neue,display;font-size:16px;color:'+(i===0?accent:'var(--text)')+'">'+row.pts+'</div><div style="font-family:JetBrains Mono,monospace;font-size:6px;color:var(--dim)">PTS</div></div>' +
+        '<div style="text-align:center;min-width:18px"><div style="font-family:Bebas Neue,display;font-size:16px;color:'+(row.wins?accent:'var(--dim)')+'">'+row.wins+'</div><div style="font-family:JetBrains Mono,monospace;font-size:6px;color:var(--dim)">W</div></div>' +
+        '<div style="text-align:center;min-width:18px"><div style="font-family:Bebas Neue,display;font-size:16px">'+row.top5+'</div><div style="font-family:JetBrains Mono,monospace;font-size:6px;color:var(--dim)">T5</div></div>' +
+        '<div style="text-align:center;min-width:26px"><div style="font-family:Bebas Neue,display;font-size:16px">'+row.avg+'</div><div style="font-family:JetBrains Mono,monospace;font-size:6px;color:var(--dim)">AVG</div></div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function insightCard(title, body, accent) {
+    return '<div style="padding:12px 14px;border:1px solid var(--border);border-left:2px solid '+accent+'">' +
+      '<div style="font-family:Bebas Neue,display;font-size:14px;letter-spacing:.5px;margin-bottom:4px;color:'+accent+'">' + title + '</div>' +
+      '<div style="font-size:12px;color:var(--muted);line-height:1.7;font-weight:300">' + body + '</div>' +
+    '</div>';
+  }
+
+  function block(title, accent, races, form, insights) {
+    return '<div style="border:1px solid var(--border)">' +
+      '<div style="padding:12px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.012)">' +
+        '<div style="width:8px;height:8px;border-radius:50%;background:'+accent+'"></div>' +
+        '<div style="font-family:Bebas Neue,display;font-size:20px;letter-spacing:1px;color:'+accent+'">'+title+'</div>' +
+        '<div style="font-family:JetBrains Mono,monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-left:auto">Last 3 Races</div>' +
+      '</div>' +
+      '<div style="display:grid;grid-template-columns:1fr 1fr">' +
+        '<div style="padding:14px 18px;border-right:1px solid var(--border)">' +
+          '<div style="font-family:JetBrains Mono,monospace;font-size:7px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">Results</div>' +
+          races.map(raceRow).join('') +
+        '</div>' +
+        '<div style="padding:14px 18px">' +
+          '<div style="font-family:JetBrains Mono,monospace;font-size:7px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">Form Table</div>' +
+          form.slice(0,8).map(function(row,i){return formRow(row,i,accent);}).join('') +
+        '</div>' +
+      '</div>' +
+      '<div style="padding:12px 18px;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">' +
+        insights.map(function(ins){return insightCard(ins.t,ins.b,accent);}).join('') +
+      '</div>' +
+    '</div>';
+  }
+
+  var cup1 = cupForm[0], cup2 = cupForm[1];
+  var x1   = xForm[0];
+  var t1   = tForm[0], t2 = tForm[1];
+  var bell = cupComp.competitors.find(function(d){return d.id==='bell-christopher';});
+
+  var cupInsights = [
+    {t:'Three different winners',b:'Phoenix (Blaney), Las Vegas (Hamlin), Darlington (Reddick). The field found answers after Reddick\'s historic 3-race sweep but he bounced back at Darlington to extend his championship lead to 95 points.'},
+    {t:'Bell\'s laps-led problem',b: bell ? bell.season_2026.laps_led+' laps led on the season, '+bell.season_2026.wins+' wins. Led 176 laps at Phoenix from pole — lost. Pace is elite but he can\'t close.' : 'Bell leads laps but can\'t close races.'},
+    {t:'Keselowski at Darlington',b:'Swept both stages and led the most laps. Finished 2nd. Peak Keselowski — dominant all race, nowhere at the end. His form table (101 pts, avg 9.7) shows the inconsistency.'},
+  ];
+  var xInsights = [
+    {t:'Four-way title battle',b:'Only 5 points separate Allgaier (138), Hill (136), Creed (134) and Love (133) across the last 3. The tightest form fight in any of the three series right now.'},
+    {t:'Allgaier closing',b:'2 wins in last 3 with a 3.3 average. At 35 years old with 500+ starts, his late-race execution is the edge no younger driver can match.'},
+    {t:"SVG road specialist",b:'Won at COTA (led 31 laps) but averages 8.3 across the 3. His part-time road-course role works perfectly until the schedule goes oval-heavy.'},
+  ];
+  var tInsights = [
+    {t:'6 races, 6 winners',b:'Every Truck race this season has had a different winner — the most wide-open racing in NASCAR. Three different winners just in the last three races.'},
+    {t:'Smith fading from lead',b:'Leads overall standings but ranks 8th in recent form at 97 pts with a 9.0 average. A P17 at Darlington is a warning sign with Honeycutt (132 pts) closing hard.'},
+    {t:t1.d.name.split(' ').pop()+' hottest right now',b:t1.pts+' pts, '+t1.wins+' win, '+t1.avg+' average — best recent form in the Truck field. '+t2.d.name.split(' ').pop()+' just behind at '+t2.pts+'.'},
+  ];
+
+  el.innerHTML =
+    '<div style="padding:24px var(--pad) 14px;border-bottom:1px solid var(--border)">' +
+      '<div style="font-family:JetBrains Mono,monospace;font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);margin-bottom:6px">Form Analysis</div>' +
+      '<h2 style="font-family:Bebas Neue,display;font-size:clamp(28px,4vw,42px);letter-spacing:1px;line-height:.9;margin-bottom:6px">Last 3 Races — All Three Series</h2>' +
+      '<p style="font-size:13px;color:var(--muted);font-weight:300">Form tables, results and key storylines across Cup, O\'Reilly and Trucks.</p>' +
+    '</div>' +
+    '<div style="padding:var(--pad);display:flex;flex-direction:column;gap:2px">' +
+      block('Cup Series', '#FFD100', cupRaces, cupForm, cupInsights) +
+      block("O'Reilly Auto Parts Series", '#00A651', xRaces, xForm, xInsights) +
+      block('Craftsman Truck Series', '#E8002D', tRaces, tForm, tInsights) +
+    '</div>';
 }

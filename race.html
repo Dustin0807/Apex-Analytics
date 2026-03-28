@@ -29,7 +29,7 @@
     <div class="foot-logo">APEX<span class="dot">.</span>ANALYTICS</div>
     <div class="foot-copy" id="footer-copy">Race Analysis</div>
   </footer>
-  <script src="assets/apex.js?v=fa435b7c"></script>
+  <script src="assets/apex.js?v=157d881f"></script>
   <script>initRacePage();</script>
   <script>
   (function() {
@@ -43,6 +43,29 @@
     var hubMap = {'f1':'f1.html','nascar-cup':'nascar.html','nascar-xfinity':'nascar.html','nascar-trucks':'nascar.html'};
     var hubEl = document.querySelector('a[data-hub-link]');
     if (hubEl && hubMap[s]) hubEl.href = hubMap[s];
+  })();
+  </script>
+  <script>
+  (function() {
+    var p = new URLSearchParams(location.search);
+    var s = p.get('series') || 'f1';
+    var hubMap = {'f1':'f1.html','nascar-cup':'nascar.html','nascar-xfinity':'nascar.html','nascar-trucks':'nascar.html'};
+    var hubUrl = hubMap[s] || 'f1.html';
+    // Swap all nav links that still say series=f1
+    document.querySelectorAll('a[href*="series=f1"]').forEach(function(a) {
+      a.href = a.href.replace('series=f1', 'series=' + s);
+    });
+    // Swap hardcoded f1.html hub links
+    document.querySelectorAll('a[href="f1.html"]').forEach(function(a) {
+      a.href = hubUrl;
+    });
+    // Update any text that says "F1 Hub" in nav links
+    document.querySelectorAll('a.nav-link').forEach(function(a) {
+      if (a.textContent.trim() === 'F1 Hub' && s.startsWith('nascar')) {
+        a.textContent = 'NASCAR Hub';
+        a.href = 'nascar.html';
+      }
+    });
   })();
   </script>
 </body>

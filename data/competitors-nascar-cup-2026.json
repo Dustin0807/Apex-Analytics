@@ -12,47 +12,44 @@
       "season_2026": {
         "pts": 325,
         "wins": 4,
-        "top5": 5,
-        "top10": 6,
+        "top5": 4,
+        "top10": 5,
         "dnfs": 0,
         "laps_led": 189,
-        "avg_finish": 2.7,
+        "avg_finish": 6.2,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 1,
+            "start": 2,
             "finish": 1,
             "laps": 200,
-            "laps_led": 31,
+            "laps_led": 89,
             "status": "running",
-            "pts": 65,
-            "stage_wins": 1
+            "pts": 65
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 1,
+            "start": 2,
             "finish": 1,
             "laps": 260,
-            "laps_led": 31,
+            "laps_led": 72,
             "status": "running",
-            "pts": 65,
-            "stage_wins": 1
+            "pts": 65
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 3,
-            "finish": 4,
+            "start": 14,
+            "finish": 1,
             "laps": 68,
-            "laps_led": 5,
+            "laps_led": 58,
             "status": "running",
-            "pts": 43,
-            "stage_wins": 0
+            "pts": 55
           },
           {
             "round": 4,
@@ -61,34 +58,31 @@
             "start": 7,
             "finish": 8,
             "laps": 312,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 34,
-            "stage_wins": 0
+            "pts": 34
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 1,
-            "finish": 1,
+            "start": 14,
+            "finish": 11,
             "laps": 267,
-            "laps_led": 31,
+            "laps_led": 0,
             "status": "running",
-            "pts": 65,
-            "stage_wins": 1
+            "pts": 28
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 1,
+            "start": 2,
             "finish": 1,
             "laps": 293,
-            "laps_led": 31,
+            "laps_led": 77,
             "status": "running",
-            "pts": 65,
-            "stage_wins": 1
+            "pts": 65
           }
         ]
       },
@@ -109,11 +103,11 @@
       "season_2026": {
         "pts": 230,
         "wins": 1,
-        "top5": 2,
-        "top10": 4,
+        "top5": 4,
+        "top10": 5,
         "dnfs": 0,
-        "laps_led": 89,
-        "avg_finish": 3.7,
+        "laps_led": 28,
+        "avg_finish": 4.7,
         "results_by_round": [
           {
             "round": 1,
@@ -122,10 +116,9 @@
             "start": 4,
             "finish": 3,
             "laps": 200,
-            "laps_led": 14,
+            "laps_led": 4,
             "status": "running",
-            "pts": 46,
-            "stage_wins": 0
+            "pts": 46
           },
           {
             "round": 2,
@@ -134,46 +127,42 @@
             "start": 3,
             "finish": 4,
             "laps": 260,
-            "laps_led": 5,
+            "laps_led": 4,
             "status": "running",
-            "pts": 43,
-            "stage_wins": 0
+            "pts": 48
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 4,
-            "finish": 5,
+            "start": 5,
+            "finish": 8,
             "laps": 68,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 40,
-            "stage_wins": 0
+            "pts": 34
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 1,
+            "start": 2,
             "finish": 1,
             "laps": 312,
-            "laps_led": 14,
+            "laps_led": 28,
             "status": "running",
-            "pts": 65,
-            "stage_wins": 1
+            "pts": 65
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 7,
-            "finish": 6,
+            "start": 12,
+            "finish": 12,
             "laps": 267,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 38,
-            "stage_wins": 0
+            "pts": 26
           },
           {
             "round": 6,
@@ -182,10 +171,9 @@
             "start": 4,
             "finish": 3,
             "laps": 293,
-            "laps_led": 14,
+            "laps_led": 4,
             "status": "running",
-            "pts": 46,
-            "stage_wins": 0
+            "pts": 46
           }
         ]
       },
@@ -207,82 +195,76 @@
         "pts": 205,
         "wins": 0,
         "top5": 0,
-        "top10": 4,
+        "top10": 3,
         "dnfs": 0,
         "laps_led": 86,
-        "avg_finish": 6.7,
+        "avg_finish": 9.5,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
             "start": 7,
-            "finish": 6,
+            "finish": 8,
             "laps": 200,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 38,
-            "stage_wins": 0
+            "pts": 34
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 6,
-            "finish": 7,
+            "start": 12,
+            "finish": 11,
             "laps": 260,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 36,
-            "stage_wins": 0
+            "pts": 28
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 7,
-            "finish": 8,
+            "start": 10,
+            "finish": 13,
             "laps": 68,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 34,
-            "stage_wins": 0
+            "pts": 24
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 7,
+            "start": 5,
             "finish": 6,
             "laps": 312,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 38,
-            "stage_wins": 0
+            "pts": 38
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 7,
-            "finish": 8,
+            "start": 10,
+            "finish": 9,
             "laps": 267,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 34,
-            "stage_wins": 0
+            "pts": 32
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 4,
-            "finish": 5,
+            "start": 13,
+            "finish": 14,
             "laps": 293,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 40,
-            "stage_wins": 0
+            "pts": 22
           }
         ]
       },
@@ -303,88 +285,82 @@
       "season_2026": {
         "pts": 203,
         "wins": 1,
-        "top5": 3,
-        "top10": 4,
+        "top5": 2,
+        "top10": 5,
         "dnfs": 0,
         "laps_led": 152,
-        "avg_finish": 5.0,
+        "avg_finish": 5.7,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 7,
-            "finish": 8,
+            "start": 10,
+            "finish": 9,
             "laps": 200,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 34,
-            "stage_wins": 0
+            "pts": 32
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 4,
-            "finish": 5,
+            "start": 5,
+            "finish": 6,
             "laps": 260,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 40,
-            "stage_wins": 0
+            "pts": 38
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 1,
-            "finish": 1,
+            "start": 2,
+            "finish": 10,
             "laps": 68,
-            "laps_led": 25,
+            "laps_led": 0,
             "status": "running",
-            "pts": 65,
-            "stage_wins": 1
+            "pts": 30
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 4,
+            "start": 6,
             "finish": 5,
             "laps": 312,
-            "laps_led": 5,
+            "laps_led": 25,
             "status": "running",
-            "pts": 40,
-            "stage_wins": 0
+            "pts": 40
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 6,
-            "finish": 7,
+            "start": 2,
+            "finish": 1,
             "laps": 267,
-            "laps_led": 5,
+            "laps_led": 134,
             "status": "running",
-            "pts": 36,
-            "stage_wins": 0
+            "pts": 55
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 3,
-            "finish": 4,
+            "start": 11,
+            "finish": 12,
             "laps": 293,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 43,
-            "stage_wins": 0
+            "pts": 26
           }
         ]
       },
       "career": {
-        "wins": 52,
+        "wins": 61,
         "championships": 0
       }
     },
@@ -400,47 +376,44 @@
       "season_2026": {
         "pts": 194,
         "wins": 0,
-        "top5": 2,
-        "top10": 3,
+        "top5": 1,
+        "top10": 4,
         "dnfs": 0,
         "laps_led": 44,
-        "avg_finish": 6.3,
+        "avg_finish": 8.5,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 4,
-            "finish": 5,
+            "start": 8,
+            "finish": 7,
             "laps": 200,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 40,
-            "stage_wins": 0
+            "pts": 36
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 4,
-            "finish": 3,
+            "start": 10,
+            "finish": 9,
             "laps": 260,
-            "laps_led": 7,
+            "laps_led": 0,
             "status": "running",
-            "pts": 46,
-            "stage_wins": 0
+            "pts": 32
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 6,
+            "start": 1,
             "finish": 7,
             "laps": 68,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 36,
-            "stage_wins": 0
+            "pts": 36
           },
           {
             "round": 4,
@@ -451,8 +424,7 @@
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 20,
-            "stage_wins": 0
+            "pts": 20
           },
           {
             "round": 5,
@@ -461,22 +433,20 @@
             "start": 1,
             "finish": 2,
             "laps": 267,
-            "laps_led": 7,
+            "laps_led": 15,
             "status": "running",
-            "pts": 50,
-            "stage_wins": 0
+            "pts": 50
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 7,
-            "finish": 6,
+            "start": 15,
+            "finish": 16,
             "laps": 293,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 38,
-            "stage_wins": 0
+            "pts": 18
           }
         ]
       },
@@ -497,71 +467,66 @@
       "season_2026": {
         "pts": 191,
         "wins": 0,
-        "top5": 1,
-        "top10": 3,
+        "top5": 3,
+        "top10": 5,
         "dnfs": 0,
         "laps_led": 12,
-        "avg_finish": 5.8,
+        "avg_finish": 4.8,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 3,
-            "finish": 4,
+            "start": 6,
+            "finish": 5,
             "laps": 200,
-            "laps_led": 5,
+            "laps_led": 2,
             "status": "running",
-            "pts": 43,
-            "stage_wins": 0
+            "pts": 40
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 1,
-            "finish": 2,
+            "start": 4,
+            "finish": 3,
             "laps": 260,
             "laps_led": 2,
             "status": "running",
-            "pts": 50,
-            "stage_wins": 0
+            "pts": 46
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 10,
-            "finish": 9,
+            "start": 4,
+            "finish": 16,
             "laps": 68,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 32,
-            "stage_wins": 0
+            "pts": 18
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 6,
+            "start": 8,
             "finish": 7,
             "laps": 312,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 36,
-            "stage_wins": 0
+            "pts": 36
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
             "start": 4,
-            "finish": 5,
+            "finish": 3,
             "laps": 267,
-            "laps_led": 5,
+            "laps_led": 15,
             "status": "running",
-            "pts": 40,
-            "stage_wins": 0
+            "pts": 46
           },
           {
             "round": 6,
@@ -570,10 +535,9 @@
             "start": 7,
             "finish": 8,
             "laps": 293,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 34,
-            "stage_wins": 0
+            "pts": 34
           }
         ]
       },
@@ -594,83 +558,77 @@
       "season_2026": {
         "pts": 188,
         "wins": 0,
-        "top5": 1,
+        "top5": 0,
         "top10": 3,
         "dnfs": 0,
         "laps_led": 18,
-        "avg_finish": 8.3,
+        "avg_finish": 10.0,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 10,
-            "finish": 9,
+            "start": 12,
+            "finish": 11,
             "laps": 200,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 32,
-            "stage_wins": 0
+            "pts": 28
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 7,
-            "finish": 6,
+            "start": 8,
+            "finish": 7,
             "laps": 260,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 38,
-            "stage_wins": 0
+            "pts": 36
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 7,
-            "finish": 6,
+            "start": 12,
+            "finish": 12,
             "laps": 68,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 38,
-            "stage_wins": 0
+            "pts": 26
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 19,
-            "finish": 18,
+            "start": 15,
+            "finish": 16,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 14,
-            "stage_wins": 0
+            "pts": 18
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 3,
-            "finish": 4,
+            "start": 5,
+            "finish": 6,
             "laps": 267,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 43,
-            "stage_wins": 0
+            "pts": 38
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 6,
-            "finish": 7,
+            "start": 10,
+            "finish": 9,
             "laps": 293,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 36,
-            "stage_wins": 0
+            "pts": 32
           }
         ]
       },
@@ -691,23 +649,22 @@
       "season_2026": {
         "pts": 182,
         "wins": 0,
-        "top5": 2,
-        "top10": 3,
+        "top5": 3,
+        "top10": 4,
         "dnfs": 0,
         "laps_led": 225,
-        "avg_finish": 6.8,
+        "avg_finish": 8.3,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 9,
-            "finish": 10,
+            "start": 11,
+            "finish": 12,
             "laps": 200,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 30,
-            "stage_wins": 0
+            "pts": 26
           },
           {
             "round": 2,
@@ -716,22 +673,20 @@
             "start": 7,
             "finish": 8,
             "laps": 260,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 34,
-            "stage_wins": 0
+            "pts": 34
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 4,
+            "start": 8,
             "finish": 3,
             "laps": 68,
-            "laps_led": 37,
+            "laps_led": 10,
             "status": "running",
-            "pts": 46,
-            "stage_wins": 0
+            "pts": 46
           },
           {
             "round": 4,
@@ -742,32 +697,29 @@
             "laps": 312,
             "laps_led": 37,
             "status": "running",
-            "pts": 50,
-            "stage_wins": 0
+            "pts": 55
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 10,
-            "finish": 9,
+            "start": 3,
+            "finish": 4,
             "laps": 267,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 32,
-            "stage_wins": 0
+            "pts": 43
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 10,
-            "finish": 9,
+            "start": 18,
+            "finish": 17,
             "laps": 293,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 32,
-            "stage_wins": 0
+            "pts": 16
           }
         ]
       },
@@ -788,35 +740,33 @@
       "season_2026": {
         "pts": 182,
         "wins": 0,
-        "top5": 2,
-        "top10": 3,
+        "top5": 1,
+        "top10": 2,
         "dnfs": 0,
         "laps_led": 142,
-        "avg_finish": 8.3,
+        "avg_finish": 11.3,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 13,
-            "finish": 12,
+            "start": 14,
+            "finish": 13,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 26,
-            "stage_wins": 0
+            "pts": 24
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 9,
-            "finish": 10,
+            "start": 11,
+            "finish": 12,
             "laps": 260,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 30,
-            "stage_wins": 0
+            "pts": 26
           },
           {
             "round": 3,
@@ -827,32 +777,29 @@
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 22,
-            "stage_wins": 0
+            "pts": 22
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 10,
-            "finish": 9,
+            "start": 18,
+            "finish": 17,
             "laps": 312,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 32,
-            "stage_wins": 0
+            "pts": 16
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 4,
-            "finish": 3,
+            "start": 9,
+            "finish": 10,
             "laps": 267,
-            "laps_led": 23,
+            "laps_led": 0,
             "status": "running",
-            "pts": 46,
-            "stage_wins": 0
+            "pts": 30
           },
           {
             "round": 6,
@@ -863,8 +810,7 @@
             "laps": 293,
             "laps_led": 23,
             "status": "running",
-            "pts": 50,
-            "stage_wins": 0
+            "pts": 55
           }
         ]
       },
@@ -886,46 +832,43 @@
         "pts": 176,
         "wins": 0,
         "top5": 1,
-        "top10": 2,
+        "top10": 5,
         "dnfs": 0,
         "laps_led": 34,
-        "avg_finish": 7.2,
+        "avg_finish": 7.7,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 6,
-            "finish": 7,
+            "start": 5,
+            "finish": 6,
             "laps": 200,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 36,
-            "stage_wins": 0
+            "pts": 38
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 10,
-            "finish": 9,
+            "start": 9,
+            "finish": 10,
             "laps": 260,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 32,
-            "stage_wins": 0
+            "pts": 30
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 1,
-            "finish": 2,
+            "start": 6,
+            "finish": 6,
             "laps": 68,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 50,
-            "stage_wins": 0
+            "pts": 38
           },
           {
             "round": 4,
@@ -936,32 +879,29 @@
             "laps": 312,
             "laps_led": 5,
             "status": "running",
-            "pts": 46,
-            "stage_wins": 0
+            "pts": 46
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 9,
-            "finish": 10,
+            "start": 8,
+            "finish": 7,
             "laps": 267,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 30,
-            "stage_wins": 0
+            "pts": 36
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 13,
-            "finish": 12,
+            "start": 16,
+            "finish": 15,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 26,
-            "stage_wins": 0
+            "pts": 20
           }
         ]
       },
@@ -982,47 +922,44 @@
       "season_2026": {
         "pts": 173,
         "wins": 0,
-        "top5": 1,
-        "top10": 2,
+        "top5": 3,
+        "top10": 5,
         "dnfs": 0,
         "laps_led": 22,
-        "avg_finish": 10.5,
+        "avg_finish": 7.8,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 10,
-            "finish": 11,
+            "start": 9,
+            "finish": 10,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 28,
-            "stage_wins": 0
+            "pts": 30
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 10,
-            "finish": 11,
+            "start": 13,
+            "finish": 14,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 28,
-            "stage_wins": 0
+            "pts": 22
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 15,
-            "finish": 16,
+            "start": 7,
+            "finish": 4,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 18,
-            "stage_wins": 0
+            "pts": 43
           },
           {
             "round": 4,
@@ -1031,34 +968,31 @@
             "start": 3,
             "finish": 4,
             "laps": 312,
-            "laps_led": 5,
+            "laps_led": 3,
             "status": "running",
-            "pts": 43,
-            "stage_wins": 0
+            "pts": 43
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 10,
-            "finish": 11,
+            "start": 6,
+            "finish": 5,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 28,
-            "stage_wins": 0
+            "pts": 40
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 9,
-            "finish": 10,
+            "start": 5,
+            "finish": 6,
             "laps": 293,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 30,
-            "stage_wins": 0
+            "pts": 38
           }
         ]
       },
@@ -1080,82 +1014,76 @@
         "pts": 154,
         "wins": 0,
         "top5": 0,
-        "top10": 2,
+        "top10": 0,
         "dnfs": 0,
         "laps_led": 5,
-        "avg_finish": 13.8,
+        "avg_finish": 16.0,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 13,
-            "finish": 14,
+            "start": 16,
+            "finish": 15,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 22,
-            "stage_wins": 0
+            "pts": 20
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 13,
-            "finish": 12,
+            "start": 16,
+            "finish": 15,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 26,
-            "stage_wins": 0
+            "pts": 20
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 19,
-            "finish": 20,
+            "start": 17,
+            "finish": 17,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 11,
-            "stage_wins": 0
+            "pts": 16
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 12,
-            "finish": 13,
+            "start": 19,
+            "finish": 20,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 24,
-            "stage_wins": 0
+            "pts": 11
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 12,
-            "finish": 13,
+            "start": 18,
+            "finish": 17,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 24,
-            "stage_wins": 0
+            "pts": 16
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 10,
+            "start": 12,
             "finish": 11,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 28,
-            "stage_wins": 0
+            "pts": 28
           }
         ]
       },
@@ -1180,43 +1108,40 @@
         "top10": 2,
         "dnfs": 0,
         "laps_led": 8,
-        "avg_finish": 12.3,
+        "avg_finish": 11.7,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 12,
-            "finish": 13,
+            "start": 13,
+            "finish": 14,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 24,
-            "stage_wins": 0
+            "pts": 22
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 16,
-            "finish": 15,
+            "start": 15,
+            "finish": 16,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 20,
-            "stage_wins": 0
+            "pts": 18
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 10,
-            "finish": 11,
+            "start": 11,
+            "finish": 15,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 28,
-            "stage_wins": 0
+            "pts": 20
           },
           {
             "round": 4,
@@ -1225,34 +1150,31 @@
             "start": 9,
             "finish": 10,
             "laps": 312,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 30,
-            "stage_wins": 0
+            "pts": 30
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
             "start": 13,
-            "finish": 12,
+            "finish": 14,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 26,
-            "stage_wins": 0
+            "pts": 22
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 12,
-            "finish": 13,
+            "start": 3,
+            "finish": 4,
             "laps": 293,
-            "laps_led": 0,
+            "laps_led": 1,
             "status": "running",
-            "pts": 24,
-            "stage_wins": 0
+            "pts": 43
           }
         ]
       },
@@ -1277,79 +1199,73 @@
         "top10": 1,
         "dnfs": 0,
         "laps_led": 3,
-        "avg_finish": 14.2,
+        "avg_finish": 14.3,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 15,
-            "finish": 16,
+            "start": 18,
+            "finish": 17,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 18,
-            "stage_wins": 0
+            "pts": 16
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 12,
+            "start": 14,
             "finish": 13,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 24,
-            "stage_wins": 0
+            "pts": 24
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 13,
-            "finish": 12,
+            "start": 15,
+            "finish": 21,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 26,
-            "stage_wins": 0
+            "pts": 10
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 15,
-            "finish": 16,
+            "start": 17,
+            "finish": 18,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 18,
-            "stage_wins": 0
+            "pts": 14
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 13,
-            "finish": 14,
+            "start": 16,
+            "finish": 15,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 22,
-            "stage_wins": 0
+            "pts": 20
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 13,
-            "finish": 14,
+            "start": 8,
+            "finish": 7,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 22,
-            "stage_wins": 0
+            "pts": 36
           }
         ]
       },
@@ -1370,83 +1286,77 @@
       "season_2026": {
         "pts": 140,
         "wins": 0,
-        "top5": 0,
-        "top10": 2,
+        "top5": 1,
+        "top10": 1,
         "dnfs": 0,
         "laps_led": 16,
-        "avg_finish": 14.7,
+        "avg_finish": 15.8,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 16,
-            "finish": 15,
+            "start": 17,
+            "finish": 18,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 20,
-            "stage_wins": 0
+            "pts": 14
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 15,
-            "finish": 16,
+            "start": 18,
+            "finish": 17,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 18,
-            "stage_wins": 0
+            "pts": 16
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 16,
-            "finish": 15,
+            "start": 9,
+            "finish": 2,
             "laps": 68,
-            "laps_led": 0,
+            "laps_led": 10,
             "status": "running",
-            "pts": 20,
-            "stage_wins": 0
+            "pts": 50
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 10,
+            "start": 12,
             "finish": 11,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 28,
-            "stage_wins": 0
+            "pts": 28
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 15,
-            "finish": 16,
+            "start": 22,
+            "finish": 36,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 18,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 16,
-            "finish": 15,
+            "start": 17,
+            "finish": 18,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 20,
-            "stage_wins": 0
+            "pts": 14
           }
         ]
       },
@@ -1468,46 +1378,43 @@
         "pts": 139,
         "wins": 0,
         "top5": 0,
-        "top10": 1,
+        "top10": 0,
         "dnfs": 0,
         "laps_led": 4,
-        "avg_finish": 16.2,
+        "avg_finish": 17.7,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 16,
-            "finish": 17,
+            "start": 20,
+            "finish": 19,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 16,
-            "stage_wins": 0
+            "pts": 12
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 19,
-            "finish": 18,
+            "start": 20,
+            "finish": 19,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 14,
-            "stage_wins": 0
+            "pts": 12
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 16,
-            "finish": 17,
+            "start": 18,
+            "finish": 18,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 16,
-            "stage_wins": 0
+            "pts": 14
           },
           {
             "round": 4,
@@ -1518,32 +1425,29 @@
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 22,
-            "stage_wins": 0
+            "pts": 22
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 16,
-            "finish": 15,
+            "start": 17,
+            "finish": 16,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 20,
-            "stage_wins": 0
+            "pts": 18
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 15,
-            "finish": 16,
+            "start": 20,
+            "finish": 19,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 18,
-            "stage_wins": 0
+            "pts": 12
           }
         ]
       },
@@ -1565,82 +1469,76 @@
         "pts": 136,
         "wins": 0,
         "top5": 0,
-        "top10": 1,
+        "top10": 0,
         "dnfs": 0,
         "laps_led": 2,
-        "avg_finish": 16.8,
+        "avg_finish": 19.2,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
             "start": 19,
-            "finish": 18,
+            "finish": 20,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 14,
-            "stage_wins": 0
+            "pts": 11
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 13,
-            "finish": 14,
+            "start": 17,
+            "finish": 18,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 22,
-            "stage_wins": 0
+            "pts": 14
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 19,
-            "finish": 18,
+            "start": 20,
+            "finish": 11,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 14,
-            "stage_wins": 0
+            "pts": 28
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 16,
-            "finish": 17,
+            "start": 20,
+            "finish": 19,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 16,
-            "stage_wins": 0
+            "pts": 12
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 16,
-            "finish": 17,
+            "start": 20,
+            "finish": 13,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 16,
-            "stage_wins": 0
+            "pts": 24
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 16,
-            "finish": 17,
+            "start": 19,
+            "finish": 20,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 16,
-            "stage_wins": 0
+            "pts": 11
           }
         ]
       },
@@ -1654,7 +1552,7 @@
       "name": "Riley Herbst",
       "number": "35",
       "team": "shxr",
-      "team_name": "Stewart-Haas w/ HMX",
+      "team_name": "Stewart-Haas w/HMX",
       "color": "FF6600",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
@@ -1662,82 +1560,76 @@
         "pts": 130,
         "wins": 0,
         "top5": 0,
-        "top10": 1,
+        "top10": 0,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 17.0,
+        "avg_finish": 18.0,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 18,
-            "finish": 19,
+            "start": 21,
+            "finish": 22,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 12,
-            "stage_wins": 0
+            "pts": 9
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 16,
-            "finish": 17,
+            "start": 19,
+            "finish": 20,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 16,
-            "stage_wins": 0
+            "pts": 11
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 9,
-            "finish": 10,
+            "start": 3,
+            "finish": 24,
             "laps": 68,
-            "laps_led": 5,
+            "laps_led": 0,
             "status": "running",
-            "pts": 30,
-            "stage_wins": 0
+            "pts": 7
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 18,
-            "finish": 19,
+            "start": 22,
+            "finish": 21,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 12,
-            "stage_wins": 0
+            "pts": 10
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
             "start": 19,
-            "finish": 18,
+            "finish": 20,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 14,
-            "stage_wins": 0
+            "pts": 11
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 18,
-            "finish": 19,
+            "start": 22,
+            "finish": 21,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 12,
-            "stage_wins": 0
+            "pts": 10
           }
         ]
       },
@@ -1751,7 +1643,7 @@
       "name": "Noah Gragson",
       "number": "10",
       "team": "shxr",
-      "team_name": "Stewart-Haas w/ HMX",
+      "team_name": "Stewart-Haas w/HMX",
       "color": "00A0DC",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
@@ -1759,82 +1651,76 @@
         "pts": 125,
         "wins": 0,
         "top5": 0,
-        "top10": 1,
+        "top10": 0,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 19.3,
+        "avg_finish": 22.2,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 19,
-            "finish": 20,
+            "start": 24,
+            "finish": 23,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 11,
-            "stage_wins": 0
+            "pts": 8
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 18,
-            "finish": 19,
+            "start": 21,
+            "finish": 22,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 12,
-            "stage_wins": 0
+            "pts": 9
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 18,
-            "finish": 19,
+            "start": 21,
+            "finish": 25,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 12,
-            "stage_wins": 0
+            "pts": 6
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 19,
-            "finish": 20,
+            "start": 21,
+            "finish": 22,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 11,
-            "stage_wins": 0
+            "pts": 9
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 19,
-            "finish": 20,
+            "start": 21,
+            "finish": 21,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 11,
-            "stage_wins": 0
+            "pts": 10
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 19,
-            "finish": 18,
+            "start": 21,
+            "finish": 22,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 14,
-            "stage_wins": 0
+            "pts": 9
           }
         ]
       },
@@ -1856,82 +1742,76 @@
         "pts": 122,
         "wins": 0,
         "top5": 0,
-        "top10": 0,
+        "top10": 1,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 20.7,
+        "avg_finish": 21.8,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 22,
-            "finish": 21,
+            "start": 23,
+            "finish": 24,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 10,
-            "stage_wins": 0
+            "pts": 7
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 19,
-            "finish": 20,
+            "start": 24,
+            "finish": 23,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 11,
-            "stage_wins": 0
+            "pts": 8
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 22,
-            "finish": 21,
+            "start": 16,
+            "finish": 9,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 10,
-            "stage_wins": 0
+            "pts": 32
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 22,
-            "finish": 21,
+            "start": 24,
+            "finish": 23,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 10,
-            "stage_wins": 0
+            "pts": 8
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 22,
-            "finish": 21,
+            "start": 24,
+            "finish": 22,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 10,
-            "stage_wins": 0
+            "pts": 9
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 19,
-            "finish": 20,
+            "start": 24,
+            "finish": 23,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 11,
-            "stage_wins": 0
+            "pts": 8
           }
         ]
       },
@@ -1953,82 +1833,76 @@
         "pts": 118,
         "wins": 0,
         "top5": 0,
-        "top10": 1,
+        "top10": 0,
         "dnfs": 0,
         "laps_led": 6,
-        "avg_finish": 21.2,
+        "avg_finish": 24.5,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 21,
-            "finish": 22,
+            "start": 26,
+            "finish": 25,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 9,
-            "stage_wins": 0
+            "pts": 6
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 22,
-            "finish": 21,
+            "start": 26,
+            "finish": 25,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 10,
-            "stage_wins": 0
+            "pts": 6
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 21,
-            "finish": 22,
+            "start": 19,
+            "finish": 20,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 9,
-            "stage_wins": 0
+            "pts": 11
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 21,
-            "finish": 22,
+            "start": 26,
+            "finish": 25,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 9,
-            "stage_wins": 0
+            "pts": 6
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 18,
-            "finish": 19,
+            "start": 27,
+            "finish": 28,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 12,
-            "stage_wins": 0
+            "pts": 3
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 22,
-            "finish": 21,
+            "start": 23,
+            "finish": 24,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 10,
-            "stage_wins": 0
+            "pts": 7
           }
         ]
       },
@@ -2053,79 +1927,73 @@
         "top10": 0,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 22.5,
+        "avg_finish": 24.3,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 22,
-            "finish": 23,
+            "start": 25,
+            "finish": 26,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 8,
-            "stage_wins": 0
+            "pts": 5
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 21,
-            "finish": 22,
+            "start": 23,
+            "finish": 24,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 9,
-            "stage_wins": 0
+            "pts": 7
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 22,
-            "finish": 23,
+            "start": 24,
+            "finish": 19,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 8,
-            "stage_wins": 0
+            "pts": 12
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 22,
-            "finish": 23,
+            "start": 23,
+            "finish": 24,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 8,
-            "stage_wins": 0
+            "pts": 7
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 21,
-            "finish": 22,
+            "start": 23,
+            "finish": 19,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 9,
-            "stage_wins": 0
+            "pts": 12
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 21,
-            "finish": 22,
+            "start": 26,
+            "finish": 25,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 9,
-            "stage_wins": 0
+            "pts": 6
           }
         ]
       },
@@ -2137,9 +2005,9 @@
     {
       "id": "briscoe-chase",
       "name": "Chase Briscoe",
-      "number": "14",
-      "team": "shxr",
-      "team_name": "Stewart-Haas w/ HMX",
+      "number": "19",
+      "team": "jgr",
+      "team_name": "Joe Gibbs Racing",
       "color": "0078D4",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
@@ -2147,82 +2015,76 @@
         "pts": 110,
         "wins": 0,
         "top5": 0,
-        "top10": 0,
+        "top10": 1,
         "dnfs": 0,
-        "laps_led": 0,
-        "avg_finish": 23.5,
+        "laps_led": 12,
+        "avg_finish": 20.2,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 25,
-            "finish": 24,
+            "start": 28,
+            "finish": 27,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 7,
-            "stage_wins": 0
+            "pts": 4
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 22,
-            "finish": 23,
+            "start": 25,
+            "finish": 26,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 8,
-            "stage_wins": 0
+            "pts": 5
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 25,
-            "finish": 24,
+            "start": 7,
+            "finish": 22,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 7,
-            "stage_wins": 0
+            "pts": 9
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
             "start": 25,
-            "finish": 24,
+            "finish": 26,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 7,
-            "stage_wins": 0
+            "pts": 5
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 22,
-            "finish": 23,
+            "start": 7,
+            "finish": 8,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 8,
-            "stage_wins": 0
+            "pts": 34
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 22,
-            "finish": 23,
+            "start": 25,
+            "finish": 26,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 8,
-            "stage_wins": 0
+            "pts": 5
           }
         ]
       },
@@ -2243,11 +2105,11 @@
       "season_2026": {
         "pts": 105,
         "wins": 0,
-        "top5": 0,
+        "top5": 1,
         "top10": 1,
         "dnfs": 0,
         "laps_led": 1,
-        "avg_finish": 20.8,
+        "avg_finish": 22.2,
         "results_by_round": [
           {
             "round": 1,
@@ -2258,82 +2120,76 @@
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 50,
-            "stage_wins": 0
+            "pts": 50
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 25,
-            "finish": 24,
+            "start": 27,
+            "finish": 28,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 7,
-            "stage_wins": 0
+            "pts": 3
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 24,
-            "finish": 25,
+            "start": 23,
+            "finish": 23,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 6,
-            "stage_wins": 0
+            "pts": 8
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 24,
-            "finish": 25,
+            "start": 28,
+            "finish": 27,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 6,
-            "stage_wins": 0
+            "pts": 4
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 25,
-            "finish": 24,
+            "start": 26,
+            "finish": 23,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 7,
-            "stage_wins": 0
+            "pts": 8
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 24,
-            "finish": 25,
+            "start": 28,
+            "finish": 27,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 6,
-            "stage_wins": 0
+            "pts": 4
           }
         ]
       },
       "career": {
-        "wins": 2,
+        "wins": 5,
         "championships": 0
       }
     },
     {
       "id": "berry-josh",
       "name": "Josh Berry",
-      "number": "4",
-      "team": "shxr",
-      "team_name": "Stewart-Haas w/ HMX",
+      "number": "21",
+      "team": "wbr",
+      "team_name": "Wood Brothers Racing",
       "color": "FF8800",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
@@ -2344,31 +2200,29 @@
         "top10": 0,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 25.5,
+        "avg_finish": 27.2,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 24,
-            "finish": 25,
+            "start": 27,
+            "finish": 28,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 6,
-            "stage_wins": 0
+            "pts": 3
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 24,
-            "finish": 25,
+            "start": 28,
+            "finish": 27,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 6,
-            "stage_wins": 0
+            "pts": 4
           },
           {
             "round": 3,
@@ -2379,44 +2233,40 @@
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 5,
-            "stage_wins": 0
+            "pts": 5
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 25,
-            "finish": 26,
+            "start": 27,
+            "finish": 28,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 5,
-            "stage_wins": 0
+            "pts": 3
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 24,
-            "finish": 25,
+            "start": 25,
+            "finish": 24,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 6,
-            "stage_wins": 0
+            "pts": 7
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 25,
-            "finish": 26,
+            "start": 27,
+            "finish": 28,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 5,
-            "stage_wins": 0
+            "pts": 3
           }
         ]
       },
@@ -2437,35 +2287,33 @@
       "season_2026": {
         "pts": 98,
         "wins": 0,
-        "top5": 0,
-        "top10": 0,
+        "top5": 1,
+        "top10": 1,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 26.5,
+        "avg_finish": 24.3,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 25,
-            "finish": 26,
+            "start": 30,
+            "finish": 29,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 5,
-            "stage_wins": 0
+            "pts": 2
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 25,
-            "finish": 26,
+            "start": 30,
+            "finish": 29,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 5,
-            "stage_wins": 0
+            "pts": 2
           },
           {
             "round": 3,
@@ -2476,44 +2324,40 @@
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 4,
-            "stage_wins": 0
+            "pts": 4
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 28,
-            "finish": 27,
+            "start": 30,
+            "finish": 29,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 4,
-            "stage_wins": 0
+            "pts": 2
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 25,
-            "finish": 26,
+            "start": 28,
+            "finish": 25,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 5,
-            "stage_wins": 0
+            "pts": 6
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 28,
-            "finish": 27,
+            "start": 6,
+            "finish": 5,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 4,
-            "stage_wins": 0
+            "pts": 40
           }
         ]
       },
@@ -2538,31 +2382,29 @@
         "top10": 0,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 27.5,
+        "avg_finish": 29.3,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 28,
-            "finish": 27,
+            "start": 29,
+            "finish": 30,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 4,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 28,
-            "finish": 27,
+            "start": 29,
+            "finish": 30,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 4,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 3,
@@ -2573,44 +2415,40 @@
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 3,
-            "stage_wins": 0
+            "pts": 3
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 27,
-            "finish": 28,
+            "start": 29,
+            "finish": 30,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 3,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 28,
-            "finish": 27,
+            "start": 30,
+            "finish": 26,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 4,
-            "stage_wins": 0
+            "pts": 5
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 27,
-            "finish": 28,
+            "start": 30,
+            "finish": 29,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 3,
-            "stage_wins": 0
+            "pts": 2
           }
         ]
       },
@@ -2624,7 +2462,7 @@
       "name": "Cole Custer",
       "number": "41",
       "team": "shxr",
-      "team_name": "Stewart-Haas w/ HMX",
+      "team_name": "Stewart-Haas w/HMX",
       "color": "FF4400",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
@@ -2635,79 +2473,73 @@
         "top10": 0,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 28.5,
+        "avg_finish": 30.3,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 27,
-            "finish": 28,
+            "start": 32,
+            "finish": 31,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 3,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 27,
-            "finish": 28,
+            "start": 32,
+            "finish": 31,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 3,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 28,
+            "start": 30,
             "finish": 29,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 2,
-            "stage_wins": 0
+            "pts": 2
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 28,
-            "finish": 29,
+            "start": 32,
+            "finish": 31,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 2,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 27,
-            "finish": 28,
+            "start": 29,
+            "finish": 27,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 3,
-            "stage_wins": 0
+            "pts": 4
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 28,
-            "finish": 29,
+            "start": 29,
+            "finish": 30,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 2,
-            "stage_wins": 0
+            "pts": 1
           }
         ]
       },
@@ -2732,79 +2564,73 @@
         "top10": 0,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 29.5,
+        "avg_finish": 31.3,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 28,
-            "finish": 29,
+            "start": 31,
+            "finish": 32,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 2,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 28,
-            "finish": 29,
+            "start": 31,
+            "finish": 32,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 2,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 31,
+            "start": 29,
             "finish": 30,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
             "start": 31,
-            "finish": 30,
+            "finish": 32,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 28,
+            "start": 32,
             "finish": 29,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 2,
-            "stage_wins": 0
+            "pts": 2
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 31,
-            "finish": 30,
+            "start": 32,
+            "finish": 31,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           }
         ]
       },
@@ -2826,58 +2652,54 @@
         "pts": 75,
         "wins": 0,
         "top5": 0,
-        "top10": 0,
+        "top10": 1,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 30.5,
+        "avg_finish": 28.7,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 31,
-            "finish": 30,
+            "start": 34,
+            "finish": 33,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 31,
-            "finish": 30,
+            "start": 34,
+            "finish": 33,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 30,
+            "start": 32,
             "finish": 31,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 30,
-            "finish": 31,
+            "start": 34,
+            "finish": 33,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 5,
@@ -2888,20 +2710,18 @@
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 30,
-            "finish": 31,
+            "start": 9,
+            "finish": 10,
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 30
           }
         ]
       },
@@ -2926,31 +2746,29 @@
         "top10": 0,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 31.5,
+        "avg_finish": 33.2,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 30,
-            "finish": 31,
+            "start": 33,
+            "finish": 34,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 30,
-            "finish": 31,
+            "start": 33,
+            "finish": 34,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 3,
@@ -2961,32 +2779,29 @@
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 31,
-            "finish": 32,
+            "start": 33,
+            "finish": 34,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 30,
+            "start": 34,
             "finish": 31,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 6,
@@ -2997,8 +2812,7 @@
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           }
         ]
       },
@@ -3023,67 +2837,62 @@
         "top10": 0,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 32.5,
+        "avg_finish": 20.0,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 31,
-            "finish": 32,
+            "start": 15,
+            "finish": 16,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 18
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 31,
-            "finish": 32,
+            "start": 22,
+            "finish": 21,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 10
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 34,
-            "finish": 33,
+            "start": 22,
+            "finish": 34,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 34,
-            "finish": 33,
+            "start": 14,
+            "finish": 13,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 24
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 31,
-            "finish": 32,
+            "start": 15,
+            "finish": 33,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 6,
@@ -3094,8 +2903,7 @@
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           }
         ]
       },
@@ -3120,67 +2928,62 @@
         "top10": 0,
         "dnfs": 0,
         "laps_led": 0,
-        "avg_finish": 26.3,
+        "avg_finish": 24.0,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 34,
-            "finish": 33,
+            "start": 22,
+            "finish": 21,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 10
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 34,
-            "finish": 33,
+            "start": 19,
+            "finish": 20,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 11
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
-            "start": 12,
-            "finish": 13,
+            "start": 26,
+            "finish": 33,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 24,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 13,
+            "start": 11,
             "finish": 12,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 26,
-            "stage_wins": 0
+            "pts": 26
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
-            "start": 34,
-            "finish": 33,
+            "start": 31,
+            "finish": 32,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 6,
@@ -3191,8 +2994,7 @@
             "laps": 293,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           }
         ]
       },
@@ -3213,83 +3015,77 @@
       "season_2026": {
         "pts": 50,
         "wins": 0,
-        "top5": 0,
-        "top10": 0,
-        "dnfs": 0,
+        "top5": 1,
+        "top10": 1,
+        "dnfs": 1,
         "laps_led": 0,
-        "avg_finish": 34.2,
+        "avg_finish": 34.7,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
             "venue_id": "daytona",
-            "start": 33,
-            "finish": 34,
+            "start": 36,
+            "finish": 35,
             "laps": 200,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
             "venue_id": "atlanta",
-            "start": 33,
-            "finish": 34,
+            "start": 36,
+            "finish": 35,
             "laps": 260,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
             "venue_id": "cota",
             "start": 33,
-            "finish": 34,
+            "finish": 5,
             "laps": 68,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 40
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
             "venue_id": "phoenix",
-            "start": 33,
-            "finish": 34,
+            "start": 36,
+            "finish": 35,
             "laps": 312,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 1
           },
           {
             "round": 5,
             "venue": "Las Vegas Motor Speedway",
             "venue_id": "las-vegas",
             "start": 33,
-            "finish": 34,
+            "finish": 18,
             "laps": 267,
             "laps_led": 0,
             "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "pts": 14
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
             "venue_id": "darlington",
-            "start": 34,
+            "start": 36,
             "finish": 35,
             "laps": 293,
             "laps_led": 0,
-            "status": "running",
-            "pts": 1,
-            "stage_wins": 0
+            "status": "dnf",
+            "pts": 1
           }
         ]
       },

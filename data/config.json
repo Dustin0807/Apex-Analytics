@@ -207,7 +207,7 @@
           "id": "nascar-xfinity",
           "name": "O'Reilly Auto Parts Series",
           "short": "O'Reilly",
-          "accent": "#0090FF",
+          "accent": "#00A651",
           "season_file": "nascar-xfinity-2026",
           "competitors_file": "competitors-nascar-xfinity-2026",
           "venues_file": "venues-nascar-2026",
@@ -223,7 +223,9 @@
           "venues_file": "venues-nascar-2026",
           "description": "Pickup trucks at full speed. The most accessible and unpredictable series in NASCAR."
         }
-      ]
+      ],
+      "competitors_file": "competitors-nascar-cup-2026",
+      "season_file": "nascar-cup-2026"
     },
     "dtm": {
       "name": "Deutsche Tourenwagen Masters",

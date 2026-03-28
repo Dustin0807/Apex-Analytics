@@ -1,19 +1,19 @@
 {
   "competitors": [
     {
-      "id": "love-jesse",
-      "name": "Jesse Love",
-      "number": "2",
-      "team": "Richard Childress",
-      "team_name": "Richard Childress",
-      "color": "1428A0",
+      "id": "allgaier-justin",
+      "name": "Justin Allgaier",
+      "number": "7",
+      "team": "jrm",
+      "team_name": "JR Motorsports",
+      "color": "FF6B00",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 185,
-        "wins": 0,
-        "top5": 4,
-        "top10": 4,
+        "pts": 282,
+        "wins": 2,
+        "top5": 6,
+        "top10": 6,
         "dnfs": 0,
         "avg_finish": 3.0,
         "results_by_round": [
@@ -25,19 +25,17 @@
             "status": "running",
             "laps": 120,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
-            "finish": 3,
-            "pts": 46,
+            "finish": 5,
+            "pts": 40,
             "status": "running",
             "laps": 163,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 3,
@@ -47,8 +45,92 @@
             "status": "running",
             "laps": 46,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
+          },
+          {
+            "round": 4,
+            "venue": "Phoenix Raceway",
+            "finish": 1,
+            "pts": 55,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 30,
+            "stage_wins": 1
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 4,
+            "pts": 43,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 1,
+            "pts": 55,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 30,
+            "stage_wins": 1
+          }
+        ]
+      },
+      "career": {
+        "wins": 6,
+        "championships": 0,
+        "races": 100
+      }
+    },
+    {
+      "id": "love-jesse",
+      "name": "Jesse Love",
+      "number": "2",
+      "team": "rcr",
+      "team_name": "Richard Childress Racing",
+      "color": "1428A0",
+      "nationality": "American",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "season_2026": {
+        "pts": 276,
+        "wins": 1,
+        "top5": 5,
+        "top10": 6,
+        "dnfs": 0,
+        "avg_finish": 3.3,
+        "results_by_round": [
+          {
+            "round": 1,
+            "venue": "Daytona International Speedway",
+            "finish": 2,
+            "pts": 50,
+            "status": "running",
+            "laps": 120,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 2,
+            "venue": "EchoPark Speedway",
+            "finish": 4,
+            "pts": 43,
+            "status": "running",
+            "laps": 163,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 3,
+            "venue": "Circuit of the Americas",
+            "finish": 5,
+            "pts": 40,
+            "status": "running",
+            "laps": 46,
+            "laps_led": 0,
+            "stage_wins": 0
           },
           {
             "round": 4,
@@ -58,33 +140,52 @@
             "status": "running",
             "laps": 200,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 1,
+            "pts": 55,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 30,
+            "stage_wins": 1
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 6,
+            "pts": 38,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
           }
         ]
       },
       "career": {
-        "wins": 0,
+        "wins": 3,
         "championships": 0,
-        "races": 120
+        "races": 100
       }
     },
     {
       "id": "hill-austin",
       "name": "Austin Hill",
       "number": "21",
-      "team": "Richard Childress",
-      "team_name": "Richard Childress",
+      "team": "rcr",
+      "team_name": "Richard Childress Racing",
       "color": "E31837",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 184,
+        "pts": 263,
         "wins": 1,
-        "top5": 4,
-        "top10": 4,
+        "top5": 5,
+        "top10": 5,
         "dnfs": 0,
-        "avg_finish": 3.2,
+        "avg_finish": 4.3,
         "results_by_round": [
           {
             "round": 1,
@@ -93,20 +194,18 @@
             "pts": 55,
             "status": "running",
             "laps": 120,
-            "laps_led": 50,
-            "stage_wins": 1,
-            "playoff_pts": 5
+            "laps_led": 30,
+            "stage_wins": 1
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
-            "finish": 4,
-            "pts": 43,
+            "finish": 2,
+            "pts": 50,
             "status": "running",
             "laps": 163,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 3,
@@ -116,8 +215,7 @@
             "status": "running",
             "laps": 46,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 4,
@@ -127,113 +225,62 @@
             "status": "running",
             "laps": 200,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          }
-        ]
-      },
-      "career": {
-        "wins": 3,
-        "championships": 0,
-        "races": 120
-      }
-    },
-    {
-      "id": "allgaier-justin",
-      "name": "Justin Allgaier",
-      "number": "7",
-      "team": "JR Motorsports",
-      "team_name": "JR Motorsports",
-      "color": "FF6B00",
-      "nationality": "American",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "season_2026": {
-        "pts": 172,
-        "wins": 1,
-        "top5": 2,
-        "top10": 4,
-        "dnfs": 0,
-        "avg_finish": 4.5,
-        "results_by_round": [
-          {
-            "round": 1,
-            "venue": "Daytona International Speedway",
-            "finish": 4,
-            "pts": 43,
-            "status": "running",
-            "laps": 120,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
-            "round": 2,
-            "venue": "EchoPark Speedway",
-            "finish": 6,
-            "pts": 38,
-            "status": "running",
-            "laps": 163,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 3,
-            "venue": "Circuit of the Americas",
-            "finish": 7,
-            "pts": 36,
-            "status": "running",
-            "laps": 46,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 4,
-            "venue": "Phoenix Raceway",
-            "finish": 1,
-            "pts": 55,
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 3,
+            "pts": 46,
             "status": "running",
             "laps": 200,
-            "laps_led": 50,
-            "stage_wins": 1,
-            "playoff_pts": 5
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 12,
+            "pts": 26,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
           }
         ]
       },
       "career": {
         "wins": 3,
         "championships": 0,
-        "races": 120
+        "races": 100
       }
     },
     {
       "id": "creed-sheldon",
       "name": "Sheldon Creed",
       "number": "33",
-      "team": "Jordan Anderson",
-      "team_name": "Jordan Anderson",
+      "team": "jar",
+      "team_name": "Jordan Anderson Racing",
       "color": "C8102E",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 167,
+        "pts": 249,
         "wins": 1,
-        "top5": 2,
-        "top10": 4,
+        "top5": 4,
+        "top10": 6,
         "dnfs": 0,
         "avg_finish": 5.0,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
-            "finish": 5,
-            "pts": 40,
+            "finish": 4,
+            "pts": 43,
             "status": "running",
             "laps": 120,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 2,
@@ -242,227 +289,18 @@
             "pts": 55,
             "status": "running",
             "laps": 163,
-            "laps_led": 50,
-            "stage_wins": 1,
-            "playoff_pts": 5
+            "laps_led": 30,
+            "stage_wins": 1
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
-            "finish": 6,
-            "pts": 38,
-            "status": "running",
-            "laps": 46,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 4,
-            "venue": "Phoenix Raceway",
-            "finish": 8,
-            "pts": 34,
-            "status": "running",
-            "laps": 200,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          }
-        ]
-      },
-      "career": {
-        "wins": 3,
-        "championships": 0,
-        "races": 120
-      }
-    },
-    {
-      "id": "kvapil-carson",
-      "name": "Carson Kvapil",
-      "number": "10",
-      "team": "JR Motorsports",
-      "team_name": "JR Motorsports",
-      "color": "009A44",
-      "nationality": "American",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "season_2026": {
-        "pts": 156,
-        "wins": 0,
-        "top5": 2,
-        "top10": 4,
-        "dnfs": 0,
-        "avg_finish": 5.5,
-        "results_by_round": [
-          {
-            "round": 1,
-            "venue": "Daytona International Speedway",
-            "finish": 6,
-            "pts": 38,
-            "status": "running",
-            "laps": 120,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 2,
-            "venue": "EchoPark Speedway",
-            "finish": 5,
-            "pts": 40,
-            "status": "running",
-            "laps": 163,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 3,
-            "venue": "Circuit of the Americas",
-            "finish": 5,
-            "pts": 40,
-            "status": "running",
-            "laps": 46,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 4,
-            "venue": "Phoenix Raceway",
-            "finish": 6,
-            "pts": 38,
-            "status": "running",
-            "laps": 200,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          }
-        ]
-      },
-      "career": {
-        "wins": 0,
-        "championships": 0,
-        "races": 120
-      }
-    },
-    {
-      "id": "gray-taylor",
-      "name": "Taylor Gray",
-      "number": "54",
-      "team": "Joe Gibbs Racing",
-      "team_name": "Joe Gibbs Racing",
-      "color": "1E90FF",
-      "nationality": "American",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "season_2026": {
-        "pts": 146,
-        "wins": 0,
-        "top5": 2,
-        "top10": 2,
-        "dnfs": 0,
-        "avg_finish": 7.5,
-        "results_by_round": [
-          {
-            "round": 1,
-            "venue": "Daytona International Speedway",
-            "finish": 13,
-            "pts": 24,
-            "status": "running",
-            "laps": 120,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 2,
-            "venue": "EchoPark Speedway",
-            "finish": 2,
-            "pts": 50,
-            "status": "running",
-            "laps": 163,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 3,
-            "venue": "Circuit of the Americas",
-            "finish": 12,
-            "pts": 26,
-            "status": "running",
-            "laps": 46,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 4,
-            "venue": "Phoenix Raceway",
-            "finish": 3,
-            "pts": 46,
-            "status": "running",
-            "laps": 200,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          }
-        ]
-      },
-      "career": {
-        "wins": 0,
-        "championships": 0,
-        "races": 120
-      }
-    },
-    {
-      "id": "smith-sammy",
-      "name": "Sammy Smith",
-      "number": "18",
-      "team": "Joe Gibbs Racing",
-      "team_name": "Joe Gibbs Racing",
-      "color": "E8D71A",
-      "nationality": "American",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "season_2026": {
-        "pts": 145,
-        "wins": 0,
-        "top5": 1,
-        "top10": 4,
-        "dnfs": 0,
-        "avg_finish": 7.0,
-        "results_by_round": [
-          {
-            "round": 1,
-            "venue": "Daytona International Speedway",
             "finish": 7,
             "pts": 36,
             "status": "running",
-            "laps": 120,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 2,
-            "venue": "EchoPark Speedway",
-            "finish": 8,
-            "pts": 34,
-            "status": "running",
-            "laps": 163,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 3,
-            "venue": "Circuit of the Americas",
-            "finish": 9,
-            "pts": 32,
-            "status": "running",
             "laps": 46,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 4,
@@ -472,55 +310,72 @@
             "status": "running",
             "laps": 200,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 5,
+            "pts": 40,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 9,
+            "pts": 32,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
           }
         ]
       },
       "career": {
-        "wins": 0,
+        "wins": 3,
         "championships": 0,
-        "races": 120
+        "races": 100
       }
     },
     {
-      "id": "caruth-rajah",
-      "name": "Rajah Caruth",
-      "number": "44",
-      "team": "Spire Motorsports",
-      "team_name": "Spire Motorsports",
-      "color": "FFCD00",
+      "id": "kvapil-carson",
+      "name": "Carson Kvapil",
+      "number": "10",
+      "team": "jrm",
+      "team_name": "JR Motorsports",
+      "color": "009A44",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 140,
+        "pts": 234,
         "wins": 0,
-        "top5": 0,
-        "top10": 4,
+        "top5": 3,
+        "top10": 6,
         "dnfs": 0,
-        "avg_finish": 7.5,
+        "avg_finish": 5.7,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
-            "finish": 8,
-            "pts": 34,
+            "finish": 5,
+            "pts": 40,
             "status": "running",
             "laps": 120,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 2,
             "venue": "EchoPark Speedway",
-            "finish": 7,
-            "pts": 36,
+            "finish": 6,
+            "pts": 38,
             "status": "running",
             "laps": 163,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 3,
@@ -530,55 +385,327 @@
             "status": "running",
             "laps": 46,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
+            "finish": 3,
+            "pts": 46,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
             "finish": 7,
             "pts": 36,
             "status": "running",
             "laps": 200,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 5,
+            "pts": 40,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
           }
         ]
       },
       "career": {
         "wins": 0,
         "championships": 0,
-        "races": 120
+        "races": 100
+      }
+    },
+    {
+      "id": "gray-taylor",
+      "name": "Taylor Gray",
+      "number": "54",
+      "team": "jgr",
+      "team_name": "Joe Gibbs Racing",
+      "color": "1E90FF",
+      "nationality": "American",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "season_2026": {
+        "pts": 217,
+        "wins": 0,
+        "top5": 3,
+        "top10": 3,
+        "dnfs": 0,
+        "avg_finish": 7.5,
+        "results_by_round": [
+          {
+            "round": 1,
+            "venue": "Daytona International Speedway",
+            "finish": 12,
+            "pts": 26,
+            "status": "running",
+            "laps": 120,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 2,
+            "venue": "EchoPark Speedway",
+            "finish": 3,
+            "pts": 46,
+            "status": "running",
+            "laps": 163,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 3,
+            "venue": "Circuit of the Americas",
+            "finish": 13,
+            "pts": 24,
+            "status": "running",
+            "laps": 46,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 4,
+            "venue": "Phoenix Raceway",
+            "finish": 11,
+            "pts": 28,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 2,
+            "pts": 50,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 4,
+            "pts": 43,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
+          }
+        ]
+      },
+      "career": {
+        "wins": 0,
+        "championships": 0,
+        "races": 100
+      }
+    },
+    {
+      "id": "smith-sammy",
+      "name": "Sammy Smith",
+      "number": "18",
+      "team": "jgr",
+      "team_name": "Joe Gibbs Racing",
+      "color": "E8D71A",
+      "nationality": "American",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "season_2026": {
+        "pts": 212,
+        "wins": 0,
+        "top5": 0,
+        "top10": 6,
+        "dnfs": 0,
+        "avg_finish": 7.3,
+        "results_by_round": [
+          {
+            "round": 1,
+            "venue": "Daytona International Speedway",
+            "finish": 7,
+            "pts": 36,
+            "status": "running",
+            "laps": 120,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 2,
+            "venue": "EchoPark Speedway",
+            "finish": 8,
+            "pts": 34,
+            "status": "running",
+            "laps": 163,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 3,
+            "venue": "Circuit of the Americas",
+            "finish": 9,
+            "pts": 32,
+            "status": "running",
+            "laps": 46,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 4,
+            "venue": "Phoenix Raceway",
+            "finish": 6,
+            "pts": 38,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 6,
+            "pts": 38,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 8,
+            "pts": 34,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
+          }
+        ]
+      },
+      "career": {
+        "wins": 0,
+        "championships": 0,
+        "races": 100
+      }
+    },
+    {
+      "id": "caruth-rajah",
+      "name": "Rajah Caruth",
+      "number": "44",
+      "team": "spire",
+      "team_name": "Spire Motorsports",
+      "color": "FFCD00",
+      "nationality": "American",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "season_2026": {
+        "pts": 208,
+        "wins": 0,
+        "top5": 0,
+        "top10": 6,
+        "dnfs": 0,
+        "avg_finish": 7.7,
+        "results_by_round": [
+          {
+            "round": 1,
+            "venue": "Daytona International Speedway",
+            "finish": 6,
+            "pts": 38,
+            "status": "running",
+            "laps": 120,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 2,
+            "venue": "EchoPark Speedway",
+            "finish": 7,
+            "pts": 36,
+            "status": "running",
+            "laps": 163,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 3,
+            "venue": "Circuit of the Americas",
+            "finish": 10,
+            "pts": 30,
+            "status": "running",
+            "laps": 46,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 4,
+            "venue": "Phoenix Raceway",
+            "finish": 8,
+            "pts": 34,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 8,
+            "pts": 34,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 7,
+            "pts": 36,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
+          }
+        ]
+      },
+      "career": {
+        "wins": 0,
+        "championships": 0,
+        "races": 100
       }
     },
     {
       "id": "mayer-sam",
       "name": "Sam Mayer",
       "number": "1",
-      "team": "JR Motorsports",
+      "team": "jrm",
       "team_name": "JR Motorsports",
       "color": "FF0000",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 134,
+        "pts": 204,
         "wins": 0,
-        "top5": 1,
-        "top10": 1,
+        "top5": 2,
+        "top10": 3,
         "dnfs": 0,
-        "avg_finish": 8.8,
+        "avg_finish": 8.3,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
-            "finish": 11,
-            "pts": 28,
+            "finish": 10,
+            "pts": 30,
             "status": "running",
             "laps": 120,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 2,
@@ -588,8 +715,7 @@
             "status": "running",
             "laps": 163,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 3,
@@ -599,55 +725,157 @@
             "status": "running",
             "laps": 46,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 4,
             "venue": "Phoenix Raceway",
+            "finish": 5,
+            "pts": 40,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
             "finish": 11,
             "pts": 28,
             "status": "running",
             "laps": 200,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 11,
+            "pts": 28,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
           }
         ]
       },
       "career": {
         "wins": 0,
         "championships": 0,
-        "races": 120
+        "races": 100
+      }
+    },
+    {
+      "id": "day-corey",
+      "name": "Corey Day",
+      "number": "9",
+      "team": "jrm",
+      "team_name": "JR Motorsports",
+      "color": "003087",
+      "nationality": "American",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "season_2026": {
+        "pts": 188,
+        "wins": 0,
+        "top5": 0,
+        "top10": 5,
+        "dnfs": 0,
+        "avg_finish": 9.3,
+        "results_by_round": [
+          {
+            "round": 1,
+            "venue": "Daytona International Speedway",
+            "finish": 8,
+            "pts": 34,
+            "status": "running",
+            "laps": 120,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 2,
+            "venue": "EchoPark Speedway",
+            "finish": 9,
+            "pts": 32,
+            "status": "running",
+            "laps": 163,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 3,
+            "venue": "Circuit of the Americas",
+            "finish": 11,
+            "pts": 28,
+            "status": "running",
+            "laps": 46,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 4,
+            "venue": "Phoenix Raceway",
+            "finish": 9,
+            "pts": 32,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 9,
+            "pts": 32,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 10,
+            "pts": 30,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
+          }
+        ]
+      },
+      "career": {
+        "wins": 0,
+        "championships": 0,
+        "races": 100
       }
     },
     {
       "id": "vangisbergen-svg",
       "name": "Shane van Gisbergen",
       "number": "88",
-      "team": "Trackhouse Racing",
+      "team": "track",
       "team_name": "Trackhouse Racing",
       "color": "CC0000",
       "nationality": "New Zealander",
       "flag": "\ud83c\uddf3\ud83c\uddff",
       "season_2026": {
-        "pts": 133,
+        "pts": 185,
         "wins": 1,
         "top5": 1,
         "top10": 1,
         "dnfs": 0,
-        "avg_finish": 9.2,
+        "avg_finish": 10.2,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
-            "finish": 12,
-            "pts": 26,
+            "finish": 11,
+            "pts": 28,
             "status": "running",
             "laps": 120,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 2,
@@ -657,8 +885,7 @@
             "status": "running",
             "laps": 163,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 3,
@@ -667,9 +894,8 @@
             "pts": 55,
             "status": "running",
             "laps": 46,
-            "laps_led": 50,
-            "stage_wins": 1,
-            "playoff_pts": 5
+            "laps_led": 30,
+            "stage_wins": 1
           },
           {
             "round": 4,
@@ -679,182 +905,62 @@
             "status": "running",
             "laps": 200,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 12,
+            "pts": 26,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 13,
+            "pts": 24,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
           }
         ]
       },
       "career": {
         "wins": 3,
         "championships": 0,
-        "races": 120
-      }
-    },
-    {
-      "id": "day-corey",
-      "name": "Corey Day",
-      "number": "9",
-      "team": "JR Motorsports",
-      "team_name": "JR Motorsports",
-      "color": "003087",
-      "nationality": "American",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "season_2026": {
-        "pts": 126,
-        "wins": 0,
-        "top5": 0,
-        "top10": 4,
-        "dnfs": 0,
-        "avg_finish": 9.2,
-        "results_by_round": [
-          {
-            "round": 1,
-            "venue": "Daytona International Speedway",
-            "finish": 9,
-            "pts": 32,
-            "status": "running",
-            "laps": 120,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 2,
-            "venue": "EchoPark Speedway",
-            "finish": 9,
-            "pts": 32,
-            "status": "running",
-            "laps": 163,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 3,
-            "venue": "Circuit of the Americas",
-            "finish": 10,
-            "pts": 30,
-            "status": "running",
-            "laps": 46,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 4,
-            "venue": "Phoenix Raceway",
-            "finish": 9,
-            "pts": 32,
-            "status": "running",
-            "laps": 200,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          }
-        ]
-      },
-      "career": {
-        "wins": 0,
-        "championships": 0,
-        "races": 120
-      }
-    },
-    {
-      "id": "herbst-riley",
-      "name": "Riley Herbst",
-      "number": "35",
-      "team": "Joe Gibbs Racing",
-      "team_name": "Joe Gibbs Racing",
-      "color": "FF6600",
-      "nationality": "American",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "season_2026": {
-        "pts": 122,
-        "wins": 0,
-        "top5": 1,
-        "top10": 1,
-        "dnfs": 0,
-        "avg_finish": 10.2,
-        "results_by_round": [
-          {
-            "round": 1,
-            "venue": "Daytona International Speedway",
-            "finish": 2,
-            "pts": 50,
-            "status": "running",
-            "laps": 120,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 2,
-            "venue": "EchoPark Speedway",
-            "finish": 13,
-            "pts": 24,
-            "status": "running",
-            "laps": 163,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 3,
-            "venue": "Circuit of the Americas",
-            "finish": 13,
-            "pts": 24,
-            "status": "running",
-            "laps": 46,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          },
-          {
-            "round": 4,
-            "venue": "Phoenix Raceway",
-            "finish": 13,
-            "pts": 24,
-            "status": "running",
-            "laps": 200,
-            "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
-          }
-        ]
-      },
-      "career": {
-        "wins": 0,
-        "championships": 0,
-        "races": 120
+        "races": 100
       }
     },
     {
       "id": "retzlaff-parker",
       "name": "Parker Retzlaff",
       "number": "8",
-      "team": "JR Motorsports",
+      "team": "jrm",
       "team_name": "JR Motorsports",
       "color": "006BB6",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 118,
+        "pts": 182,
         "wins": 0,
         "top5": 0,
-        "top10": 3,
+        "top10": 5,
         "dnfs": 0,
-        "avg_finish": 10.2,
+        "avg_finish": 9.8,
         "results_by_round": [
           {
             "round": 1,
             "venue": "Daytona International Speedway",
-            "finish": 10,
-            "pts": 30,
+            "finish": 9,
+            "pts": 32,
             "status": "running",
             "laps": 120,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 2,
@@ -864,19 +970,17 @@
             "status": "running",
             "laps": 163,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
-            "finish": 11,
-            "pts": 28,
+            "finish": 12,
+            "pts": 26,
             "status": "running",
             "laps": 46,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 4,
@@ -886,33 +990,137 @@
             "status": "running",
             "laps": 200,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 10,
+            "pts": 30,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 8,
+            "pts": 34,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
           }
         ]
       },
       "career": {
         "wins": 0,
         "championships": 0,
-        "races": 120
+        "races": 100
+      }
+    },
+    {
+      "id": "herbst-riley",
+      "name": "Riley Herbst",
+      "number": "35",
+      "team": "jgr",
+      "team_name": "Joe Gibbs Racing",
+      "color": "FF6600",
+      "nationality": "American",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "season_2026": {
+        "pts": 140,
+        "wins": 0,
+        "top5": 0,
+        "top10": 0,
+        "dnfs": 0,
+        "avg_finish": 13.3,
+        "results_by_round": [
+          {
+            "round": 1,
+            "venue": "Daytona International Speedway",
+            "finish": 13,
+            "pts": 24,
+            "status": "running",
+            "laps": 120,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 2,
+            "venue": "EchoPark Speedway",
+            "finish": 13,
+            "pts": 24,
+            "status": "running",
+            "laps": 163,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 3,
+            "venue": "Circuit of the Americas",
+            "finish": 14,
+            "pts": 22,
+            "status": "running",
+            "laps": 46,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 4,
+            "venue": "Phoenix Raceway",
+            "finish": 13,
+            "pts": 24,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 13,
+            "pts": 24,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 14,
+            "pts": 22,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
+          }
+        ]
+      },
+      "career": {
+        "wins": 0,
+        "championships": 0,
+        "races": 100
       }
     },
     {
       "id": "sieg-jj",
       "name": "JJ Yeley",
       "number": "39",
-      "team": "Our Motorsports",
+      "team": "our",
       "team_name": "Our Motorsports",
       "color": "666666",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 88,
+        "pts": 128,
         "wins": 0,
         "top5": 0,
         "top10": 0,
         "dnfs": 0,
-        "avg_finish": 14.0,
+        "avg_finish": 14.3,
         "results_by_round": [
           {
             "round": 1,
@@ -922,8 +1130,7 @@
             "status": "running",
             "laps": 120,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 2,
@@ -933,19 +1140,17 @@
             "status": "running",
             "laps": 163,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
-            "finish": 14,
-            "pts": 22,
+            "finish": 15,
+            "pts": 20,
             "status": "running",
             "laps": 46,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 4,
@@ -955,33 +1160,52 @@
             "status": "running",
             "laps": 200,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 14,
+            "pts": 22,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 15,
+            "pts": 20,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
           }
         ]
       },
       "career": {
         "wins": 0,
         "championships": 0,
-        "races": 120
+        "races": 100
       }
     },
     {
       "id": "clements-jeremy",
       "name": "Jeremy Clements",
       "number": "51",
-      "team": "Jeremy Clements",
-      "team_name": "Jeremy Clements",
+      "team": "jcr",
+      "team_name": "Jeremy Clements Racing",
       "color": "444444",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 80,
+        "pts": 116,
         "wins": 0,
         "top5": 0,
         "top10": 0,
         "dnfs": 0,
-        "avg_finish": 15.0,
+        "avg_finish": 15.3,
         "results_by_round": [
           {
             "round": 1,
@@ -991,8 +1215,7 @@
             "status": "running",
             "laps": 120,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 2,
@@ -1002,19 +1225,17 @@
             "status": "running",
             "laps": 163,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 3,
             "venue": "Circuit of the Americas",
-            "finish": 15,
-            "pts": 20,
+            "finish": 16,
+            "pts": 18,
             "status": "running",
             "laps": 46,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
           },
           {
             "round": 4,
@@ -1024,15 +1245,34 @@
             "status": "running",
             "laps": 200,
             "laps_led": 0,
-            "stage_wins": 0,
-            "playoff_pts": 0
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Las Vegas Motor Speedway",
+            "finish": 15,
+            "pts": 20,
+            "status": "running",
+            "laps": 200,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 16,
+            "pts": 18,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
           }
         ]
       },
       "career": {
         "wins": 0,
         "championships": 0,
-        "races": 120
+        "races": 100
       }
     }
   ]

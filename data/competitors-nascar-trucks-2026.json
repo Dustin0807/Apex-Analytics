@@ -3,8 +3,8 @@
     {
       "id": "honeycutt-kaden",
       "name": "Kaden Honeycutt",
-      "number": "19",
-      "team": "Kyle Busch Motorsports",
+      "number": "11",
+      "team": "kbm",
       "team_name": "Kyle Busch Motorsports",
       "color": "FFCD00",
       "nationality": "American",
@@ -44,7 +44,7 @@
             "pts": 55,
             "status": "running",
             "laps": 80,
-            "laps_led": 35,
+            "laps_led": 28,
             "stage_wins": 1
           },
           {
@@ -89,18 +89,18 @@
       "id": "riggs-layne",
       "name": "Layne Riggs",
       "number": "98",
-      "team": "McAnally-Hilgemann",
+      "team": "mhi",
       "team_name": "McAnally-Hilgemann",
       "color": "FF6B00",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 264,
+        "pts": 262,
         "wins": 1,
-        "top5": 6,
+        "top5": 5,
         "top10": 6,
         "dnfs": 0,
-        "avg_finish": 3.8,
+        "avg_finish": 4.0,
         "results_by_round": [
           {
             "round": 1,
@@ -139,7 +139,7 @@
             "pts": 55,
             "status": "running",
             "laps": 46,
-            "laps_led": 35,
+            "laps_led": 28,
             "stage_wins": 1
           },
           {
@@ -155,8 +155,8 @@
           {
             "round": 6,
             "venue": "Darlington Raceway",
-            "finish": 5,
-            "pts": 40,
+            "finish": 6,
+            "pts": 38,
             "status": "running",
             "laps": 147,
             "laps_led": 0,
@@ -174,18 +174,18 @@
       "id": "ruggiero-gio",
       "name": "Giovanni Ruggiero",
       "number": "2",
-      "team": "Kyle Busch Motorsports",
+      "team": "kbm",
       "team_name": "Kyle Busch Motorsports",
       "color": "1428A0",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 264,
+        "pts": 258,
         "wins": 0,
         "top5": 4,
         "top10": 6,
         "dnfs": 0,
-        "avg_finish": 4.0,
+        "avg_finish": 4.5,
         "results_by_round": [
           {
             "round": 1,
@@ -240,8 +240,8 @@
           {
             "round": 6,
             "venue": "Darlington Raceway",
-            "finish": 6,
-            "pts": 38,
+            "finish": 9,
+            "pts": 32,
             "status": "running",
             "laps": 147,
             "laps_led": 0,
@@ -259,18 +259,18 @@
       "id": "rhodes-ben",
       "name": "Ben Rhodes",
       "number": "99",
-      "team": "ThorSport Racing",
+      "team": "thor",
       "team_name": "ThorSport Racing",
       "color": "0032A0",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 243,
+        "pts": 254,
         "wins": 1,
-        "top5": 2,
+        "top5": 3,
         "top10": 6,
         "dnfs": 0,
-        "avg_finish": 5.7,
+        "avg_finish": 4.8,
         "results_by_round": [
           {
             "round": 1,
@@ -285,8 +285,8 @@
           {
             "round": 2,
             "venue": "EchoPark Speedway",
-            "finish": 8,
-            "pts": 34,
+            "finish": 4,
+            "pts": 43,
             "status": "running",
             "laps": 130,
             "laps_led": 0,
@@ -319,14 +319,14 @@
             "pts": 55,
             "status": "running",
             "laps": 150,
-            "laps_led": 35,
+            "laps_led": 28,
             "stage_wins": 1
           },
           {
             "round": 6,
             "venue": "Darlington Raceway",
-            "finish": 8,
-            "pts": 34,
+            "finish": 7,
+            "pts": 36,
             "status": "running",
             "laps": 147,
             "laps_led": 0,
@@ -341,16 +341,101 @@
       }
     },
     {
+      "id": "eckes-christian",
+      "name": "Christian Eckes",
+      "number": "91",
+      "team": "mhi",
+      "team_name": "McAnally-Hilgemann",
+      "color": "003087",
+      "nationality": "American",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "season_2026": {
+        "pts": 238,
+        "wins": 0,
+        "top5": 2,
+        "top10": 6,
+        "dnfs": 0,
+        "avg_finish": 5.5,
+        "results_by_round": [
+          {
+            "round": 1,
+            "venue": "Daytona International Speedway",
+            "finish": 3,
+            "pts": 46,
+            "status": "running",
+            "laps": 102,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 2,
+            "venue": "EchoPark Speedway",
+            "finish": 7,
+            "pts": 36,
+            "status": "running",
+            "laps": 130,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 3,
+            "venue": "St. Petersburg Street Circuit",
+            "finish": 7,
+            "pts": 36,
+            "status": "running",
+            "laps": 80,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 4,
+            "venue": "Circuit of the Americas",
+            "finish": 7,
+            "pts": 36,
+            "status": "running",
+            "laps": 46,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 5,
+            "venue": "Phoenix Raceway",
+            "finish": 6,
+            "pts": 38,
+            "status": "running",
+            "laps": 150,
+            "laps_led": 0,
+            "stage_wins": 0
+          },
+          {
+            "round": 6,
+            "venue": "Darlington Raceway",
+            "finish": 3,
+            "pts": 46,
+            "status": "running",
+            "laps": 147,
+            "laps_led": 0,
+            "stage_wins": 0
+          }
+        ]
+      },
+      "career": {
+        "wins": 0,
+        "championships": 0,
+        "races": 80
+      }
+    },
+    {
       "id": "smith-chandler",
       "name": "Chandler Smith",
       "number": "22",
-      "team": "Front Row Motorsports",
+      "team": "frm",
       "team_name": "Front Row Motorsports",
       "color": "FF4500",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 231,
+        "pts": 230,
         "wins": 1,
         "top5": 3,
         "top10": 5,
@@ -364,7 +449,7 @@
             "pts": 55,
             "status": "running",
             "laps": 102,
-            "laps_led": 35,
+            "laps_led": 28,
             "stage_wins": 1
           },
           {
@@ -380,8 +465,8 @@
           {
             "round": 3,
             "venue": "St. Petersburg Street Circuit",
-            "finish": 4,
-            "pts": 43,
+            "finish": 5,
+            "pts": 40,
             "status": "running",
             "laps": 80,
             "laps_led": 0,
@@ -390,8 +475,8 @@
           {
             "round": 4,
             "venue": "Circuit of the Americas",
-            "finish": 7,
-            "pts": 36,
+            "finish": 6,
+            "pts": 38,
             "status": "running",
             "laps": 46,
             "laps_led": 0,
@@ -426,106 +511,21 @@
       }
     },
     {
-      "id": "eckes-christian",
-      "name": "Christian Eckes",
-      "number": "91",
-      "team": "McAnally-Hilgemann",
-      "team_name": "McAnally-Hilgemann",
-      "color": "003087",
-      "nationality": "American",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "season_2026": {
-        "pts": 230,
-        "wins": 0,
-        "top5": 1,
-        "top10": 6,
-        "dnfs": 0,
-        "avg_finish": 6.0,
-        "results_by_round": [
-          {
-            "round": 1,
-            "venue": "Daytona International Speedway",
-            "finish": 3,
-            "pts": 46,
-            "status": "running",
-            "laps": 102,
-            "laps_led": 0,
-            "stage_wins": 0
-          },
-          {
-            "round": 2,
-            "venue": "EchoPark Speedway",
-            "finish": 7,
-            "pts": 36,
-            "status": "running",
-            "laps": 130,
-            "laps_led": 0,
-            "stage_wins": 0
-          },
-          {
-            "round": 3,
-            "venue": "St. Petersburg Street Circuit",
-            "finish": 7,
-            "pts": 36,
-            "status": "running",
-            "laps": 80,
-            "laps_led": 0,
-            "stage_wins": 0
-          },
-          {
-            "round": 4,
-            "venue": "Circuit of the Americas",
-            "finish": 6,
-            "pts": 38,
-            "status": "running",
-            "laps": 46,
-            "laps_led": 0,
-            "stage_wins": 0
-          },
-          {
-            "round": 5,
-            "venue": "Phoenix Raceway",
-            "finish": 6,
-            "pts": 38,
-            "status": "running",
-            "laps": 150,
-            "laps_led": 0,
-            "stage_wins": 0
-          },
-          {
-            "round": 6,
-            "venue": "Darlington Raceway",
-            "finish": 7,
-            "pts": 36,
-            "status": "running",
-            "laps": 147,
-            "laps_led": 0,
-            "stage_wins": 0
-          }
-        ]
-      },
-      "career": {
-        "wins": 0,
-        "championships": 0,
-        "races": 80
-      }
-    },
-    {
       "id": "heim-corey",
       "name": "Corey Heim",
       "number": "5",
-      "team": "Tricon Garage",
-      "team_name": "Tricon Garage",
+      "team": "tric",
+      "team_name": "TRICON Garage",
       "color": "009A44",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 221,
+        "pts": 229,
         "wins": 1,
-        "top5": 1,
+        "top5": 2,
         "top10": 6,
         "dnfs": 0,
-        "avg_finish": 7.2,
+        "avg_finish": 6.5,
         "results_by_round": [
           {
             "round": 1,
@@ -540,8 +540,8 @@
           {
             "round": 2,
             "venue": "EchoPark Speedway",
-            "finish": 9,
-            "pts": 32,
+            "finish": 5,
+            "pts": 40,
             "status": "running",
             "laps": 130,
             "laps_led": 0,
@@ -584,7 +584,7 @@
             "pts": 55,
             "status": "running",
             "laps": 147,
-            "laps_led": 35,
+            "laps_led": 28,
             "stage_wins": 1
           }
         ]
@@ -599,18 +599,18 @@
       "id": "majeski-ty",
       "name": "Ty Majeski",
       "number": "66",
-      "team": "ThorSport Racing",
+      "team": "thor",
       "team_name": "ThorSport Racing",
       "color": "E31837",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 220,
+        "pts": 223,
         "wins": 0,
         "top5": 5,
         "top10": 5,
         "dnfs": 1,
-        "avg_finish": 3.8,
+        "avg_finish": 3.6,
         "results_by_round": [
           {
             "round": 1,
@@ -635,8 +635,8 @@
           {
             "round": 3,
             "venue": "St. Petersburg Street Circuit",
-            "finish": 5,
-            "pts": 40,
+            "finish": 4,
+            "pts": 43,
             "status": "running",
             "laps": 80,
             "laps_led": 0,
@@ -681,10 +681,10 @@
       }
     },
     {
-      "id": "busch-kyle",
+      "id": "busch-kyle-t",
       "name": "Kyle Busch",
       "number": "8",
-      "team": "Spire Motorsports",
+      "team": "spire",
       "team_name": "Spire Motorsports",
       "color": "C8102E",
       "nationality": "American",
@@ -714,7 +714,7 @@
             "pts": 55,
             "status": "running",
             "laps": 130,
-            "laps_led": 35,
+            "laps_led": 28,
             "stage_wins": 1
           },
           {
@@ -769,18 +769,18 @@
       "id": "perez-andres",
       "name": "Andres Perez de Lara",
       "number": "41",
-      "team": "Reaume Brothers",
+      "team": "reb",
       "team_name": "Reaume Brothers",
       "color": "CCAA00",
       "nationality": "American",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "season_2026": {
-        "pts": 190,
+        "pts": 192,
         "wins": 0,
         "top5": 0,
         "top10": 6,
         "dnfs": 0,
-        "avg_finish": 9.2,
+        "avg_finish": 9.0,
         "results_by_round": [
           {
             "round": 1,
@@ -835,8 +835,8 @@
           {
             "round": 6,
             "venue": "Darlington Raceway",
-            "finish": 9,
-            "pts": 32,
+            "finish": 8,
+            "pts": 34,
             "status": "running",
             "laps": 147,
             "laps_led": 0,
@@ -854,7 +854,7 @@
       "id": "haley-justin",
       "name": "Justin Haley",
       "number": "14",
-      "team": "GMS Racing",
+      "team": "gms",
       "team_name": "GMS Racing",
       "color": "006BB6",
       "nationality": "American",
@@ -939,7 +939,7 @@
       "id": "garcia-jake",
       "name": "Jake Garcia",
       "number": "23",
-      "team": "Kyle Busch Motorsports",
+      "team": "kbm",
       "team_name": "Kyle Busch Motorsports",
       "color": "888888",
       "nationality": "American",

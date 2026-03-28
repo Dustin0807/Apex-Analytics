@@ -14,14 +14,25 @@
       "surface": "Asphalt",
       "capacity": 101000,
       "first_cup_race": 1959,
-      "description": "The birthplace of NASCAR. Two-and-a-half miles of high-banked superspeedway drama. Home of the Daytona 500 \u2014 the Great American Race. Restrictor plate racing at 200mph with inches between 40 cars.",
+      "tier": 1,
+      "description": "The most iconic oval in American motorsport. Daytona International Speedway has hosted NASCAR's premier event \u2014 the Daytona 500 \u2014 since 1959. The 2.5-mile high-banked superspeedway produces pack racing at close to 200mph where drafting, positioning, and survival matter more than outright speed. One wrong move at 195mph in a 40-car pack ends your day. The banking in the turns reaches 31 degrees, allowing cars to maintain full throttle nearly everywhere on the circuit.",
+      "circuit_notes": "Restrictor plate racing means the entire field runs at near-identical speeds. Drafting is everything \u2014 finding the right push partner on the final lap often decides the race. The trioval start-finish line, the famous frontstretch, and the backstretch banking are all at slightly different angles, creating an irregular feel despite the oval shape.",
       "legendary_moments": [
-        "Petty's 200th win 1984",
-        "Earnhardt's emotional 1998 win",
-        "Dillon's 2018 win",
-        "Bell's 2024 win"
+        "Richard Petty's record 7th Daytona 500 win in 1979",
+        "Dale Earnhardt Sr.'s emotional 1998 Daytona 500 win after 20 attempts",
+        "Denny Hamlin's photo-finish wins in 2016 and 2019",
+        "Tyler Reddick's dominant 2026 Daytona 500 victory"
       ],
-      "tier": 1
+      "records": {
+        "lap_record_speed": "210.364 mph \u2014 Bill Elliott, 1987 (qualifying)",
+        "race_record": "177.602 mph average \u2014 Buddy Baker, 1980"
+      },
+      "race_2026": {
+        "round": 1,
+        "name": "Daytona 500",
+        "winner": "Tyler Reddick",
+        "date": "2026-02-15"
+      }
     },
     {
       "id": "atlanta",
@@ -37,76 +48,25 @@
       "surface": "Asphalt",
       "capacity": 71000,
       "first_cup_race": 1960,
-      "description": "Repaved and reconfigured in 2022 to create a high-speed superspeedway-style experience. Now the second fastest track on the circuit. Pack racing at 190mph makes it one of the most chaotic weekends of the year.",
+      "tier": 1,
+      "description": "Rebuilt and reconfigured in 2022 into the second-fastest track on the NASCAR calendar. The repave and banking changes turned what was a conventional 1.54-mile intermediate into a superspeedway-style experience with drafting packs running at 190mph. The narrow groove and steep banking create intense, chaotic pack racing reminiscent of Daytona and Talladega \u2014 except on a significantly shorter circuit. Lap times are among the lowest in NASCAR, and the action is relentless.",
+      "circuit_notes": "The 2022 repave dramatically changed the character of Atlanta. Cars now run in a tight pack with side-by-side racing through all four turns. Tire fall-off is significant, making pit strategy crucial. The track is abrasive enough that tire management separates the field late in each stage.",
       "legendary_moments": [
-        "Jeff Gordon's dominance in the 90s",
-        "2022 repave chaos race"
+        "Jeff Gordon's first-ever Cup Series win, Atlanta 1994",
+        "Bobby Labonte's dominant 1999-2000 Atlanta performances",
+        "The chaotic 2022 repave race that redefined the track",
+        "Tyler Reddick's back-to-back win in 2026"
       ],
-      "tier": 1
-    },
-    {
-      "id": "las-vegas",
-      "name": "Las Vegas Motor Speedway",
-      "short": "Las Vegas",
-      "location": "Las Vegas, NV",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 1.5,
-      "lap_length_km": 2.414,
-      "banking_degrees": 20,
-      "track_type": "1.5-mile oval",
-      "surface": "Asphalt",
-      "capacity": 80000,
-      "first_cup_race": 1998,
-      "description": "The quintessential mile-and-a-half oval. Smooth, fast and technical. Strong pit strategy circuit where track position is everything. Two Cup races per year.",
-      "legendary_moments": [
-        "Logano's multiple wins",
-        "2023 Bell win"
-      ],
-      "tier": 2
-    },
-    {
-      "id": "phoenix",
-      "name": "Phoenix Raceway",
-      "short": "Phoenix",
-      "location": "Avondale, AZ",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 1.0,
-      "lap_length_km": 1.609,
-      "banking_degrees": 11,
-      "track_type": "Short track",
-      "surface": "Asphalt",
-      "capacity": 51000,
-      "first_cup_race": 1988,
-      "description": "The championship decider. Phoenix hosts the penultimate race of the NASCAR playoffs and crowns the Cup Series champion. A flat, D-shaped one-mile oval where setup precision wins races.",
-      "legendary_moments": [
-        "2021 title decider",
-        "Larson's domination",
-        "Multiple title clinchers"
-      ],
-      "tier": 1
-    },
-    {
-      "id": "bristol-dirt",
-      "name": "Bristol Motor Speedway (Dirt)",
-      "short": "Bristol Dirt",
-      "location": "Bristol, TN",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 0.533,
-      "lap_length_km": 0.858,
-      "banking_degrees": 28,
-      "track_type": "Short track dirt",
-      "surface": "Dirt (seasonal)",
-      "capacity": 162000,
-      "first_cup_race": 1961,
-      "description": "Once a year Bristol transforms into a dirt track. The Food City Dirt Race brings mud, mayhem and carnage. 40 cars on a tiny bullring with no grip \u2014 pure survival racing.",
-      "legendary_moments": [
-        "First dirt race 2021",
-        "Larson's mastery of the dirt"
-      ],
-      "tier": 1
+      "records": {
+        "lap_record_speed": "197.478 mph \u2014 Kyle Larson, 2023 (qualifying)",
+        "race_record": "163.633 mph average"
+      },
+      "race_2026": {
+        "round": 2,
+        "name": "Autotrader 400",
+        "winner": "Tyler Reddick",
+        "date": "2026-02-22"
+      }
     },
     {
       "id": "cota",
@@ -122,287 +82,160 @@
       "surface": "Asphalt",
       "capacity": 120000,
       "first_cup_race": 2021,
-      "description": "The longest circuit on the NASCAR calendar. F1-spec road course in the Texas Hill Country. Demands a completely different setup to ovals. Chaos at Turn 1 on lap one is basically guaranteed.",
+      "tier": 2,
+      "description": "The longest circuit on the NASCAR Cup Series calendar and the only Formula 1-specification road course on the schedule. COTA's 20-turn layout winds through the Texas Hill Country west of Austin, featuring the dramatic uphill run to Turn 1, the Esses complex, and the fast back section. NASCAR stock cars handle completely differently to the single-seaters COTA was designed for \u2014 their size, weight, and tyre compounds make every corner an exercise in commitment and car control.",
+      "circuit_notes": "Turn 1 is the great leveller \u2014 the braking zone from 170mph into the sharp left is where positions are won and lost on lap one. The Esses (Turns 3-10) demand smooth inputs; jerky corrections in a stock car here are race-ending. The hairpin at Turn 12 is a prime overtaking spot with a long approach and late braking. Road course specialists and ringers from other categories regularly appear.",
       "legendary_moments": [
-        "Logano's 2021 win",
-        "Chastain's 2022 win"
+        "Chase Elliott's dominant debut Cup win at COTA in 2021",
+        "Ross Chastain's wall-riding Hail Mary at COTA 2022",
+        "Denny Hamlin's 2026 victory over Chase Elliott"
       ],
-      "tier": 2
+      "records": {
+        "lap_record": "2:00.272 \u2014 AJ Allmendinger, 2022 (qualifying)",
+        "race_winner_2025": "Christopher Bell"
+      },
+      "race_2026": {
+        "round": 3,
+        "name": "DuraMax Texas Grand Prix",
+        "winner": "Denny Hamlin",
+        "date": "2026-03-01"
+      }
+    },
+    {
+      "id": "phoenix",
+      "name": "Phoenix Raceway",
+      "short": "Phoenix",
+      "location": "Avondale, AZ",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.0,
+      "lap_length_km": 1.609,
+      "banking_degrees": 11,
+      "track_type": "Short track",
+      "surface": "Asphalt",
+      "capacity": 51000,
+      "first_cup_race": 1988,
+      "tier": 1,
+      "description": "The Championship Decider. Phoenix Raceway hosts the penultimate race of the NASCAR Championship, meaning the track has determined multiple Cup Series titles across the modern era. The flat, D-shaped one-mile oval is deceptive in its demands \u2014 the low banking of just 11 degrees means mechanical grip and setup precision matter far more than aerodynamic advantages. Passing is difficult, making track position and pit strategy the decisive factors.",
+      "circuit_notes": "Phoenix's unique shape means Turn 1 and Turn 2 are flat and sweeping, while Turns 3 and 4 are tighter. The dogleg coming off Turn 2 catches drivers out at full speed. The track surface tends to get slick as the race matures, rewarding patience and tire management. Starts and restarts are crucial \u2014 gaining or losing spots in the first few laps of each stage can be season-defining.",
+      "legendary_moments": [
+        "Jeff Gordon clinching championships at Phoenix multiple times",
+        "Kevin Harvick's decade of Phoenix dominance",
+        "Kyle Larson's 2021 championship clinch",
+        "Ryan Blaney's 2026 Straight Talk Wireless 500 win over Christopher Bell"
+      ],
+      "records": {
+        "lap_record": "27.498 sec \u2014 Kevin Harvick, 2020 (qualifying)",
+        "most_wins": "Kevin Harvick \u2014 11 wins"
+      },
+      "race_2026": {
+        "round": 4,
+        "name": "Straight Talk Wireless 500",
+        "winner": "Ryan Blaney",
+        "date": "2026-03-08"
+      }
+    },
+    {
+      "id": "las-vegas",
+      "name": "Las Vegas Motor Speedway",
+      "short": "Las Vegas",
+      "location": "Las Vegas, NV",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.5,
+      "lap_length_km": 2.414,
+      "banking_degrees": 20,
+      "track_type": "1.5-mile oval",
+      "surface": "Asphalt",
+      "capacity": 80000,
+      "first_cup_race": 1998,
+      "tier": 2,
+      "description": "The quintessential 1.5-mile intermediate oval. Las Vegas Motor Speedway sits in the Nevada desert northeast of the Strip and hosts two Cup Series races per year. Smooth, wide and technically demanding, Vegas rewards the best-prepared cars more than anywhere else. The 20-degree banking allows multiple lanes of racing through the corners, and the long straightaways produce genuine top-speed differentials between teams.",
+      "circuit_notes": "Tyre degradation is moderate at Vegas, meaning four-tyre pit stops typically win over two-tyre calls. The critical decision is usually which stage to prioritise. Drivers who can maintain consistent lap times without overworking the right-front tyre tend to dominate. The pit road entrance and exit on the backstretch can be treacherous, and several races have been decided by late pit penalties.",
+      "legendary_moments": [
+        "Denny Hamlin's multiple Las Vegas victories for Joe Gibbs Racing",
+        "Josh Berry's 2025 win for Wood Brothers Racing",
+        "Hamlin's 61st career win at Vegas in 2026, surpassing Kevin Harvick on the all-time list"
+      ],
+      "records": {
+        "lap_record_speed": "188.294 mph \u2014 Kyle Busch, 2019 (qualifying)",
+        "most_wins": "Denny Hamlin \u2014 3 wins"
+      },
+      "race_2026": {
+        "round": 5,
+        "name": "Pennzoil 400",
+        "winner": "Denny Hamlin",
+        "date": "2026-03-15"
+      }
+    },
+    {
+      "id": "darlington",
+      "name": "Darlington Raceway",
+      "short": "Darlington",
+      "location": "Darlington, SC",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.366,
+      "lap_length_km": 2.199,
+      "banking_degrees": 25,
+      "track_type": "Oval",
+      "surface": "Asphalt",
+      "capacity": 58000,
+      "first_cup_race": 1950,
+      "tier": 1,
+      "description": "Too Tough to Tame. The Lady in Black. Darlington Raceway is unlike any other oval in NASCAR \u2014 asymmetrical, abrasive, and absolutely unforgiving. The 1.366-mile egg-shaped track is a genuine challenge even for the best drivers in the world. The concrete wall sits just inches from the racing line in Turns 3 and 4, and virtually every car leaves Darlington with at least one scuff or stripe \u2014 the infamous 'Darlington Stripe' earned by grazing the outside wall.",
+      "circuit_notes": "The two ends of Darlington are completely different. Turns 1 and 2 have a tighter radius and more banking than Turns 3 and 4, which are shallower and wider. This asymmetry forces drivers to use different cornering styles at each end. Tyre wear is brutal \u2014 right-rear tyres can be consumed in as few as 30 laps. Fuel strategy is less important than tyre strategy here.",
+      "legendary_moments": [
+        "Richard Petty's record 10 wins at Darlington",
+        "The Southern 500 tradition on Labor Day weekend",
+        "Brad Keselowski leading 142 laps but finishing 2nd in 2026",
+        "Tyler Reddick overcoming a battery change to win the 2026 Goodyear 400"
+      ],
+      "records": {
+        "lap_record": "27.914 sec \u2014 Ryan Newman, 2014 (qualifying)",
+        "most_wins": "David Pearson \u2014 10 wins, tied with Richard Petty"
+      },
+      "race_2026": {
+        "round": 6,
+        "name": "Goodyear 400",
+        "winner": "Tyler Reddick",
+        "date": "2026-03-22"
+      }
     },
     {
       "id": "martinsville",
       "name": "Martinsville Speedway",
       "short": "Martinsville",
-      "location": "Martinsville, VA",
+      "location": "Ridgeway, VA",
       "country": "USA",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
       "lap_length_mi": 0.526,
       "lap_length_km": 0.847,
       "banking_degrees": 12,
       "track_type": "Short track",
-      "surface": "Asphalt",
+      "surface": "Concrete/Asphalt",
       "capacity": 65000,
       "first_cup_race": 1949,
-      "description": "The oldest active track in NASCAR. A paperclip-shaped half-mile where bump-drafting, door banging and revenge are the order of the day. Winners receive a grandfather clock. Locals call it the world's longest hot dog.",
+      "tier": 1,
+      "description": "The oldest active track in NASCAR and the most intimate racing experience on the calendar. Martinsville's paperclip shape is just 0.526 miles around \u2014 40 cars packed onto a tiny Virginia bullring where bump-drafting, door-banging, and retribution are all fair game. The track was built in 1947 by local businessman H. Clay Earles and has hosted NASCAR racing every year since 1949. Winners receive a handmade grandfather clock from a local manufacturer \u2014 a tradition dating back to 1964.",
+      "circuit_notes": "Braking from 120mph into Martinsville's flat corners is savage. The concrete in the corners and asphalt on the straights create a mixed-surface challenge that wears tyres differently. Track position is everything \u2014 with limited overtaking opportunity, the team that executes on pit road usually wins. The last 50 laps are almost always a contact sport.",
       "legendary_moments": [
-        "Earnhardt vs Gordon wars",
-        "The grandfather clock tradition",
-        "Hamlin's dominance"
+        "Rusty Wallace's four consecutive spring Martinsville wins 1993-1996",
+        "Jeff Gordon and Jimmie Johnson's epic 2007 title battle",
+        "Matt Kenseth wrecking Joey Logano for revenge in 2015",
+        "Denny Hamlin's record-tying six Martinsville wins",
+        "The grandfather clock tradition since 1964"
       ],
-      "tier": 1
-    },
-    {
-      "id": "talladega",
-      "name": "Talladega Superspeedway",
-      "short": "Talladega",
-      "location": "Talladega, AL",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 2.66,
-      "lap_length_km": 4.281,
-      "banking_degrees": 33,
-      "track_type": "Superspeedway",
-      "surface": "Asphalt",
-      "capacity": 143000,
-      "first_cup_race": 1969,
-      "description": "The biggest, baddest, fastest oval in NASCAR. 2.66 miles of high-banked Alabama superspeedway where the Big One lurks every lap. Anyone can win at Talladega \u2014 and anyone can get wrecked.",
-      "legendary_moments": [
-        "Petty's 200th win",
-        "Earnhardt's drafting mastery",
-        "Ricky Bobby... just kidding"
-      ],
-      "tier": 1
-    },
-    {
-      "id": "dover",
-      "name": "Dover Motor Speedway",
-      "short": "Dover",
-      "location": "Dover, DE",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 1.0,
-      "lap_length_km": 1.609,
-      "banking_degrees": 24,
-      "track_type": "Short track",
-      "surface": "Concrete",
-      "capacity": 95000,
-      "first_cup_race": 1969,
-      "description": "The Monster Mile. Concrete one-mile oval with 24-degree banking that generates massive tire wear. Passing is difficult but the high speeds make for intense racing. The Monster energy drinks car mascot stands watch at the start-finish line.",
-      "legendary_moments": [
-        "Johnson's record 11 wins",
-        "Jeff Gordon's dominance"
-      ],
-      "tier": 2
-    },
-    {
-      "id": "kansas",
-      "name": "Kansas Speedway",
-      "short": "Kansas",
-      "location": "Kansas City, KS",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 1.5,
-      "lap_length_km": 2.414,
-      "banking_degrees": 17,
-      "track_type": "1.5-mile oval",
-      "surface": "Asphalt",
-      "capacity": 75000,
-      "first_cup_race": 2001,
-      "description": "One of the newer 1.5-mile ovals on the circuit. Wide, smooth racing surface allows multiple lanes. Playoff staple that often produces dramatic finishes.",
-      "legendary_moments": [
-        "Multiple Hamlin wins",
-        "2022 playoff drama"
-      ],
-      "tier": 2
-    },
-    {
-      "id": "charlotte",
-      "name": "Charlotte Motor Speedway",
-      "short": "Charlotte",
-      "location": "Concord, NC",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 1.5,
-      "lap_length_km": 2.414,
-      "banking_degrees": 24,
-      "track_type": "1.5-mile oval",
-      "surface": "Asphalt",
-      "capacity": 90000,
-      "first_cup_race": 1960,
-      "description": "Home track for most of NASCAR's teams. The Coca-Cola 600 on Memorial Day weekend is the longest race on the calendar at 600 miles. Charlotte also hosts the All-Star Race and a road course variant.",
-      "legendary_moments": [
-        "Coca-Cola 600 tradition",
-        "Jeff Gordon's early dominance"
-      ],
-      "tier": 1
-    },
-    {
-      "id": "pocono",
-      "name": "Pocono Raceway",
-      "short": "Pocono",
-      "location": "Long Pond, PA",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 2.5,
-      "lap_length_km": 4.023,
-      "banking_degrees": 14,
-      "track_type": "Tri-oval",
-      "surface": "Asphalt",
-      "capacity": 76000,
-      "first_cup_race": 1974,
-      "description": "The Tricky Triangle. A unique triangular 2.5-mile oval with three completely different corners \u2014 Tunnel Turn, the Carousel and the North Turn. No other track in NASCAR feels like Pocono.",
-      "legendary_moments": [
-        "Ryan Newman's turnaround wins",
-        "Kyle Busch dominance"
-      ],
-      "tier": 2
-    },
-    {
-      "id": "michigan",
-      "name": "Michigan International Speedway",
-      "short": "Michigan",
-      "location": "Brooklyn, MI",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 2.0,
-      "lap_length_km": 3.219,
-      "banking_degrees": 18,
-      "track_type": "2-mile oval",
-      "surface": "Asphalt",
-      "capacity": 60000,
-      "first_cup_race": 1969,
-      "description": "Two miles of smooth, fast Michigan asphalt. One of the widest tracks on the circuit allows for multi-lane racing. Top speeds approach 220mph making it one of the most technically demanding ovals.",
-      "legendary_moments": [
-        "David Pearson vs Petty 1976",
-        "Multiple Larson wins"
-      ],
-      "tier": 2
-    },
-    {
-      "id": "sonoma",
-      "name": "Sonoma Raceway",
-      "short": "Sonoma",
-      "location": "Sonoma, CA",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 1.99,
-      "lap_length_km": 3.2,
-      "banking_degrees": 0,
-      "track_type": "Road course",
-      "surface": "Asphalt",
-      "capacity": 38000,
-      "first_cup_race": 1989,
-      "description": "Wine country road racing. Sonoma's rolling hills and technical layout favour road course specialists. The carousel sequence is one of the most photographed corners in American motorsport.",
-      "legendary_moments": [
-        "Gordon's 5 Sonoma wins",
-        "Larson's 2021 win"
-      ],
-      "tier": 2
-    },
-    {
-      "id": "new-hampshire",
-      "name": "New Hampshire Motor Speedway",
-      "short": "New Hampshire",
-      "location": "Loudon, NH",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 1.058,
-      "lap_length_km": 1.703,
-      "banking_degrees": 12,
-      "track_type": "Short track",
-      "surface": "Asphalt",
-      "capacity": 46000,
-      "first_cup_race": 1993,
-      "description": "The Magic Mile. Flat, low-banked New Hampshire demands precision and patience. A track where setup and tire management matter more than raw speed.",
-      "legendary_moments": [
-        "Busch's multiple wins",
-        "Jeff Burton era"
-      ],
-      "tier": 2
-    },
-    {
-      "id": "watkins-glen",
-      "name": "Watkins Glen International",
-      "short": "Watkins Glen",
-      "location": "Watkins Glen, NY",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 2.45,
-      "lap_length_km": 3.94,
-      "banking_degrees": 0,
-      "track_type": "Road course",
-      "surface": "Asphalt",
-      "capacity": 41000,
-      "first_cup_race": 1957,
-      "description": "Historic road course in the Finger Lakes. One of the oldest circuits in American racing. The bus stop chicane and the boot section create wheel-to-wheel moments that flat ovals can't match.",
-      "legendary_moments": [
-        "Mark Martin's 5 wins",
-        "Jeff Gordon's early dominance"
-      ],
-      "tier": 1
-    },
-    {
-      "id": "indianapolis",
-      "name": "Indianapolis Motor Speedway",
-      "short": "Indianapolis",
-      "location": "Speedway, IN",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 2.5,
-      "lap_length_km": 4.023,
-      "banking_degrees": 9,
-      "track_type": "Oval / Road course",
-      "surface": "Asphalt",
-      "capacity": 250000,
-      "first_cup_race": 1994,
-      "description": "The Racing Capital of the World. NASCAR races both the oval and the road course at Indy. Standing at the yard of bricks at the start-finish line is a pilgrimage every racing fan should make.",
-      "legendary_moments": [
-        "Jeff Gordon's 2 oval wins",
-        "Larson's 2021 road course win"
-      ],
-      "tier": 1
-    },
-    {
-      "id": "richmond",
-      "name": "Richmond Raceway",
-      "short": "Richmond",
-      "location": "Richmond, VA",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 0.75,
-      "lap_length_km": 1.207,
-      "banking_degrees": 14,
-      "track_type": "Short track",
-      "surface": "Asphalt",
-      "capacity": 60000,
-      "first_cup_race": 1953,
-      "description": "Three-quarters of a mile of short-track action under the lights. Richmond's Saturday night race tradition stretches back decades. Two races per year make it a double-dose of tight, tactical racing.",
-      "legendary_moments": [
-        "Dale Earnhardt's battles",
-        "Hamlin's multiple wins"
-      ],
-      "tier": 2
-    },
-    {
-      "id": "daytona-road",
-      "name": "Daytona International Speedway (Road Course)",
-      "short": "Daytona RC",
-      "location": "Daytona Beach, FL",
-      "country": "USA",
-      "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "lap_length_mi": 3.61,
-      "lap_length_km": 5.81,
-      "banking_degrees": 0,
-      "track_type": "Road course",
-      "surface": "Asphalt",
-      "capacity": 101000,
-      "first_cup_race": 1992,
-      "description": "The infield road course at Daytona uses part of the famous oval banking in combination with an infield section. A unique challenge that mixes superspeedway banking with technical infield corners.",
-      "legendary_moments": [
-        "McDowell's first win 2019",
-        "2021 chaotic race"
-      ],
-      "tier": 2
+      "records": {
+        "lap_record": "18.845 sec \u2014 Joey Logano, 2014 (qualifying)",
+        "most_wins": "Denny Hamlin \u2014 9 wins all-time"
+      },
+      "race_2026": {
+        "round": 7,
+        "name": "Cook Out 400",
+        "winner": null,
+        "date": "2026-03-29"
+      }
     },
     {
       "id": "bristol",
@@ -418,13 +251,422 @@
       "surface": "Concrete",
       "capacity": 162000,
       "first_cup_race": 1961,
-      "description": "The Last Great Colosseum. Half-mile concrete bullring with 28-degree banking makes Bristol the most electric short-track atmosphere in racing. The night race under the lights is a bucket list event.",
+      "tier": 1,
+      "description": "The Last Great Colosseum. Bristol Motor Speedway is the most electric atmosphere in NASCAR \u2014 162,000 fans packed into the Tennessee mountains for what amounts to gladiatorial combat on concrete. The 28-degree banking is steep enough that cars can run flat-out everywhere on the circuit, producing speeds that feel outrageous for a half-mile oval. The night race under Bristol's lights is a genuine bucket-list event for any motorsport fan.",
+      "circuit_notes": "The concrete surface is extremely aggressive on tyres, particularly the right-front. Overdriving the entry in the tight corners kills tyres fast. The track is just wide enough for two lanes, meaning racing three-wide is genuinely dangerous but happens regularly. Lapped traffic is a massive factor \u2014 the leaders spend most of the race in heavy traffic, and the management of that traffic separates winners from contenders.",
       "legendary_moments": [
-        "The Earnhardt-Gordon rivalry",
-        "Kenseth 2015 revenge",
-        "Night race tradition"
+        "The Earnhardt-Gordon war of the 1990s",
+        "Darrell Waltrip's record 12 wins at Bristol",
+        "Matt Kenseth dominating the 2012 night race from the rear",
+        "The Bristol dirt race era 2021-2024",
+        "Kyle Larson's multiple Bristol night race victories"
       ],
-      "tier": 1
+      "records": {
+        "lap_record": "14.875 sec \u2014 Kyle Larson, 2021 (qualifying)",
+        "most_wins": "Darrell Waltrip \u2014 12 wins"
+      },
+      "race_2026": {
+        "round": 8,
+        "name": "Food City 500",
+        "winner": null,
+        "date": "2026-04-12"
+      }
+    },
+    {
+      "id": "talladega",
+      "name": "Talladega Superspeedway",
+      "short": "Talladega",
+      "location": "Talladega, AL",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.66,
+      "lap_length_km": 4.281,
+      "banking_degrees": 33,
+      "track_type": "Superspeedway",
+      "surface": "Asphalt",
+      "capacity": 143000,
+      "first_cup_race": 1969,
+      "tier": 1,
+      "description": "The biggest and most dangerous oval in NASCAR. At 2.66 miles with 33-degree banking, Talladega Superspeedway is the ultimate test of nerve, positioning, and survival. The Big One \u2014 a massive multi-car pileup that typically takes out a third of the field \u2014 is a near-certainty at some point in every race. Nobody knows where it will happen, or to whom. This unpredictability is exactly what makes Talladega the greatest show in American motorsport.",
+      "circuit_notes": "With restrictor plates equalising the field, Talladega is the great leveller. A last-place team can win if they draft well and survive. The key skill is positioning \u2014 staying near the front of the pack without being at the absolute front where the air is thin. The draft line and slingshot moves in the final laps are chess at 195mph.",
+      "legendary_moments": [
+        "Bobby Allison's final race ending in tragedy, 1988",
+        "Dale Earnhardt Sr.'s mastery of the draft",
+        "Michael Waltrip's emotional 2001 Daytona 500 win (same technique applied)",
+        "Brad Keselowski's 2009 breakthrough win",
+        "The Great American Wreck compilation \u2014 every Talladega Big One ever"
+      ],
+      "records": {
+        "lap_record_speed": "216.309 mph \u2014 Bill Elliott, 1987 (qualifying)",
+        "most_wins": "Dale Earnhardt Sr. \u2014 10 wins"
+      },
+      "race_2026": {
+        "round": 10,
+        "name": "Jack Link's 500",
+        "winner": null,
+        "date": "2026-04-26"
+      }
+    },
+    {
+      "id": "kansas",
+      "name": "Kansas Speedway",
+      "short": "Kansas",
+      "location": "Kansas City, KS",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.5,
+      "lap_length_km": 2.414,
+      "banking_degrees": 17,
+      "track_type": "1.5-mile oval",
+      "surface": "Asphalt",
+      "capacity": 75000,
+      "first_cup_race": 2001,
+      "tier": 2,
+      "description": "One of the newer 1.5-mile ovals on the NASCAR calendar, Kansas Speedway opened in 2001 and has quickly become a playoff staple. The wide, smooth racing surface allows for genuine multi-groove racing, and the 17-degree banking is shallow enough that mechanical grip plays a bigger role than at steeper tracks. Two Cup Series races per year \u2014 one regular season, one playoff \u2014 means Kansas has seen some of the most important moments of recent championships.",
+      "circuit_notes": "Kansas produces some of the most variable racing of any intermediate circuit. The track can create a dominant lane early in a run, then shift as fuel loads change and tyres wear. Teams that can adapt their set-up during a long green-flag run often emerge with superior positions. The turn entry on Turns 1 and 2 is particularly sensitive to setup balance.",
+      "legendary_moments": [
+        "Denny Hamlin's multiple Kansas victories",
+        "Joey Logano's 2022 playoff clincher",
+        "Multiple overtime finishes in playoff races"
+      ],
+      "records": {
+        "lap_record_speed": "183.428 mph \u2014 Kyle Larson, 2022 (qualifying)"
+      },
+      "race_2026": {
+        "round": 9,
+        "name": "AdventHealth 400",
+        "winner": null,
+        "date": "2026-04-19"
+      }
+    },
+    {
+      "id": "charlotte",
+      "name": "Charlotte Motor Speedway",
+      "short": "Charlotte",
+      "location": "Concord, NC",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.5,
+      "lap_length_km": 2.414,
+      "banking_degrees": 24,
+      "track_type": "1.5-mile oval",
+      "surface": "Asphalt",
+      "capacity": 90000,
+      "first_cup_race": 1960,
+      "tier": 1,
+      "description": "Home base. Charlotte Motor Speedway sits in the heart of NASCAR country and hosts the longest race on the calendar \u2014 the Coca-Cola 600 on Memorial Day weekend at 600 miles. With most teams headquartered within 30 miles of the track, this is the race every driver and crew chief wants to win. Charlotte also hosts the All-Star Race and has run a road course variant using the infield in recent seasons.",
+      "circuit_notes": "The Coca-Cola 600 is a race of survival as much as speed \u2014 600 miles under Memorial Day heat tests both machinery and personnel. Night racing adds a layer of complexity as temperatures drop and grip levels change. The track is technically demanding at the entry of turns, where oversteer can be career-ending at 170mph.",
+      "legendary_moments": [
+        "Jeff Gordon's four Coca-Cola 600 wins",
+        "Kasey Kahne's 2008 All-Star Race win",
+        "Jimmie Johnson's Charlotte mastery in his championship years",
+        "Denny Hamlin's 600-mile survival wins"
+      ],
+      "records": {
+        "lap_record_speed": "193.342 mph \u2014 Jimmie Johnson, 2014 (qualifying)",
+        "most_wins_600": "Jimmie Johnson \u2014 3 Coca-Cola 600 wins"
+      },
+      "race_2026": {
+        "round": 14,
+        "name": "Coca-Cola 600",
+        "winner": null,
+        "date": "2026-05-24"
+      }
+    },
+    {
+      "id": "watkins-glen",
+      "name": "Watkins Glen International",
+      "short": "Watkins Glen",
+      "location": "Watkins Glen, NY",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.45,
+      "lap_length_km": 3.94,
+      "banking_degrees": 0,
+      "track_type": "Road course",
+      "surface": "Asphalt",
+      "capacity": 41000,
+      "first_cup_race": 1957,
+      "tier": 1,
+      "description": "Historic road racing in the Finger Lakes. Watkins Glen International has been hosting racing since 1948 and is one of the most respected circuits in North American motorsport. The bus stop chicane, the uphill esses, and the sweeping final corner combine to create a genuinely technical challenge. Stock cars at Watkins Glen are a spectacular sight \u2014 3,400-pound machines with all the finesse of a freight train navigating corners designed for purpose-built race cars.",
+      "circuit_notes": "The bus stop chicane is optional for NASCAR \u2014 most drivers run straight through the slow kerbed section and take the penalty. The decision to use it or not depends on tyre compound and race position. The esses require smooth, committed driving. The final corner is a long, sweeping 180-degree right-hander that rewards both set-up and bravery.",
+      "legendary_moments": [
+        "Mark Martin's five victories at Watkins Glen 1993-1997",
+        "Jeff Gordon winning from the back",
+        "AJ Allmendinger's upset 2014 win",
+        "Chase Elliott's road course mastery at the Glen"
+      ],
+      "records": {
+        "lap_record": "1:12.643 \u2014 Kyle Larson, 2022 (qualifying)"
+      },
+      "race_2026": {
+        "round": 12,
+        "name": "Go Bowling at The Glen",
+        "winner": null,
+        "date": "2026-05-10"
+      }
+    },
+    {
+      "id": "sonoma",
+      "name": "Sonoma Raceway",
+      "short": "Sonoma",
+      "location": "Sonoma, CA",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.99,
+      "lap_length_km": 3.2,
+      "banking_degrees": 0,
+      "track_type": "Road course",
+      "surface": "Asphalt",
+      "capacity": 38000,
+      "first_cup_race": 1989,
+      "tier": 2,
+      "description": "Wine country road racing. Sonoma Raceway's rolling hills, elevation changes, and technical layout make it one of the most demanding road courses on the NASCAR calendar. The carousel complex is the most photographed section of any road course in American motorsport \u2014 a sweeping series of left-handers that demands both mechanical grip and driver commitment. Racing at Sonoma always produces drama: wheel-to-wheel through the hairpin, aggressive braking into Turn 11, and inevitably, at least one spectacular off.",
+      "circuit_notes": "Sonoma uses several different configurations for different events. The NASCAR layout typically runs the longer variation including the chute and the backstretch esses. Fuel conservation often plays a role \u2014 teams have stretched fuel windows at Sonoma to gain track position. The brake zones are severe, particularly at Turn 7 where cars shed massive speed in a short distance.",
+      "legendary_moments": [
+        "Jeff Gordon's five Sonoma wins \u2014 his favourite road course",
+        "Tony Stewart's back-to-back wins 2011-2012",
+        "Kyle Larson's dominant 2021 performance"
+      ],
+      "records": {
+        "lap_record": "1:18.988 \u2014 Chase Elliott, 2022 (qualifying)"
+      },
+      "race_2026": {
+        "round": 19,
+        "name": "Toyota/Save Mart 350",
+        "winner": null,
+        "date": "2026-06-28"
+      }
+    },
+    {
+      "id": "indianapolis",
+      "name": "Indianapolis Motor Speedway",
+      "short": "Indianapolis",
+      "location": "Speedway, IN",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.5,
+      "lap_length_km": 4.023,
+      "banking_degrees": 9,
+      "track_type": "Oval / Road course",
+      "surface": "Asphalt (Yard of Bricks start-finish line)",
+      "capacity": 250000,
+      "first_cup_race": 1994,
+      "tier": 1,
+      "description": "The Racing Capital of the World. Indianapolis Motor Speedway is the most famous motorsport venue on the planet. NASCAR races both the oval and the road course at Indy \u2014 the oval with its near-flat 9-degree banking creates a very different challenge to the steep superspeedways. The yard of bricks at the start-finish line, a tradition dating back to the early 1900s, demands that winners kneel and kiss the surface. Standing at the Speedway for the first time is a religious experience.",
+      "circuit_notes": "On the oval, the shallow 9-degree banking means teams cannot run wide-open through the corners \u2014 set-up precision and downforce balance are critical. The road course weaves through the infield and incorporates the famous main straight, creating a genuinely fast and technical combined layout.",
+      "legendary_moments": [
+        "Jeff Gordon's Brickyard 400 dynasty \u2014 four wins",
+        "Dale Earnhardt's emotional first Brickyard win in 1995",
+        "The controversial 2008 race stopped for tyre failures",
+        "Kyle Larson's 2021 road course win \u2014 his best of the season"
+      ],
+      "records": {
+        "oval_lap_record_speed": "184.028 mph \u2014 Buddy Baker, 1980",
+        "most_brickyard_wins": "Jeff Gordon \u2014 4 wins"
+      },
+      "race_2026": {
+        "round": 23,
+        "name": "Brickyard 400",
+        "winner": null,
+        "date": "2026-07-26"
+      }
+    },
+    {
+      "id": "richmond",
+      "name": "Richmond Raceway",
+      "short": "Richmond",
+      "location": "Richmond, VA",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 0.75,
+      "lap_length_km": 1.207,
+      "banking_degrees": 14,
+      "track_type": "Short track",
+      "surface": "Asphalt",
+      "capacity": 60000,
+      "first_cup_race": 1953,
+      "tier": 2,
+      "description": "Saturday night short-track action in Virginia. Richmond Raceway's three-quarter-mile D-shaped oval sits just outside the state capital and has hosted NASCAR racing since 1953. The Saturday night race tradition stretches back decades and gives Richmond a unique, old-school atmosphere. Two Cup Series dates per year \u2014 one spring, one regular-season finale \u2014 mean Richmond has served as the final regular-season cutoff point, producing enormous late-race drama.",
+      "circuit_notes": "Richmond is wide enough for two grooves but rarely three. The outside lane is often faster early in a run, while the bottom becomes dominant as tyres wear and the track rubberers up. Caution timing is crucial \u2014 teams that can time their pit stops to avoid the wave of pit road traffic gain positions without passing anyone on track.",
+      "legendary_moments": [
+        "Dale Earnhardt's battles with the field in his Richmond prime",
+        "Denny Hamlin's multiple Richmond victories for JGR",
+        "Multiple drivers making the regular-season cut by dramatic margins"
+      ],
+      "records": {
+        "lap_record": "20.981 sec \u2014 Tony Stewart, 2009 (qualifying)"
+      },
+      "race_2026": {
+        "round": 25,
+        "name": "Cook Out 400",
+        "winner": null,
+        "date": "2026-08-15"
+      }
+    },
+    {
+      "id": "dover",
+      "name": "Dover Motor Speedway",
+      "short": "Dover",
+      "location": "Dover, DE",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.0,
+      "lap_length_km": 1.609,
+      "banking_degrees": 24,
+      "track_type": "Short track",
+      "surface": "Concrete",
+      "capacity": 95000,
+      "first_cup_race": 1969,
+      "tier": 2,
+      "description": "The Monster Mile. Dover Motor Speedway's concrete one-mile oval with 24-degree banking is one of the most physically demanding tracks in NASCAR. The concrete surface generates massive tyre wear and produces high grip early in a run that fades dramatically as tyres overheat. Speeds approach 160mph through the corners, which feels extraordinary on a one-mile oval. The Monster Energy drink mascot \u2014 the 'Miles the Monster' figure \u2014 watches over the start-finish line.",
+      "circuit_notes": "Dover rewards committed drivers who can preserve their right-front tyre while still pushing hard. The concrete banking allows full commitment through the corners but punishes any lapse in concentration \u2014 the barriers are close and the wall is unyielding concrete. Passing is possible on both lanes, but patience and choosing the right moment to attack are essential.",
+      "legendary_moments": [
+        "Jimmie Johnson's record 11 wins at Dover \u2014 the Monster Mile King",
+        "Jeff Gordon's multiple dominant performances",
+        "Multiple overtime finishes in the modern era"
+      ],
+      "records": {
+        "lap_record_speed": "161.522 mph \u2014 Jimmie Johnson, 2017 (qualifying)",
+        "most_wins": "Jimmie Johnson \u2014 11 wins"
+      },
+      "race_2026": {
+        "round": 13,
+        "name": "NASCAR All-Star Race",
+        "winner": null,
+        "date": "2026-05-17"
+      }
+    },
+    {
+      "id": "michigan",
+      "name": "Michigan International Speedway",
+      "short": "Michigan",
+      "location": "Brooklyn, MI",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.0,
+      "lap_length_km": 3.219,
+      "banking_degrees": 18,
+      "track_type": "2-mile oval",
+      "surface": "Asphalt",
+      "capacity": 60000,
+      "first_cup_race": 1969,
+      "tier": 2,
+      "description": "Two miles of smooth Michigan asphalt in the Irish Hills. Michigan International Speedway is the widest track on the NASCAR circuit, stretching to 72 feet in places, which allows genuine multi-lane racing through all four corners. Top speeds approach 215mph on a good day, and the smooth, sweeping turns reward long throttle applications that few other tracks allow. The result is one of the purest tests of raw outright speed in American motorsport.",
+      "circuit_notes": "The wide surface at Michigan creates three or even four lanes of viable racing. Setup balance through the long, sweeping turns is critical \u2014 understeer at high speed becomes dangerous quickly. Teams often run more downforce than expected because the corner commitment required in the wide, fast turns benefits from mechanical grip.",
+      "legendary_moments": [
+        "David Pearson vs. Richard Petty's legendary 1976 finish",
+        "Greg Biffle's Michigan dominance in the mid-2000s",
+        "Kyle Larson's multiple 200mph+ qualifying laps"
+      ],
+      "records": {
+        "lap_record_speed": "206.558 mph \u2014 Kyle Larson, 2021 (qualifying)"
+      },
+      "race_2026": {
+        "round": 16,
+        "name": "FireKeepers Casino 400",
+        "winner": null,
+        "date": "2026-06-07"
+      }
+    },
+    {
+      "id": "pocono",
+      "name": "Pocono Raceway",
+      "short": "Pocono",
+      "location": "Long Pond, PA",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 2.5,
+      "lap_length_km": 4.023,
+      "banking_degrees": 14,
+      "track_type": "Tri-oval",
+      "surface": "Asphalt",
+      "capacity": 76000,
+      "first_cup_race": 1974,
+      "tier": 2,
+      "description": "The Tricky Triangle. Pocono Raceway's unique triangular 2.5-mile layout has three completely different corners \u2014 the Tunnel Turn, the Carousel, and the North Turn \u2014 that require a completely different setup compromise to any other track. No corner is like the one before it, and no set-up decision comes without a trade-off somewhere else on the lap. Pocono is genuinely unique in world motorsport.",
+      "circuit_notes": "Pocono's three corners have different banking angles, radii, and surface characteristics. The Tunnel Turn is the fastest and most committed, taken at speeds approaching 200mph. The Carousel is tighter and slower, generating massive tyre loads. The North Turn is a sweeping, long right-hander that challenges mechanical grip and driver bravery equally. Getting all three right in one setup is almost impossible.",
+      "legendary_moments": [
+        "Ryan Newman's multiple Pocono victories",
+        "Jeff Gordon vs. Jimmie Johnson Pocono battles",
+        "Kyle Busch's dominance of the Poconos in the late 2010s"
+      ],
+      "records": {
+        "lap_record_speed": "171.971 mph \u2014 Ryan Newman, 2003 (qualifying)"
+      },
+      "race_2026": {
+        "round": 17,
+        "name": "Great American Getaway 400",
+        "winner": null,
+        "date": "2026-06-14"
+      }
+    },
+    {
+      "id": "new-hampshire",
+      "name": "New Hampshire Motor Speedway",
+      "short": "New Hampshire",
+      "location": "Loudon, NH",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.058,
+      "lap_length_km": 1.703,
+      "banking_degrees": 12,
+      "track_type": "Short track",
+      "surface": "Asphalt",
+      "capacity": 46000,
+      "first_cup_race": 1993,
+      "tier": 2,
+      "description": "The Magic Mile. New Hampshire Motor Speedway's flat, low-banked one-mile oval in the New England hills is one of the most technically demanding tracks in NASCAR. Just 12 degrees of banking means aerodynamic downforce is nearly irrelevant \u2014 it's all about mechanical grip, set-up precision, and driver skill through the flat, slippery corners. This is a track where the best drivers and the best-prepared cars consistently emerge, regardless of the horsepower package.",
+      "circuit_notes": "The flat banking at New Hampshire means the cars push significantly through the corners, loading the right-front tyre heavily. Teams that can manage right-front tyre wear while still maintaining competitive lap times gain a decisive advantage in the final stage. Restarts are chaotic because the flat corners reward inside-line defenders.",
+      "legendary_moments": [
+        "Jeff Burton's New Hampshire dominance in the late 1990s",
+        "Jimmie Johnson's multiple Magic Mile wins",
+        "Kyle Busch's consistent strong showings"
+      ],
+      "records": {
+        "lap_record": "28.606 sec \u2014 Ryan Newman, 2014 (qualifying)"
+      },
+      "race_2026": {
+        "round": 26,
+        "name": "NASCAR Cup Race at New Hampshire",
+        "winner": null,
+        "date": "2026-08-23"
+      }
+    },
+    {
+      "id": "homestead",
+      "name": "Homestead-Miami Speedway",
+      "short": "Homestead",
+      "location": "Homestead, FL",
+      "country": "USA",
+      "flag": "\ud83c\uddfa\ud83c\uddf8",
+      "lap_length_mi": 1.5,
+      "lap_length_km": 2.414,
+      "banking_degrees": 20,
+      "track_type": "1.5-mile oval",
+      "surface": "Asphalt",
+      "capacity": 65000,
+      "first_cup_race": 1999,
+      "tier": 1,
+      "description": "The Championship Finale. Homestead-Miami Speedway returns to the role it played from 2002 to 2019 as the final race of the NASCAR season and the venue where the Cup Series champion is crowned. The 1.5-mile oval in South Florida combines high banking with a smooth, progressive racing surface that rewards commitment. It has produced some of the most dramatic championship finales in NASCAR history, with four title contenders often separated by fractions going into the final laps.",
+      "circuit_notes": "Homestead's progressive banking \u2014 varying from 18 to 20 degrees through the turns \u2014 creates a wide, grippy surface in the high lane. Teams often run more downforce than at similar-length tracks because the banking rewards it. Tyre wear is moderate, and two-stop strategies are viable. The final race atmosphere is electric \u2014 whoever crosses the finish line first among the championship contenders wins it all.",
+      "legendary_moments": [
+        "Tony Stewart's dramatic three-way championship duel, 2011",
+        "Kevin Harvick's dominance at Homestead",
+        "Jimmie Johnson's multiple championship clinches",
+        "Kyle Busch's emotional 2015 championship comeback win",
+        "The 2026 Championship Race \u2014 to be decided"
+      ],
+      "records": {
+        "lap_record_speed": "181.501 mph \u2014 Kyle Busch, 2019 (qualifying)",
+        "championship_races_hosted": "18 (2002-2019, returning 2026)"
+      },
+      "race_2026": {
+        "round": 37,
+        "name": "NASCAR Championship Race",
+        "winner": null,
+        "date": "2026-11-08"
+      }
     }
   ]
 }
