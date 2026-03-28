@@ -398,6 +398,10 @@ async function initStandingsPage() {
   const completed= schedule.filter(r=>r.complete);
   setAccent(series.accent);
   document.title = `${series.name} ${p.year} Standings — APEX Analytics`;
+  // Breadcrumb hub name/url
+  var hubUrl  = series.hub_url || (config.series.nascar&&config.series.nascar.hub_url) || 'f1.html';
+  var hubName = series.hub_url ? series.name.replace(" Series","").replace(" Auto Parts","").trim() + ' Hub' : 'NASCAR Hub';
+
 
   const sorted = [...drivers].sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0));
   const maxPts = sorted[0]?.season_2026?.pts || 1;
@@ -414,7 +418,7 @@ async function initStandingsPage() {
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
-    <a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span>
+    <a href="${hubUrl}">${hubName}</a><span class="sep">/</span>
     <span class="current">Standings</span>`;
 
   const root = $('page-root');
@@ -572,6 +576,10 @@ async function initRacePage() {
 
   setAccent(series.accent);
   document.title = `${race.name} ${p.year} — APEX Analytics`;
+  // Breadcrumb hub name/url
+  var hubUrl  = series.hub_url || (config.series.nascar&&config.series.nascar.hub_url) || 'f1.html';
+  var hubName = series.hub_url ? series.name.replace(" Series","").replace(" Auto Parts","").trim() + ' Hub' : 'NASCAR Hub';
+
 
   const venue   = venues?.venues?.find(v => v.id === race.venue_id);
   const drivers = comp?.competitors || [];
@@ -580,7 +588,7 @@ async function initRacePage() {
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
-    <a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span>
+    <a href="${hubUrl}">${hubName}</a><span class="sep">/</span>
     <span class="current">R${race.round} · ${race.name}</span>`;
 
   const root = $('page-root');
@@ -797,7 +805,7 @@ async function initCompetitorPage() {
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
-    <a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span>
+    <a href="${hubUrl}">${hubName}</a><span class="sep">/</span>
     <span class="current">${driver.name}</span>`;
 
   const root = $('page-root');
@@ -1047,11 +1055,19 @@ async function initComparePage() {
   const drivers = comp.competitors;
   setAccent(series.accent);
   document.title = 'Compare Drivers — APEX Analytics';
+  // Breadcrumb hub name/url
+  var hubUrl  = series.hub_url || (config.series.nascar&&config.series.nascar.hub_url) || 'f1.html';
+  var hubName = series.hub_url ? series.name.replace(" Series","").replace(" Auto Parts","").trim() + ' Hub' : 'NASCAR Hub';
+
+  // Breadcrumb hub name/url
+  var hubUrl  = series.hub_url || (config.series.nascar&&config.series.nascar.hub_url) || 'f1.html';
+  var hubName = series.hub_url ? series.name.replace(" Series","").replace(" Auto Parts","").trim() + ' Hub' : 'NASCAR Hub';
+
 
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
-    <a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span>
+    <a href="${hubUrl}">${hubName}</a><span class="sep">/</span>
     <span class="current">Compare</span>`;
 
   const opts = drivers.map(d => `<option value="${d.id}" ${d.id===p.a?'selected':''}>${d.name} (#${d.number})</option>`).join('');
@@ -1174,12 +1190,16 @@ async function initVenuePage() {
 
   setAccent(series.accent);
   document.title = `${venue.name} — APEX Analytics`;
+  // Breadcrumb hub name/url
+  var hubUrl  = series.hub_url || (config.series.nascar&&config.series.nascar.hub_url) || 'f1.html';
+  var hubName = series.hub_url ? series.name.replace(" Series","").replace(" Auto Parts","").trim() + ' Hub' : 'NASCAR Hub';
+
 
   const race = sched?.schedule?.find(r => r.venue_id === venue.id);
   const bc = $('nav-breadcrumb');
   if (bc) bc.innerHTML = `
     <a href="index.html">Home</a><span class="sep">/</span>
-    <a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span>
+    <a href="${hubUrl}">${hubName}</a><span class="sep">/</span>
     <a href="circuits.html?series=${p.series}">Circuits</a><span class="sep">/</span>
     <span class="current">${venue.short}</span>`;
 
@@ -1275,6 +1295,10 @@ async function initCircuitsPage() {
   const series = isNascarSubC || config.series[p.series] || {name:p.series,accent:'#27F4D2',short:p.series.toUpperCase()};
   setAccent(series.accent);
   document.title = series.name + ' Circuits — APEX Analytics';
+  // Breadcrumb hub name/url
+  var hubUrl  = series.hub_url || (config.series.nascar&&config.series.nascar.hub_url) || 'f1.html';
+  var hubName = series.hub_url ? series.name.replace(" Series","").replace(" Auto Parts","").trim() + ' Hub' : 'NASCAR Hub';
+
 
   const raceResults = {};
   (sched?.schedule||[]).forEach(r => {
@@ -1285,7 +1309,7 @@ async function initCircuitsPage() {
   venues.venues.forEach(v => byTier[v.tier||3].push(v));
 
   const bc = $('nav-breadcrumb');
-  if (bc) bc.innerHTML = `<a href="index.html">Home</a><span class="sep">/</span><a href="${(series.hub_url||(config.series.nascar&&config.series.nascar.hub_url)||'f1.html')}">${series.hub_url?series.name+' Hub':'NASCAR Hub'}</a><span class="sep">/</span><span class="current">Circuits</span>`;
+  if (bc) bc.innerHTML = `<a href="index.html">Home</a><span class="sep">/</span><a href="${hubUrl}">${hubName}</a><span class="sep">/</span><span class="current">Circuits</span>`;
 
   const root = $('page-root');
   if (!root) return;
@@ -2161,179 +2185,275 @@ function dlH2H(){
    Called from index.html inline script
 ══════════════════════════════════════════════════════════ */
 async function initLandingPage() {
-  const [config] = await Promise.all([
-    loadJSON('data/config.json'),
-  ]);
+  const [config] = await Promise.all([loadJSON('data/config.json')]);
   if (!config) return;
 
-  // Load data for each active series
-  const seriesDataMap = {};
+  // Load all active series data
   const activeSeries = Object.entries(config.series).filter(function(e){ return e[1].active; });
+  const seriesDataMap = {};
   await Promise.all(activeSeries.map(async function(entry) {
     const sid = entry[0], s = entry[1];
-    const compFile = s.competitors_file || ('competitors-' + sid + '-' + (s.current_year||2026) + '.json');
-    const schedFile = s.season_file ? s.season_file + '.json' : (sid + '-' + (s.current_year||2026) + '.json');
-    const [comp, sched] = await Promise.all([
-      loadJSON('data/' + compFile),
-      loadJSON('data/' + schedFile),
-    ]);
+    const compFile = s.competitors_file ? s.competitors_file + '.json' : 'competitors-' + sid + '-' + (s.current_year||2026) + '.json';
+    const schedFile = s.season_file ? s.season_file + '.json' : sid + '-' + (s.current_year||2026) + '.json';
+    const [comp, sched] = await Promise.all([loadJSON('data/' + compFile), loadJSON('data/' + schedFile)]);
     seriesDataMap[sid] = { s, comp, sched };
   }));
 
-  // Use F1 data for hero stats (first active series)
+  // F1 for hero stats
   const f1data = seriesDataMap['f1'] || Object.values(seriesDataMap)[0];
-  const comp = f1data && f1data.comp;
-  const sched = f1data && f1data.sched;
-  const drivers   = comp ? (comp.competitors||[]).sort((a,b) => (b.season_2026?.pts||0) - (a.season_2026?.pts||0)) : [];
-  const schedule  = sched?.schedule || [];
-  const completed = schedule.filter(r => r.complete);
-  const nextRace  = schedule.find(r => !r.complete);
-  const lastRace  = completed[completed.length - 1];
-  const leader    = drivers[0];
-  const p2        = drivers[1];
-  const gap       = leader && p2 ? (leader.season_2026?.pts||0) - (p2.season_2026?.pts||0) : 0;
-  const maxPts    = leader?.season_2026?.pts || 1;
+  const f1comp = f1data && f1data.comp;
+  const f1sched = f1data && f1data.sched;
+  const drivers   = f1comp ? (f1comp.competitors||[]).sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0)) : [];
+  const schedule  = f1sched ? f1sched.schedule||[] : [];
+  const completed = schedule.filter(r=>r.complete);
+  const nextRace  = schedule.find(r=>!r.complete);
+  const leader    = drivers[0], p2 = drivers[1];
+  const gap       = leader&&p2 ? (leader.season_2026?.pts||0)-(p2.season_2026?.pts||0) : 0;
 
-  // ── Hero stats
+  // Hero stats
   const ge = id => document.getElementById(id);
   if (ge('stat-rounds'))   ge('stat-rounds').textContent   = completed.length;
-  if (ge('stat-drivers'))  ge('stat-drivers').textContent  = drivers.length;
-  if (ge('stat-circuits')) ge('stat-circuits').textContent = 21;
+  if (ge('stat-drivers'))  ge('stat-drivers').textContent  = (f1comp?.competitors||[]).length || 20;
+  if (ge('stat-circuits')) ge('stat-circuits').textContent = 22;
 
-  // ── Live snapshot
+  // Favorites
+  let favData = {drivers:[], series:[]};
+  try { favData = JSON.parse(localStorage.getItem('apex-favorites')||'{"drivers":[],"series":[]}'); }
+  catch(e) {}
+  if (!favData.drivers) favData.drivers = [];
+  if (!favData.series)  favData.series  = [];
+
+  // ── Fav series bar (sticky under nav)
+  const seriesBar = ge('fav-series-bar');
+  const seriesChips = ge('fav-series-chips');
+  if (favData.series.length && seriesBar && seriesChips) {
+    seriesBar.style.display = 'block';
+    seriesChips.innerHTML = favData.series.map(function(sid) {
+      const entry = config.series[sid];
+      const sub = Object.values(config.series).find(s=>s.sub_series&&s.sub_series.find(ss=>ss.id===sid));
+      const s = entry || (sub && sub.sub_series.find(ss=>ss.id===sid));
+      if (!s) return '';
+      const url = entry ? entry.hub_url : (sub ? sub.hub_url + '?tab=' + sid : '#');
+      return '<a href="'+url+'" style="display:flex;align-items:center;gap:5px;padding:6px 10px;font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:'+(s.accent||'var(--accent)')+';text-decoration:none;white-space:nowrap;border-right:1px solid var(--border);transition:background .15s" onmouseover="this.style.background=\'rgba(255,255,255,.04)\'" onmouseout="this.style.background=\'\'">'
+        +'<div style="width:5px;height:5px;border-radius:50%;background:'+(s.accent||'#27F4D2')+'"></div>'
+        +(s.name||sid)
+      +'</a>';
+    }).join('');
+  }
+
+  // ── Nav fav drivers (mini chips in header)
+  const navFavs = ge('nav-favs');
+  if (navFavs && favData.drivers.length) {
+    const allDrivers = [];
+    Object.values(seriesDataMap).forEach(function(sd) {
+      if (sd.comp) (sd.comp.competitors||[]).forEach(function(d){ allDrivers.push(d); });
+    });
+    const myDrivers = allDrivers.filter(function(d){ return favData.drivers.includes(d.id); });
+    navFavs.innerHTML = myDrivers.slice(0,4).map(function(d) {
+      const sid = Object.entries(seriesDataMap).find(function(e){ return (e[1].comp?.competitors||[]).some(function(x){return x.id===d.id;}); });
+      const seriesId = sid ? sid[0] : 'f1';
+      return '<a href="competitor.html?series='+seriesId+'&id='+d.id+'" style="display:flex;align-items:center;gap:4px;padding:3px 8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1px;color:#'+d.color+';text-decoration:none;transition:border-color .15s;white-space:nowrap" onmouseover="this.style.borderColor=\'#'+d.color+'55\'" onmouseout="this.style.borderColor=\'rgba(255,255,255,.08)\'">'
+        +'<div style="width:4px;height:4px;border-radius:50%;background:#'+d.color+'"></div>'
+        +d.name.split(' ').pop()
+      +'</a>';
+    }).join('');
+  }
+
+  // ── Live snapshot (F1)
   const liveEl = ge('live-content');
-  if (liveEl) {
+  if (liveEl && leader) {
     let lastHtml = '';
+    const lastRace = completed[completed.length-1];
     if (lastRace) {
-      lastHtml = '<div style="margin-bottom:16px;padding:16px 20px;background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--red)">' +
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">' +
-          'Last Race \u00b7 R' + lastRace.round + ' \u00b7 ' + (lastRace.venue||'') +
-        '</div>' +
-        '<div style="font-family:\'Bebas Neue\',display;font-size:26px;letter-spacing:.5px;margin-bottom:4px">' + (lastRace.name||'') + '</div>' +
-        '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">' +
-          '<div style="font-family:\'Bebas Neue\',display;font-size:20px;color:var(--accent)">' + (lastRace.race?.winner||'\u2014') + ' won</div>' +
-          '<a href="race.html?series=f1&round=' + lastRace.round + '" class="btn ghost btn-sm">Full Analysis \u2192</a>' +
-        '</div>' +
-      '</div>';
+      lastHtml = '<div style="margin-bottom:16px;padding:16px 20px;background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--red)">'
+        +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:8px">Last Race · R'+lastRace.round+' · '+(lastRace.venue||'')+'</div>'
+        +'<div style="font-family:\'Bebas Neue\',display;font-size:26px;letter-spacing:.5px;margin-bottom:4px">'+(lastRace.name||'')+'</div>'
+        +'<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">'
+          +'<div style="font-family:\'Bebas Neue\',display;font-size:20px;color:var(--accent)">'+(lastRace.race?.winner||'—')+' won</div>'
+          +'<a href="race.html?series=f1&round='+lastRace.round+'" class="btn ghost btn-sm">Full Analysis →</a>'
+        +'</div>'
+      +'</div>';
     }
-
     let nextHtml = '';
     if (nextRace) {
-      nextHtml = '<div style="padding:16px 20px;background:rgba(39,244,210,.04);border:1px solid rgba(39,244,210,.15)">' +
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.7;margin-bottom:8px">' +
-          'Next Race \u00b7 R' + nextRace.round +
-        '</div>' +
-        '<div style="font-family:\'Bebas Neue\',display;font-size:24px;letter-spacing:.5px;margin-bottom:4px">' + (nextRace.name||nextRace.venue||'') + '</div>' +
-        '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--muted)">' + (nextRace.venue||'') + ' \u00b7 ' + (nextRace.date||'TBD') + '</div>' +
-      '</div>';
+      nextHtml = '<div style="padding:16px 20px;background:rgba(39,244,210,.04);border:1px solid rgba(39,244,210,.15)">'
+        +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.7;margin-bottom:8px">Next Race · R'+nextRace.round+'</div>'
+        +'<div style="font-family:\'Bebas Neue\',display;font-size:24px;letter-spacing:.5px;margin-bottom:4px">'+(nextRace.name||nextRace.venue||'')+'</div>'
+        +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--muted)">'+(nextRace.venue||'')+' · '+(nextRace.date||'TBD')+'</div>'
+      +'</div>';
     }
-
-    let standHtml = '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px">Championship \u00b7 After Round ' + completed.length + '</div>';
-    drivers.slice(0, 5).forEach(function(d, i) {
-      const pts = d.season_2026?.pts || 0;
-      const pct = Math.round((pts / maxPts) * 100);
-      standHtml += '<a href="competitor.html?series=f1&id=' + d.id + '" style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.025);text-decoration:none;color:inherit;position:relative;overflow:hidden" onmouseover="this.style.background=\'rgba(255,255,255,.014)\'" onmouseout="this.style.background=\'\'">' +
-        '<div style="position:absolute;left:0;top:0;bottom:0;width:' + pct + '%;background:#' + d.color + ';opacity:.07;pointer-events:none"></div>' +
-        '<div style="font-family:\'Bebas Neue\',display;font-size:20px;color:' + (i===0?'var(--accent)':'var(--dim)') + ';width:20px;text-align:center;position:relative">' + (i+1) + '</div>' +
-        '<div style="width:3px;height:28px;background:#' + d.color + ';flex-shrink:0;position:relative"></div>' +
-        '<div style="flex:1;min-width:0;position:relative">' +
-          '<div style="font-family:\'Bebas Neue\',display;font-size:17px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">' + d.name + '</div>' +
-          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:var(--dim)">' + d.team_name + '</div>' +
-        '</div>' +
-        '<div style="font-family:\'Bebas Neue\',display;font-size:24px;color:' + (i===0?'var(--accent)':'var(--text)') + ';position:relative">' + pts + '</div>' +
-      '</a>';
+    let standHtml = '<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px">Championship · After Round '+completed.length+'</div>';
+    const maxPts = leader.season_2026?.pts||1;
+    drivers.slice(0,5).forEach(function(d,i) {
+      const pts = d.season_2026?.pts||0;
+      const pct = Math.round((pts/maxPts)*100);
+      standHtml += '<a href="competitor.html?series=f1&id='+d.id+'" style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.025);text-decoration:none;color:inherit;position:relative;overflow:hidden" onmouseover="this.style.background=\'rgba(255,255,255,.014)\'" onmouseout="this.style.background=\'\'">'
+        +'<div style="position:absolute;left:0;top:0;bottom:0;width:'+pct+'%;background:#'+d.color+';opacity:.07;pointer-events:none"></div>'
+        +'<div style="font-family:\'Bebas Neue\',display;font-size:20px;color:'+(i===0?'var(--accent)':'var(--dim)')+';width:20px;text-align:center;position:relative">'+(i+1)+'</div>'
+        +'<div style="width:3px;height:28px;background:#'+d.color+';flex-shrink:0;position:relative"></div>'
+        +'<div style="flex:1;min-width:0;position:relative">'
+          +'<div style="font-family:\'Bebas Neue\',display;font-size:17px;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+d.name+'</div>'
+          +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:var(--dim)">'+d.team_name+'</div>'
+        +'</div>'
+        +'<div style="font-family:\'Bebas Neue\',display;font-size:24px;color:'+(i===0?'var(--accent)':'var(--text)')+';position:relative">'+pts+'</div>'
+      +'</a>';
     });
-    standHtml += '<a href="standings.html?series=f1" style="display:block;padding:10px 0;font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.6;text-decoration:none;transition:opacity .15s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">Full Standings \u2192</a>';
-
-    liveEl.innerHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px"><div>' + lastHtml + nextHtml + '</div><div>' + standHtml + '</div></div>';
+    standHtml += '<a href="standings.html?series=f1" style="display:block;padding:10px 0;font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);opacity:.6;text-decoration:none" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.6">Full Standings →</a>';
+    liveEl.innerHTML = '<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px"><div>'+lastHtml+nextHtml+'</div><div>'+standHtml+'</div></div>';
   }
 
   // ── Series grid
   const sgEl = ge('series-grid');
   if (sgEl) {
-    const active = Object.entries(config.series).filter(function(e){ return e[1].active; });
-    if (!active.length) {
-      sgEl.innerHTML = '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--dim)">No active series.</div>';
-    } else {
-      let sgHtml = '';
-      active.forEach(function(entry) {
-        const id = entry[0], s = entry[1];
-        const sData = seriesDataMap[id];
-        const sDrivers = sData && sData.comp ? (sData.comp.competitors||[]).sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0)) : [];
-        const sSched   = sData && sData.sched ? sData.sched.schedule||[] : [];
-        const sCompleted = sSched.filter(function(r){return r.complete;});
-        const sLeader = sDrivers[0], sP2 = sDrivers[1];
-        const sGap = sLeader && sP2 ? (sLeader.season_2026?.pts||0)-(sP2.season_2026?.pts||0) : 0;
-        const hasSubSeries = !!(s.sub_series && s.sub_series.length);
-        const subSeriesChips = hasSubSeries ? '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px">' +
-          s.sub_series.map(function(ss){ return '<a href="'+s.hub_url+'" style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(255,255,255,.15);color:'+ss.accent+';text-decoration:none;background:rgba(255,255,255,.03)">'+ss.short+'</a>'; }).join('') + '</div>' : '';
-        const dispLeader = sLeader || leader;
-        const dispGap = sLeader ? sGap : gap;
-        const dispComp = sCompleted.length || completed.length;
-        const dispTotal = sSched.length || schedule.length;
-        let statsHtml = '';
-        if (dispLeader) {
-          statsHtml = subSeriesChips + '<div style="display:flex;gap:20px;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--border)">' +
-            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px;color:' + s.accent + '">' + dispLeader.name.split(' ').pop() + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">' + (hasSubSeries?'Cup Leader':'Leader') + '</div></div>' +
-            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">' + (dispLeader.season_2026?.pts||0) + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Points</div></div>' +
-            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">+' + gap + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Gap to P2</div></div>' +
-            '<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">' + completed.length + '/' + schedule.length + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Rounds</div></div>' +
-          '</div>';
-        }
-        sgHtml += '<a href="' + s.hub_url + '" style="display:grid;grid-template-columns:1fr auto;background:var(--bg3);border:1px solid var(--border);border-left:3px solid ' + s.accent + ';text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .2s"' +
-          ' onmouseover="this.style.background=\'rgba(39,244,210,.02)\'" onmouseout="this.style.background=\'var(--bg3)\'">' +
-          '<div style="position:absolute;right:-10px;bottom:-12px;font-family:\'Bebas Neue\',display;font-size:100px;letter-spacing:-2px;color:rgba(255,255,255,.03);line-height:1;pointer-events:none">' + s.short + '</div>' +
-          '<div style="padding:24px 28px;position:relative">' +
-            '<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">' +
-              '<div style="width:6px;height:6px;border-radius:50%;background:' + s.accent + ';animation:pulse 2s ease-in-out infinite"></div>' +
-              '<div style="font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:' + s.accent + ';opacity:.8">' + s.name + '</div>' +
-            '</div>' +
-            '<div style="font-family:\'Bebas Neue\',display;font-size:clamp(40px,6vw,64px);letter-spacing:2px;line-height:.9;color:' + s.accent + ';margin-bottom:8px">' + s.short + '</div>' +
-            '<div style="font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:14px">' + s.description + '</div>' +
-            statsHtml +
-          '</div>' +
-          '<div style="display:flex;align-items:center;padding:0 20px;font-family:\'JetBrains Mono\',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:' + s.accent + ';border-left:1px solid var(--border);background:rgba(255,255,255,.015);min-width:52px;writing-mode:vertical-rl;transform:rotate(180deg)">' +
-            'Enter ' + s.short + ' Hub \u2192' +
-          '</div>' +
-        '</a>';
-      });
-      sgEl.innerHTML = sgHtml;
-    }
+    let sgHtml = '';
+    activeSeries.forEach(function(entry) {
+      const id = entry[0], s = entry[1];
+      const sData = seriesDataMap[id];
+      const sDrivers = sData&&sData.comp ? (sData.comp.competitors||[]).sort((a,b)=>(b.season_2026?.pts||0)-(a.season_2026?.pts||0)) : [];
+      const sSched   = sData&&sData.sched ? sData.sched.schedule||[] : [];
+      const sCompleted = sSched.filter(r=>r.complete);
+      const sLeader = sDrivers[0], sP2 = sDrivers[1];
+      const sGap = sLeader&&sP2 ? (sLeader.season_2026?.pts||0)-(sP2.season_2026?.pts||0) : 0;
+      const hasSubSeries = !!(s.sub_series&&s.sub_series.length);
+      const isFavSeries = favData.series.includes(id);
+
+      const subChips = hasSubSeries ? '<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px">'
+        + s.sub_series.map(function(ss){ return '<a href="'+s.hub_url+'" style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border:1px solid rgba(255,255,255,.15);color:'+ss.accent+';text-decoration:none;background:rgba(255,255,255,.03)">'+ss.short+'</a>'; }).join('')
+        +'</div>' : '';
+
+      let statsHtml = '';
+      if (sLeader) {
+        statsHtml = '<div style="display:flex;gap:20px;flex-wrap:wrap;padding:12px 0;border-top:1px solid var(--border)">'
+          +'<div><div style="font-family:\'Bebas Neue\',display;font-size:22px;color:'+s.accent+'">'+sLeader.name.split(' ').pop()+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">'+(hasSubSeries?'Cup Leader':'Leader')+'</div></div>'
+          +'<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">'+(sLeader.season_2026?.pts||0)+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Points</div></div>'
+          +'<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">+'+(sGap)+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Gap to P2</div></div>'
+          +'<div><div style="font-family:\'Bebas Neue\',display;font-size:22px">'+sCompleted.length+'/'+sSched.length+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dim)">Rounds</div></div>'
+        +'</div>';
+      }
+
+      sgHtml += '<a href="'+s.hub_url+'" style="display:grid;grid-template-columns:1fr auto;background:var(--bg3);border:1px solid var(--border);border-left:3px solid '+s.accent+';text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:background .2s" onmouseover="this.style.background=\'rgba(255,255,255,.02)\'" onmouseout="this.style.background=\'var(--bg3)\'">'
+        +'<div style="position:absolute;right:-10px;bottom:-12px;font-family:\'Bebas Neue\',display;font-size:100px;letter-spacing:-2px;color:rgba(255,255,255,.03);line-height:1;pointer-events:none">'+s.short+'</div>'
+        +'<div style="padding:24px 28px;position:relative">'
+          +'<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">'
+            +'<div style="width:6px;height:6px;border-radius:50%;background:'+s.accent+';animation:pulse 2s ease-in-out infinite"></div>'
+            +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:'+s.accent+';opacity:.8">'+s.name+'</div>'
+            +'<button onclick="event.preventDefault();event.stopPropagation();toggleFavSeries(\''+id+'\',this)" style="margin-left:auto;background:none;border:none;cursor:pointer;font-size:14px;color:var(--dim);transition:color .15s;padding:0" title="Favorite series">'+(isFavSeries?'★':'☆')+'</button>'
+          +'</div>'
+          +'<div style="font-family:\'Bebas Neue\',display;font-size:clamp(40px,6vw,64px);letter-spacing:2px;line-height:.9;color:'+s.accent+';margin-bottom:8px">'+s.short+'</div>'
+          +'<div style="font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;margin-bottom:14px">'+s.description+'</div>'
+          + subChips + statsHtml
+        +'</div>'
+        +'<div style="display:flex;align-items:center;padding:0 20px;font-family:\'JetBrains Mono\',monospace;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;color:'+s.accent+';border-left:1px solid var(--border);background:rgba(255,255,255,.015);min-width:52px;writing-mode:vertical-rl;transform:rotate(180deg)">Enter '+s.short+' Hub →</div>'
+      +'</a>';
+    });
+    sgEl.innerHTML = sgHtml || '<div style="font-family:\'JetBrains Mono\',monospace;font-size:9px;color:var(--dim)">No active series.</div>';
   }
 
-  // ── Favorites
-  const favKeys = (function() {
-    try { return JSON.parse(localStorage.getItem('apex-favorites')||'{"drivers":[]}').drivers || []; }
-    catch(e) { return []; }
-  })();
-  const favSection = ge('fav-section');
-  const favEl = ge('fav-content');
-  if (favSection && favEl) {
-    const favDrivers = drivers.filter(function(d){ return favKeys.includes(d.id); });
-    if (!favDrivers.length) {
-      favSection.style.display = 'none';
-    } else {
-      favSection.style.display = 'block';
-      let favHtml = '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px">';
-      favDrivers.forEach(function(d) {
-        const s = d.season_2026;
-        const fins = (s.results_by_round||[]).map(function(r){ return parseInt(r.finish); }).filter(function(n){ return !isNaN(n); });
-        const avg = fins.length ? (fins.reduce(function(a,b){ return a+b; },0)/fins.length).toFixed(1) : '\u2014';
-        favHtml += '<div style="background:var(--bg3);border:1px solid var(--border);border-left:3px solid #' + d.color + ';padding:16px 18px">' +
-          '<button style="float:right;background:none;border:none;color:var(--dim);cursor:pointer;font-size:11px" onclick="(function(){var f=JSON.parse(localStorage.getItem(\'apex-favorites\')||\'{}}\');f.drivers=(f.drivers||[]).filter(function(x){return x!==\'' + d.id + '\';});localStorage.setItem(\'apex-favorites\',JSON.stringify(f));location.reload()})()">&#x2715;</button>' +
-          '<div style="font-family:\'Bebas Neue\',display;font-size:22px;letter-spacing:.5px;margin-bottom:4px;color:#' + d.color + '">' + d.name + '</div>' +
-          '<div style="font-family:\'JetBrains Mono\',monospace;font-size:8px;color:var(--dim);margin-bottom:10px">' + d.team_name + ' \u00b7 #' + d.number + '</div>' +
-          '<div style="display:flex;gap:12px">' +
-            '<div><div style="font-family:\'Bebas Neue\',display;font-size:18px;line-height:1;color:#' + d.color + '">' + (s.pts||0) + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;text-transform:uppercase;color:var(--dim)">Pts</div></div>' +
-            '<div><div style="font-family:\'Bebas Neue\',display;font-size:18px;line-height:1">' + (s.wins||0) + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;text-transform:uppercase;color:var(--dim)">Wins</div></div>' +
-            '<div><div style="font-family:\'Bebas Neue\',display;font-size:18px;line-height:1">' + avg + '</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7px;text-transform:uppercase;color:var(--dim)">Avg</div></div>' +
-          '</div>' +
-        '</div>';
-      });
-      favHtml += '</div>';
-      favEl.innerHTML = favHtml;
-    }
+  // ── Favorites section — drivers + teams
+  renderFavSection(seriesDataMap, favData);
+}
+
+function toggleFavSeries(sid, btn) {
+  let favData = {drivers:[], series:[]};
+  try { favData = JSON.parse(localStorage.getItem('apex-favorites')||'{"drivers":[],"series":[]}'); }
+  catch(e) {}
+  if (!favData.series) favData.series = [];
+  const idx = favData.series.indexOf(sid);
+  if (idx === -1) { favData.series.push(sid); btn.textContent = '★'; btn.style.color = 'var(--gold)'; }
+  else { favData.series.splice(idx,1); btn.textContent = '☆'; btn.style.color = ''; }
+  localStorage.setItem('apex-favorites', JSON.stringify(favData));
+  // Refresh fav bar
+  const bar = document.getElementById('fav-series-bar');
+  const chips = document.getElementById('fav-series-chips');
+  if (chips && favData.series.length) {
+    bar.style.display = 'block';
+  } else if (bar && !favData.series.length) {
+    bar.style.display = 'none';
   }
+}
+
+function renderFavSection(seriesDataMap, favData) {
+  const section = document.getElementById('fav-section');
+  const el = document.getElementById('fav-content');
+  if (!section || !el) return;
+
+  // Collect all drivers from all series
+  const allDrivers = [];
+  const driverSeries = {};
+  Object.entries(seriesDataMap).forEach(function(e) {
+    const sid = e[0];
+    const sd = e[1];
+    if (sd.comp) (sd.comp.competitors||[]).forEach(function(d) {
+      allDrivers.push(d);
+      driverSeries[d.id] = sid;
+    });
+  });
+
+  const favDriverIds = favData.drivers || [];
+  const favDrivers = allDrivers.filter(function(d){ return favDriverIds.includes(d.id); });
+
+  if (!favDrivers.length) { section.style.display = 'none'; return; }
+  section.style.display = 'block';
+
+  // Group by team
+  const teamMap = {};
+  favDrivers.forEach(function(d) {
+    const key = d.team || d.team_name;
+    if (!teamMap[key]) teamMap[key] = { name: d.team_name||d.team, color: d.color, drivers: [] };
+    teamMap[key].drivers.push(d);
+  });
+  const teams = Object.values(teamMap);
+
+  let html = '<div style="display:flex;flex-direction:column;gap:2px">';
+
+  // Driver cards
+  html += '<div style="margin-bottom:4px"><div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px">Drivers</div>';
+  html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:2px">';
+  favDrivers.forEach(function(d) {
+    const sid = driverSeries[d.id] || 'f1';
+    const s = d.season_2026;
+    const fins = (s.results_by_round||[]).map(function(r){return r.finish;}).filter(function(f){return typeof f==='number';});
+    const avg = fins.length ? (fins.reduce(function(a,b){return a+b;},0)/fins.length).toFixed(1) : '—';
+    html += '<div style="background:var(--bg3);border:1px solid var(--border);border-left:3px solid #'+d.color+';padding:14px 16px;position:relative">'
+      +'<button onclick="(function(){var f=JSON.parse(localStorage.getItem(\'apex-favorites\')||\'{"drivers":[]}\');f.drivers=(f.drivers||[]).filter(function(x){return x!==\''+d.id+'\';});localStorage.setItem(\'apex-favorites\',JSON.stringify(f));location.reload();})()" style="position:absolute;top:10px;right:10px;background:none;border:none;color:var(--dim);cursor:pointer;font-size:12px">★</button>'
+      +'<a href="competitor.html?series='+sid+'&id='+d.id+'" style="text-decoration:none;color:inherit">'
+        +'<div style="font-family:\'Bebas Neue\',display;font-size:20px;letter-spacing:.5px;margin-bottom:2px;color:#'+d.color+'">'+d.name+'</div>'
+        +'<div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;color:var(--dim);margin-bottom:10px">'+(d.team_name||'')+' · #'+d.number+'</div>'
+        +'<div style="display:flex;gap:14px">'
+          +'<div><div style="font-family:\'Bebas Neue\',display;font-size:20px;line-height:1;color:#'+d.color+'">'+(s.pts||0)+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:6.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)">Pts</div></div>'
+          +'<div><div style="font-family:\'Bebas Neue\',display;font-size:20px;line-height:1">'+(s.wins||0)+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:6.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)">Wins</div></div>'
+          +'<div><div style="font-family:\'Bebas Neue\',display;font-size:20px;line-height:1">'+avg+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:6.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)">Avg</div></div>'
+          +(s.dnfs?'<div><div style="font-family:\'Bebas Neue\',display;font-size:20px;line-height:1;color:var(--red)">'+s.dnfs+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:6.5px;letter-spacing:1px;text-transform:uppercase;color:var(--dim)">DNF</div></div>':'')
+        +'</div>'
+      +'</a>'
+    +'</div>';
+  });
+  html += '</div></div>';
+
+  // Teams section (grouped)
+  if (teams.length > 0) {
+    html += '<div><div style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:10px">Teams</div>';
+    html += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2px">';
+    teams.forEach(function(team) {
+      const totalPts = team.drivers.reduce(function(s,d){return s+(d.season_2026?.pts||0);},0);
+      const totalWins = team.drivers.reduce(function(s,d){return s+(d.season_2026?.wins||0);},0);
+      html += '<div style="background:var(--bg3);border:1px solid var(--border);border-left:3px solid #'+team.color+';padding:14px 16px">'
+        +'<div style="font-family:\'Bebas Neue\',display;font-size:18px;letter-spacing:.5px;color:#'+team.color+';margin-bottom:8px">'+team.name+'</div>'
+        +'<div style="display:flex;gap:16px;margin-bottom:10px">'
+          +'<div><div style="font-family:\'Bebas Neue\',display;font-size:20px;line-height:1">'+totalPts+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:6.5px;text-transform:uppercase;color:var(--dim)">Combined Pts</div></div>'
+          +'<div><div style="font-family:\'Bebas Neue\',display;font-size:20px;line-height:1">'+totalWins+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:6.5px;text-transform:uppercase;color:var(--dim)">Wins</div></div>'
+          +'<div><div style="font-family:\'Bebas Neue\',display;font-size:20px;line-height:1">'+team.drivers.length+'</div><div style="font-family:\'JetBrains Mono\',monospace;font-size:6.5px;text-transform:uppercase;color:var(--dim)">Drivers</div></div>'
+        +'</div>'
+        +'<div style="display:flex;gap:6px;flex-wrap:wrap">'
+        + team.drivers.map(function(d){ return '<span style="font-family:\'JetBrains Mono\',monospace;font-size:7.5px;padding:2px 8px;border:1px solid rgba(255,255,255,.1);color:var(--muted)">#'+d.number+' '+d.name.split(' ').pop()+'</span>'; }).join('')
+        +'</div>'
+      +'</div>';
+    });
+    html += '</div></div>';
+  }
+
+  html += '</div>';
+  el.innerHTML = html;
 }
 
 /* ══════════════════════════════════════════════════════════
