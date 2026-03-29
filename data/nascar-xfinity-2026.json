@@ -769,125 +769,140 @@
     },
     {
       "round": 5,
-      "name": "Boyd Gaming 300",
-      "venue": "Las Vegas Motor Speedway",
-      "venue_id": "las-vegas",
-      "date": "2026-03-14",
+      "name": "NFPA 250",
+      "venue": "Martinsville Speedway",
+      "venue_id": "martinsville",
+      "date": "2026-03-28",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "laps": 200,
-      "miles": 300,
+      "laps": 250,
+      "miles": 131,
       "complete": true,
-      "summary": "Jesse Love ended his near-miss streak with a dominant Las Vegas victory, leading 114 laps. The 2025 champion showed Daytona was no fluke. Taylor Gray delivered a career-best 2nd place.",
+      "summary": "Justin Allgaier started from pole and won for the third time in 2026 \u2014 his 31st career O'Reilly Series victory. Led 114 of 250 laps. Corey Day matched a career best in second. JR Motorsports has now won 5 consecutive races this season, one off the all-time record.",
       "story_cards": [
         {
-          "title": "Jesse Love wins Boyd Gaming 300",
-          "body": "Jesse Love ended his near-miss streak with a dominant Las Vegas victory, leading 114 laps. The 2025 champion showed Daytona was no fluke. Taylor Gray delivered a career-best 2nd place."
+          "title": "Allgaier dominant again",
+          "body": "3 wins in 5 races. Led 114 laps from pole. JR Motorsports' fifth straight win \u2014 one shy of Joe Gibbs Racing's 2008 record."
+        },
+        {
+          "title": "Corey Day career best",
+          "body": "The 20-year-old matched his career best with second place \u2014 sixth consecutive top-10, growing into a championship contender."
         }
       ],
       "race": {
-        "winner": "Jesse Love",
-        "margin": "0.211s",
-        "lead_changes": 16,
-        "cautions": 5,
+        "winner": "Justin Allgaier",
+        "margin": "2.1s",
+        "lead_changes": 12,
+        "cautions": 6,
+        "stage_1_winner": "Justin Allgaier",
+        "stage_2_winner": "Austin Hill",
         "results": [
           {
             "pos": 1,
-            "driver": "Jesse Love",
-            "driver_id": "love-jesse",
-            "number": "2",
-            "team": "Richard Childress Racing",
-            "laps": 200,
-            "laps_led": 30,
-            "status": "running",
-            "pts": 55
-          },
-          {
-            "pos": 2,
-            "driver": "Taylor Gray",
-            "driver_id": "gray-taylor",
-            "number": "54",
-            "team": "Joe Gibbs Racing",
-            "laps": 200,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 50
-          },
-          {
-            "pos": 3,
-            "driver": "Austin Hill",
-            "driver_id": "hill-austin",
-            "number": "21",
-            "team": "Richard Childress Racing",
-            "laps": 200,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 46
-          },
-          {
-            "pos": 4,
             "driver": "Justin Allgaier",
             "driver_id": "allgaier-justin",
             "number": "7",
             "team": "JR Motorsports",
-            "laps": 200,
-            "laps_led": 0,
+            "laps": 250,
+            "laps_led": 114,
             "status": "running",
-            "pts": 43
+            "pts": 55,
+            "playoff_pts": 5
           },
           {
-            "pos": 5,
-            "driver": "Sheldon Creed",
-            "driver_id": "creed-sheldon",
-            "number": "33",
-            "team": "Jordan Anderson Racing",
-            "laps": 200,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 40
-          },
-          {
-            "pos": 6,
-            "driver": "Sammy Smith",
-            "driver_id": "smith-sammy",
-            "number": "18",
-            "team": "Joe Gibbs Racing",
-            "laps": 200,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 38
-          },
-          {
-            "pos": 7,
-            "driver": "Carson Kvapil",
-            "driver_id": "kvapil-carson",
-            "number": "10",
-            "team": "JR Motorsports",
-            "laps": 200,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 36
-          },
-          {
-            "pos": 8,
-            "driver": "Rajah Caruth",
-            "driver_id": "caruth-rajah",
-            "number": "44",
-            "team": "Spire Motorsports",
-            "laps": 200,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 34
-          },
-          {
-            "pos": 9,
+            "pos": 2,
             "driver": "Corey Day",
             "driver_id": "day-corey",
             "number": "9",
             "team": "JR Motorsports",
-            "laps": 200,
+            "laps": 250,
             "laps_led": 0,
             "status": "running",
-            "pts": 32
+            "pts": 50,
+            "playoff_pts": 0
+          },
+          {
+            "pos": 3,
+            "driver": "Sammy Smith",
+            "driver_id": "smith-sammy",
+            "number": "18",
+            "team": "Joe Gibbs Racing",
+            "laps": 250,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 46,
+            "playoff_pts": 0
+          },
+          {
+            "pos": 4,
+            "driver": "Sheldon Creed",
+            "driver_id": "creed-sheldon",
+            "number": "33",
+            "team": "Jordan Anderson Racing",
+            "laps": 250,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 43,
+            "playoff_pts": 0
+          },
+          {
+            "pos": 5,
+            "driver": "Carson Kvapil",
+            "driver_id": "kvapil-carson",
+            "number": "10",
+            "team": "JR Motorsports",
+            "laps": 250,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 40,
+            "playoff_pts": 0
+          },
+          {
+            "pos": 6,
+            "driver": "Austin Hill",
+            "driver_id": "hill-austin",
+            "number": "21",
+            "team": "Richard Childress Racing",
+            "laps": 250,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 38,
+            "playoff_pts": 0
+          },
+          {
+            "pos": 7,
+            "driver": "Sam Mayer",
+            "driver_id": "mayer-sam",
+            "number": "1",
+            "team": "JR Motorsports",
+            "laps": 250,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 36,
+            "playoff_pts": 0
+          },
+          {
+            "pos": 8,
+            "driver": "JJ Yeley",
+            "driver_id": "sieg-jj",
+            "number": "39",
+            "team": "Our Motorsports",
+            "laps": 250,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 34,
+            "playoff_pts": 0
+          },
+          {
+            "pos": 9,
+            "driver": "Taylor Gray",
+            "driver_id": "gray-taylor",
+            "number": "54",
+            "team": "Joe Gibbs Racing",
+            "laps": 250,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 32,
+            "playoff_pts": 0
           },
           {
             "pos": 10,
@@ -895,65 +910,71 @@
             "driver_id": "retzlaff-parker",
             "number": "8",
             "team": "JR Motorsports",
-            "laps": 200,
+            "laps": 250,
             "laps_led": 0,
             "status": "running",
-            "pts": 30
+            "pts": 30,
+            "playoff_pts": 0
           },
           {
-            "pos": 11,
-            "driver": "Sam Mayer",
-            "driver_id": "mayer-sam",
-            "number": "1",
-            "team": "JR Motorsports",
-            "laps": 200,
+            "pos": 20,
+            "driver": "Jesse Love",
+            "driver_id": "love-jesse",
+            "number": "2",
+            "team": "Richard Childress Racing",
+            "laps": 240,
             "laps_led": 0,
             "status": "running",
-            "pts": 28
+            "pts": 1,
+            "playoff_pts": 0
           },
           {
-            "pos": 12,
+            "pos": 20,
+            "driver": "Rajah Caruth",
+            "driver_id": "caruth-rajah",
+            "number": "44",
+            "team": "Spire Motorsports",
+            "laps": 240,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 1,
+            "playoff_pts": 0
+          },
+          {
+            "pos": 20,
             "driver": "Shane van Gisbergen",
             "driver_id": "vangisbergen-svg",
             "number": "88",
             "team": "Trackhouse Racing",
-            "laps": 200,
+            "laps": 240,
             "laps_led": 0,
             "status": "running",
-            "pts": 26
+            "pts": 1,
+            "playoff_pts": 0
           },
           {
-            "pos": 13,
+            "pos": 20,
             "driver": "Riley Herbst",
             "driver_id": "herbst-riley",
             "number": "35",
             "team": "Joe Gibbs Racing",
-            "laps": 200,
+            "laps": 240,
             "laps_led": 0,
             "status": "running",
-            "pts": 24
+            "pts": 1,
+            "playoff_pts": 0
           },
           {
-            "pos": 14,
-            "driver": "JJ Yeley",
-            "driver_id": "sieg-jj",
-            "number": "39",
-            "team": "Our Motorsports",
-            "laps": 200,
-            "laps_led": 0,
-            "status": "running",
-            "pts": 22
-          },
-          {
-            "pos": 15,
+            "pos": 20,
             "driver": "Jeremy Clements",
             "driver_id": "clements-jeremy",
             "number": "51",
             "team": "Jeremy Clements Racing",
-            "laps": 200,
+            "laps": 240,
             "laps_led": 0,
             "status": "running",
-            "pts": 20
+            "pts": 1,
+            "playoff_pts": 0
           }
         ]
       }

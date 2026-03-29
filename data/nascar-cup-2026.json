@@ -2598,7 +2598,11 @@
       "venue_id": "martinsville",
       "date": "2026-03-29",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "complete": false
+      "complete": false,
+      "time_utc": "19:30:00",
+      "laps": 400,
+      "miles": 210,
+      "preview": "Pole: Denny Hamlin (98.241 mph). P2: William Byron. Race goes green at 3:30 PM ET on FS1. Hamlin is defending winner and 6-time Martinsville champion. Reddick starts P8 looking for a 5th win."
     },
     {
       "round": 8,

@@ -1657,7 +1657,7 @@
     {
       "round": 3,
       "name": "Japanese Grand Prix",
-      "venue": "Suzuka International Racing Course",
+      "venue": "Suzuka Circuit",
       "location": "Suzuka, Japan",
       "circuit_type": "road",
       "flag": "\ud83c\uddef\ud83c\uddf5",
@@ -1665,10 +1665,10 @@
       "time_utc": "05:00",
       "laps": 53,
       "distance_km": 307.5,
-      "complete": false,
+      "complete": true,
       "sprint_weekend": false,
       "venue_id": "suzuka",
-      "summary": "Formula 1 arrives at the Temple of Speed with one question dominating the paddock: can anyone stop Mercedes? George Russell leads the championship by four points over team-mate Kimi Antonelli after back-to-back one-two finishes at two completely different circuits. Ferrari need their first win since 2024. McLaren need to get both cars to the start line after their double DNS disaster in China. And Honda face the most significant weekend of their new F1 era at their home circuit \u2014 with Fernando Alonso unable to feel his hands and feet by lap 20 in China, and Aston Martin yet to see a chequered flag in two attempts.",
+      "summary": "Kimi Antonelli became the youngest-ever championship leader after a safety car gift turned the race in his favour. He dropped to sixth on the opening lap from pole, recovered to fourth, then pitted under the Lap 22 SC triggered by Bearman's 50G crash and emerged in the lead. Dominant second stint \u2014 won by 13.7s. Piastri delivered McLaren's best result of 2026 in second. Russell was leading when the SC struck, yelling 'unbelievable' over the radio. Verstappen started 11th after Q2 exit \u2014 car 'undriveable'.",
       "stats": [
         {
           "value": "53",
@@ -1703,20 +1703,16 @@
       ],
       "story_cards": [
         {
-          "title": "The W17 Faces Its Hardest Test",
-          "body": "Melbourne is a smooth semi-permanent street circuit. Shanghai is a technical permanent track. They share almost nothing as a test of an F1 car \u2014 yet Mercedes won both, comfortably, with identical one-two finishes. Suzuka's figure-of-eight layout presents a third distinct challenge: sustained high-speed load through the Esses, Degner, Spoon and 130R, cold track temperatures, and mechanical grip demands that reward pure car balance over aerodynamic efficiency. Ferrari's SF-26 is believed to be stronger through the medium-speed corners than the W17. If that is accurate, Leclerc and Hamilton are genuine pole and victory threats here for the first time in 2026 \u2014 not just podium hopefuls."
+          "title": "Antonelli takes championship lead",
+          "body": "Back-to-back wins for the 19-year-old. He's the youngest driver in F1 history to lead the championship, taking it from Russell by 9 points. A safety car from Bearman's 50G crash gifted him a free pit stop while the leaders had already stopped."
         },
         {
-          "title": "Honda's Crisis at Home",
-          "body": "Honda racing at Suzuka is normally one of the year's celebrations. In 2026, it is a crisis. The battery vibrations that have torn through Aston Martin's season \u2014 leaving Fernando Alonso unable to feel his hands and feet from lap 20 onwards in China, forcing him to take both hands off the wheel on the main straight \u2014 become the sport's most urgent story at Honda's own home circuit. Adrian Newey warned before Australia that extended stints risked permanent nerve damage. Honda spent the fortnight between China and Japan at its Sakura headquarters working on the fix. High-level meetings between Honda and Aston Martin executives were confirmed by multiple sources. The question on race day is whether that work holds at race speeds for 53 laps in front of 100,000 Japanese fans watching Honda's first home race as a works F1 team."
+          "title": "Russell's safety car heartbreak",
+          "body": "Russell had passed Piastri for the lead before pitting on Lap 22. The SC came out moments after \u2014 giving Antonelli a free stop. 'Unbelievable' and 'wow, f\u2014' over team radio. Two races in a row where misfortune has cost him."
         },
         {
-          "title": "McLaren Must Start",
-          "body": "The 2025 World Champions arrive in Japan having scored just 18 points from two races \u2014 not from lack of pace, but because neither car made the start in China after separate electrical failures. Lando Norris called it bitter disappointment at an F1 career first. Oscar Piastri had already started 2026 without completing a single lap of racing, having crashed on his sighting lap in Australia. The minimum requirement at Suzuka is getting both cars to the formation lap. Andrea Stella confirmed the root cause of both failures was understood before leaving Shanghai. A third consecutive reliability disaster here would represent something far more alarming than bad luck \u2014 and with McLaren already 80 points behind Mercedes in the constructors' championship, Suzuka is already close to must-score territory."
-        },
-        {
-          "title": "The Last Race for Five Weeks",
-          "body": "Suzuka is the final F1 action until Miami on May 3 \u2014 a five-week break imposed by the cancellation of the Bahrain and Saudi Arabian rounds. The economic cost of those two cancellations has been reported at approximately $200 million in lost hosting fees alone. For the teams fighting at the front, the gap is a development opportunity. For Aston Martin and Honda, it is the longest window they will have to solve the vibration crisis without another race exposure. For the championship picture, the break after Japan doubles the psychological weight of Sunday's result. Whatever the standings look like when the lights go out at Suzuka on March 29 is the last image in every F1 fan's mind for more than a month."
+          "title": "Verstappen eliminated in Q2",
+          "body": "Red Bull's nightmare season continues. The four-time champion called his car 'completely undriveable', was knocked out of Q2 by rookie Lindblad, and started 11th. Finished 8th \u2014 teammates Hadjar P8 in quali."
         }
       ],
       "insights": [
@@ -1744,7 +1740,137 @@
           "headline": "Suzuka Always Tells the Truth",
           "body": "The Esses do not lie. A car that feels uncertain through the sweepers in practice becomes undriveable on degrading tyres in lap 40 of the race. 130R still frightens drivers who are not fully committed in the car. The circuit has produced more defining championship moments than anywhere else on the calendar \u2014 Senna versus Prost in 1989 and 1990, Schumacher in the rain in 1996, R\u00e4ikk\u00f6nen's charge from 17th in 2005, Verstappen's back-to-back titles in 2023 and 2024. If the 2026 championship is going to reveal its true shape, Suzuka on March 29 is where the first honest answer arrives."
         }
-      ]
+      ],
+      "race": {
+        "winner": "Kimi Antonelli",
+        "winner_id": "antonelli-kimi",
+        "margin": "13.7s",
+        "laps": 53,
+        "fastest_lap": "Kimi Antonelli",
+        "safety_cars": 1,
+        "results": [
+          {
+            "pos": 1,
+            "driver": "Kimi Antonelli",
+            "driver_id": "antonelli-kimi",
+            "number": "12",
+            "team": "Mercedes",
+            "laps": 53,
+            "laps_led": 28,
+            "status": "running",
+            "pts": 25,
+            "gap": null
+          },
+          {
+            "pos": 2,
+            "driver": "Oscar Piastri",
+            "driver_id": "piastri-oscar",
+            "number": "81",
+            "team": "McLaren",
+            "laps": 53,
+            "laps_led": 19,
+            "status": "running",
+            "pts": 18,
+            "gap": "+13.7s"
+          },
+          {
+            "pos": 3,
+            "driver": "Charles Leclerc",
+            "driver_id": "leclerc-charles",
+            "number": "16",
+            "team": "Ferrari",
+            "laps": 53,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 15,
+            "gap": "+18.4s"
+          },
+          {
+            "pos": 4,
+            "driver": "George Russell",
+            "driver_id": "russell-george",
+            "number": "63",
+            "team": "Mercedes",
+            "laps": 53,
+            "laps_led": 6,
+            "status": "running",
+            "pts": 12,
+            "gap": "+21.2s"
+          },
+          {
+            "pos": 5,
+            "driver": "Lando Norris",
+            "driver_id": "norris-lando",
+            "number": "4",
+            "team": "McLaren",
+            "laps": 53,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 10,
+            "gap": "+28.1s"
+          },
+          {
+            "pos": 6,
+            "driver": "Lewis Hamilton",
+            "driver_id": "hamilton-lewis",
+            "number": "44",
+            "team": "Ferrari",
+            "laps": 53,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 8,
+            "gap": "+32.5s"
+          },
+          {
+            "pos": 7,
+            "driver": "Pierre Gasly",
+            "driver_id": "gasly-pierre",
+            "number": "10",
+            "team": "Alpine",
+            "laps": 53,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 6,
+            "gap": "+45.2s"
+          },
+          {
+            "pos": 8,
+            "driver": "Max Verstappen",
+            "driver_id": "verstappen-max",
+            "number": "3",
+            "team": "Red Bull",
+            "laps": 53,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 4,
+            "gap": "+52.8s"
+          },
+          {
+            "pos": 9,
+            "driver": "Gabriel Bortoleto",
+            "driver_id": "bortoleto-gabriel",
+            "number": "5",
+            "team": "Audi",
+            "laps": 53,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 2,
+            "gap": "+58.1s"
+          },
+          {
+            "pos": 10,
+            "driver": "Isack Hadjar",
+            "driver_id": "hadjar-isack",
+            "number": "6",
+            "team": "Red Bull",
+            "laps": 53,
+            "laps_led": 0,
+            "status": "running",
+            "pts": 1,
+            "gap": "+62.3s"
+          }
+        ]
+      }
     },
     {
       "round": 4,
@@ -1753,11 +1879,11 @@
       "location": "Miami, Florida",
       "circuit_type": "street",
       "flag": "\ud83c\uddfa\ud83c\uddf8",
-      "date": "2026-05-03",
+      "date": "2026-05-04",
       "time_utc": "20:00",
       "complete": false,
       "sprint_weekend": true,
-      "note": "First race after five-week gap due to Bahrain/Saudi cancellations. Originally R6.",
+      "note": "Next race after 5-week break. Bahrain and Saudi Arabia rounds cancelled due to Middle East conflict.",
       "venue_id": "miami"
     }
   ]
